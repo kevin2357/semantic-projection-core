@@ -519,3 +519,13 @@ Semantic Projection Core 0.3.0 defines the initial `projected_temporal_activatio
 ## Stage C3 implementation note
 
 The static target graph is now projected through the existing engine, and persistent transiting activators are projected through existing profile object mappings. This confirms the intended design rule: temporal projection is static projection plus a preserved activation envelope, not a parallel ontology engine.
+
+## Stage C4 implementation status
+
+Directional projected activation arcs are now implemented experimentally.
+One canonical arc produces at most one projected arc; observation states remain
+nested. Activator/target direction, sequence/pass identity, exactness, motion,
+and sampled phases are preserved without narrative reinterpretation.
+
+Mean Node and similar source variants now follow the same profile selection
+policy used by static projection.

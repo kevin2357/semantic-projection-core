@@ -1,0 +1,8 @@
+$ C:\Users\kevin\AppData\Local\Programs\Python\Python312\python.exe -m semantic_projection.temporal_foundations_cli --request C:\dev\github\semantic-projection-core\outputs\fixture_test_files\kevin_2026-01_temporal_projection_source.json --out C:\dev\github\semantic-projection-core\outputs\fixture_outputs\wrong_input_should_not_exist.json --log-file C:\dev\github\semantic-projection-core\outputs\fixture_outputs\semantic_projection.log
+
+STDOUT
+
+STDERR
+ERROR temporal_foundations: Expected temporal_projection_request.v1; received foundry_temporal_projection_source_bundle ('temporal_projection_source_bundle').
+
+EXIT_CODE=2

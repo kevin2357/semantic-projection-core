@@ -1,0 +1,8 @@
+$ C:\Users\kevin\AppData\Local\Programs\Python\Python312\python.exe -m semantic_projection.temporal_cli --bundle C:\dev\github\semantic-projection-core\outputs\fixture_test_files\kevin_2026-01_temporal_projection_source.json --projection-profile cognitive_architecture_demo.v0 --projection-profile-version 0.2.0 --projection-context C:\dev\github\semantic-projection-core\examples\contexts\cognitive_architecture_general_context.json --log-file C:\dev\github\semantic-projection-core\outputs\fixture_outputs\semantic_projection.log --out C:\dev\github\semantic-projection-core\outputs\fixture_outputs\temporal_request.json
+
+STDOUT
+Wrote validated temporal request: C:\dev\github\semantic-projection-core\outputs\fixture_outputs\temporal_request.json
+
+STDERR
+
+EXIT_CODE=0

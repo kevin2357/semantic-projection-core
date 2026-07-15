@@ -172,3 +172,16 @@ Stage C3 now supports validated Foundry intake plus a temporal-foundations inspe
 ```bat
 semantic-temporal-foundations --request temporal_request.json --out temporal_foundations.json
 ```
+
+## Temporal projection status
+
+Stage C4 now supports experimental directional activation-arc projection from a
+validated `temporal_projection_request.v1` into
+`projected_temporal_activation_graph.v1`.
+
+```bat
+semantic-temporal-project --request request.json --out projected-temporal.json
+```
+
+The output projects structure only. Temporal reasoning, rendering, and
+consumer-facing reports remain downstream.

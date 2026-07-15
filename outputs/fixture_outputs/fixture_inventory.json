@@ -1,0 +1,9 @@
+[
+  {
+    "file": "kevin_2026-01_temporal_projection_source.json",
+    "kind": "foundry_temporal_projection_source_bundle",
+    "package_type": "temporal_projection_source_bundle",
+    "contract_version": "1.0.0",
+    "recognized": true
+  }
+]

@@ -31,3 +31,13 @@ Future temporal materializations may include event-only, daily, monthly-index, a
 ## Temporal artifact identity and tooling
 
 Extend the new artifact-identity utility as additional request, projected, materialized, QA, and rejection artifact types appear. Keep CLI, profiler, and QA classification centralized rather than relying on filenames.
+
+## Post-C4 temporal work
+
+- Finalize temporal full/standard/summary/forensic materializations.
+- Replace the provisional full-registry carry-through with a compact used-term
+  subset policy where appropriate.
+- Expand target-resolution diagnostics to distinguish explicit static policy
+  exclusions from unsupported source-object families.
+- Add cross-profile and Composite/Davison rich-fixture QA in Stage C6/C7.
+- Keep temporal rendering and claim synthesis downstream of Stage C.

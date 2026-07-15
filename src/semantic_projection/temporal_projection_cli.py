@@ -1,0 +1,55 @@
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+from .artifact_identity import identify_artifact
+from .contracts import TemporalProjectionRequest
+from .logging_config import configure_logging, log_event
+from .temporal import project_temporal
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        description="Project one canonical temporal activation arc into one directional target-domain arc."
+    )
+    parser.add_argument("--request", required=True)
+    parser.add_argument("--out", required=True)
+    parser.add_argument("--log-file")
+    parser.add_argument("--debug", action="store_true")
+    args = parser.parse_args(argv)
+    logger = configure_logging(log_path=args.log_file)
+    try:
+        payload = json.loads(Path(args.request).read_text(encoding="utf-8"))
+        identity = identify_artifact(payload)
+        if identity.kind != "temporal_projection_request":
+            raise ValueError(
+                "Expected temporal_projection_request.v1; "
+                f"received {identity.kind} ({identity.package_type!r})."
+            )
+        result = project_temporal(TemporalProjectionRequest.from_dict(payload))
+        out = Path(args.out)
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        log_event(
+            logger,
+            "temporal_projection_completed",
+            output=args.out,
+            projected_activators=len(result["projected_activators"]),
+            projected_activations=len(result["projected_activations"]),
+            projected_sequences=len(result["projected_sequences"]),
+        )
+        print(f"Wrote projected temporal activation graph: {args.out}")
+        return 0
+    except Exception as exc:
+        log_event(logger, "temporal_projection_rejected", error=str(exc))
+        if args.debug:
+            raise
+        print(f"ERROR temporal_projection: {exc}", file=sys.stderr)
+        return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

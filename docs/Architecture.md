@@ -29,3 +29,14 @@ Stage C2 defines `projected_temporal_activation_graph.v1` as an extension of the
 ## Stage C3 temporal reuse boundary
 
 Temporal projection now reuses the ordinary static projection engine for the target graph and delegates persistent activator mapping to each profile's existing object mapper. The temporal layer orchestrates role and time; it does not duplicate object, sign, house, or projected-term vocabularies. Activation arcs remain a Stage C4 responsibility.
+
+## Stage C4 temporal execution
+
+Temporal execution reuses the ordinary static projection engine for the target
+graph, existing object mappings for persistent activators, and existing
+relationship mappings for activation contacts. Core adds a directional
+activation envelope around those semantics while preserving Foundry timing
+facts under `temporal_facts`.
+
+This is an extension of the static pipeline, not a parallel temporal ontology
+engine.

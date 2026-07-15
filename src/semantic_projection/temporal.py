@@ -10,13 +10,20 @@ from .contracts import (
     TemporalProjectionRequest,
 )
 from .ids import (
-    temporal_projection_request_id, projection_request_id,
+    mapping_execution_id,
+    temporal_projection_request_id,
+    projection_request_id,
+    projected_temporal_graph_id,
     projected_temporal_activator_id,
+    projected_temporal_sequence_id,
+    projected_temporal_activation_id,
+    projected_temporal_state_id,
 )
 from .validation import (
     ProjectionValidationError,
     validate_contract,
     validate_temporal_projection_request,
+    validate_projected_temporal_activation_graph,
 )
 
 FOUNDRY_BUNDLE_PACKAGE_TYPE = "temporal_projection_source_bundle"
@@ -255,6 +262,7 @@ def adapt_foundry_temporal_source_bundle(
     return request
 
 
+
 def _static_projection_request(request: TemporalProjectionRequest):
     from .contracts import ProjectionRequest, ProjectionOptions
     return ProjectionRequest(
@@ -276,38 +284,57 @@ def _static_projection_request(request: TemporalProjectionRequest):
     )
 
 
-def project_temporal_foundations(
-    request: TemporalProjectionRequest | Mapping[str, Any],
-) -> dict[str, Any]:
-    """Execute Stage C3 static-target and persistent-activator projection.
+def _normalized_body(value: Any) -> str:
+    return str(value or "").strip().replace("_", " ").lower()
 
-    Activation arcs are deliberately not mapped here. The result is an
-    inspectable foundation artifact used to prove reuse of the static profile
-    and projected-term vocabulary.
-    """
+
+def _activator_selection_status(profile: Any, source: Mapping[str, Any]) -> str:
+    """Mirror static source-selection policy for persistent temporal activators."""
+    body = _normalized_body(source.get("source_body") or source.get("name"))
+    policy = getattr(profile, "source_selection_policy", {}) or {}
+    if policy.get("node_variant") == "true" and body == "mean node":
+        return "excluded_by_source_selection_policy"
+    if policy.get("node_variant") == "mean" and body == "true node":
+        return "excluded_by_source_selection_policy"
+    if policy.get("fortune_variant") == "part_of_fortune" and body == "fortune":
+        return "excluded_by_source_selection_policy"
+    return "eligible"
+
+
+def _project_static_target_and_activators(
+    request_obj: TemporalProjectionRequest,
+) -> tuple[
+    dict[str, Any],
+    list[dict[str, Any]],
+    dict[str, dict[str, Any]],
+    dict[str, Any],
+]:
+    """Reuse the static engine and profile object mappings for Stage C3/C4."""
     from .profiles import builtin_projection_registry
     from .engine import project
-    from .contracts import TemporalProjectionRequest as RequestContract
 
-    request_obj = (
-        request if isinstance(request, RequestContract)
-        else RequestContract.from_dict(deepcopy(dict(request)))
-    )
-    validate_temporal_projection_request(request_obj.to_dict())
     registry = builtin_projection_registry()
     profile = registry.resolve(request_obj.profile_id, request_obj.profile_version)
     static_request = _static_projection_request(request_obj)
     projected_target = project(static_request, registry=registry).to_dict()
-
     context_id = str(request_obj.context.get("context_id"))
+
     projected_activators: list[dict[str, Any]] = []
+    activator_drafts: dict[str, dict[str, Any]] = {}
+    excluded: list[dict[str, str]] = []
     unmapped: list[str] = []
     source_activators = sorted(
         request_obj.temporal_source_graph.get("activators") or [],
         key=lambda row: str(row.get("id") or ""),
     )
+
     for source in source_activators:
         source_ref = str(source.get("id") or "")
+        selection_status = _activator_selection_status(profile, source)
+        if selection_status != "eligible":
+            excluded.append({"source_activator_ref": source_ref, "reason": selection_status})
+            continue
+
         synthetic = {
             "id": source_ref,
             "object_type": "planet_or_point",
@@ -318,15 +345,22 @@ def project_temporal_foundations(
         if not drafts:
             unmapped.append(source_ref)
             continue
-        draft = drafts[0]
+
+        draft = deepcopy(drafts[0])
         operator_ref = str(draft.get("target_key") or draft.get("name") or source_ref)
+        projected_id = projected_temporal_activator_id(
+            profile_id=request_obj.profile_id,
+            source_activator_ref=source_ref,
+            projected_operator_ref=operator_ref,
+            context_id=context_id,
+        )
+        activator_drafts[source_ref] = {
+            **draft,
+            "id": projected_id,
+            "source_refs": [source_ref],
+        }
         projected_activators.append({
-            "id": projected_temporal_activator_id(
-                profile_id=request_obj.profile_id,
-                source_activator_ref=source_ref,
-                projected_operator_ref=operator_ref,
-                context_id=context_id,
-            ),
+            "id": projected_id,
             "source_activator_ref": source_ref,
             "source_body": source.get("source_body") or source.get("name"),
             "projected_operator_ref": operator_ref,
@@ -338,12 +372,47 @@ def project_temporal_foundations(
             "attributes": deepcopy(draft.get("attributes") or {}),
             "provenance": {
                 **deepcopy(draft.get("provenance") or {}),
-                "temporal_projection_stage": "C3",
+                "temporal_projection_stage": "C4",
                 "mapping_reuse": "profile.project_object",
+                "source_selection_status": selection_status,
             },
         })
 
-    target_index = projected_target.get("indexes", {}).get("projected_objects_by_source_ref", {})
+    coverage = {
+        "source_activator_count": len(source_activators),
+        "eligible_activator_count": len(source_activators) - len(excluded),
+        "mapped_eligible_activator_count": len(projected_activators),
+        "mapped_activator_count": len(projected_activators),
+        "unmapped_activator_count": len(unmapped),
+        "unmapped_activator_refs": unmapped,
+        "policy_excluded_activator_count": len(excluded),
+        "policy_excluded_activators": excluded,
+        "eligible_but_unmapped_activator_count": len(unmapped),
+        "eligible_but_unmapped_activator_refs": unmapped,
+        "static_source_object_count": len(request_obj.static_source_graph.get("objects") or []),
+        "projected_target_object_count": len(projected_target.get("objects") or []),
+    }
+    return projected_target, projected_activators, activator_drafts, coverage
+
+
+def project_temporal_foundations(
+    request: TemporalProjectionRequest | Mapping[str, Any],
+) -> dict[str, Any]:
+    """Execute Stage C3-compatible static-target and persistent-activator projection."""
+    from .contracts import TemporalProjectionRequest as RequestContract
+
+    request_obj = (
+        request if isinstance(request, RequestContract)
+        else RequestContract.from_dict(deepcopy(dict(request)))
+    )
+    validate_temporal_projection_request(request_obj.to_dict())
+    projected_target, projected_activators, _, coverage = (
+        _project_static_target_and_activators(request_obj)
+    )
+    context_id = str(request_obj.context.get("context_id"))
+    target_index = projected_target.get("indexes", {}).get(
+        "projected_objects_by_source_ref", {}
+    )
     return {
         "metadata": {
             "package_type": "projected_temporal_foundations",
@@ -360,26 +429,478 @@ def project_temporal_foundations(
         "projected_target_graph": projected_target,
         "projected_activators": projected_activators,
         "target_resolution_index": deepcopy(target_index),
-        "coverage": {
-            "source_activator_count": len(source_activators),
-            "mapped_activator_count": len(projected_activators),
-            "unmapped_activator_count": len(unmapped),
-            "unmapped_activator_refs": unmapped,
-            "static_source_object_count": len(request_obj.static_source_graph.get("objects") or []),
-            "projected_target_object_count": len(projected_target.get("objects") or []),
-        },
-        "projected_term_registry": deepcopy(projected_target.get("projected_term_registry") or {}),
+        "coverage": coverage,
+        "projected_term_registry": deepcopy(
+            projected_target.get("projected_term_registry") or {}
+        ),
         "limitations": [
             "Stage C3 maps the static target graph and persistent activators only.",
-            "Projected activation arcs and observation-state compositions begin in Stage C4.",
+            "Use project_temporal() for the Stage C4 experimental full graph.",
         ],
     }
 
 
-def project_temporal(*args: Any, **kwargs: Any) -> None:
-    """Reserved complete temporal execution entry point."""
-    raise TemporalProjectionNotImplementedError(
-        "Complete temporal projection is not implemented in Stage C3. "
-        "Use project_temporal_foundations() to inspect static-target and "
-        "persistent-activator mapping reuse. Activation arcs begin in Stage C4."
+def _project_state_composition(
+    *,
+    profile: Any,
+    static_request: Any,
+    source_activator: Mapping[str, Any],
+    activation: Mapping[str, Any],
+    state: Mapping[str, Any],
+) -> dict[str, Any]:
+    activator_state = state.get("activator_state") or {}
+    sign = activator_state.get("sign")
+    domain_house = activation.get("transit_house_in_target_chart")
+    if sign is None and domain_house is None:
+        return {
+            "mode_ref": None,
+            "domain_ref": None,
+            "availability": "source_position_not_supplied",
+            "mapping_reuse": "profile.project_object",
+        }
+
+    synthetic = {
+        "id": source_activator.get("id"),
+        "object_type": "planet_or_point",
+        "name": source_activator.get("source_body") or source_activator.get("name"),
+        "source_key": source_activator.get("source_body") or source_activator.get("name"),
+        "sign": sign,
+        "house": domain_house,
+    }
+    drafts = profile.project_object(deepcopy(synthetic), static_request) or []
+    attrs = (drafts[0].get("attributes") or {}) if drafts else {}
+    mode = attrs.get("projected_mode")
+    domain = attrs.get("projected_domain")
+    return {
+        "mode_ref": mode,
+        "domain_ref": domain,
+        "availability": (
+            "projected"
+            if mode is not None or domain is not None
+            else "source_position_present_but_profile_mapping_unavailable"
+        ),
+        "mapping_reuse": "profile.project_object",
+    }
+
+
+def project_temporal(
+    request: TemporalProjectionRequest | Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Execute Stage C4 directional activation-arc projection.
+
+    One canonical activation arc produces at most one projected temporal arc.
+    Foundry timing facts are preserved without interpretive reinterpretation.
+    Audit/materialization refinement remains Stage C5 work.
+    """
+    from .contracts import TemporalProjectionRequest as RequestContract
+    from .profiles import builtin_projection_registry
+    from .engine import ENGINE_VERSION
+
+    if request is None:
+        raise TemporalProjectionNotImplementedError(
+            "Stage C3 did not implement complete temporal projection. "
+            "Stage C4 now requires a temporal_projection_request.v1 argument."
+        )
+
+    request_obj = (
+        request if isinstance(request, RequestContract)
+        else RequestContract.from_dict(deepcopy(dict(request)))
     )
+    validate_temporal_projection_request(request_obj.to_dict())
+
+    registry = builtin_projection_registry()
+    profile = registry.resolve(request_obj.profile_id, request_obj.profile_version)
+    static_request = _static_projection_request(request_obj)
+    (
+        projected_target,
+        projected_activators,
+        activator_drafts,
+        activator_coverage,
+    ) = _project_static_target_and_activators(request_obj)
+
+    context_id = str(request_obj.context.get("context_id"))
+    context_version = str(request_obj.context.get("context_version"))
+    target_by_id = {
+        str(row.get("id")): row for row in projected_target.get("objects") or []
+    }
+    target_resolution = projected_target.get("indexes", {}).get(
+        "projected_objects_by_source_ref", {}
+    )
+    source_activators = {
+        str(row.get("id")): row
+        for row in request_obj.temporal_source_graph.get("activators") or []
+    }
+    activator_by_source = {
+        str(row.get("source_activator_ref")): row for row in projected_activators
+    }
+
+    projected_activations: list[dict[str, Any]] = []
+    mapping_executions: list[dict[str, Any]] = []
+    diagnostics: dict[str, list[dict[str, Any]]] = {
+        "errors": [],
+        "warnings": [],
+        "infos": [],
+    }
+    arc_status_counts = {
+        "source_activation_count": 0,
+        "eligible_activation_count": 0,
+        "projected_activation_count": 0,
+        "activator_policy_excluded_count": 0,
+        "missing_projected_activator_count": 0,
+        "target_policy_excluded_or_unmapped_count": 0,
+        "unsupported_relationship_count": 0,
+        "failed_activation_count": 0,
+    }
+    sequence_members: dict[str, list[dict[str, Any]]] = {}
+
+    source_activations = sorted(
+        request_obj.temporal_source_graph.get("activations") or [],
+        key=lambda row: str(row.get("id") or ""),
+    )
+    arc_status_counts["source_activation_count"] = len(source_activations)
+
+    for source_activation in source_activations:
+        source_activation_ref = str(source_activation.get("id") or "")
+        source_activator_ref = str(source_activation.get("activator_ref") or "")
+        source_target_ref = str(source_activation.get("target_ref") or "")
+        source_sequence_ref = str(source_activation.get("sequence_id") or "")
+        source_activator = source_activators.get(source_activator_ref) or {}
+
+        if _activator_selection_status(profile, source_activator) != "eligible":
+            arc_status_counts["activator_policy_excluded_count"] += 1
+            diagnostics["infos"].append({
+                "code": "temporal.activation.activator_policy_excluded",
+                "source_activation_ref": source_activation_ref,
+                "source_activator_ref": source_activator_ref,
+            })
+            continue
+
+        projected_activator = activator_by_source.get(source_activator_ref)
+        activator_draft = activator_drafts.get(source_activator_ref)
+        if projected_activator is None or activator_draft is None:
+            arc_status_counts["missing_projected_activator_count"] += 1
+            diagnostics["warnings"].append({
+                "code": "temporal.activation.activator_unmapped",
+                "source_activation_ref": source_activation_ref,
+                "source_activator_ref": source_activator_ref,
+            })
+            continue
+
+        target_refs = list(target_resolution.get(source_target_ref) or [])
+        if not target_refs:
+            arc_status_counts["target_policy_excluded_or_unmapped_count"] += 1
+            diagnostics["infos"].append({
+                "code": "temporal.activation.target_unresolved",
+                "source_activation_ref": source_activation_ref,
+                "source_target_ref": source_target_ref,
+            })
+            continue
+        projected_target_ref = str(target_refs[0])
+        projected_target_object = target_by_id.get(projected_target_ref)
+        if projected_target_object is None:
+            arc_status_counts["failed_activation_count"] += 1
+            diagnostics["errors"].append({
+                "code": "temporal.activation.target_index_inconsistent",
+                "source_activation_ref": source_activation_ref,
+                "projected_target_ref": projected_target_ref,
+            })
+            continue
+
+        arc_status_counts["eligible_activation_count"] += 1
+        aspect = source_activation.get("aspect")
+        closest_orb = (source_activation.get("exactness") or {}).get("closest_orb")
+        synthetic_relationship = {
+            "id": source_activation_ref,
+            "relationship_type": "ASPECT",
+            "source_id": source_activator_ref,
+            "target_id": source_target_ref,
+            "aspect": aspect,
+            "orb": closest_orb,
+            "source_refs": list(source_activation.get("source_refs") or []),
+        }
+        object_index = {
+            source_activator_ref: [activator_draft],
+            source_target_ref: [projected_target_object],
+        }
+        drafts = profile.project_relationship(
+            deepcopy(synthetic_relationship),
+            deepcopy(object_index),
+            static_request,
+        ) or []
+        if not drafts:
+            arc_status_counts["unsupported_relationship_count"] += 1
+            diagnostics["warnings"].append({
+                "code": "temporal.activation.relationship_unmapped",
+                "source_activation_ref": source_activation_ref,
+                "aspect": aspect,
+            })
+            continue
+
+        draft = drafts[0]
+        relationship_type = str(draft.get("relationship_type") or "")
+        projected_sequence = projected_temporal_sequence_id(
+            profile_id=request_obj.profile_id,
+            source_sequence_ref=source_sequence_ref,
+            context_id=context_id,
+        )
+        projected_activation_id_value = projected_temporal_activation_id(
+            profile_id=request_obj.profile_id,
+            source_activation_ref=source_activation_ref,
+            projected_activator_ref=str(projected_activator["id"]),
+            projected_target_ref=projected_target_ref,
+            projected_relationship_type=relationship_type,
+            context_id=context_id,
+        )
+
+        states: list[dict[str, Any]] = []
+        if request_obj.options.get("include_observation_states", True):
+            for source_state in source_activation.get("observation_states") or []:
+                source_state_ref = str(source_state.get("state_id") or "")
+                composition = (
+                    _project_state_composition(
+                        profile=profile,
+                        static_request=static_request,
+                        source_activator=source_activator,
+                        activation=source_activation,
+                        state=source_state,
+                    )
+                    if request_obj.options.get("include_projected_state_composition", True)
+                    else {
+                        "mode_ref": None,
+                        "domain_ref": None,
+                        "availability": "disabled_by_temporal_projection_options",
+                    }
+                )
+                states.append({
+                    "id": projected_temporal_state_id(
+                        profile_id=request_obj.profile_id,
+                        source_state_ref=source_state_ref,
+                        projected_activation_ref=projected_activation_id_value,
+                        context_id=context_id,
+                    ),
+                    "source_state_ref": source_state_ref,
+                    "projected_activation_ref": projected_activation_id_value,
+                    "observed_at": source_state.get("observed_at"),
+                    "phase": source_state.get("phase"),
+                    "orb": source_state.get("orb"),
+                    "distance": source_state.get("distance"),
+                    "strength_label": source_state.get("strength_label"),
+                    "activator_state": deepcopy(source_state.get("activator_state") or {}),
+                    "projected_state_composition": composition,
+                    "source_refs": [source_state_ref],
+                    "provenance": {
+                        "temporal_projection_stage": "C4",
+                        "source_fact_preservation": True,
+                    },
+                })
+
+        temporal_facts = {
+            "start_at": source_activation.get("start_at"),
+            "closest_observed_at": source_activation.get("closest_observed_at"),
+            "exact_at": source_activation.get("exact_at"),
+            "end_at": source_activation.get("end_at"),
+            "exactness": deepcopy(source_activation.get("exactness") or {}),
+            "motion": deepcopy(source_activation.get("motion") or {}),
+            "observation_count": len(states),
+            "observation_states": states,
+            "source_observation_count": source_activation.get("observation_count"),
+            "target_house": source_activation.get("target_house"),
+            "target_type": source_activation.get("target_type"),
+            "transit_house_in_target_chart": source_activation.get(
+                "transit_house_in_target_chart"
+            ),
+        }
+        mapping_rule_id = str(draft.get("mapping_rule_id") or "")
+        activation_row = {
+            "id": projected_activation_id_value,
+            "source_activation_ref": source_activation_ref,
+            "source_sequence_ref": source_sequence_ref,
+            "projected_sequence_id": projected_sequence,
+            "pass_index": int(source_activation.get("pass_index") or 1),
+            "projected_activator_ref": str(projected_activator["id"]),
+            "projected_target_ref": projected_target_ref,
+            "projected_relationship_type": relationship_type,
+            "projected_relationship_term_ref": relationship_type,
+            "temporal_role": "current_activation",
+            "directionality": "activator_to_target",
+            "projected_activation_domain_ref": (
+                states[0]["projected_state_composition"].get("domain_ref")
+                if states else None
+            ),
+            "projected_activator_mode_refs": sorted({
+                state["projected_state_composition"].get("mode_ref")
+                for state in states
+                if state["projected_state_composition"].get("mode_ref")
+            }),
+            "temporal_facts": temporal_facts,
+            "source_refs": sorted(set([
+                source_activation_ref,
+                *list(source_activation.get("source_refs") or []),
+            ])),
+            "mapping_rule_refs": [mapping_rule_id],
+            "context_refs": [context_id],
+            "provenance": {
+                **deepcopy(source_activation.get("provenance") or {}),
+                **deepcopy(draft.get("provenance") or {}),
+                "temporal_projection_stage": "C4",
+                "mapping_reuse": "profile.project_relationship",
+                "source_timing_facts_preserved": True,
+                "source_aspect": aspect,
+            },
+        }
+        projected_activations.append(activation_row)
+        arc_status_counts["projected_activation_count"] += 1
+        sequence_members.setdefault(source_sequence_ref, []).append(activation_row)
+
+        result_refs = [projected_activation_id_value]
+        mapping_executions.append({
+            "execution_id": mapping_execution_id(
+                mapping_rule_id=mapping_rule_id,
+                source_refs=[source_activation_ref],
+                context_id=context_id,
+                result_refs=result_refs,
+            ),
+            "mapping_rule_id": mapping_rule_id,
+            "mapping_rule_version": str(draft.get("mapping_rule_version") or ""),
+            "source_refs": [source_activation_ref],
+            "context_refs": [context_id],
+            "result_refs": result_refs,
+            "status": "applied",
+            "conditions_evaluated": deepcopy(
+                draft.get("conditions_evaluated") or []
+            ),
+            "warnings": [],
+        })
+
+    projected_activations.sort(key=lambda row: row["id"])
+    projected_sequences: list[dict[str, Any]] = []
+    for source_sequence_ref, rows in sorted(sequence_members.items()):
+        rows = sorted(rows, key=lambda row: (row["pass_index"], row["id"]))
+        projected_sequences.append({
+            "id": projected_temporal_sequence_id(
+                profile_id=request_obj.profile_id,
+                source_sequence_ref=source_sequence_ref,
+                context_id=context_id,
+            ),
+            "source_sequence_ref": source_sequence_ref,
+            "activation_refs": [row["id"] for row in rows],
+            "pass_count": len(rows),
+            "source_refs": [source_sequence_ref],
+            "provenance": {
+                "temporal_projection_stage": "C4",
+                "source_pass_indexes": [row["pass_index"] for row in rows],
+                "interpretive_phase_labels_added": False,
+            },
+        })
+
+    static_projection_id = str(
+        projected_target.get("metadata", {}).get("projection_id") or
+        projected_target.get("metadata", {}).get("package_id") or
+        projected_target.get("metadata", {}).get("request_id") or
+        static_request.request_id
+    )
+    temporal_source_graph_id = str(
+        request_obj.temporal_source_graph.get("metadata", {}).get("graph_id") or ""
+    )
+    temporal_projection_id_value = projected_temporal_graph_id(
+        request_id=request_obj.request_id,
+        static_projection_id=static_projection_id,
+        temporal_graph_id=temporal_source_graph_id,
+        profile_id=request_obj.profile_id,
+        profile_version=request_obj.profile_version,
+        context_id=context_id,
+        options=request_obj.options,
+    )
+
+    by_activator: dict[str, list[str]] = {}
+    by_target: dict[str, list[str]] = {}
+    by_sequence: dict[str, list[str]] = {}
+    by_aspect: dict[str, list[str]] = {}
+    for row in projected_activations:
+        by_activator.setdefault(row["projected_activator_ref"], []).append(row["id"])
+        by_target.setdefault(row["projected_target_ref"], []).append(row["id"])
+        by_sequence.setdefault(row["projected_sequence_id"], []).append(row["id"])
+        aspect = str(row["provenance"].get("source_aspect") or "")
+        by_aspect.setdefault(aspect, []).append(row["id"])
+
+    observation_count = sum(
+        row["temporal_facts"]["observation_count"] for row in projected_activations
+    )
+    graph = {
+        "metadata": {
+            "package_type": "projected_temporal_activation_graph",
+            "contract_version": "1.0.0",
+            "temporal_projection_id": temporal_projection_id_value,
+            "static_projection_id": static_projection_id,
+            "engine_version": ENGINE_VERSION,
+            "profile_id": request_obj.profile_id,
+            "profile_version": request_obj.profile_version,
+            "context_id": context_id,
+            "context_version": context_version,
+            "materialization_mode": "full",
+            "stage": "C4",
+            "execution_status": "activation_arcs_projected_experimental",
+        },
+        "source_identity": deepcopy(request_obj.source_identity),
+        "target_identity": deepcopy(request_obj.target_identity),
+        "period": deepcopy(request_obj.temporal_source_graph.get("period") or {}),
+        "projected_target_graph": projected_target,
+        "projected_activators": projected_activators,
+        "projected_activations": projected_activations,
+        "projected_sequences": projected_sequences,
+        "indexes": {
+            "projected_activations_by_activator": {
+                key: sorted(value) for key, value in sorted(by_activator.items())
+            },
+            "projected_activations_by_target": {
+                key: sorted(value) for key, value in sorted(by_target.items())
+            },
+            "projected_activations_by_sequence": {
+                key: sorted(value) for key, value in sorted(by_sequence.items())
+            },
+            "projected_activations_by_aspect": {
+                key: sorted(value) for key, value in sorted(by_aspect.items())
+            },
+        },
+        "summary": {
+            "projected_activator_count": len(projected_activators),
+            "projected_activation_count": len(projected_activations),
+            "projected_sequence_count": len(projected_sequences),
+            "projected_observation_state_count": observation_count,
+            "coverage": {
+                "activators": activator_coverage,
+                "activations": arc_status_counts,
+            },
+        },
+        "projected_term_registry": deepcopy(
+            projected_target.get("projected_term_registry") or {}
+        ),
+        "audit": {
+            "stage": "C4",
+            "request_id": request_obj.request_id,
+            "mapping_execution_count": len(mapping_executions),
+            "mapping_executions": mapping_executions,
+            "coverage": {
+                "activators": activator_coverage,
+                "activations": arc_status_counts,
+            },
+        },
+        "diagnostics": diagnostics,
+        "provenance": {
+            "temporal_projection_request_id": request_obj.request_id,
+            "source_bundle_id": request_obj.upstream_contracts.get("bundle_id"),
+            "canonical_temporal_graph_id": temporal_source_graph_id,
+            "static_projection_id": static_projection_id,
+            "source_timing_owner": "Astrology Graph Foundry",
+            "projected_semantics_owner": "Semantic Projection Core",
+            "arc_mapping_reuse": "profile.project_relationship",
+            "object_mapping_reuse": "profile.project_object",
+        },
+        "upstream_source_limitations": list(request_obj.limitations),
+        "projected_artifact_limitations": [
+            "Stage C4 projects activation arcs but defers final materialization and audit policy to C5.",
+            "No consumer-facing transit interpretation, claim synthesis, or narrative rendering is included.",
+        ],
+    }
+    validate_projected_temporal_activation_graph(graph)
+    return graph

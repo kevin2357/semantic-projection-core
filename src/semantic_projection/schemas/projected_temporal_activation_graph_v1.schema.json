@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "projected_temporal_activation_graph_v1.schema.json",
   "title": "Projected Temporal Activation Graph v1",
-  "description": "Core-owned, directional, arc-first projection of canonical temporal facts into a target semantic ontology.",
+  "description": "Core-owned, directional, arc-first projection of canonical temporal facts into a target semantic ontology; executable from Stage C4.",
   "type": "object",
   "required": [
     "metadata",
