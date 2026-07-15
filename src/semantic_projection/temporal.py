@@ -1025,8 +1025,8 @@ def project_temporal(
             "context_id": context_id,
             "context_version": context_version,
             "materialization_mode": "full",
-            "stage": "C6",
-            "execution_status": "cross_profile_temporal_projection_ready",
+            "stage": "C7",
+            "execution_status": "production_temporal_projection_ready",
         },
         "source_identity": deepcopy(request_obj.source_identity),
         "target_identity": deepcopy(request_obj.target_identity),
@@ -1065,7 +1065,7 @@ def project_temporal(
             projected_target.get("projected_term_registry") or {}
         ),
         "audit": {
-            "stage": "C6",
+            "stage": "C7",
             "request_id": request_obj.request_id,
             "mapping_execution_count": len(mapping_executions),
             "mapping_executions": mapping_executions,

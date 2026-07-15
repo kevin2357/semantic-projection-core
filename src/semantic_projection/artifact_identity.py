@@ -28,6 +28,7 @@ _KIND_BY_PACKAGE_TYPE = {
     "projection_forensic_audit": "projection_forensic_audit",
     "projection_qa_result": "projection_qa_result",
     "temporal_projection_qa_result": "temporal_projection_qa_result",
+    "temporal_projection_route_receipt": "temporal_projection_route_receipt",
 }
 
 

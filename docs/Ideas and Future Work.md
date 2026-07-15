@@ -53,3 +53,10 @@ Extend the new artifact-identity utility as additional request, projected, mater
 - Add richer context matrices as profile contexts mature.
 - Keep temporal-fact invariance as a permanent regression property.
 - Revisit intentional profile-scope exclusions such as Cognitive `Spirit` only through explicit profile-version evolution.
+
+## Post-Stage-C work
+
+- Exercise the C7 production route against Composite and Davison temporal bundles as soon as Foundry fixtures are available; the QA runner already accepts multiple fixture families.
+- Treat cross-profile temporal-fact invariance as a permanent hero regression test.
+- Grow the C6 comparison artifact into a general semantic-diff utility while keeping it downstream of projection execution.
+- Keep the C6 architectural conclusion in high-level architecture documentation: temporal projection is the same compiler over a time-indexed canonical graph, with semantic variability orthogonal to canonical temporal facts.

@@ -193,3 +193,20 @@ Projected temporal graphs support `full`, `standard`, `summary`, and `forensic` 
 ## Temporal cross-profile projection
 
 Stage C6 validates the same canonical temporal facts across Orthodox, Cognitive, and Woofmapped profiles, plus context-sensitive Orthodox variants. Run `scripts\\run_chunk3_beta_6_qa.bat` for the complete one-command QA flow.
+
+## End-to-end temporal production route
+
+Stage C7 provides one supported command from a Foundry source bundle to a projected temporal materialization:
+
+```bat
+semantic-temporal-run ^
+  --bundle temporal_projection_source.json ^
+  --projection-profile cognitive_architecture_demo.v0 ^
+  --projection-profile-version 0.2.0 ^
+  --projection-context examples\contexts\cognitive_architecture_general_context.json ^
+  --output-mode standard ^
+  --out projected_temporal.standard.json ^
+  --receipt-out temporal_route_receipt.json
+```
+
+The route preserves the normalized request and deterministic identity chain without creating a second projection implementation. Run `scripts\run_chunk3_beta_7_qa.bat` for complete production-route QA over every Foundry temporal fixture in `outputs\fixture_test_files`.

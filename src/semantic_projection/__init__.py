@@ -138,3 +138,14 @@ __all__.extend([
 
 from .artifact_identity import ArtifactIdentity, identify_artifact
 __all__.extend(["ArtifactIdentity", "identify_artifact", "project_temporal_foundations"])
+
+from .temporal_pipeline import (
+    TemporalPipelineResult,
+    classify_temporal_target,
+    project_foundry_temporal_bundle,
+)
+__all__.extend([
+    "TemporalPipelineResult",
+    "classify_temporal_target",
+    "project_foundry_temporal_bundle",
+])

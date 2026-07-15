@@ -48,3 +48,17 @@ Temporal projection now shares the static materialization policy and adds tempor
 ## Stage C6 cross-profile invariant
 
 Temporal facts are profile-independent. Profiles and contexts may change projected operator, target, relationship, mode, and domain vocabulary, but may not change source activation identity, timing envelopes, pass identity, observation states, or Foundry provenance.
+
+## Stage C7 production route
+
+Stage C is closed by a single supported integration boundary:
+
+```text
+Foundry temporal bundle → Core request → projected temporal graph → materialization + route receipt
+```
+
+The production route composes the C1–C6 implementation; it does not bypass or duplicate any contract. A deterministic receipt preserves the source-to-request-to-projection identity chain for cross-repository routing and QA.
+
+### Architectural conclusion
+
+> **Temporal projection is not a second semantic compiler. It is the same semantic compiler operating over a time-indexed canonical graph while preserving an invariant temporal fact layer. Cross-profile and cross-context comparisons demonstrate that semantic variability is orthogonal to canonical temporal structure.**

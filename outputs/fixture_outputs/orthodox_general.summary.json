@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "package_type": "projected_temporal_activation_graph",
+    "contract_version": "1.0.0",
+    "temporal_projection_id": "temporal_projection:8df9396201dc49b5b60c247a",
+    "static_projection_id": "projection:6f41f6840df44828d710d485",
+    "engine_version": "0.6.0",
+    "profile_id": "orthodox_astrology.v1",
+    "profile_version": "1.0.0",
+    "context_id": "orthodox.general.v1",
+    "context_version": "1.0.0",
+    "materialization_mode": "summary",
+    "stage": "C6",
+    "execution_status": "cross_profile_temporal_projection_ready"
+  },
+  "source_identity": {
+    "sensor_instance_id": "temporal:natal:kevin:2026-01-01:2026-02-01",
+    "source_chart_id": "natal:kevin",
+    "source_chart_ids": [
+      "natal:kevin"
+    ]
+  },
+  "target_identity": {
+    "chart_id": "natal:kevin",
+    "chart_type": "natal",
+    "label": "Kevin",
+    "semantic_scope": "individual_climate",
+    "subject_scope": "individual"
+  },
+  "period": {
+    "day_count": 32,
+    "end_at": "2026-02-01",
+    "start_at": "2026-01-01"
+  },
+  "summary": {
+    "projected_activator_count": 10,
+    "projected_activation_count": 50,
+    "projected_sequence_count": 46,
+    "projected_observation_state_count": 180,
+    "coverage": {
+      "activators": {
+        "source_activator_count": 12,
+        "eligible_activator_count": 10,
+        "mapped_eligible_activator_count": 10,
+        "mapped_activator_count": 10,
+        "unmapped_activator_count": 0,
+        "unmapped_activator_refs": [],
+        "policy_excluded_activator_count": 2,
+        "policy_excluded_activators": [
+          {
+            "source_activator_ref": "canonical:transiting_object:mean_node",
+            "reason": "excluded_by_profile_scope"
+          },
+          {
+            "source_activator_ref": "canonical:transiting_object:true_node",
+            "reason": "excluded_by_profile_scope"
+          }
+        ],
+        "profile_scope_excluded_activator_count": 2,
+        "profile_scope_excluded_activators": [
+          {
+            "source_activator_ref": "canonical:transiting_object:mean_node",
+            "reason": "excluded_by_profile_scope"
+          },
+          {
+            "source_activator_ref": "canonical:transiting_object:true_node",
+            "reason": "excluded_by_profile_scope"
+          }
+        ],
+        "source_selection_policy_excluded_activator_count": 0,
+        "source_selection_policy_excluded_activators": [],
+        "eligible_but_unmapped_activator_count": 0,
+        "eligible_but_unmapped_activator_refs": [],
+        "static_source_object_count": 189,
+        "projected_target_object_count": 14
+      },
+      "activations": {
+        "source_activation_count": 88,
+        "eligible_activation_count": 50,
+        "projected_activation_count": 50,
+        "activator_policy_excluded_count": 3,
+        "activator_profile_scope_excluded_count": 3,
+        "activator_source_selection_policy_excluded_count": 0,
+        "missing_projected_activator_count": 0,
+        "target_policy_excluded_or_unmapped_count": 35,
+        "target_excluded_by_profile_scope_count": 35,
+        "target_excluded_by_source_selection_policy_count": 0,
+        "target_eligible_but_unmapped_count": 0,
+        "target_missing_from_static_source_graph_count": 0,
+        "unsupported_relationship_count": 0,
+        "failed_activation_count": 0
+      },
+      "state_composition": {
+        "mode_projected_count": 0,
+        "mode_source_not_supplied_count": 180,
+        "mode_mapping_unavailable_count": 0,
+        "domain_projected_count": 0,
+        "domain_source_not_supplied_count": 0,
+        "domain_mapping_unavailable_count": 180
+      }
+    },
+    "reconciliation": {
+      "source_activation_count": 88,
+      "projected_activation_count": 50,
+      "source_sequence_count": 80,
+      "projected_sequence_count": 46,
+      "source_observation_state_count": 640,
+      "projected_observation_state_count": 180,
+      "projected_state_count_matches_projected_arcs": true,
+      "source_pass_identity_preserved": true
+    }
+  },
+  "audit_summary": {
+    "mapping_execution_count": 50,
+    "applied_mapping_count": 50,
+    "coverage": {
+      "eligible_activators": 10,
+      "mapped_eligible_activators": 10,
+      "eligible_activations": 50,
+      "projected_activations": 50
+    },
+    "reconciliation": {
+      "source_activation_count": 88,
+      "projected_activation_count": 50,
+      "source_sequence_count": 80,
+      "projected_sequence_count": 46,
+      "source_observation_state_count": 640,
+      "projected_observation_state_count": 180,
+      "projected_state_count_matches_projected_arcs": true,
+      "source_pass_identity_preserved": true
+    }
+  },
+  "diagnostics_summary": {
+    "error_count": 0,
+    "warning_count": 0,
+    "info_count": 38,
+    "counts_by_code": {
+      "temporal.activation.activator_excluded_by_profile_scope": 3,
+      "temporal.activation.target_excluded_by_profile_scope": 35
+    }
+  },
+  "semantic_hashes": {
+    "projected_activators": "a9d16b48160e196bdf400ae4",
+    "projected_activations": "8ddaec5946ba8c7f2eac730b",
+    "projected_sequences": "c7bca5258518b8082a5d3b63",
+    "projected_states": "fc0276075726dbe58ff5c7ed",
+    "temporal_facts": "865db1a5b43a577ea3c3610a"
+  },
+  "projected_term_registry_ref": {
+    "registry_id": "orthodox_astrology.projected_terms",
+    "registry_version": "1.0.0",
+    "target_ontology": "orthodox_astrology.v1",
+    "materialization": "used_terms_subset"
+  },
+  "provenance": {
+    "temporal_projection_request_id": "temporal_projection_request:2f164fb7a3625804f9b8baf5",
+    "source_bundle_id": "temporal_projection_source:896f45e1905f45b8fd9a",
+    "canonical_temporal_graph_id": "canonical_temporal_graph:74575312006e23ed74ca",
+    "static_projection_id": "projection:6f41f6840df44828d710d485",
+    "source_timing_owner": "Astrology Graph Foundry",
+    "projected_semantics_owner": "Semantic Projection Core",
+    "arc_mapping_reuse": "profile.project_relationship",
+    "object_mapping_reuse": "profile.project_object"
+  },
+  "upstream_source_limitations": [
+    {
+      "text": "Semantic Projection Core does not yet execute this bundle.",
+      "source": "temporal_projection_source_bundle.v1",
+      "status": "superseded_for_this_artifact",
+      "superseded_by": "projected_temporal_activation_graph.v1"
+    },
+    {
+      "text": "The bundle preserves source timing facts and carries no projected temporal meanings.",
+      "source": "temporal_projection_source_bundle.v1",
+      "status": "active_source_limitation"
+    }
+  ],
+  "projected_artifact_limitations": [
+    "Stage C6 proves cross-profile and context behavior; downstream interpretation remains out of scope.",
+    "No consumer-facing transit interpretation, claim synthesis, or narrative rendering is included."
+  ]
+}

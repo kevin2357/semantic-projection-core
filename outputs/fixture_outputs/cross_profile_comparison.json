@@ -1,0 +1,715 @@
+{
+  "profile_counts": {
+    "orthodox_general": {
+      "profile_id": "orthodox_astrology.v1",
+      "context_id": "orthodox.general.v1",
+      "projected_activator_count": 10,
+      "projected_activation_count": 50,
+      "projected_sequence_count": 46,
+      "projected_state_count": 180,
+      "coverage": {
+        "activators": {
+          "source_activator_count": 12,
+          "eligible_activator_count": 10,
+          "mapped_eligible_activator_count": 10,
+          "mapped_activator_count": 10,
+          "unmapped_activator_count": 0,
+          "unmapped_activator_refs": [],
+          "policy_excluded_activator_count": 2,
+          "policy_excluded_activators": [
+            {
+              "source_activator_ref": "canonical:transiting_object:mean_node",
+              "reason": "excluded_by_profile_scope"
+            },
+            {
+              "source_activator_ref": "canonical:transiting_object:true_node",
+              "reason": "excluded_by_profile_scope"
+            }
+          ],
+          "profile_scope_excluded_activator_count": 2,
+          "profile_scope_excluded_activators": [
+            {
+              "source_activator_ref": "canonical:transiting_object:mean_node",
+              "reason": "excluded_by_profile_scope"
+            },
+            {
+              "source_activator_ref": "canonical:transiting_object:true_node",
+              "reason": "excluded_by_profile_scope"
+            }
+          ],
+          "source_selection_policy_excluded_activator_count": 0,
+          "source_selection_policy_excluded_activators": [],
+          "eligible_but_unmapped_activator_count": 0,
+          "eligible_but_unmapped_activator_refs": [],
+          "static_source_object_count": 189,
+          "projected_target_object_count": 14
+        },
+        "activations": {
+          "source_activation_count": 88,
+          "eligible_activation_count": 50,
+          "projected_activation_count": 50,
+          "activator_policy_excluded_count": 3,
+          "activator_profile_scope_excluded_count": 3,
+          "activator_source_selection_policy_excluded_count": 0,
+          "missing_projected_activator_count": 0,
+          "target_policy_excluded_or_unmapped_count": 35,
+          "target_excluded_by_profile_scope_count": 35,
+          "target_excluded_by_source_selection_policy_count": 0,
+          "target_eligible_but_unmapped_count": 0,
+          "target_missing_from_static_source_graph_count": 0,
+          "unsupported_relationship_count": 0,
+          "failed_activation_count": 0
+        },
+        "state_composition": {
+          "mode_projected_count": 0,
+          "mode_source_not_supplied_count": 180,
+          "mode_mapping_unavailable_count": 0,
+          "domain_projected_count": 0,
+          "domain_source_not_supplied_count": 0,
+          "domain_mapping_unavailable_count": 180
+        }
+      }
+    },
+    "orthodox_professional": {
+      "profile_id": "orthodox_astrology.v1",
+      "context_id": "orthodox.relationship.professional.v1",
+      "projected_activator_count": 10,
+      "projected_activation_count": 50,
+      "projected_sequence_count": 46,
+      "projected_state_count": 180,
+      "coverage": {
+        "activators": {
+          "source_activator_count": 12,
+          "eligible_activator_count": 10,
+          "mapped_eligible_activator_count": 10,
+          "mapped_activator_count": 10,
+          "unmapped_activator_count": 0,
+          "unmapped_activator_refs": [],
+          "policy_excluded_activator_count": 2,
+          "policy_excluded_activators": [
+            {
+              "source_activator_ref": "canonical:transiting_object:mean_node",
+              "reason": "excluded_by_profile_scope"
+            },
+            {
+              "source_activator_ref": "canonical:transiting_object:true_node",
+              "reason": "excluded_by_profile_scope"
+            }
+          ],
+          "profile_scope_excluded_activator_count": 2,
+          "profile_scope_excluded_activators": [
+            {
+              "source_activator_ref": "canonical:transiting_object:mean_node",
+              "reason": "excluded_by_profile_scope"
+            },
+            {
+              "source_activator_ref": "canonical:transiting_object:true_node",
+              "reason": "excluded_by_profile_scope"
+            }
+          ],
+          "source_selection_policy_excluded_activator_count": 0,
+          "source_selection_policy_excluded_activators": [],
+          "eligible_but_unmapped_activator_count": 0,
+          "eligible_but_unmapped_activator_refs": [],
+          "static_source_object_count": 189,
+          "projected_target_object_count": 14
+        },
+        "activations": {
+          "source_activation_count": 88,
+          "eligible_activation_count": 50,
+          "projected_activation_count": 50,
+          "activator_policy_excluded_count": 3,
+          "activator_profile_scope_excluded_count": 3,
+          "activator_source_selection_policy_excluded_count": 0,
+          "missing_projected_activator_count": 0,
+          "target_policy_excluded_or_unmapped_count": 35,
+          "target_excluded_by_profile_scope_count": 35,
+          "target_excluded_by_source_selection_policy_count": 0,
+          "target_eligible_but_unmapped_count": 0,
+          "target_missing_from_static_source_graph_count": 0,
+          "unsupported_relationship_count": 0,
+          "failed_activation_count": 0
+        },
+        "state_composition": {
+          "mode_projected_count": 0,
+          "mode_source_not_supplied_count": 180,
+          "mode_mapping_unavailable_count": 0,
+          "domain_projected_count": 0,
+          "domain_source_not_supplied_count": 0,
+          "domain_mapping_unavailable_count": 180
+        }
+      }
+    },
+    "cognitive": {
+      "profile_id": "cognitive_architecture_demo.v0",
+      "context_id": "cognitive_architecture.general.v0",
+      "projected_activator_count": 11,
+      "projected_activation_count": 54,
+      "projected_sequence_count": 50,
+      "projected_state_count": 205,
+      "coverage": {
+        "activators": {
+          "source_activator_count": 12,
+          "eligible_activator_count": 11,
+          "mapped_eligible_activator_count": 11,
+          "mapped_activator_count": 11,
+          "unmapped_activator_count": 0,
+          "unmapped_activator_refs": [],
+          "policy_excluded_activator_count": 1,
+          "policy_excluded_activators": [
+            {
+              "source_activator_ref": "canonical:transiting_object:mean_node",
+              "reason": "excluded_by_source_selection_policy"
+            }
+          ],
+          "profile_scope_excluded_activator_count": 0,
+          "profile_scope_excluded_activators": [],
+          "source_selection_policy_excluded_activator_count": 1,
+          "source_selection_policy_excluded_activators": [
+            {
+              "source_activator_ref": "canonical:transiting_object:mean_node",
+              "reason": "excluded_by_source_selection_policy"
+            }
+          ],
+          "eligible_but_unmapped_activator_count": 0,
+          "eligible_but_unmapped_activator_refs": [],
+          "static_source_object_count": 189,
+          "projected_target_object_count": 17
+        },
+        "activations": {
+          "source_activation_count": 88,
+          "eligible_activation_count": 54,
+          "projected_activation_count": 54,
+          "activator_policy_excluded_count": 1,
+          "activator_profile_scope_excluded_count": 0,
+          "activator_source_selection_policy_excluded_count": 1,
+          "missing_projected_activator_count": 0,
+          "target_policy_excluded_or_unmapped_count": 33,
+          "target_excluded_by_profile_scope_count": 31,
+          "target_excluded_by_source_selection_policy_count": 2,
+          "target_eligible_but_unmapped_count": 0,
+          "target_missing_from_static_source_graph_count": 0,
+          "unsupported_relationship_count": 0,
+          "failed_activation_count": 0
+        },
+        "state_composition": {
+          "mode_projected_count": 0,
+          "mode_source_not_supplied_count": 205,
+          "mode_mapping_unavailable_count": 0,
+          "domain_projected_count": 205,
+          "domain_source_not_supplied_count": 0,
+          "domain_mapping_unavailable_count": 0
+        }
+      }
+    },
+    "woofmapped": {
+      "profile_id": "woofmapped_astrology.v0",
+      "context_id": "woofmapped.doghouse.general.v0",
+      "projected_activator_count": 11,
+      "projected_activation_count": 54,
+      "projected_sequence_count": 50,
+      "projected_state_count": 205,
+      "coverage": {
+        "activators": {
+          "source_activator_count": 12,
+          "eligible_activator_count": 11,
+          "mapped_eligible_activator_count": 11,
+          "mapped_activator_count": 11,
+          "unmapped_activator_count": 0,
+          "unmapped_activator_refs": [],
+          "policy_excluded_activator_count": 1,
+          "policy_excluded_activators": [
+            {
+              "source_activator_ref": "canonical:transiting_object:mean_node",
+              "reason": "excluded_by_source_selection_policy"
+            }
+          ],
+          "profile_scope_excluded_activator_count": 0,
+          "profile_scope_excluded_activators": [],
+          "source_selection_policy_excluded_activator_count": 1,
+          "source_selection_policy_excluded_activators": [
+            {
+              "source_activator_ref": "canonical:transiting_object:mean_node",
+              "reason": "excluded_by_source_selection_policy"
+            }
+          ],
+          "eligible_but_unmapped_activator_count": 0,
+          "eligible_but_unmapped_activator_refs": [],
+          "static_source_object_count": 189,
+          "projected_target_object_count": 17
+        },
+        "activations": {
+          "source_activation_count": 88,
+          "eligible_activation_count": 54,
+          "projected_activation_count": 54,
+          "activator_policy_excluded_count": 1,
+          "activator_profile_scope_excluded_count": 0,
+          "activator_source_selection_policy_excluded_count": 1,
+          "missing_projected_activator_count": 0,
+          "target_policy_excluded_or_unmapped_count": 33,
+          "target_excluded_by_profile_scope_count": 31,
+          "target_excluded_by_source_selection_policy_count": 2,
+          "target_eligible_but_unmapped_count": 0,
+          "target_missing_from_static_source_graph_count": 0,
+          "unsupported_relationship_count": 0,
+          "failed_activation_count": 0
+        },
+        "state_composition": {
+          "mode_projected_count": 0,
+          "mode_source_not_supplied_count": 205,
+          "mode_mapping_unavailable_count": 0,
+          "domain_projected_count": 205,
+          "domain_source_not_supplied_count": 0,
+          "domain_mapping_unavailable_count": 0
+        }
+      }
+    }
+  },
+  "cross_profile_common_activation_count": 50,
+  "cross_profile_temporal_fact_mismatches": [],
+  "cross_profile_temporal_facts_preserved": true,
+  "distinct_semantic_examples": [
+    {
+      "source_activation_ref": "temporal_activation:05d555507af85661e2b0",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "pressures_and_develops",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:6e76a1a56bb49175aed997c5",
+          "projected_activator_operator": "orthodox:emotional_regulation:canonical:transiting_object:moon",
+          "projected_target_ref": "projected:orthodox_astrology.v1:55a4b5a235a8a0a0208cce5a",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "interferes_and_forces_adaptation",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:913be97f7fdced786fcd051e",
+          "projected_activator_operator": "cognitive:emotional_regulation:canonical:transiting_object:moon",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:e5d2d8646837f2d4068f8fb4",
+          "projected_activation_domain_ref": "maintenance_routine_error_correction"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "drive_conflict_requires_outlet",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:d471b848dd41d6cb5c6c7c6a",
+          "projected_activator_operator": "woof:comfort_safety_regulation:canonical:transiting_object:moon",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:09e64c8e4b15c3195241fbb5",
+          "projected_activation_domain_ref": "doghouse_6_training_routine_care"
+        }
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:1c30d515cf0b5f4178fd",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "pressures_and_develops",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:ab6cb7c2f12c350cb6664498",
+          "projected_activator_operator": "orthodox:action_assertion_drive:canonical:transiting_object:mars",
+          "projected_target_ref": "projected:orthodox_astrology.v1:b674e22c8ee12406ce518fff",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "interferes_and_forces_adaptation",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:a54104abcb0f2e6df40bc401",
+          "projected_activator_operator": "cognitive:action_selection:canonical:transiting_object:mars",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:da253e1d5ccac98f36a2abb3",
+          "projected_activation_domain_ref": "network_coordination_future_modeling"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "drive_conflict_requires_outlet",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:b6af2494f66ddbe450dc2682",
+          "projected_activator_operator": "woof:chase_play_defense_drive:canonical:transiting_object:mars",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:9ed0808954708e96ebf82976",
+          "projected_activation_domain_ref": "doghouse_11_social_pack_network"
+        }
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:22f257b9bd138b2c2eb7",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "enables_and_coordinates",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:ab6cb7c2f12c350cb6664498",
+          "projected_activator_operator": "orthodox:action_assertion_drive:canonical:transiting_object:mars",
+          "projected_target_ref": "projected:orthodox_astrology.v1:88a88fcbdb23633905918085",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "enables_optional_coordination",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:a54104abcb0f2e6df40bc401",
+          "projected_activator_operator": "cognitive:action_selection:canonical:transiting_object:mars",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:5a9e173de5ab0a4250c4b9cb",
+          "projected_activation_domain_ref": "latent_processing_hidden_state_integration"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "trainable_usable_channel",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:b6af2494f66ddbe450dc2682",
+          "projected_activator_operator": "woof:chase_play_defense_drive:canonical:transiting_object:mars",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:e598e072c38eecaa2a722586",
+          "projected_activation_domain_ref": "doghouse_12_deep_instinct_hidden_fear"
+        }
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:24530a0eb3c4c03739b8",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "polarizes_and_mirrors",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:261860372d7e2c666a93773e",
+          "projected_activator_operator": "orthodox:freedom_change_disruption:canonical:transiting_object:uranus",
+          "projected_target_ref": "projected:orthodox_astrology.v1:463e0fc31488dcf5950d9870",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "polarizes_and_alternates",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:23d49bf331aed53492d958e2",
+          "projected_activator_operator": "cognitive:change_adaptation:canonical:transiting_object:uranus",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:bd033c3de26f09e34c4643b9",
+          "projected_activation_domain_ref": "local_information_exchange"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "drives_face_off",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:d6995972755e195c85127380",
+          "projected_activator_operator": "woof:novelty_zoomie_response:canonical:transiting_object:uranus",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:15d3773b219dacb49c9e21b2",
+          "projected_activation_domain_ref": "doghouse_3_smells_barks_cues_local_data"
+        }
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:2cfb64120f7ba3f79c0d",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "pressures_and_develops",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:fb12694b82b770ab575552bc",
+          "projected_activator_operator": "orthodox:identity_vitality:canonical:transiting_object:sun",
+          "projected_target_ref": "projected:orthodox_astrology.v1:b674e22c8ee12406ce518fff",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "interferes_and_forces_adaptation",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:07ea2bc73772d356d6b16a94",
+          "projected_activator_operator": "cognitive:identity_organization:canonical:transiting_object:sun",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:da253e1d5ccac98f36a2abb3",
+          "projected_activation_domain_ref": "network_coordination_future_modeling"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "drive_conflict_requires_outlet",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:7e3bc846614ac89ddd540ca1",
+          "projected_activator_operator": "woof:pack_role_identity:canonical:transiting_object:sun",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:9ed0808954708e96ebf82976",
+          "projected_activation_domain_ref": "doghouse_11_social_pack_network"
+        }
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:2e50284a3769f0af3fb2",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "pressures_and_develops",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:6e76a1a56bb49175aed997c5",
+          "projected_activator_operator": "orthodox:emotional_regulation:canonical:transiting_object:moon",
+          "projected_target_ref": "projected:orthodox_astrology.v1:5ecca45b4b188c40eaecc2c8",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "interferes_and_forces_adaptation",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:913be97f7fdced786fcd051e",
+          "projected_activator_operator": "cognitive:emotional_regulation:canonical:transiting_object:moon",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:251e403a16217e438460a797",
+          "projected_activation_domain_ref": "foundational_memory_internal_base"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "drive_conflict_requires_outlet",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:d471b848dd41d6cb5c6c7c6a",
+          "projected_activator_operator": "woof:comfort_safety_regulation:canonical:transiting_object:moon",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:ce8601c1a253e841c9f2e059",
+          "projected_activation_domain_ref": "doghouse_4_den_home_base_safety"
+        }
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:30c32587c127ce40f899",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "polarizes_and_mirrors",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:6e76a1a56bb49175aed997c5",
+          "projected_activator_operator": "orthodox:emotional_regulation:canonical:transiting_object:moon",
+          "projected_target_ref": "projected:orthodox_astrology.v1:f8684c325f61a3eaff74fffb",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "polarizes_and_alternates",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:913be97f7fdced786fcd051e",
+          "projected_activator_operator": "cognitive:emotional_regulation:canonical:transiting_object:moon",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:1e9361af82eef9420ec99753",
+          "projected_activation_domain_ref": "abstraction_worldview_long_range_learning"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "drives_face_off",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:d471b848dd41d6cb5c6c7c6a",
+          "projected_activator_operator": "woof:comfort_safety_regulation:canonical:transiting_object:moon",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:ab1d7565a7726a325e3ccb42",
+          "projected_activation_domain_ref": "doghouse_9_adventure_territory"
+        }
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:37979d597ba4108fb73c",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "pressures_and_develops",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:b17caecf76cc856973503499",
+          "projected_activator_operator": "orthodox:depth_power_transformation:canonical:transiting_object:pluto",
+          "projected_target_ref": "projected:orthodox_astrology.v1:55a4b5a235a8a0a0208cce5a",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "interferes_and_forces_adaptation",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:862431a37a2f93699d02a2fd",
+          "projected_activator_operator": "cognitive:intensity_transformation:canonical:transiting_object:pluto",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:e5d2d8646837f2d4068f8fb4",
+          "projected_activation_domain_ref": "latent_processing_hidden_state_integration"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "drive_conflict_requires_outlet",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:251ef57c81e88f45010ff929",
+          "projected_activator_operator": "woof:primal_trust_intensity:canonical:transiting_object:pluto",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:09e64c8e4b15c3195241fbb5",
+          "projected_activation_domain_ref": "doghouse_12_deep_instinct_hidden_fear"
+        }
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:37b40ce17b7405d115e1",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "pressures_and_develops",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:abb5f686cc753937b66816bf",
+          "projected_activator_operator": "orthodox:growth_meaning_expansion:canonical:transiting_object:jupiter",
+          "projected_target_ref": "projected:orthodox_astrology.v1:b674e22c8ee12406ce518fff",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "interferes_and_forces_adaptation",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:3bf55e674e44c41a9ea7f804",
+          "projected_activator_operator": "cognitive:meaning_abstraction:canonical:transiting_object:jupiter",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:da253e1d5ccac98f36a2abb3",
+          "projected_activation_domain_ref": "generative_expression_play"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "drive_conflict_requires_outlet",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:2abff30b03e903b7bdf28fc8",
+          "projected_activator_operator": "woof:adventure_optimism:canonical:transiting_object:jupiter",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:9ed0808954708e96ebf82976",
+          "projected_activation_domain_ref": "doghouse_5_play_zoomies_tricks"
+        }
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:3eae75b94ed9bf39e218",
+      "semantics": {
+        "orthodox_general": {
+          "projected_relationship_type": "enables_and_coordinates",
+          "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:1388687354a8acce99763fff",
+          "projected_activator_operator": "orthodox:value_attraction_harmony:canonical:transiting_object:venus",
+          "projected_target_ref": "projected:orthodox_astrology.v1:d71c7cd7f5ad67bd1b2072de",
+          "projected_activation_domain_ref": null
+        },
+        "cognitive": {
+          "projected_relationship_type": "enables_optional_coordination",
+          "projected_activator_ref": "projected_temporal_activator:cognitive_architecture_demo.v0:84548847ee925f23f90bba89",
+          "projected_activator_operator": "cognitive:valuation_preference:canonical:transiting_object:venus",
+          "projected_target_ref": "projected:cognitive_architecture_demo.v0:d0de6a6fa189fafd1f5f29a1",
+          "projected_activation_domain_ref": "latent_processing_hidden_state_integration"
+        },
+        "woofmapped": {
+          "projected_relationship_type": "trainable_usable_channel",
+          "projected_activator_ref": "projected_temporal_activator:woofmapped_astrology.v0:7f3a05fbdf7d285e9a3d79f7",
+          "projected_activator_operator": "woof:bonding_preference:canonical:transiting_object:venus",
+          "projected_target_ref": "projected:woofmapped_astrology.v0:3ef02bfc17ecec7975203b23",
+          "projected_activation_domain_ref": "doghouse_12_deep_instinct_hidden_fear"
+        }
+      }
+    }
+  ],
+  "orthodox_context_common_activation_count": 50,
+  "orthodox_context_temporal_fact_mismatches": [],
+  "orthodox_context_temporal_facts_preserved": true,
+  "orthodox_context_semantic_change_count": 50,
+  "orthodox_context_semantic_change_examples": [
+    {
+      "source_activation_ref": "temporal_activation:05d555507af85661e2b0",
+      "general": {
+        "projected_relationship_type": "pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:6e76a1a56bb49175aed997c5",
+        "projected_activator_operator": "orthodox:emotional_regulation:canonical:transiting_object:moon",
+        "projected_target_ref": "projected:orthodox_astrology.v1:55a4b5a235a8a0a0208cce5a",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:ce8f2f5f829f496fa73a8f79",
+        "projected_activator_operator": "orthodox:team_climate_regulation:canonical:transiting_object:moon",
+        "projected_target_ref": "projected:orthodox_astrology.v1:fe106b6521b87343f83c63cd",
+        "projected_activation_domain_ref": null
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:1c30d515cf0b5f4178fd",
+      "general": {
+        "projected_relationship_type": "pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:ab6cb7c2f12c350cb6664498",
+        "projected_activator_operator": "orthodox:action_assertion_drive:canonical:transiting_object:mars",
+        "projected_target_ref": "projected:orthodox_astrology.v1:b674e22c8ee12406ce518fff",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:f8d8439fb79a665f8c48e6b5",
+        "projected_activator_operator": "orthodox:initiative_execution:canonical:transiting_object:mars",
+        "projected_target_ref": "projected:orthodox_astrology.v1:9ae2a92b9c315d8426354a1f",
+        "projected_activation_domain_ref": null
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:22f257b9bd138b2c2eb7",
+      "general": {
+        "projected_relationship_type": "enables_and_coordinates",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:ab6cb7c2f12c350cb6664498",
+        "projected_activator_operator": "orthodox:action_assertion_drive:canonical:transiting_object:mars",
+        "projected_target_ref": "projected:orthodox_astrology.v1:88a88fcbdb23633905918085",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_enables_and_coordinates",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:f8d8439fb79a665f8c48e6b5",
+        "projected_activator_operator": "orthodox:initiative_execution:canonical:transiting_object:mars",
+        "projected_target_ref": "projected:orthodox_astrology.v1:ee01b713f21614e57358ba00",
+        "projected_activation_domain_ref": null
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:24530a0eb3c4c03739b8",
+      "general": {
+        "projected_relationship_type": "polarizes_and_mirrors",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:261860372d7e2c666a93773e",
+        "projected_activator_operator": "orthodox:freedom_change_disruption:canonical:transiting_object:uranus",
+        "projected_target_ref": "projected:orthodox_astrology.v1:463e0fc31488dcf5950d9870",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_polarizes_and_mirrors",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:30a76ef999837ef6bac1f367",
+        "projected_activator_operator": "orthodox:freedom_change_disruption:canonical:transiting_object:uranus",
+        "projected_target_ref": "projected:orthodox_astrology.v1:ffa8871d6908e9c06e134db6",
+        "projected_activation_domain_ref": null
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:2cfb64120f7ba3f79c0d",
+      "general": {
+        "projected_relationship_type": "pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:fb12694b82b770ab575552bc",
+        "projected_activator_operator": "orthodox:identity_vitality:canonical:transiting_object:sun",
+        "projected_target_ref": "projected:orthodox_astrology.v1:b674e22c8ee12406ce518fff",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:ebc609dac620a1d9e34fe3ae",
+        "projected_activator_operator": "orthodox:identity_vitality:canonical:transiting_object:sun",
+        "projected_target_ref": "projected:orthodox_astrology.v1:9ae2a92b9c315d8426354a1f",
+        "projected_activation_domain_ref": null
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:2e50284a3769f0af3fb2",
+      "general": {
+        "projected_relationship_type": "pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:6e76a1a56bb49175aed997c5",
+        "projected_activator_operator": "orthodox:emotional_regulation:canonical:transiting_object:moon",
+        "projected_target_ref": "projected:orthodox_astrology.v1:5ecca45b4b188c40eaecc2c8",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:ce8f2f5f829f496fa73a8f79",
+        "projected_activator_operator": "orthodox:team_climate_regulation:canonical:transiting_object:moon",
+        "projected_target_ref": "projected:orthodox_astrology.v1:c40f7362b48cf1d0f485a2c4",
+        "projected_activation_domain_ref": null
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:30c32587c127ce40f899",
+      "general": {
+        "projected_relationship_type": "polarizes_and_mirrors",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:6e76a1a56bb49175aed997c5",
+        "projected_activator_operator": "orthodox:emotional_regulation:canonical:transiting_object:moon",
+        "projected_target_ref": "projected:orthodox_astrology.v1:f8684c325f61a3eaff74fffb",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_polarizes_and_mirrors",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:ce8f2f5f829f496fa73a8f79",
+        "projected_activator_operator": "orthodox:team_climate_regulation:canonical:transiting_object:moon",
+        "projected_target_ref": "projected:orthodox_astrology.v1:c3b7ef4c3f64d92b45235262",
+        "projected_activation_domain_ref": null
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:37979d597ba4108fb73c",
+      "general": {
+        "projected_relationship_type": "pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:b17caecf76cc856973503499",
+        "projected_activator_operator": "orthodox:depth_power_transformation:canonical:transiting_object:pluto",
+        "projected_target_ref": "projected:orthodox_astrology.v1:55a4b5a235a8a0a0208cce5a",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:ca123d18c7fb76cd944cb983",
+        "projected_activator_operator": "orthodox:depth_power_transformation:canonical:transiting_object:pluto",
+        "projected_target_ref": "projected:orthodox_astrology.v1:fe106b6521b87343f83c63cd",
+        "projected_activation_domain_ref": null
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:37b40ce17b7405d115e1",
+      "general": {
+        "projected_relationship_type": "pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:abb5f686cc753937b66816bf",
+        "projected_activator_operator": "orthodox:growth_meaning_expansion:canonical:transiting_object:jupiter",
+        "projected_target_ref": "projected:orthodox_astrology.v1:b674e22c8ee12406ce518fff",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_pressures_and_develops",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:1e5538dfcba59b7368d77bea",
+        "projected_activator_operator": "orthodox:growth_meaning_expansion:canonical:transiting_object:jupiter",
+        "projected_target_ref": "projected:orthodox_astrology.v1:9ae2a92b9c315d8426354a1f",
+        "projected_activation_domain_ref": null
+      }
+    },
+    {
+      "source_activation_ref": "temporal_activation:3eae75b94ed9bf39e218",
+      "general": {
+        "projected_relationship_type": "enables_and_coordinates",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:1388687354a8acce99763fff",
+        "projected_activator_operator": "orthodox:value_attraction_harmony:canonical:transiting_object:venus",
+        "projected_target_ref": "projected:orthodox_astrology.v1:d71c7cd7f5ad67bd1b2072de",
+        "projected_activation_domain_ref": null
+      },
+      "professional": {
+        "projected_relationship_type": "professional_enables_and_coordinates",
+        "projected_activator_ref": "projected_temporal_activator:orthodox_astrology.v1:81a6b6203dcb4b0f51390d5f",
+        "projected_activator_operator": "orthodox:values_alignment_diplomacy:canonical:transiting_object:venus",
+        "projected_target_ref": "projected:orthodox_astrology.v1:cb469ae134ccfa91b64cdc42",
+        "projected_activation_domain_ref": null
+      }
+    }
+  ],
+  "cognitive_spirit_status": {
+    "eligible_but_unmapped": 0,
+    "profile_scope_excluded": 31
+  },
+  "summary_semantic_hashes_present": true,
+  "upstream_limitations_annotated": true
+}
