@@ -149,3 +149,6 @@ __all__.extend([
     "classify_temporal_target",
     "project_foundry_temporal_bundle",
 ])
+
+from .synastry import SynastryProjectionResult, prepare_synastry_source_graph, project_synastry
+__all__.extend(["SynastryProjectionResult", "prepare_synastry_source_graph", "project_synastry"])

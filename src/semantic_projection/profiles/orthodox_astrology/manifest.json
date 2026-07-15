@@ -29,11 +29,13 @@
   "deterministic": true,
   "status": "expanded_reference_profile",
   "extensions": {
-    "chunk": "3.beta.8",
+    "chunk": "3.beta.10",
     "scope": "expanded canonical identity coverage, major aspects, relationship projection, and temporal projection",
     "supported_context_ids": [
       "orthodox.relationship.general.v1",
-      "orthodox.relationship.professional.v1"
+      "orthodox.relationship.professional.v1",
+      "orthodox.synastry.general.v1",
+      "orthodox.synastry.professional.v1"
     ],
     "deferred": [
       "minor-aspect semantic specialization",

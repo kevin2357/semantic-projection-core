@@ -34,7 +34,7 @@ from .validation import (
 )
 
 JsonDict = dict[str, Any]
-ENGINE_VERSION = "0.9.0"
+ENGINE_VERSION = "0.10.0"
 
 
 class ProjectionExecutionError(RuntimeError):

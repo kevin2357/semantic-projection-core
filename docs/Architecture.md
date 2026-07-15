@@ -81,3 +81,10 @@ Woofmapped timing continues to use the same generic temporal compiler while reta
 Production projected-temporal artifacts use capability and contract-generation metadata rather than internal development-pass labels. Chunk identifiers remain in historical implementation notes and QA summaries only.
 
 Audience-specific Woofmapped horoscope behavior is represented through context objects over one primitive profile. Handler-facing and dog-facing contexts may alter relevance, audience, and downstream guidance intent without introducing duplicate planet, house, aspect, or temporal mappings. Deterministic projection remains separate from downstream recommendation synthesis and prose realization.
+
+
+## Relationship-aware synastry projection
+
+Static synastry is projected by the ordinary semantic compiler after a thin participant-role preparation step. The preparation layer preserves participant ownership, endpoint roles, relationship kind, and whether each relationship crosses participant boundaries. Orthodox and Woofmapped profiles then reuse their existing object and aspect mappings.
+
+This is intentionally distinct from temporal projection. Synastry introduces ownership and relational asymmetry, not observation states or timing envelopes. Future temporal activation of synastry graphs should compose this relationship-aware layer with the existing temporal compiler when canonical temporal-synastry fixtures become available.

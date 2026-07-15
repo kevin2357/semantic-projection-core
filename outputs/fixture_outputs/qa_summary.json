@@ -1,38 +1,35 @@
 {
-  "stage": "C8",
+  "pass": "3.beta.9",
   "status": "passed",
   "pytest": {
-    "exit_code": 0,
-    "passed": true
+    "passed": true,
+    "exit_code": 0
   },
   "fixture": "outputs\\fixture_test_files\\kevin_2026-01_temporal_projection_source.json",
-  "orthodox": {
-    "profile_id": "orthodox_astrology.v1",
-    "profile_version": "1.0.0",
-    "byte_identical": true,
-    "sha256_run1": "7645cb42efbf1b0f74c5023534d7bd678baed321d5a647a4d502b26045ac34c8",
-    "sha256_run2": "7645cb42efbf1b0f74c5023534d7bd678baed321d5a647a4d502b26045ac34c8",
-    "determinism_repeat_executed": true,
-    "size_bytes": 9188702,
-    "target_object_count": 188,
-    "target_relationship_count": 3219,
-    "projected_activator_count": 12,
-    "projected_activation_count": 88,
-    "route_hash": "43d1a1b5015c9f87be7fab16"
+  "contexts": {
+    "woofmapped_handler": {
+      "context_id": "woofmapped.handler_guidance.v1",
+      "determinism_repeat_executed": true,
+      "byte_identical": true,
+      "sha256_run1": "a914a5be138115f211226e4d746534692b51cb809dd010b407a376fad502553c",
+      "sha256_run2": "a914a5be138115f211226e4d746534692b51cb809dd010b407a376fad502553c",
+      "projected_activators": 11,
+      "projected_activations": 54,
+      "capability_status": "production_ready",
+      "contract_generation": "projected_temporal_activation_graph.v1"
+    },
+    "woofmapped_dog_direct": {
+      "context_id": "woofmapped.dog_direct.v1",
+      "determinism_repeat_executed": true,
+      "byte_identical": true,
+      "sha256_run1": "f297c83241f69625b7403e194f8a3d97f12f8135b0c3fc558cbb53b3ea8e0358",
+      "sha256_run2": "f297c83241f69625b7403e194f8a3d97f12f8135b0c3fc558cbb53b3ea8e0358",
+      "projected_activators": 11,
+      "projected_activations": 54,
+      "capability_status": "production_ready",
+      "contract_generation": "projected_temporal_activation_graph.v1"
+    }
   },
-  "woofmapped": {
-    "profile_id": "woofmapped_astrology.v0",
-    "profile_version": "0.1.0",
-    "byte_identical": true,
-    "sha256_run1": "7d0898f4e68e966b7eb3bb7b8f5fbd58a9cb3d500642ddb9a2022c12d6024840",
-    "sha256_run2": null,
-    "determinism_repeat_executed": false,
-    "size_bytes": 941626,
-    "target_object_count": 17,
-    "target_relationship_count": 75,
-    "projected_activator_count": 11,
-    "projected_activation_count": 54,
-    "route_hash": "aeb34037a9426cbfe3c32bf3"
-  },
-  "all_deterministic": true
+  "all_executed_determinism_checks_passed": true,
+  "all_routes_determinism_tested": true
 }

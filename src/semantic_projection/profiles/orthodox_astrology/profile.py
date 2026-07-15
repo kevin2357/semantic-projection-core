@@ -214,7 +214,9 @@ class OrthodoxAstrologyProfile:
                 "source_theme_tags": list(mapping["themes"]),
                 "sign": source_object.get("sign"),
                 "house": source_object.get("house"),
-                "subject_owner": source_object.get("subject_owner"),
+                "subject_owner": source_object.get("subject_owner") or (source_object.get("attributes") or {}).get("subject_owner"),
+                "participant_role": (source_object.get("attributes") or {}).get("participant_role"),
+                "relationship_kind": (source_object.get("attributes") or {}).get("relationship_kind"),
                 "context_mode": "professional" if is_professional(context) else "general",
                 "projection_relevance_components": components,
             },
@@ -337,6 +339,12 @@ class OrthodoxAstrologyProfile:
             "attributes": {
                 "canonical_aspect": aspect,
                 "orb": source_relationship.get("orb"),
+                "relationship_kind": (source_relationship.get("attributes") or {}).get("relationship_kind") or request.context.get("relationship_type"),
+                "source_owner": source_relationship.get("source_owner") or (source_relationship.get("attributes") or {}).get("source_owner"),
+                "target_owner": source_relationship.get("target_owner") or (source_relationship.get("attributes") or {}).get("target_owner"),
+                "source_participant_role": (source_relationship.get("attributes") or {}).get("source_participant_role"),
+                "target_participant_role": (source_relationship.get("attributes") or {}).get("target_participant_role"),
+                "inter_participant": bool((source_relationship.get("attributes") or {}).get("inter_participant")),
                 "source_relationship_type": relationship_type,
                 "direction": source_relationship.get("direction"),
                 "source_person": source_relationship.get("source_person"),
@@ -428,3 +436,5 @@ class OrthodoxAstrologyProfile:
         graph.summary["supported_object_names"] = sorted(OBJECT_MAPPINGS)
         graph.summary["supported_major_aspects"] = sorted(ASPECT_MAPPINGS)
         graph.summary["profile_scope"] = "core_objects_major_aspects_synastry_overlays_contexts"
+        graph.summary["synastry_mode"] = request.context.get("subject_scope") == "synastry"
+        graph.summary["relationship_type"] = request.context.get("relationship_type")

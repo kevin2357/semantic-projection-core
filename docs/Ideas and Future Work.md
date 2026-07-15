@@ -93,3 +93,12 @@ Maintain two context modes over the same Woofmapped primitive profile:
 - dog-facing direct address in a playful horoscope voice, explaining what may feel different and offering advice for navigating or contextualizing those changes.
 
 These remain separate projection/rendering contexts, not separate primitive mappings. Projection owns audience and relevance framing; downstream reasoning and rendering own recommendations and prose.
+
+
+## Post-3.beta.10 Woofmapped follow-ups
+
+- Add structural, daily-lunar, and blended forecast-selection policies downstream of projection.
+- Add direct-house traceability beside applied Doghouses.
+- Add pack/household composite projection only after a group-source contract is designed.
+- Add temporal activation of synastry graphs when canonical temporal-synastry fixtures exist.
+- Add real human–dog and dog–dog fixtures to permanent QA.

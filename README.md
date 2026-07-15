@@ -219,3 +219,8 @@ Chunk 3.beta.8 expands the Orthodox reference profile to near-complete canonical
 ## Woofmapped horoscope context modes
 
 The example contexts include `woofmapped.handler_guidance.v1` and `woofmapped.dog_direct.v1`. They reuse one Woofmapped ontology while separating handler-facing practical guidance from a direct-to-dog horoscope frame. Voice and prose remain downstream of deterministic projection.
+
+
+## Synastry projection
+
+Version 0.10.0 adds `project_synastry()` with participant-role preservation for Orthodox and Woofmapped reference profiles, plus handler, dog-direct, hybrid, human–dog, and dog–dog Woofmapped contexts.

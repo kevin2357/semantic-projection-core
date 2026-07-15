@@ -75,10 +75,10 @@ class WoofmappedAstrologyProfile:
                 "message": "Context accepted, but this profile uses Doghouses as its reference policy.",
                 "details": {"expected": CONTEXT_ID, "received": context.context_id},
             })
-        if context.subject_scope not in {"individual", "natal", "dog"}:
+        if context.subject_scope not in {"individual", "natal", "dog", "synastry"}:
             warnings.append({
                 "code": "woofmapped.scope.experimental",
-                "message": "Woofmapped v0.1 is designed for an individual Natal chart.",
+                "message": "Woofmapped v0.1 supports individual and explicit synastry contexts.",
                 "details": {"subject_scope": context.subject_scope},
             })
         return warnings
@@ -137,6 +137,9 @@ class WoofmappedAstrologyProfile:
             "attributes": {
                 "canonical_object_name": canonical_name,
                 "source_names": [str(source_object.get("name") or canonical_name)],
+                "subject_owner": source_object.get("subject_owner") or (source_object.get("attributes") or {}).get("subject_owner"),
+                "participant_role": (source_object.get("attributes") or {}).get("participant_role"),
+                "relationship_kind": (source_object.get("attributes") or {}).get("relationship_kind"),
                 "canine_domains": list(mapping["domains"]),
                 "source_sign": sign,
                 "projected_mode": projected_mode,
@@ -206,6 +209,17 @@ class WoofmappedAstrologyProfile:
             "attributes": {
                 "canonical_aspect": aspect,
                 "orb": source_relationship.get("orb"),
+                "relationship_kind": (source_relationship.get("attributes") or {}).get("relationship_kind") or request.context.get("relationship_type"),
+                "source_owner": source_relationship.get("source_owner") or (source_relationship.get("attributes") or {}).get("source_owner"),
+                "target_owner": source_relationship.get("target_owner") or (source_relationship.get("attributes") or {}).get("target_owner"),
+                "source_participant_role": (source_relationship.get("attributes") or {}).get("source_participant_role"),
+                "target_participant_role": (source_relationship.get("attributes") or {}).get("target_participant_role"),
+                "inter_participant": bool((source_relationship.get("attributes") or {}).get("inter_participant")),
+                "relational_role_composition": {
+                    "source_role": (source_relationship.get("attributes") or {}).get("source_participant_role"),
+                    "target_role": (source_relationship.get("attributes") or {}).get("target_participant_role"),
+                    "asymmetric": (source_relationship.get("attributes") or {}).get("source_participant_role") != (source_relationship.get("attributes") or {}).get("target_participant_role"),
+                },
                 "source_canine_subsystem": source_projected["name"],
                 "target_canine_subsystem": target_projected["name"],
                 "source_mode": source_projected.get("attributes", {}).get("projected_mode"),
@@ -298,7 +312,9 @@ class WoofmappedAstrologyProfile:
             mode = relationship.get("attributes", {}).get("interaction_mode")
             if mode:
                 interaction_counts[mode] = interaction_counts.get(mode, 0) + 1
-        graph.summary["profile_scope"] = "natal_operators_sign_modes_doghouses_angles_and_sdk_aspects"
+        graph.summary["profile_scope"] = "natal_and_synastry_operators_sign_modes_doghouses_angles_and_aspects"
+        graph.summary["synastry_mode"] = request.context.get("subject_scope") == "synastry"
+        graph.summary["relationship_type"] = request.context.get("relationship_type")
         graph.summary["playful_experimental_projection"] = True
         graph.summary["veterinary_advice"] = False
         graph.summary["behavioral_diagnosis_permitted"] = False

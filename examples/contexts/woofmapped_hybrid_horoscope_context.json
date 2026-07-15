@@ -1,0 +1,29 @@
+{
+  "context_id": "woofmapped.hybrid_horoscope.v1",
+  "context_version": "1.0.0",
+  "subject_scope": "dog",
+  "target_domain": "woofmapped_astrology.v0",
+  "application_context": "hybrid_horoscope",
+  "audience": "handler_and_dog",
+  "output_intent": "structured_semantic_model",
+  "constraints": {
+    "house_mapping_policy": "doghouse",
+    "not_veterinary_advice": true
+  },
+  "parameters": {
+    "audience_contract": {
+      "primary": "handler",
+      "subject": "dog",
+      "address_mode": "mixed"
+    },
+    "required_sections": [
+      "dog_internal_experience",
+      "observable_behavior",
+      "suggested_activities"
+    ],
+    "forecast_policy": "woofmapped.forecast.blended.v0"
+  },
+  "extensions": {
+    "rendering_boundary": "voice and prose remain downstream"
+  }
+}

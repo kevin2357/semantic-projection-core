@@ -37,6 +37,18 @@ ASPECT_MAPPINGS = {
         "interaction_mode": "odd_behavior_needing_adjustment",
         "salience": 0.74,
     },
+    "semisquare": {
+        "relationship_type": "repeated_behavioral_irritant",
+        "operators": ["irritate", "repeat", "require_small_adjustment"],
+        "interaction_mode": "minor_repeating_friction",
+        "salience": 0.64,
+    },
+    "sesquisquare": {
+        "relationship_type": "persistent_adjustment_pressure",
+        "operators": ["pressure", "persist", "adjust"],
+        "interaction_mode": "persistent_behavioral_adjustment",
+        "salience": 0.68,
+    },
     "semisextile": {
         "relationship_type": "subtle_adjacent_nudge",
         "operators": ["nudge", "irritate_lightly", "incrementally_coordinate"],

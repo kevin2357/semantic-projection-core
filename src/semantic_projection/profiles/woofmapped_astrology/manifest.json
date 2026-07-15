@@ -9,7 +9,8 @@
     "entrypoint": "semantic_projection.profiles.woofmapped_astrology.profile:WoofmappedAstrologyProfile"
   },
   "supported_source_graph_types": [
-    "natal"
+    "natal",
+    "synastry"
   ],
   "required_context_fields": [],
   "optional_context_fields": [
@@ -23,8 +24,8 @@
   "deterministic": true,
   "status": "playful_experimental_reference_profile",
   "extensions": {
-    "chunk": "3.beta.8",
-    "scope": "existing Woofmapped primitives with validated temporal activators, relationships, state composition, and production routing",
+    "chunk": "3.beta.10",
+    "scope": "Woofmapped natal, temporal, and role-aware human-dog/dog-dog synastry projection with shared primitive mappings",
     "house_mapping_policy": "doghouse",
     "guardrails": [
       "not veterinary advice",
@@ -33,12 +34,18 @@
       "playful structural projection"
     ],
     "deferred": [
-      "additional primitive mappings",
-      "synastry-specific woofmapped semantics"
+      "additional primitive mappings"
     ],
     "temporal_target_scope_exclusions": [
       "Spirit"
     ],
-    "deferred_source_graph_types": []
+    "deferred_source_graph_types": [],
+    "supported_context_ids": [
+      "woofmapped.handler_guidance.v1",
+      "woofmapped.dog_direct.v1",
+      "woofmapped.hybrid_horoscope.v1",
+      "woofmapped.synastry.human_dog.v1",
+      "woofmapped.synastry.dog_dog.v1"
+    ]
   }
 }

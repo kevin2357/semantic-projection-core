@@ -1,0 +1,35 @@
+{
+  "context_id": "woofmapped.synastry.human_dog.v1",
+  "context_version": "1.0.0",
+  "subject_scope": "synastry",
+  "target_domain": "woofmapped_astrology.v0",
+  "application_context": "human_dog_relationship",
+  "relationship_type": "human_dog",
+  "audience": "handler",
+  "output_intent": "structured_semantic_model",
+  "constraints": {
+    "house_mapping_policy": "doghouse",
+    "preserve_participant_ownership": true,
+    "asymmetric_roles": true
+  },
+  "parameters": {
+    "supported_roles": [
+      "handler",
+      "dog",
+      "trainer",
+      "foster",
+      "working_partner"
+    ],
+    "guidance_targets": [
+      "co_regulation",
+      "cue_alignment",
+      "routine",
+      "training",
+      "play",
+      "trust_repair"
+    ]
+  },
+  "extensions": {
+    "relational_projection": "role_aware_endpoint_composition"
+  }
+}
