@@ -1,0 +1,8 @@
+$ C:\Users\kevin\AppData\Local\Programs\Python\Python312\python.exe C:\dev\github\semantic-projection-core\scripts\profile_projection_artifacts.py C:\dev\github\semantic-projection-core\outputs\fixture_outputs\projected_temporal.full.json C:\dev\github\semantic-projection-core\outputs\fixture_outputs\projected_temporal.standard.json C:\dev\github\semantic-projection-core\outputs\fixture_outputs\projected_temporal.summary.json C:\dev\github\semantic-projection-core\outputs\fixture_outputs\projected_temporal.forensic.json --out C:\dev\github\semantic-projection-core\outputs\fixture_outputs\artifact_profile.json
+
+STDOUT
+Wrote C:\dev\github\semantic-projection-core\outputs\fixture_outputs\artifact_profile.json
+
+STDERR
+
+EXIT_CODE=0

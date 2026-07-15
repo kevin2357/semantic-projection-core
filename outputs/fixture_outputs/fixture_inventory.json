@@ -1,0 +1,7 @@
+[
+  {
+    "path": "outputs\\fixture_test_files\\kevin_2026-01_temporal_projection_source.json",
+    "package_type": "temporal_projection_source_bundle",
+    "contract_version": "1.0.0"
+  }
+]

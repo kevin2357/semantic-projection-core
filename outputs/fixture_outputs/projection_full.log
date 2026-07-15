@@ -1,0 +1,8 @@
+$ C:\Users\kevin\AppData\Local\Programs\Python\Python312\python.exe -m semantic_projection.temporal_projection_cli --request C:\dev\github\semantic-projection-core\outputs\fixture_outputs\temporal_request.json --output-mode full --log-file C:\dev\github\semantic-projection-core\outputs\fixture_outputs\semantic_projection.log --out C:\dev\github\semantic-projection-core\outputs\fixture_outputs\projected_temporal.full.json
+
+STDOUT
+Wrote projected temporal activation graph: C:\dev\github\semantic-projection-core\outputs\fixture_outputs\projected_temporal.full.json
+
+STDERR
+
+EXIT_CODE=0

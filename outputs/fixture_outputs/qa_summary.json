@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "package_type": "temporal_projection_qa_result",
+    "contract_version": "1.0.0"
+  },
+  "status": "passed",
+  "pytest": "passed",
+  "temporal_projection_id": "temporal_projection:d4db6becfe693e79c2eed8e9",
+  "coverage": {
+    "activators": {
+      "source_activator_count": 12,
+      "eligible_activator_count": 11,
+      "mapped_eligible_activator_count": 11,
+      "mapped_activator_count": 11,
+      "unmapped_activator_count": 0,
+      "unmapped_activator_refs": [],
+      "policy_excluded_activator_count": 1,
+      "policy_excluded_activators": [
+        {
+          "source_activator_ref": "canonical:transiting_object:mean_node",
+          "reason": "excluded_by_source_selection_policy"
+        }
+      ],
+      "eligible_but_unmapped_activator_count": 0,
+      "eligible_but_unmapped_activator_refs": [],
+      "static_source_object_count": 189,
+      "projected_target_object_count": 17
+    },
+    "activations": {
+      "source_activation_count": 88,
+      "eligible_activation_count": 54,
+      "projected_activation_count": 54,
+      "activator_policy_excluded_count": 1,
+      "missing_projected_activator_count": 0,
+      "target_policy_excluded_or_unmapped_count": 33,
+      "target_excluded_by_profile_scope_count": 28,
+      "target_excluded_by_source_selection_policy_count": 2,
+      "target_eligible_but_unmapped_count": 3,
+      "target_missing_from_static_source_graph_count": 0,
+      "unsupported_relationship_count": 0,
+      "failed_activation_count": 0
+    },
+    "state_composition": {
+      "mode_projected_count": 0,
+      "mode_source_not_supplied_count": 205,
+      "mode_mapping_unavailable_count": 0,
+      "domain_projected_count": 205,
+      "domain_source_not_supplied_count": 0,
+      "domain_mapping_unavailable_count": 0
+    }
+  },
+  "reconciliation": {
+    "source_activation_count": 88,
+    "projected_activation_count": 54,
+    "source_sequence_count": 80,
+    "projected_sequence_count": 50,
+    "source_observation_state_count": 640,
+    "projected_observation_state_count": 205,
+    "projected_state_count_matches_projected_arcs": true,
+    "source_pass_identity_preserved": true
+  },
+  "diagnostics_summary": {
+    "error_count": 0,
+    "warning_count": 0,
+    "info_count": 34,
+    "counts_by_code": {
+      "temporal.activation.activator_policy_excluded": 1,
+      "temporal.activation.target_eligible_but_unmapped": 3,
+      "temporal.activation.target_excluded_by_profile_scope": 28,
+      "temporal.activation.target_excluded_by_source_selection_policy": 2
+    }
+  },
+  "materialization_bytes": {
+    "full": 2907463,
+    "standard": 935557,
+    "summary": 5735,
+    "forensic": 2908241
+  },
+  "semantic_hash_reconciliation": {
+    "full_vs_standard_activations": true,
+    "full_vs_forensic_activations": true
+  },
+  "determinism": {
+    "byte_identical": true,
+    "bytes": 935557,
+    "sha256_run1": "60323ddc81f5c2fea26af82eeb199afd4baf4f87bf1458fdc6639cc0e9a7045f",
+    "sha256_run2": "60323ddc81f5c2fea26af82eeb199afd4baf4f87bf1458fdc6639cc0e9a7045f"
+  }
+}
