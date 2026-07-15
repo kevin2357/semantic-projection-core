@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "projected_temporal_activation_graph_v1.schema.json",
   "title": "Projected Temporal Activation Graph v1",
-  "description": "Core-owned, directional, arc-first projection of canonical temporal facts into a target semantic ontology; executable from Stage C4.",
+  "description": "Core-owned, directional, arc-first projection of canonical temporal facts into a target semantic ontology, with Stage C5 audit, diagnostics, coverage, and materialization policy.",
   "type": "object",
   "required": [
     "metadata",
@@ -404,7 +404,35 @@
           "type": "object"
         },
         "projected_state_composition": {
-          "type": "object"
+          "type": "object",
+          "description": "Optional projected mode/domain composition with component-level availability; missing source position is not a mapping failure.",
+          "properties": {
+            "mode_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "domain_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "mode_availability": {
+              "type": "string"
+            },
+            "domain_availability": {
+              "type": "string"
+            },
+            "availability": {
+              "type": "string"
+            },
+            "mapping_reuse": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
         },
         "source_refs": {
           "type": "array",

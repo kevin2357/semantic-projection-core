@@ -77,6 +77,8 @@ __all__ = [
 ]
 
 from .materialization import (
+    materialize_projected_temporal_graph,
+    temporal_projection_summary_view,
     MATERIALIZATION_MODES,
     external_audit_artifact,
     materialize_projected_graph,
@@ -89,7 +91,15 @@ def project_with_builtin_profiles(request):
     from .profiles import builtin_projection_registry
     return project(request, registry=builtin_projection_registry())
 
-__all__.extend(["project_with_builtin_profiles"])
+__all__.extend([
+    "project_with_builtin_profiles",
+    "MATERIALIZATION_MODES",
+    "external_audit_artifact",
+    "materialize_projected_graph",
+    "projection_summary_view",
+    "materialize_projected_temporal_graph",
+    "temporal_projection_summary_view",
+])
 
 
 __all__.extend([

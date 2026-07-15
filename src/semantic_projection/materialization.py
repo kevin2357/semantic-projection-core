@@ -137,3 +137,106 @@ def external_audit_artifact(projected: JsonDict) -> JsonDict:
     }
     artifact["metadata"]["artifact_hash"] = stable_hash(artifact)
     return artifact
+
+
+def _flatten_temporal_states(projected: JsonDict) -> list[JsonDict]:
+    states: list[JsonDict] = []
+    for activation in projected.get("projected_activations") or []:
+        facts = activation.get("temporal_facts") or {}
+        for state in facts.get("observation_states") or []:
+            states.append(deepcopy(state))
+    return states
+
+
+def temporal_projection_summary_view(projected: JsonDict) -> JsonDict:
+    """Compact summary of a projected temporal activation graph."""
+    metadata = deepcopy(projected.get("metadata") or {})
+    metadata["materialization_mode"] = "summary"
+    audit = projected.get("audit") or {}
+    diagnostics = projected.get("diagnostics") or {}
+    return {
+        "metadata": metadata,
+        "source_identity": deepcopy(projected.get("source_identity") or {}),
+        "target_identity": deepcopy(projected.get("target_identity") or {}),
+        "period": deepcopy(projected.get("period") or {}),
+        "summary": deepcopy(projected.get("summary") or {}),
+        "audit_summary": deepcopy(audit.get("summary") or {
+            "mapping_execution_count": len(audit.get("mapping_executions") or []),
+            "coverage": deepcopy(audit.get("coverage") or {}),
+            "reconciliation": deepcopy(audit.get("reconciliation") or {}),
+        }),
+        "diagnostics_summary": deepcopy(diagnostics.get("summary") or {
+            "error_count": len(diagnostics.get("errors") or []),
+            "warning_count": len(diagnostics.get("warnings") or []),
+            "info_count": len(diagnostics.get("infos") or []),
+        }),
+        "projected_term_registry_ref": {
+            key: value
+            for key, value in (projected.get("projected_term_registry") or {}).items()
+            if key in {"registry_id", "registry_version", "target_ontology", "materialization"}
+        },
+        "provenance": deepcopy(projected.get("provenance") or {}),
+        "upstream_source_limitations": deepcopy(projected.get("upstream_source_limitations") or []),
+        "projected_artifact_limitations": deepcopy(projected.get("projected_artifact_limitations") or []),
+    }
+
+
+def materialize_projected_temporal_graph(
+    projected: JsonDict,
+    *,
+    mode: str = "standard",
+) -> JsonDict:
+    """Materialize a projected temporal graph using static-compatible policies."""
+    if mode not in MATERIALIZATION_MODES:
+        raise ValueError(f"Unknown temporal projection materialization mode: {mode}")
+    if mode == "summary":
+        return temporal_projection_summary_view(projected)
+
+    result = deepcopy(projected)
+    result.setdefault("metadata", {})["materialization_mode"] = mode
+    if mode == "standard":
+        audit = result.get("audit") or {}
+        diagnostics = result.get("diagnostics") or {}
+        result["audit"] = {
+            "summary": deepcopy(audit.get("summary") or {}),
+            "coverage": deepcopy(audit.get("coverage") or {}),
+            "reconciliation": deepcopy(audit.get("reconciliation") or {}),
+            "mapping_execution_count": len(audit.get("mapping_executions") or []),
+        }
+        result["diagnostics"] = {
+            "summary": deepcopy(diagnostics.get("summary") or {}),
+            "errors": deepcopy(diagnostics.get("errors") or []),
+            "warnings": deepcopy(diagnostics.get("warnings") or []),
+        }
+        # The embedded static target is itself materialized compactly.
+        if result.get("projected_target_graph"):
+            result["projected_target_graph"] = materialize_projected_graph(
+                result["projected_target_graph"], mode="standard"
+            )
+        return result
+
+    if mode == "forensic":
+        states = _flatten_temporal_states(result)
+        temporal_facts = [
+            deepcopy(row.get("temporal_facts") or {})
+            for row in result.get("projected_activations") or []
+        ]
+        registry = result.get("projected_term_registry") or {}
+        result["forensic_integrity"] = {
+            "projected_target_graph_hash": stable_hash(result.get("projected_target_graph") or {}),
+            "projected_activator_hash": stable_hash(result.get("projected_activators") or []),
+            "projected_activation_hash": stable_hash(result.get("projected_activations") or []),
+            "projected_sequence_hash": stable_hash(result.get("projected_sequences") or []),
+            "projected_state_hash": stable_hash(states),
+            "temporal_facts_hash": stable_hash(temporal_facts),
+            "audit_hash": stable_hash(result.get("audit") or {}),
+            "diagnostics_hash": stable_hash(result.get("diagnostics") or {}),
+            "projected_term_registry_hash": stable_hash(registry),
+            "projected_activator_count": len(result.get("projected_activators") or []),
+            "projected_activation_count": len(result.get("projected_activations") or []),
+            "projected_sequence_count": len(result.get("projected_sequences") or []),
+            "projected_state_count": len(states),
+            "mapping_execution_count": len((result.get("audit") or {}).get("mapping_executions") or []),
+            "registry_term_count": len(registry.get("terms") or {}),
+        }
+    return result

@@ -529,3 +529,7 @@ and sampled phases are preserved without narrative reinterpretation.
 
 Mean Node and similar source variants now follow the same profile selection
 policy used by static projection.
+
+## Stage C5 implementation note
+
+The executable temporal graph now includes refined target-resolution coverage, component-level state-composition availability, reconciliation audit, and full/standard/summary/forensic materializations. These are structural and operational views, not interpretive timing products.

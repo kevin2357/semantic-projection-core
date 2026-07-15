@@ -185,3 +185,7 @@ semantic-temporal-project --request request.json --out projected-temporal.json
 
 The output projects structure only. Temporal reasoning, rendering, and
 consumer-facing reports remain downstream.
+
+## Temporal materializations
+
+Projected temporal graphs support `full`, `standard`, `summary`, and `forensic` materializations. The standard view preserves all defining activation arcs and observation facts while compacting audit and diagnostic payloads.

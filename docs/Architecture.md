@@ -40,3 +40,7 @@ facts under `temporal_facts`.
 
 This is an extension of the static pipeline, not a parallel temporal ontology
 engine.
+
+## Stage C5 temporal operational layer
+
+Temporal projection now shares the static materialization policy and adds temporal coverage, reconciliation, diagnostic summaries, and deterministic section hashes. Foundry timing facts remain nested under `temporal_facts`; Core-owned semantic fields remain separate.

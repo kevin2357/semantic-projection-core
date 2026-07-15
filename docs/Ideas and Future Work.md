@@ -41,3 +41,8 @@ Extend the new artifact-identity utility as additional request, projected, mater
   exclusions from unsupported source-object families.
 - Add cross-profile and Composite/Davison rich-fixture QA in Stage C6/C7.
 - Keep temporal rendering and claim synthesis downstream of Stage C.
+
+## Post-C5 temporal follow-ups
+
+- Consider externalizing full temporal forensic audit payloads as a separable artifact, paralleling static projection.
+- Evaluate whether future event/daily/streaming materializations should be views over the same arc graph rather than new execution contracts.

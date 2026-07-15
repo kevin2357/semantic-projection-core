@@ -455,6 +455,8 @@ def _project_state_composition(
         return {
             "mode_ref": None,
             "domain_ref": None,
+            "mode_availability": "source_sign_not_supplied",
+            "domain_availability": "source_house_not_supplied",
             "availability": "source_position_not_supplied",
             "mapping_reuse": "profile.project_object",
         }
@@ -474,12 +476,64 @@ def _project_state_composition(
     return {
         "mode_ref": mode,
         "domain_ref": domain,
+        "mode_availability": (
+            "projected" if mode is not None
+            else ("source_sign_not_supplied" if sign is None else "profile_mapping_unavailable")
+        ),
+        "domain_availability": (
+            "projected" if domain is not None
+            else ("source_house_not_supplied" if domain_house is None else "profile_mapping_unavailable")
+        ),
         "availability": (
-            "projected"
-            if mode is not None or domain is not None
+            "fully_projected" if mode is not None and domain is not None
+            else "partially_projected" if mode is not None or domain is not None
             else "source_position_present_but_profile_mapping_unavailable"
         ),
         "mapping_reuse": "profile.project_object",
+    }
+
+
+
+def _classify_temporal_target_resolution(
+    *,
+    source_target_ref: str,
+    static_source_ids: set[str],
+    target_resolution: Mapping[str, Any],
+    profile: Any,
+    static_source_by_id: Mapping[str, Mapping[str, Any]],
+) -> str:
+    if source_target_ref not in static_source_ids:
+        return "target_missing_from_static_source_graph"
+    if target_resolution.get(source_target_ref):
+        return "mapped"
+    source = static_source_by_id.get(source_target_ref) or {}
+    name = _normalized_body(source.get("name") or source.get("source_key"))
+    policy = getattr(profile, "source_selection_policy", {}) or {}
+    if policy.get("node_variant") == "true" and name == "mean node":
+        return "target_excluded_by_source_selection_policy"
+    if policy.get("node_variant") == "mean" and name == "true node":
+        return "target_excluded_by_source_selection_policy"
+    if policy.get("fortune_variant") == "part_of_fortune" and name == "fortune":
+        return "target_excluded_by_source_selection_policy"
+    object_type = str(source.get("object_type") or "")
+    if any(token in source_target_ref for token in ("harmonic:", "antiscia_point:", "contra_antiscia_point:")):
+        return "target_excluded_by_profile_scope"
+    if object_type and object_type not in {"planet_or_point", "angle", "lot"}:
+        return "target_excluded_by_profile_scope"
+    return "target_eligible_but_unmapped"
+
+
+def _temporal_diagnostic_summary(diagnostics: Mapping[str, Any]) -> dict[str, Any]:
+    counts: dict[str, int] = {}
+    for level in ("errors", "warnings", "infos"):
+        for row in diagnostics.get(level) or []:
+            code = str(row.get("code") or "unknown")
+            counts[code] = counts.get(code, 0) + 1
+    return {
+        "error_count": len(diagnostics.get("errors") or []),
+        "warning_count": len(diagnostics.get("warnings") or []),
+        "info_count": len(diagnostics.get("infos") or []),
+        "counts_by_code": dict(sorted(counts.items())),
     }
 
 
@@ -526,6 +580,10 @@ def project_temporal(
     target_resolution = projected_target.get("indexes", {}).get(
         "projected_objects_by_source_ref", {}
     )
+    static_source_by_id = {
+        str(row.get("id")): row for row in request_obj.static_source_graph.get("objects") or []
+    }
+    static_source_ids = set(static_source_by_id)
     source_activators = {
         str(row.get("id")): row
         for row in request_obj.temporal_source_graph.get("activators") or []
@@ -548,6 +606,10 @@ def project_temporal(
         "activator_policy_excluded_count": 0,
         "missing_projected_activator_count": 0,
         "target_policy_excluded_or_unmapped_count": 0,
+        "target_excluded_by_profile_scope_count": 0,
+        "target_excluded_by_source_selection_policy_count": 0,
+        "target_eligible_but_unmapped_count": 0,
+        "target_missing_from_static_source_graph_count": 0,
         "unsupported_relationship_count": 0,
         "failed_activation_count": 0,
     }
@@ -588,11 +650,20 @@ def project_temporal(
 
         target_refs = list(target_resolution.get(source_target_ref) or [])
         if not target_refs:
+            resolution_status = _classify_temporal_target_resolution(
+                source_target_ref=source_target_ref,
+                static_source_ids=static_source_ids,
+                target_resolution=target_resolution,
+                profile=profile,
+                static_source_by_id=static_source_by_id,
+            )
             arc_status_counts["target_policy_excluded_or_unmapped_count"] += 1
+            arc_status_counts[f"{resolution_status}_count"] += 1
             diagnostics["infos"].append({
-                "code": "temporal.activation.target_unresolved",
+                "code": f"temporal.activation.{resolution_status}",
                 "source_activation_ref": source_activation_ref,
                 "source_target_ref": source_target_ref,
+                "resolution_status": resolution_status,
             })
             continue
         projected_target_ref = str(target_refs[0])
@@ -668,6 +739,8 @@ def project_temporal(
                     else {
                         "mode_ref": None,
                         "domain_ref": None,
+                        "mode_availability": "disabled_by_temporal_projection_options",
+                        "domain_availability": "disabled_by_temporal_projection_options",
                         "availability": "disabled_by_temporal_projection_options",
                     }
                 )
@@ -826,6 +899,55 @@ def project_temporal(
     observation_count = sum(
         row["temporal_facts"]["observation_count"] for row in projected_activations
     )
+    source_observation_count = sum(
+        int(row.get("observation_count") or 0) for row in source_activations
+    )
+    source_sequence_count = len({
+        str(row.get("sequence_id") or "") for row in source_activations
+    })
+    state_availability = {
+        "mode_projected_count": 0,
+        "mode_source_not_supplied_count": 0,
+        "mode_mapping_unavailable_count": 0,
+        "domain_projected_count": 0,
+        "domain_source_not_supplied_count": 0,
+        "domain_mapping_unavailable_count": 0,
+    }
+    for activation in projected_activations:
+        for state in (activation.get("temporal_facts") or {}).get("observation_states") or []:
+            comp = state.get("projected_state_composition") or {}
+            mode_status = comp.get("mode_availability")
+            domain_status = comp.get("domain_availability")
+            if mode_status == "projected":
+                state_availability["mode_projected_count"] += 1
+            elif mode_status in {"source_sign_not_supplied", "source_position_not_supplied"}:
+                state_availability["mode_source_not_supplied_count"] += 1
+            else:
+                state_availability["mode_mapping_unavailable_count"] += 1
+            if domain_status == "projected":
+                state_availability["domain_projected_count"] += 1
+            elif domain_status in {"source_house_not_supplied", "source_position_not_supplied"}:
+                state_availability["domain_source_not_supplied_count"] += 1
+            else:
+                state_availability["domain_mapping_unavailable_count"] += 1
+
+    reconciliation = {
+        "source_activation_count": len(source_activations),
+        "projected_activation_count": len(projected_activations),
+        "source_sequence_count": source_sequence_count,
+        "projected_sequence_count": len(projected_sequences),
+        "source_observation_state_count": source_observation_count,
+        "projected_observation_state_count": observation_count,
+        "projected_state_count_matches_projected_arcs": observation_count == sum(
+            len((row.get("temporal_facts") or {}).get("observation_states") or [])
+            for row in projected_activations
+        ),
+        "source_pass_identity_preserved": all(
+            row.get("source_sequence_ref") and int(row.get("pass_index") or 0) >= 1
+            for row in projected_activations
+        ),
+    }
+    diagnostic_summary = _temporal_diagnostic_summary(diagnostics)
     graph = {
         "metadata": {
             "package_type": "projected_temporal_activation_graph",
@@ -838,8 +960,8 @@ def project_temporal(
             "context_id": context_id,
             "context_version": context_version,
             "materialization_mode": "full",
-            "stage": "C4",
-            "execution_status": "activation_arcs_projected_experimental",
+            "stage": "C5",
+            "execution_status": "activation_arcs_projected_with_audit_and_materialization",
         },
         "source_identity": deepcopy(request_obj.source_identity),
         "target_identity": deepcopy(request_obj.target_identity),
@@ -870,22 +992,40 @@ def project_temporal(
             "coverage": {
                 "activators": activator_coverage,
                 "activations": arc_status_counts,
+                "state_composition": state_availability,
             },
+            "reconciliation": reconciliation,
         },
         "projected_term_registry": deepcopy(
             projected_target.get("projected_term_registry") or {}
         ),
         "audit": {
-            "stage": "C4",
+            "stage": "C5",
             "request_id": request_obj.request_id,
             "mapping_execution_count": len(mapping_executions),
             "mapping_executions": mapping_executions,
             "coverage": {
                 "activators": activator_coverage,
                 "activations": arc_status_counts,
+                "state_composition": state_availability,
+            },
+            "reconciliation": reconciliation,
+            "summary": {
+                "mapping_execution_count": len(mapping_executions),
+                "applied_mapping_count": sum(1 for row in mapping_executions if row.get("status") == "applied"),
+                "coverage": {
+                    "eligible_activators": activator_coverage.get("eligible_activator_count"),
+                    "mapped_eligible_activators": activator_coverage.get("mapped_eligible_activator_count"),
+                    "eligible_activations": arc_status_counts.get("eligible_activation_count"),
+                    "projected_activations": arc_status_counts.get("projected_activation_count"),
+                },
+                "reconciliation": reconciliation,
             },
         },
-        "diagnostics": diagnostics,
+        "diagnostics": {
+            **diagnostics,
+            "summary": diagnostic_summary,
+        },
         "provenance": {
             "temporal_projection_request_id": request_obj.request_id,
             "source_bundle_id": request_obj.upstream_contracts.get("bundle_id"),
@@ -898,7 +1038,7 @@ def project_temporal(
         },
         "upstream_source_limitations": list(request_obj.limitations),
         "projected_artifact_limitations": [
-            "Stage C4 projects activation arcs but defers final materialization and audit policy to C5.",
+            "Stage C5 provides audit, diagnostics, coverage, and materialization; downstream interpretation remains out of scope.",
             "No consumer-facing transit interpretation, claim synthesis, or narrative rendering is included.",
         ],
     }
