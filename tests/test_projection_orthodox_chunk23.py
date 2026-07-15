@@ -98,7 +98,7 @@ def test_venus_and_mars_project_to_orthodox_primitives():
     assert {"value", "attract", "bond"} <= set(by_canonical["Venus"]["operators"])
     assert by_canonical["Venus"]["attributes"]["source_names"] == ["Venus"]
     assert by_canonical["Mars"]["name"] == "action_assertion_drive"
-    assert result["audit"]["coverage"]["unmapped_source_object_count"] == 1
+    assert result["audit"]["coverage"]["unmapped_source_object_count"] == 0
 
 
 def test_mars_square_venus_projects_inside_orthodox_ontology():

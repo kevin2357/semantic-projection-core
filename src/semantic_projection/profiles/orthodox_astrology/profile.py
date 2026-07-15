@@ -96,8 +96,8 @@ class OrthodoxAstrologyProfile:
     """Orthodox reference profile with registry-aware relationship contexts."""
 
     manifest = _load_manifest()
-    temporal_activator_scope_exclusions = frozenset({"mean node", "true node"})
-    temporal_target_scope_exclusions = frozenset({"mean node", "true node", "spirit"})
+    temporal_activator_scope_exclusions = frozenset()
+    temporal_target_scope_exclusions = frozenset()
 
     def validate_context(self, context: ProjectionContext) -> list[dict[str, Any]]:
         supported = {
@@ -147,9 +147,52 @@ class OrthodoxAstrologyProfile:
             }]
 
         canonical_name = canonical_object_name(source_object)
+        # Foundry may emit a legacy Lot-of-Fortune alias alongside the canonical
+        # calculated Part of Fortune object. Preserve the canonical object only.
+        if source_object.get("object_type") == "lot" and canonical_name == "Fortune":
+            return []
+
         mapping = OBJECT_MAPPINGS.get(canonical_name)
         if mapping is None:
-            return []
+            source_type = str(source_object.get("object_type") or "canonical_object")
+            facts = dict(source_object.get("facts") or {})
+            source_name = str(source_object.get("name") or canonical_name or source_object.get("id"))
+            target_name = source_name.strip().lower().replace(" ", "_").replace("-", "_")
+            generic_domains = [source_type, "orthodox_astrology"]
+            structural = source_object.get("structural_strength_score")
+            relevance, components = _score(structural, 0.64, 1.0)
+            return [{
+                "target_key": f"orthodox:canonical:{source_object.get('id')}",
+                "object_type": f"orthodox_{source_type}",
+                "name": target_name,
+                "operators": sorted(set(source_operator_strings(source_object) or ["represent"])),
+                "attributes": {
+                    "canonical_object_name": canonical_name,
+                    "source_names": [source_name],
+                    "source_object_type": source_type,
+                    "semantic_domains": generic_domains,
+                    "theme_tags": [source_type],
+                    "source_theme_tags": [source_type],
+                    "sign": source_object.get("sign") or facts.get("sign"),
+                    "house": source_object.get("house") or facts.get("house"),
+                    "subject_owner": source_object.get("subject_owner"),
+                    "canonical_facts": facts,
+                    "identity_projection": True,
+                    "context_mode": "professional" if is_professional(context) else "general",
+                    "projection_relevance_components": components,
+                },
+                "structural_strength_score": structural,
+                "projection_relevance_score": relevance,
+                "mapping_rule_id": f"orthodox_astrology.v1.identity.{source_type}",
+                "mapping_rule_version": "1.1.0",
+                "conditions_evaluated": [
+                    {"condition": "canonical_identity_projection", "result": True, "value": source_type},
+                ],
+                "provenance": {
+                    "profile_layer": "orthodox_canonical_identity_mapping",
+                    "source_object_type": source_type,
+                },
+            }]
 
         mapped_themes = map_themes(list(mapping["themes"]), context)
         context_component = context_salience(context, list(mapping["themes"]))
@@ -329,11 +372,10 @@ class OrthodoxAstrologyProfile:
     def classify_source_object(self, source_object: dict[str, Any]) -> str:
         if house_number(source_object) is not None:
             return "eligible"
-        return (
-            "eligible"
-            if canonical_object_name(source_object) in OBJECT_MAPPINGS
-            else "outside_declared_scope"
-        )
+        canonical_name = canonical_object_name(source_object)
+        if source_object.get("object_type") == "lot" and canonical_name == "Fortune":
+            return "excluded_by_source_selection_policy"
+        return "eligible"
 
     def classify_source_relationship(
         self,

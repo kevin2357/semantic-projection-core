@@ -23,8 +23,8 @@
   "deterministic": true,
   "status": "playful_experimental_reference_profile",
   "extensions": {
-    "chunk": "2.6.woof",
-    "scope": "natal operators, signs/modes, Doghouses/domains, angles/interfaces, all SDK aspect types",
+    "chunk": "3.beta.8",
+    "scope": "existing Woofmapped primitives with validated temporal activators, relationships, state composition, and production routing",
     "house_mapping_policy": "doghouse",
     "guardrails": [
       "not veterinary advice",
@@ -33,13 +33,12 @@
       "playful structural projection"
     ],
     "deferred": [
-      "transits",
-      "human-dog synastry",
-      "dog-dog synastry",
-      "pack models"
+      "additional primitive mappings",
+      "synastry-specific woofmapped semantics"
     ],
     "temporal_target_scope_exclusions": [
       "Spirit"
-    ]
+    ],
+    "deferred_source_graph_types": []
   }
 }

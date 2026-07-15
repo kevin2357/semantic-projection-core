@@ -1,6 +1,41 @@
 from __future__ import annotations
 
 OBJECT_MAPPINGS = {
+    "True Node": {
+        "target_name": "true_node",
+        "operators": ["orient", "develop", "move_toward"],
+        "themes": ["developmental_direction"],
+        "domains": ["growth", "development", "trajectory"],
+        "salience": 0.72,
+    },
+    "Mean Node": {
+        "target_name": "mean_node",
+        "operators": ["orient", "develop", "move_toward"],
+        "themes": ["developmental_direction"],
+        "domains": ["growth", "development", "trajectory"],
+        "salience": 0.68,
+    },
+    "Part of Fortune": {
+        "target_name": "part_of_fortune",
+        "operators": ["receive", "facilitate", "prosper"],
+        "themes": ["fortune_embodiment"],
+        "domains": ["fortune", "embodiment", "circumstance"],
+        "salience": 0.70,
+    },
+    "Spirit": {
+        "target_name": "lot_of_spirit",
+        "operators": ["intend", "direct", "choose"],
+        "themes": ["spirit_intention"],
+        "domains": ["intention", "agency", "calling"],
+        "salience": 0.70,
+    },
+    "Vertex": {
+        "target_name": "vertex",
+        "operators": ["encounter", "turn", "externalize"],
+        "themes": ["encounter_axis"],
+        "domains": ["encounter", "turning_point", "other"],
+        "salience": 0.66,
+    },
     "Sun": {
         "target_name": "identity_vitality",
         "operators": ["illuminate", "prioritize", "express"],

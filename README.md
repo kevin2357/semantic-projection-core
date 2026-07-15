@@ -210,3 +210,8 @@ semantic-temporal-run ^
 ```
 
 The route preserves the normalized request and deterministic identity chain without creating a second projection implementation. Run `scripts\run_chunk3_beta_7_qa.bat` for complete production-route QA over every Foundry temporal fixture in `outputs\fixture_test_files`.
+
+
+### C8 profile expansion
+
+Chunk 3.beta.8 expands the Orthodox reference profile to near-complete canonical object coverage through specialized mappings plus auditable identity projection. The real temporal fixture now projects all 12 activators and all 88 activation arcs. Woofmapped primitive scope is unchanged, but its temporal production route is now explicitly documented and regression-tested.

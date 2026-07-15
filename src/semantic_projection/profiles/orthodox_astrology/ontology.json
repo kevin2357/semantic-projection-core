@@ -23,5 +23,10 @@
     "pressures_and_develops",
     "supports_and_facilitates",
     "enables_and_coordinates"
-  ]
+  ],
+  "description": "Orthodox astrology reference ontology with specialized core mappings and auditable identity projection for canonical derived objects.",
+  "extensions": {
+    "chunk": "3.beta.8",
+    "coverage_policy": "specialized_core_plus_canonical_identity_projection"
+  }
 }

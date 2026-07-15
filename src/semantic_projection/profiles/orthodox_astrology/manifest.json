@@ -27,32 +27,20 @@
   "mapping_rule_namespace": "orthodox_astrology.v1",
   "output_contract": "projected_semantic_graph.v1",
   "deterministic": true,
-  "status": "reference_profile_relationship_projection",
+  "status": "expanded_reference_profile",
   "extensions": {
-    "chunk": "2.4",
-    "scope": "core objects, major aspects, registry-aware synastry, house overlays, contexts",
+    "chunk": "3.beta.8",
+    "scope": "expanded canonical identity coverage, major aspects, relationship projection, and temporal projection",
     "supported_context_ids": [
       "orthodox.relationship.general.v1",
       "orthodox.relationship.professional.v1"
     ],
     "deferred": [
-      "expanded objects",
-      "minor aspects",
-      "timing-specific rules"
+      "minor-aspect semantic specialization",
+      "alias expansion beyond canonical source selection"
     ],
-    "deferred_source_graph_types": [
-      "transit",
-      "transit_period",
-      "transit_range"
-    ],
-    "temporal_activator_scope_exclusions": [
-      "Mean Node",
-      "True Node"
-    ],
-    "temporal_target_scope_exclusions": [
-      "Mean Node",
-      "True Node",
-      "Spirit"
-    ]
+    "deferred_source_graph_types": [],
+    "temporal_activator_scope_exclusions": [],
+    "temporal_target_scope_exclusions": []
   }
 }

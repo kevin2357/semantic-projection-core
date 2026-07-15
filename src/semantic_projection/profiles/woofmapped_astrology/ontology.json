@@ -14,5 +14,9 @@
     "not_veterinary_advice",
     "not_behavioral_diagnosis",
     "not_empirically_validated"
-  ]
+  ],
+  "extensions": {
+    "chunk": "3.beta.8",
+    "temporal_support": "validated persistent activators, activation relationships, doghouse-domain state composition, and production routing; primitive scope unchanged"
+  }
 }

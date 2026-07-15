@@ -62,3 +62,15 @@ The production route composes the C1–C6 implementation; it does not bypass or 
 ### Architectural conclusion
 
 > **Temporal projection is not a second semantic compiler. It is the same semantic compiler operating over a time-indexed canonical graph while preserving an invariant temporal fact layer. Cross-profile and cross-context comparisons demonstrate that semantic variability is orthogonal to canonical temporal structure.**
+
+
+## C8 profile-coverage principle
+
+The Orthodox reference profile now uses two complementary mapping modes:
+
+1. specialized mappings for canonical primitives with explicit Orthodox semantics; and
+2. auditable identity projection for canonical derived objects whose Orthodox meaning is already represented by their source identity.
+
+Identity projection does not collapse the Foundry/Core boundary. Foundry still owns the canonical fact row; Core emits a deterministic target object carrying source identity, canonical facts, mapping provenance, and profile ownership. Duplicate aliases may be excluded by explicit source-selection policy.
+
+Woofmapped timing continues to use the same generic temporal compiler while retaining its deliberately narrow primitive ontology. This demonstrates that temporal completeness and primitive breadth are independent profile choices.

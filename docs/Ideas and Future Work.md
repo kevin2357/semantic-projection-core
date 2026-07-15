@@ -60,3 +60,19 @@ Extend the new artifact-identity utility as additional request, projected, mater
 - Treat cross-profile temporal-fact invariance as a permanent hero regression test.
 - Grow the C6 comparison artifact into a general semantic-diff utility while keeping it downstream of projection execution.
 - Keep the C6 architectural conclusion in high-level architecture documentation: temporal projection is the same compiler over a time-indexed canonical graph, with semantic variability orthogonal to canonical temporal facts.
+
+
+## Queued documentation: architectural retrospective
+
+Create **Evolution of Semantic Projection Core: Lessons from Static and Temporal Projection** as a narrative onboarding document. Cover the emergence of registries, deterministic IDs, materialization modes, increasingly explicit coverage classifications, the Foundry-facts/Core-semantics boundary, and the central lesson that projection is structural compilation rather than interpretation.
+
+## Synastry projection expansion
+
+Add a dedicated future pass for synastry projection:
+
+- audit current synastry object and relationship coverage;
+- add or refine relationship-specific mappings where useful;
+- preserve person-A/person-B ownership and directional semantics;
+- establish cross-profile synastry QA;
+- add temporal synastry routing when Foundry provides canonical fixtures;
+- compare synastry with Composite and Davison projection contracts without conflating their source identities.
