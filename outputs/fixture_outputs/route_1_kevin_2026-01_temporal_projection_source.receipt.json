@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "package_type": "temporal_projection_route_receipt",
+    "contract_version": "1.0.0",
+    "source_bundle_id": "temporal_projection_source:896f45e1905f45b8fd9a",
+    "source_temporal_graph_id": "canonical_temporal_graph:74575312006e23ed74ca",
+    "request_id": "temporal_projection_request:3028c62486a88685d6c4c347",
+    "projected_graph_id": "temporal_projection:d4db6becfe693e79c2eed8e9",
+    "profile_id": "cognitive_architecture_demo.v0",
+    "profile_version": "0.2.0",
+    "context_id": "cognitive_architecture.general.v0",
+    "context_version": "0.2.0",
+    "target_family": "natal",
+    "output_mode": "standard",
+    "summary_semantic_hashes": {
+      "projected_activators": "fe87bdc103729cfc103fe7de",
+      "projected_activations": "05491a1c7b0e78dc25297930",
+      "projected_sequences": "4a418dcfa9e23a7e3c552f8f",
+      "projected_states": "b5eb2c22c423cbaf2562577b",
+      "temporal_facts": "5f78526e8eb81267afd13ff0"
+    },
+    "coverage": {
+      "activators": {
+        "source_activator_count": 12,
+        "eligible_activator_count": 11,
+        "mapped_eligible_activator_count": 11,
+        "mapped_activator_count": 11,
+        "unmapped_activator_count": 0,
+        "unmapped_activator_refs": [],
+        "policy_excluded_activator_count": 1,
+        "policy_excluded_activators": [
+          {
+            "source_activator_ref": "canonical:transiting_object:mean_node",
+            "reason": "excluded_by_source_selection_policy"
+          }
+        ],
+        "profile_scope_excluded_activator_count": 0,
+        "profile_scope_excluded_activators": [],
+        "source_selection_policy_excluded_activator_count": 1,
+        "source_selection_policy_excluded_activators": [
+          {
+            "source_activator_ref": "canonical:transiting_object:mean_node",
+            "reason": "excluded_by_source_selection_policy"
+          }
+        ],
+        "eligible_but_unmapped_activator_count": 0,
+        "eligible_but_unmapped_activator_refs": [],
+        "static_source_object_count": 189,
+        "projected_target_object_count": 17
+      },
+      "activations": {
+        "source_activation_count": 88,
+        "eligible_activation_count": 54,
+        "projected_activation_count": 54,
+        "activator_policy_excluded_count": 1,
+        "activator_profile_scope_excluded_count": 0,
+        "activator_source_selection_policy_excluded_count": 1,
+        "missing_projected_activator_count": 0,
+        "target_policy_excluded_or_unmapped_count": 33,
+        "target_excluded_by_profile_scope_count": 31,
+        "target_excluded_by_source_selection_policy_count": 2,
+        "target_eligible_but_unmapped_count": 0,
+        "target_missing_from_static_source_graph_count": 0,
+        "unsupported_relationship_count": 0,
+        "failed_activation_count": 0
+      },
+      "state_composition": {
+        "mode_projected_count": 0,
+        "mode_source_not_supplied_count": 205,
+        "mode_mapping_unavailable_count": 0,
+        "domain_projected_count": 205,
+        "domain_source_not_supplied_count": 0,
+        "domain_mapping_unavailable_count": 0
+      }
+    },
+    "route_hash": "09198cbafbb3dc421c0905dc"
+  }
+}

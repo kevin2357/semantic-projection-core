@@ -1,22 +1,23 @@
 {
-  "stage": "C6",
+  "stage": "C7",
   "status": "passed",
   "pytest": {
     "exit_code": 0,
     "passed": true
   },
-  "fixture": "outputs\\fixture_test_files\\kevin_2026-01_temporal_projection_source.json",
-  "case_count": 4,
-  "determinism": {
-    "byte_identical": true,
-    "bytes_run1": 936843,
-    "bytes_run2": 936843,
-    "sha256_run1": "1bfbaa0cced793247e672db0261471b0feec342d6388718e283038e84a56b380",
-    "sha256_run2": "1bfbaa0cced793247e672db0261471b0feec342d6388718e283038e84a56b380"
-  },
-  "cross_profile_temporal_facts_preserved": true,
-  "orthodox_context_temporal_facts_preserved": true,
-  "orthodox_context_semantic_change_count": 50,
-  "summary_semantic_hashes_present": true,
-  "upstream_limitations_annotated": true
+  "fixture_count": 1,
+  "routes": [
+    {
+      "fixture": "outputs\\fixture_test_files\\kevin_2026-01_temporal_projection_source.json",
+      "target_family": "natal",
+      "request_id": "temporal_projection_request:3028c62486a88685d6c4c347",
+      "projected_graph_id": "temporal_projection:d4db6becfe693e79c2eed8e9",
+      "route_hash": "09198cbafbb3dc421c0905dc",
+      "byte_identical": true,
+      "sha256_run1": "5a8955c77dbe488077a61b83581655acd8d80a43947c35d0171037dec53ad71f",
+      "sha256_run2": "5a8955c77dbe488077a61b83581655acd8d80a43947c35d0171037dec53ad71f",
+      "size_bytes": 936840
+    }
+  ],
+  "all_deterministic": true
 }
