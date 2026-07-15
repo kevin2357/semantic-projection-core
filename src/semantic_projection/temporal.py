@@ -203,7 +203,7 @@ def adapt_foundry_temporal_source_bundle(
 ) -> TemporalProjectionRequest:
     """Convert a Foundry bundle into Core's generic temporal request.
 
-    This is a Stage C1 intake operation only. It validates and preserves the
+    This is a Stage C1/C2 intake operation only. It validates and preserves the
     handoff without executing projected temporal semantics.
     """
     plain_bundle = deepcopy(dict(bundle))
@@ -255,11 +255,12 @@ def adapt_foundry_temporal_source_bundle(
 def project_temporal(*args: Any, **kwargs: Any) -> None:
     """Reserved execution entry point.
 
-    Stage C1 deliberately keeps temporal execution disabled until the projected
-    temporal contract and engine are completed and validated.
+    Stage C2 keeps temporal execution disabled. The projected temporal output
+    contract is now defined, but object/activation mappings begin in Stage C3.
     """
     raise TemporalProjectionNotImplementedError(
-        "Temporal projection execution is not implemented in Stage C1. "
-        "Foundry temporal_projection_source_bundle.v1 intake is supported, "
-        "but projected_temporal_activation_graph.v1 is not emitted yet."
+        "Temporal projection execution is not implemented in Stage C2. "
+        "Foundry temporal_projection_source_bundle.v1 intake and the "
+        "projected_temporal_activation_graph.v1 contract are supported, "
+        "but temporal mappings are not emitted until Stage C3 and later."
     )

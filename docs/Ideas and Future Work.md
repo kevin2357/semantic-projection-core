@@ -21,3 +21,9 @@ The Foundry temporal bundle intake and generic temporal request contract are imp
 - separate preserved `temporal_facts` from Core-owned projected fields;
 - define referential-integrity and deterministic-ID invariants;
 - validate the hand-authored contract against the real Kevin temporal bundle before implementing mapping execution.
+
+## Temporal projection after C2
+
+Stage C3 should reuse the existing static object, sign, house, aspect, term-registry, audit, and coverage abstractions. Avoid parallel temporal-only mapping tables unless a target ontology genuinely requires distinct temporary-activation semantics.
+
+Future temporal materializations may include event-only, daily, monthly-index, and streaming views, but these remain deferred until the full/standard/summary/forensic projected temporal contract is implemented and validated.

@@ -5,9 +5,11 @@ import json
 from pathlib import Path
 import sys
 import traceback
+import logging
 
 from .contracts import ProjectionContext, TemporalProjectionOptions
 from .temporal import TemporalSourceContractError, adapt_foundry_temporal_source_bundle
+from .logging_config import configure_logging, log_event
 
 
 def main() -> None:
@@ -25,7 +27,21 @@ def main() -> None:
     parser.add_argument("--out", required=True, help="Output TemporalProjectionRequest JSON")
     parser.add_argument("--omit-observation-states", action="store_true")
     parser.add_argument("--debug", action="store_true", help="Show traceback for expected validation errors")
+    parser.add_argument("--log-file", default="semantic_projection.log", help="UTF-8 Core operational log")
     args = parser.parse_args()
+    logger = configure_logging(
+        log_path=args.log_file,
+        level=logging.DEBUG if args.debug else logging.INFO,
+    )
+    log_event(
+        logger,
+        "temporal_intake_start",
+        bundle=args.bundle,
+        profile_id=args.projection_profile,
+        profile_version=args.projection_profile_version,
+        context=args.projection_context,
+        output=args.out,
+    )
 
     try:
         bundle = json.loads(Path(args.bundle).read_text(encoding="utf-8"))
@@ -48,7 +64,21 @@ def main() -> None:
             encoding="utf-8",
         )
         print(f"Wrote validated temporal request: {out}")
+        log_event(
+            logger,
+            "temporal_intake_complete",
+            request_id=request.request_id,
+            output=str(out),
+            activator_count=len(request.temporal_source_graph.get("activators") or []),
+            activation_count=len(request.temporal_source_graph.get("activations") or []),
+        )
     except TemporalSourceContractError as exc:
+        logger.warning(
+            "temporal_intake_rejected reason=%r bundle=%r profile_id=%r",
+            str(exc),
+            args.bundle,
+            args.projection_profile,
+        )
         print(f"ERROR temporal_source_contract: {exc}", file=sys.stderr)
         if args.debug:
             traceback.print_exc()

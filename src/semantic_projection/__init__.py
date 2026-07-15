@@ -5,8 +5,10 @@ from .contracts import (
     ProjectedObject,
     ProjectedRelationship,
     ProjectedSemanticGraph,
+    ProjectedTemporalActivator,
     ProjectedTemporalActivation,
     ProjectedTemporalActivationGraph,
+    ProjectedTemporalSequenceSummary,
     ProjectedTemporalState,
     ProjectionAudit,
     ProjectionContext,
@@ -25,6 +27,11 @@ from .ids import (
     projected_relationship_id,
     projection_request_id,
     temporal_projection_request_id,
+    projected_temporal_graph_id,
+    projected_temporal_activator_id,
+    projected_temporal_sequence_id,
+    projected_temporal_activation_id,
+    projected_temporal_state_id,
 )
 from .profile import ProjectionProfile
 from .registry import ProjectionProfileRegistry, ProjectionProfileRegistryError
@@ -94,4 +101,24 @@ __all__.extend([
     "temporal_projection_request_id",
     "validate_foundry_temporal_source_bundle",
     "validate_temporal_projection_request",
+])
+
+
+from .logging_config import configure_logging, log_event
+from .temporal_contract import projected_temporal_contract_skeleton
+from .validation import validate_projected_temporal_activation_graph
+
+
+__all__.extend([
+    "ProjectedTemporalActivator",
+    "ProjectedTemporalSequenceSummary",
+    "configure_logging",
+    "log_event",
+    "projected_temporal_contract_skeleton",
+    "validate_projected_temporal_activation_graph",
+    "projected_temporal_graph_id",
+    "projected_temporal_activator_id",
+    "projected_temporal_sequence_id",
+    "projected_temporal_activation_id",
+    "projected_temporal_state_id",
 ])

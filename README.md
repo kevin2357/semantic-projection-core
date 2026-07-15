@@ -57,7 +57,7 @@ Semantic Projection Core owns:
 - deterministic rendering primitives;
 - standalone generic CLI;
 - Foundry temporal source-bundle validation and generic temporal request intake;
-- reserved `projected_temporal_activation_graph.v1` contracts.
+- validated `projected_temporal_activation_graph.v1` contract and deterministic temporal ID namespaces.
 
 It intentionally **does not** calculate astrology charts. **Astrology Graph Foundry** is one upstream producer of canonical source graphs and one integration client of this library.
 
@@ -89,6 +89,9 @@ These demonstrate that the projection engine itself is generic rather than astro
 - Standalone static projection CLI
 - Validation-only temporal intake CLI
 - `temporal_projection_request.v1`
+- `projected_temporal_activation_graph.v1` schema and referential-integrity validation
+- UTF-8 operational logging
+- one-command fixture QA workflow
 
 **Planned**
 
@@ -135,7 +138,7 @@ semantic-temporal-intake ^
   --out temporal_projection_request.json
 ```
 
-Temporal execution remains intentionally disabled until `projected_temporal_activation_graph.v1` is implemented and validated.
+Temporal mapping execution remains intentionally disabled. The output contract is now implemented and validated; Stage C3 will begin reusing static target/object mappings.
 
 ---
 
@@ -160,4 +163,5 @@ See:
 - `docs/Extraction History.md`
 - `docs/Ideas and Future Work.md`
 - `docs/Chunk 3.beta.1 Temporal Intake and Adapter Contract.md`
+- `docs/Chunk 3.beta.2 Projected Temporal Contract and Operational Foundations.md`
 

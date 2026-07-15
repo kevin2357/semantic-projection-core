@@ -93,3 +93,67 @@ def validate_temporal_projection_request(request: dict[str, Any]) -> None:
         raise ProjectionValidationError("Temporal projection context_id must be non-empty.")
     if not request.get("profile_id"):
         raise ProjectionValidationError("Temporal projection profile_id must be non-empty.")
+
+
+
+def validate_projected_temporal_activation_graph(graph: dict[str, Any]) -> None:
+    """Validate the Stage C2 projected temporal output contract and references."""
+    validate_contract(graph, "projected_temporal_activation_graph_v1.schema.json")
+
+    activator_ids = [row.get("id") for row in graph.get("projected_activators") or []]
+    activation_ids = [row.get("id") for row in graph.get("projected_activations") or []]
+    sequence_ids = [row.get("id") for row in graph.get("projected_sequences") or []]
+    for label, ids in (
+        ("projected activator", activator_ids),
+        ("projected activation", activation_ids),
+        ("projected sequence", sequence_ids),
+    ):
+        duplicates = sorted({value for value in ids if value and ids.count(value) > 1})
+        if duplicates:
+            raise ProjectionValidationError(f"Duplicate {label} IDs: {duplicates[:5]}")
+
+    target_ids = {row.get("id") for row in (graph.get("projected_target_graph") or {}).get("objects") or []}
+    activator_id_set = set(activator_ids)
+    activation_id_set = set(activation_ids)
+    sequence_id_set = set(sequence_ids)
+    state_ids: set[str] = set()
+
+    for activation in graph.get("projected_activations") or []:
+        if activation.get("projected_activator_ref") not in activator_id_set:
+            raise ProjectionValidationError(
+                f"Projected activation {activation.get('id')!r} references an unknown activator."
+            )
+        if activation.get("projected_target_ref") not in target_ids:
+            raise ProjectionValidationError(
+                f"Projected activation {activation.get('id')!r} references an unknown target."
+            )
+        if activation.get("projected_sequence_id") not in sequence_id_set:
+            raise ProjectionValidationError(
+                f"Projected activation {activation.get('id')!r} references an unknown sequence."
+            )
+        facts = activation.get("temporal_facts") or {}
+        states = facts.get("observation_states") or []
+        if facts.get("observation_count") != len(states):
+            raise ProjectionValidationError(
+                f"Projected activation {activation.get('id')!r} observation_count does not reconcile."
+            )
+        for state in states:
+            sid = state.get("id")
+            if sid in state_ids:
+                raise ProjectionValidationError(f"Duplicate projected temporal state ID {sid!r}.")
+            state_ids.add(sid)
+            if state.get("projected_activation_ref") != activation.get("id"):
+                raise ProjectionValidationError(
+                    f"Projected state {sid!r} does not reference its owning activation."
+                )
+
+    for sequence in graph.get("projected_sequences") or []:
+        missing = [ref for ref in sequence.get("activation_refs") or [] if ref not in activation_id_set]
+        if missing:
+            raise ProjectionValidationError(
+                f"Projected sequence {sequence.get('id')!r} contains unknown activations: {missing[:5]}"
+            )
+        if sequence.get("pass_count") != len(sequence.get("activation_refs") or []):
+            raise ProjectionValidationError(
+                f"Projected sequence {sequence.get('id')!r} pass_count does not reconcile."
+            )

@@ -1,28 +1,41 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "projected_temporal_activation_graph_v1.schema.json",
   "title": "Projected Temporal Activation Graph v1",
-  "description": "Reserved contract for directional, time-bounded activations over an existing projected semantic target graph. The current SDK rejects transit packages until this contract is implemented.",
+  "description": "Core-owned, directional, arc-first projection of canonical temporal facts into a target semantic ontology.",
   "type": "object",
   "required": [
     "metadata",
     "source_identity",
-    "source_graph_ref",
-    "target_ontology",
-    "target_graph_ref",
-    "transient_objects",
-    "temporal_states",
-    "activations",
+    "target_identity",
+    "period",
+    "projected_target_graph",
+    "projected_activators",
+    "projected_activations",
+    "projected_sequences",
     "indexes",
     "summary",
+    "projected_term_registry",
     "audit",
-    "diagnostics"
+    "diagnostics",
+    "provenance",
+    "upstream_source_limitations",
+    "projected_artifact_limitations"
   ],
   "properties": {
     "metadata": {
       "type": "object",
       "required": [
         "package_type",
-        "contract_version"
+        "contract_version",
+        "temporal_projection_id",
+        "static_projection_id",
+        "engine_version",
+        "profile_id",
+        "profile_version",
+        "context_id",
+        "context_version",
+        "materialization_mode"
       ],
       "properties": {
         "package_type": {
@@ -31,149 +44,98 @@
         "contract_version": {
           "const": "1.0.0"
         },
-        "projection_id": {
-          "type": "string"
+        "temporal_projection_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "static_projection_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "engine_version": {
+          "type": "string",
+          "minLength": 1
         },
         "profile_id": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "profile_version": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "context_id": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "context_version": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
+        },
+        "materialization_mode": {
+          "enum": [
+            "full",
+            "standard",
+            "summary",
+            "forensic"
+          ]
         }
-      }
+      },
+      "additionalProperties": true
     },
     "source_identity": {
       "type": "object"
     },
-    "source_graph_ref": {
+    "target_identity": {
       "type": "object"
     },
-    "target_ontology": {
-      "type": "string"
-    },
-    "target_graph_ref": {
+    "period": {
       "type": "object"
     },
-    "transient_objects": {
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+    "projected_target_graph": {
+      "type": "object"
     },
-    "temporal_states": {
+    "projected_activators": {
       "type": "array",
       "items": {
         "type": "object",
         "required": [
-          "state_id",
-          "projected_object_id",
-          "observed_at",
-          "attributes",
-          "source_refs"
+          "id",
+          "source_activator_ref",
+          "projected_operator_ref",
+          "projected_object_type",
+          "source_refs",
+          "mapping_rule_refs",
+          "context_refs",
+          "provenance"
         ],
         "properties": {
-          "state_id": {
-            "type": "string"
+          "id": {
+            "type": "string",
+            "minLength": 1
           },
-          "projected_object_id": {
-            "type": "string"
+          "source_activator_ref": {
+            "type": "string",
+            "minLength": 1
           },
-          "observed_at": {
-            "type": "string"
+          "source_body": {
+            "type": [
+              "string",
+              "null"
+            ]
           },
-          "attributes": {
-            "type": "object"
+          "projected_operator_ref": {
+            "type": "string",
+            "minLength": 1
           },
-          "source_refs": {
+          "projected_object_type": {
+            "const": "temporal_activator"
+          },
+          "operators": {
             "type": "array",
             "items": {
               "type": "string"
             }
-          }
-        }
-      }
-    },
-    "activations": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "activation_id",
-          "activation_type",
-          "activator_id",
-          "target_id",
-          "relationship_type",
-          "attributes",
-          "source_refs",
-          "mapping_rule_refs",
-          "provenance"
-        ],
-        "properties": {
-          "activation_id": {
-            "type": "string"
-          },
-          "activation_type": {
-            "type": "string"
-          },
-          "activator_id": {
-            "type": "string"
-          },
-          "target_id": {
-            "type": "string"
-          },
-          "relationship_type": {
-            "type": "string"
-          },
-          "start_at": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "exact_at": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "end_at": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "phase": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "pass_index": {
-            "type": [
-              "integer",
-              "null"
-            ]
-          },
-          "applying": {
-            "type": [
-              "boolean",
-              "null"
-            ]
-          },
-          "orb": {
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "attributes": {
-            "type": "object"
           },
           "source_refs": {
             "type": "array",
@@ -187,10 +149,168 @@
               "type": "string"
             }
           },
+          "context_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "attributes": {
+            "type": "object"
+          },
           "provenance": {
             "type": "object"
           }
-        }
+        },
+        "additionalProperties": false
+      }
+    },
+    "projected_activations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source_activation_ref",
+          "source_sequence_ref",
+          "projected_sequence_id",
+          "pass_index",
+          "projected_activator_ref",
+          "projected_target_ref",
+          "projected_relationship_type",
+          "temporal_role",
+          "directionality",
+          "temporal_facts",
+          "source_refs",
+          "mapping_rule_refs",
+          "context_refs",
+          "provenance"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_activation_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_sequence_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "projected_sequence_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pass_index": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "projected_activator_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "projected_target_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "projected_relationship_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "projected_relationship_term_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "temporal_role": {
+            "const": "current_activation"
+          },
+          "directionality": {
+            "const": "activator_to_target"
+          },
+          "projected_activation_domain_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "projected_activator_mode_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "temporal_facts": {
+            "$ref": "#/$defs/temporalFacts"
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mapping_rule_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "context_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "provenance": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "projected_sequences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source_sequence_ref",
+          "activation_refs",
+          "pass_count",
+          "source_refs",
+          "provenance"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "source_sequence_ref": {
+            "type": "string"
+          },
+          "activation_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pass_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "provenance": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
       }
     },
     "indexes": {
@@ -199,11 +319,161 @@
     "summary": {
       "type": "object"
     },
+    "projected_term_registry": {
+      "type": "object"
+    },
     "audit": {
       "type": "object"
     },
     "diagnostics": {
       "type": "object"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "upstream_source_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "projected_artifact_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
-  }
+  },
+  "$defs": {
+    "projectedState": {
+      "type": "object",
+      "required": [
+        "id",
+        "source_state_ref",
+        "projected_activation_ref",
+        "observed_at",
+        "phase",
+        "orb",
+        "distance",
+        "strength_label",
+        "activator_state",
+        "projected_state_composition",
+        "source_refs",
+        "provenance"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "source_state_ref": {
+          "type": "string"
+        },
+        "projected_activation_ref": {
+          "type": "string"
+        },
+        "observed_at": {
+          "type": "string"
+        },
+        "phase": {
+          "enum": [
+            "applying_observed",
+            "closest_observed",
+            "sampled_exact",
+            "separating_observed"
+          ]
+        },
+        "orb": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "distance": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "strength_label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "activator_state": {
+          "type": "object"
+        },
+        "projected_state_composition": {
+          "type": "object"
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "provenance": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "temporalFacts": {
+      "type": "object",
+      "required": [
+        "start_at",
+        "closest_observed_at",
+        "exact_at",
+        "end_at",
+        "exactness",
+        "motion",
+        "observation_count",
+        "observation_states"
+      ],
+      "properties": {
+        "start_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "closest_observed_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exact_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "end_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exactness": {
+          "type": "object"
+        },
+        "motion": {
+          "type": "object"
+        },
+        "observation_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "observation_states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/projectedState"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
 }

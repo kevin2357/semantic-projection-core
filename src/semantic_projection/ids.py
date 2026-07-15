@@ -68,3 +68,67 @@ def temporal_projection_request_id(
         "options": options or {},
     })
     return f"temporal_projection_request:{token}"
+
+
+
+def projected_temporal_graph_id(
+    *,
+    request_id: str,
+    static_projection_id: str,
+    temporal_graph_id: str,
+    profile_id: str,
+    profile_version: str,
+    context_id: str,
+    options: dict | None = None,
+) -> str:
+    return "temporal_projection:" + stable_hash({
+        "request_id": request_id,
+        "static_projection_id": static_projection_id,
+        "temporal_graph_id": temporal_graph_id,
+        "profile_id": profile_id,
+        "profile_version": profile_version,
+        "context_id": context_id,
+        "options": options or {},
+    })
+
+
+def projected_temporal_activator_id(
+    *, profile_id: str, source_activator_ref: str, projected_operator_ref: str, context_id: str
+) -> str:
+    return f"projected_temporal_activator:{profile_id}:" + stable_hash([
+        source_activator_ref, projected_operator_ref, context_id
+    ])
+
+
+def projected_temporal_sequence_id(
+    *, profile_id: str, source_sequence_ref: str, context_id: str
+) -> str:
+    return f"projected_temporal_sequence:{profile_id}:" + stable_hash([
+        source_sequence_ref, context_id
+    ])
+
+
+def projected_temporal_activation_id(
+    *,
+    profile_id: str,
+    source_activation_ref: str,
+    projected_activator_ref: str,
+    projected_target_ref: str,
+    projected_relationship_type: str,
+    context_id: str,
+) -> str:
+    return f"projected_temporal_activation:{profile_id}:" + stable_hash([
+        source_activation_ref,
+        projected_activator_ref,
+        projected_target_ref,
+        projected_relationship_type,
+        context_id,
+    ])
+
+
+def projected_temporal_state_id(
+    *, profile_id: str, source_state_ref: str, projected_activation_ref: str, context_id: str
+) -> str:
+    return f"projected_temporal_state:{profile_id}:" + stable_hash([
+        source_state_ref, projected_activation_ref, context_id
+    ])

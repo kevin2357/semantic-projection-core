@@ -201,56 +201,84 @@ class TemporalProjectionRequest(DictContract):
     extensions: JsonDict = field(default_factory=dict)
 
 
-@dataclass
-class ProjectedTemporalState:
-    state_id: str
-    projected_object_id: str
-    observed_at: str
-    attributes: JsonDict = field(default_factory=dict)
-    source_refs: list[str] = field(default_factory=list)
-
-    def to_dict(self) -> JsonDict:
-        return asdict(self)
-
-
-@dataclass
-class ProjectedTemporalActivation:
-    activation_id: str
-    activation_type: str
-    activator_id: str
-    target_id: str
-    relationship_type: str
-    start_at: str | None = None
-    exact_at: str | None = None
-    end_at: str | None = None
-    phase: str | None = None
-    pass_index: int | None = None
-    applying: bool | None = None
-    orb: float | None = None
-    attributes: JsonDict = field(default_factory=dict)
+@dataclass(slots=True)
+class ProjectedTemporalActivator(DictContract):
+    id: str
+    source_activator_ref: str
+    source_body: str | None
+    projected_operator_ref: str
+    projected_object_type: str = "temporal_activator"
+    operators: list[str] = field(default_factory=list)
     source_refs: list[str] = field(default_factory=list)
     mapping_rule_refs: list[str] = field(default_factory=list)
+    context_refs: list[str] = field(default_factory=list)
+    attributes: JsonDict = field(default_factory=dict)
     provenance: JsonDict = field(default_factory=dict)
 
-    def to_dict(self) -> JsonDict:
-        return asdict(self)
+
+@dataclass(slots=True)
+class ProjectedTemporalState(DictContract):
+    id: str
+    source_state_ref: str
+    projected_activation_ref: str
+    observed_at: str
+    phase: str
+    orb: float | None
+    distance: float | None
+    strength_label: str | None
+    activator_state: JsonDict
+    projected_state_composition: JsonDict = field(default_factory=dict)
+    source_refs: list[str] = field(default_factory=list)
+    provenance: JsonDict = field(default_factory=dict)
 
 
-@dataclass
-class ProjectedTemporalActivationGraph:
+@dataclass(slots=True)
+class ProjectedTemporalActivation(DictContract):
+    id: str
+    source_activation_ref: str
+    source_sequence_ref: str
+    projected_sequence_id: str
+    pass_index: int
+    projected_activator_ref: str
+    projected_target_ref: str
+    projected_relationship_type: str
+    temporal_role: str
+    directionality: str
+    temporal_facts: JsonDict
+    projected_relationship_term_ref: str | None = None
+    projected_activation_domain_ref: str | None = None
+    projected_activator_mode_refs: list[str] = field(default_factory=list)
+    source_refs: list[str] = field(default_factory=list)
+    mapping_rule_refs: list[str] = field(default_factory=list)
+    context_refs: list[str] = field(default_factory=list)
+    provenance: JsonDict = field(default_factory=dict)
+
+
+@dataclass(slots=True)
+class ProjectedTemporalSequenceSummary(DictContract):
+    id: str
+    source_sequence_ref: str
+    activation_refs: list[str]
+    pass_count: int
+    source_refs: list[str] = field(default_factory=list)
+    provenance: JsonDict = field(default_factory=dict)
+
+
+@dataclass(slots=True)
+class ProjectedTemporalActivationGraph(DictContract):
     metadata: JsonDict
     source_identity: JsonDict
-    source_graph_ref: JsonDict
-    target_ontology: str
-    target_graph_ref: JsonDict
-    transient_objects: list[JsonDict]
-    temporal_states: list[JsonDict]
-    activations: list[JsonDict]
+    target_identity: JsonDict
+    period: JsonDict
+    projected_target_graph: JsonDict
+    projected_activators: list[JsonDict]
+    projected_activations: list[JsonDict]
+    projected_sequences: list[JsonDict]
     indexes: JsonDict
     summary: JsonDict
+    projected_term_registry: JsonDict
     audit: JsonDict
     diagnostics: JsonDict
-
-    def to_dict(self) -> JsonDict:
-        return asdict(self)
-
+    provenance: JsonDict
+    upstream_source_limitations: list[str] = field(default_factory=list)
+    projected_artifact_limitations: list[str] = field(default_factory=list)

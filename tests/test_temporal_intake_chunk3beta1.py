@@ -109,6 +109,6 @@ def test_observation_count_must_reconcile():
         validate_foundry_temporal_source_bundle(bundle)
 
 
-def test_temporal_execution_remains_disabled_in_c1():
-    with pytest.raises(TemporalProjectionNotImplementedError, match="Stage C1"):
+def test_temporal_execution_remains_disabled_after_c2_contract_work():
+    with pytest.raises(TemporalProjectionNotImplementedError, match="Stage C2"):
         project_temporal()

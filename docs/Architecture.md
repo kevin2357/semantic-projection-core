@@ -21,3 +21,7 @@ temporal_projection_request.v1
 ```
 
 This is an intake boundary only. The generic static engine remains unchanged, and temporal execution remains disabled until the Core-owned projected temporal contract and engine are completed.
+
+## Projected temporal contract
+
+Stage C2 defines `projected_temporal_activation_graph.v1` as an extension of the static architecture. The projected target graph remains an ordinary projected semantic graph. Temporal activators and activation arcs reference that graph while preserving Foundry-owned timing facts under explicit `temporal_facts` envelopes. Static and temporal IDs use separate namespaces.
