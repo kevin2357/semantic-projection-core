@@ -1,37 +1,142 @@
 # Semantic Projection Core
 
-Semantic Projection Core is a Python SDK for deterministic, auditable transformation of canonical source graphs into target-domain semantic graphs.
+Semantic Projection Core is a generic Python library and SDK for **deterministic projection of structured source graphs into auditable target-domain semantic graphs**.
 
-It owns:
+Rather than interpreting source data directly, the engine performs explicit structural projection using projection profiles, contexts, registries, and deterministic graph transformations.
 
-- projection request/context/profile contracts;
-- deterministic projection engine and IDs;
+The result is a projected semantic graph that is:
+
+- Deterministic
+- Explainable
+- Auditable
+- Provenance-preserving
+- Independent of any specific source domain
+
+Originally developed alongside **Astrology Graph Foundry**, the engine is intentionally domain-agnostic and already includes multiple reference projection profiles demonstrating the same infrastructure across very different target ontologies.
+
+---
+
+## Philosophy
+
+> **Project structure, not interpretation.**
+
+Projection profiles define explicit correspondences between semantic structures.
+
+Semantic Projection Core transforms graphs.
+
+Interpretation, reasoning, narrative generation, visualization, publication, and domain-specific advice are intentionally downstream concerns built on top of projected structure.
+
+In short:
+
+> **Semantic Projection Core projects structure—not meaning. Meaning emerges downstream from projected structure.**
+
+---
+
+## Design Principles
+
+- Deterministic
+- Explicit
+- Auditable
+- Provenance-preserving
+- Domain-independent
+- Schema-driven
+- Context-aware
+- Registry-backed
+- Structural rather than interpretive
+
+---
+
+## Responsibilities
+
+Semantic Projection Core owns:
+
+- projection request, context, profile, and registry contracts;
+- deterministic projection engine and stable IDs;
 - audit, diagnostics, scope-aware coverage, and materialization;
-- projected term registries and canonical deterministic rendering primitives;
-- reference profiles for orthodox astrology, cognitive architecture, and Woofmapped astrology;
-- the reserved `projected_temporal_activation_graph.v1` contract.
+- projected term registries;
+- deterministic rendering primitives;
+- standalone generic CLI;
+- reserved `projected_temporal_activation_graph.v1` contracts.
 
-It does **not** calculate astrology charts. Astrology Graph Foundry is one upstream source-graph producer and integration client.
+It intentionally **does not** calculate astrology charts. **Astrology Graph Foundry** is one upstream producer of canonical source graphs and one integration client of this library.
 
-## Local development
+---
+
+## Included Reference Profiles
+
+Current built-in reference profiles include:
+
+- ✅ Orthodox Astrology
+- ✅ Cognitive Architecture *(experimental reference ontology)*
+- ✅ Woofmapped Astrology *(demonstration reference ontology)*
+
+These demonstrate that the projection engine itself is generic rather than astrology-specific.
+
+---
+
+## Current Status
+
+**Implemented**
+
+- Generic projection engine
+- Profile registry
+- Context system
+- Deterministic IDs
+- Materialization modes
+- Projected term registries
+- Deterministic rendering primitives
+- Standalone CLI
+
+**Planned**
+
+- Temporal activation projection
+- Plugin-discovered projection profiles
+- Richer deterministic rendering
+- Claim compiler integration
+- Publication / report layer
+
+---
+
+## Local Development
 
 ```bat
 python -m pip install -e .[dev]
 python -m pytest -q
 ```
 
+---
+
 ## Generic API
 
 ```python
-from semantic_projection import ProjectionRequest, project_with_builtin_profiles
+from semantic_projection import (
+    ProjectionRequest,
+    project_with_builtin_profiles,
+)
 
 result = project_with_builtin_profiles(request)
 ```
 
+---
+
 ## Generic CLI
 
 ```bat
-semantic-project --request request.json --output-mode standard --out projected.json
+semantic-project ^
+  --request request.json ^
+  --output-mode standard ^
+  --out projected.json
 ```
 
-See `docs/Architecture.md`, `docs/Profile Authoring Guide.md`, and `docs/Extraction History.md`.
+---
+
+## Documentation
+
+See:
+
+- `docs/Architecture.md`
+- `docs/Profile Authoring Guide.md`
+- `docs/Installation and Integration.md`
+- `docs/Extraction History.md`
+- `docs/Ideas and Future Work.md`
+
