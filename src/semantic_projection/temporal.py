@@ -291,6 +291,12 @@ def _normalized_body(value: Any) -> str:
 def _activator_selection_status(profile: Any, source: Mapping[str, Any]) -> str:
     """Mirror static source-selection policy for persistent temporal activators."""
     body = _normalized_body(source.get("source_body") or source.get("name"))
+    scope_exclusions = {
+        _normalized_body(value)
+        for value in (getattr(profile, "temporal_activator_scope_exclusions", set()) or set())
+    }
+    if body in scope_exclusions:
+        return "excluded_by_profile_scope"
     policy = getattr(profile, "source_selection_policy", {}) or {}
     if policy.get("node_variant") == "true" and body == "mean node":
         return "excluded_by_source_selection_policy"
@@ -378,6 +384,12 @@ def _project_static_target_and_activators(
             },
         })
 
+    profile_scope_excluded = [
+        row for row in excluded if row.get("reason") == "excluded_by_profile_scope"
+    ]
+    source_policy_excluded = [
+        row for row in excluded if row.get("reason") == "excluded_by_source_selection_policy"
+    ]
     coverage = {
         "source_activator_count": len(source_activators),
         "eligible_activator_count": len(source_activators) - len(excluded),
@@ -387,6 +399,10 @@ def _project_static_target_and_activators(
         "unmapped_activator_refs": unmapped,
         "policy_excluded_activator_count": len(excluded),
         "policy_excluded_activators": excluded,
+        "profile_scope_excluded_activator_count": len(profile_scope_excluded),
+        "profile_scope_excluded_activators": profile_scope_excluded,
+        "source_selection_policy_excluded_activator_count": len(source_policy_excluded),
+        "source_selection_policy_excluded_activators": source_policy_excluded,
         "eligible_but_unmapped_activator_count": len(unmapped),
         "eligible_but_unmapped_activator_refs": unmapped,
         "static_source_object_count": len(request_obj.static_source_graph.get("objects") or []),
@@ -515,6 +531,12 @@ def _classify_temporal_target_resolution(
         return "target_excluded_by_source_selection_policy"
     if policy.get("fortune_variant") == "part_of_fortune" and name == "fortune":
         return "target_excluded_by_source_selection_policy"
+    explicit_scope_exclusions = {
+        _normalized_body(value)
+        for value in (getattr(profile, "temporal_target_scope_exclusions", set()) or set())
+    }
+    if name in explicit_scope_exclusions:
+        return "target_excluded_by_profile_scope"
     object_type = str(source.get("object_type") or "")
     if any(token in source_target_ref for token in ("harmonic:", "antiscia_point:", "contra_antiscia_point:")):
         return "target_excluded_by_profile_scope"
@@ -537,6 +559,41 @@ def _temporal_diagnostic_summary(diagnostics: Mapping[str, Any]) -> dict[str, An
     }
 
 
+def canonical_temporal_fact_view(temporal_facts: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the profile-independent Foundry fact layer from one projected envelope."""
+    facts = deepcopy(dict(temporal_facts))
+    states = []
+    for state in facts.get("observation_states") or []:
+        states.append({
+            "source_state_ref": state.get("source_state_ref"),
+            "observed_at": state.get("observed_at"),
+            "phase": state.get("phase"),
+            "orb": state.get("orb"),
+            "distance": state.get("distance"),
+            "strength_label": state.get("strength_label"),
+            "activator_state": deepcopy(state.get("activator_state") or {}),
+        })
+    facts["observation_states"] = states
+    return facts
+
+
+def _annotate_upstream_limitations(limitations: list[str]) -> list[dict[str, Any]]:
+    """Preserve upstream text while marking statements superseded by this artifact."""
+    rows: list[dict[str, Any]] = []
+    for text in limitations:
+        normalized = str(text)
+        superseded = "does not yet execute this bundle" in normalized.lower()
+        row: dict[str, Any] = {
+            "text": normalized,
+            "source": "temporal_projection_source_bundle.v1",
+            "status": "superseded_for_this_artifact" if superseded else "active_source_limitation",
+        }
+        if superseded:
+            row["superseded_by"] = "projected_temporal_activation_graph.v1"
+        rows.append(row)
+    return rows
+
+
 def project_temporal(
     request: TemporalProjectionRequest | Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
@@ -544,7 +601,7 @@ def project_temporal(
 
     One canonical activation arc produces at most one projected temporal arc.
     Foundry timing facts are preserved without interpretive reinterpretation.
-    Audit/materialization refinement remains Stage C5 work.
+    Stage C6 proves profile/context variation while preserving canonical temporal facts.
     """
     from .contracts import TemporalProjectionRequest as RequestContract
     from .profiles import builtin_projection_registry
@@ -604,6 +661,8 @@ def project_temporal(
         "eligible_activation_count": 0,
         "projected_activation_count": 0,
         "activator_policy_excluded_count": 0,
+        "activator_profile_scope_excluded_count": 0,
+        "activator_source_selection_policy_excluded_count": 0,
         "missing_projected_activator_count": 0,
         "target_policy_excluded_or_unmapped_count": 0,
         "target_excluded_by_profile_scope_count": 0,
@@ -628,12 +687,18 @@ def project_temporal(
         source_sequence_ref = str(source_activation.get("sequence_id") or "")
         source_activator = source_activators.get(source_activator_ref) or {}
 
-        if _activator_selection_status(profile, source_activator) != "eligible":
+        activator_status = _activator_selection_status(profile, source_activator)
+        if activator_status != "eligible":
             arc_status_counts["activator_policy_excluded_count"] += 1
+            if activator_status == "excluded_by_profile_scope":
+                arc_status_counts["activator_profile_scope_excluded_count"] += 1
+            else:
+                arc_status_counts["activator_source_selection_policy_excluded_count"] += 1
             diagnostics["infos"].append({
-                "code": "temporal.activation.activator_policy_excluded",
+                "code": f"temporal.activation.activator_{activator_status}",
                 "source_activation_ref": source_activation_ref,
                 "source_activator_ref": source_activator_ref,
+                "resolution_status": activator_status,
             })
             continue
 
@@ -960,8 +1025,8 @@ def project_temporal(
             "context_id": context_id,
             "context_version": context_version,
             "materialization_mode": "full",
-            "stage": "C5",
-            "execution_status": "activation_arcs_projected_with_audit_and_materialization",
+            "stage": "C6",
+            "execution_status": "cross_profile_temporal_projection_ready",
         },
         "source_identity": deepcopy(request_obj.source_identity),
         "target_identity": deepcopy(request_obj.target_identity),
@@ -1000,7 +1065,7 @@ def project_temporal(
             projected_target.get("projected_term_registry") or {}
         ),
         "audit": {
-            "stage": "C5",
+            "stage": "C6",
             "request_id": request_obj.request_id,
             "mapping_execution_count": len(mapping_executions),
             "mapping_executions": mapping_executions,
@@ -1036,9 +1101,9 @@ def project_temporal(
             "arc_mapping_reuse": "profile.project_relationship",
             "object_mapping_reuse": "profile.project_object",
         },
-        "upstream_source_limitations": list(request_obj.limitations),
+        "upstream_source_limitations": _annotate_upstream_limitations(list(request_obj.limitations)),
         "projected_artifact_limitations": [
-            "Stage C5 provides audit, diagnostics, coverage, and materialization; downstream interpretation remains out of scope.",
+            "Stage C6 proves cross-profile and context behavior; downstream interpretation remains out of scope.",
             "No consumer-facing transit interpretation, claim synthesis, or narrative rendering is included.",
         ],
     }

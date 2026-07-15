@@ -189,3 +189,7 @@ consumer-facing reports remain downstream.
 ## Temporal materializations
 
 Projected temporal graphs support `full`, `standard`, `summary`, and `forensic` materializations. The standard view preserves all defining activation arcs and observation facts while compacting audit and diagnostic payloads.
+
+## Temporal cross-profile projection
+
+Stage C6 validates the same canonical temporal facts across Orthodox, Cognitive, and Woofmapped profiles, plus context-sensitive Orthodox variants. Run `scripts\\run_chunk3_beta_6_qa.bat` for the complete one-command QA flow.

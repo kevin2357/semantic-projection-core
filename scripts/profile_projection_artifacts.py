@@ -47,10 +47,18 @@ def profile(path: Path) -> dict[str, Any]:
             "audit_bytes": _json_size(payload.get("audit") or {}),
             "diagnostics_bytes": _json_size(payload.get("diagnostics") or {}),
             "registry_bytes": _json_size(payload.get("projected_term_registry") or {}),
-            "activator_hash": stable_hash(payload.get("projected_activators") or []),
-            "activation_hash": stable_hash(activations),
-            "sequence_hash": stable_hash(payload.get("projected_sequences") or []),
-            "state_hash": stable_hash(states),
+            "activator_hash": (payload.get("semantic_hashes") or {}).get("projected_activators") or (
+                stable_hash(payload.get("projected_activators") or []) if payload.get("projected_activators") is not None else None
+            ),
+            "activation_hash": (payload.get("semantic_hashes") or {}).get("projected_activations") or (
+                stable_hash(activations) if payload.get("projected_activations") is not None else None
+            ),
+            "sequence_hash": (payload.get("semantic_hashes") or {}).get("projected_sequences") or (
+                stable_hash(payload.get("projected_sequences") or []) if payload.get("projected_sequences") is not None else None
+            ),
+            "state_hash": (payload.get("semantic_hashes") or {}).get("projected_states") or (
+                stable_hash(states) if payload.get("projected_activations") is not None else None
+            ),
         })
     elif identity.kind in {"projection_qa_result", "temporal_projection_qa_result", "projection_forensic_audit"}:
         row["administrative_artifact"] = True

@@ -47,6 +47,7 @@ class WoofmappedAstrologyProfile:
     """Doghouse-based Natal projection and operator-preservation stress test."""
 
     manifest = _load_manifest()
+    temporal_target_scope_exclusions = frozenset({"spirit"})
     source_selection_policy = {
         "node_variant": "true",
         "fortune_variant": "part_of_fortune",

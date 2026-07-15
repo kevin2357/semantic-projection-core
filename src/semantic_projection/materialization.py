@@ -149,7 +149,7 @@ def _flatten_temporal_states(projected: JsonDict) -> list[JsonDict]:
 
 
 def temporal_projection_summary_view(projected: JsonDict) -> JsonDict:
-    """Compact summary of a projected temporal activation graph."""
+    """Compact summary with semantic hashes even when graph rows are omitted."""
     metadata = deepcopy(projected.get("metadata") or {})
     metadata["materialization_mode"] = "summary"
     audit = projected.get("audit") or {}
@@ -170,6 +170,16 @@ def temporal_projection_summary_view(projected: JsonDict) -> JsonDict:
             "warning_count": len(diagnostics.get("warnings") or []),
             "info_count": len(diagnostics.get("infos") or []),
         }),
+        "semantic_hashes": {
+            "projected_activators": stable_hash(projected.get("projected_activators") or []),
+            "projected_activations": stable_hash(projected.get("projected_activations") or []),
+            "projected_sequences": stable_hash(projected.get("projected_sequences") or []),
+            "projected_states": stable_hash(_flatten_temporal_states(projected)),
+            "temporal_facts": stable_hash([
+                deepcopy(row.get("temporal_facts") or {})
+                for row in projected.get("projected_activations") or []
+            ]),
+        },
         "projected_term_registry_ref": {
             key: value
             for key, value in (projected.get("projected_term_registry") or {}).items()

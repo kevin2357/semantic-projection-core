@@ -39,6 +39,9 @@
       "trine",
       "quincunx",
       "opposition"
+    ],
+    "temporal_target_scope_exclusions": [
+      "Spirit"
     ]
   }
 }

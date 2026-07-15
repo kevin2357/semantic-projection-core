@@ -44,3 +44,7 @@ engine.
 ## Stage C5 temporal operational layer
 
 Temporal projection now shares the static materialization policy and adds temporal coverage, reconciliation, diagnostic summaries, and deterministic section hashes. Foundry timing facts remain nested under `temporal_facts`; Core-owned semantic fields remain separate.
+
+## Stage C6 cross-profile invariant
+
+Temporal facts are profile-independent. Profiles and contexts may change projected operator, target, relationship, mode, and domain vocabulary, but may not change source activation identity, timing envelopes, pass identity, observation states, or Foundry provenance.

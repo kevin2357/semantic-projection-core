@@ -51,6 +51,7 @@ def main(argv: list[str] | None = None) -> int:
             eligible_activations=full_result["summary"]["coverage"]["activations"]["eligible_activation_count"],
             target_scope_excluded=full_result["summary"]["coverage"]["activations"]["target_excluded_by_profile_scope_count"],
             target_source_policy_excluded=full_result["summary"]["coverage"]["activations"]["target_excluded_by_source_selection_policy_count"],
+            target_eligible_but_unmapped=full_result["summary"]["coverage"]["activations"]["target_eligible_but_unmapped_count"],
             failed_activations=full_result["summary"]["coverage"]["activations"]["failed_activation_count"],
         )
         print(f"Wrote projected temporal activation graph: {args.out}")

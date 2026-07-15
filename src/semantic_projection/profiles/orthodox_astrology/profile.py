@@ -96,6 +96,8 @@ class OrthodoxAstrologyProfile:
     """Orthodox reference profile with registry-aware relationship contexts."""
 
     manifest = _load_manifest()
+    temporal_activator_scope_exclusions = frozenset({"mean node", "true node"})
+    temporal_target_scope_exclusions = frozenset({"mean node", "true node", "spirit"})
 
     def validate_context(self, context: ProjectionContext) -> list[dict[str, Any]]:
         supported = {

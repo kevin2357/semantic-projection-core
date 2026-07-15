@@ -46,3 +46,10 @@ Extend the new artifact-identity utility as additional request, projected, mater
 
 - Consider externalizing full temporal forensic audit payloads as a separable artifact, paralleling static projection.
 - Evaluate whether future event/daily/streaming materializations should be views over the same arc graph rather than new execution contracts.
+
+## Post-C6 temporal work
+
+- Extend cross-profile QA to Composite and Davison target bundles during C7.
+- Add richer context matrices as profile contexts mature.
+- Keep temporal-fact invariance as a permanent regression property.
+- Revisit intentional profile-scope exclusions such as Cognitive `Spirit` only through explicit profile-version evolution.

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "projected_temporal_activation_graph_v1.schema.json",
   "title": "Projected Temporal Activation Graph v1",
-  "description": "Core-owned, directional, arc-first projection of canonical temporal facts into a target semantic ontology, with Stage C5 audit, diagnostics, coverage, and materialization policy.",
+  "description": "Core-owned directional, arc-first temporal projection with Stage C6 cross-profile/context proof, audit, diagnostics, and materialization.",
   "type": "object",
   "required": [
     "metadata",
@@ -334,7 +334,40 @@
     "upstream_source_limitations": {
       "type": "array",
       "items": {
-        "type": "string"
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "required": [
+              "text",
+              "source",
+              "status"
+            ],
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "active_source_limitation",
+                  "superseded_for_this_artifact"
+                ]
+              },
+              "superseded_by": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": true
+          }
+        ]
       }
     },
     "projected_artifact_limitations": {
@@ -342,6 +375,27 @@
       "items": {
         "type": "string"
       }
+    },
+    "semantic_hashes": {
+      "type": "object",
+      "properties": {
+        "projected_activators": {
+          "type": "string"
+        },
+        "projected_activations": {
+          "type": "string"
+        },
+        "projected_sequences": {
+          "type": "string"
+        },
+        "projected_states": {
+          "type": "string"
+        },
+        "temporal_facts": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "$defs": {

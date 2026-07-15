@@ -37,6 +37,9 @@
       "human-dog synastry",
       "dog-dog synastry",
       "pack models"
+    ],
+    "temporal_target_scope_exclusions": [
+      "Spirit"
     ]
   }
 }

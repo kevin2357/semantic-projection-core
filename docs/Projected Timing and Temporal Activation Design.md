@@ -533,3 +533,7 @@ policy used by static projection.
 ## Stage C5 implementation note
 
 The executable temporal graph now includes refined target-resolution coverage, component-level state-composition availability, reconciliation audit, and full/standard/summary/forensic materializations. These are structural and operational views, not interpretive timing products.
+
+## C6 cross-profile proof
+
+The temporal engine now proves one source bundle across Orthodox, Cognitive, and Woofmapped profiles. Shared source arcs retain identical `temporal_facts`; projected semantics vary by target ontology and context. Summary artifacts preserve semantic hash references, and upstream limitations are annotated rather than rewritten.

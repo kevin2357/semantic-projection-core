@@ -64,6 +64,8 @@ class CognitiveArchitectureDemoProfile:
         "node_variant": "true",
         "fortune_variant": "part_of_fortune",
     }
+    temporal_target_scope_exclusions = frozenset({"spirit"})
+
 
     def validate_context(self, context: ProjectionContext) -> list[dict[str, Any]]:
         warnings = []

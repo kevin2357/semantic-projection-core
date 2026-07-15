@@ -44,6 +44,15 @@
       "transit",
       "transit_period",
       "transit_range"
+    ],
+    "temporal_activator_scope_exclusions": [
+      "Mean Node",
+      "True Node"
+    ],
+    "temporal_target_scope_exclusions": [
+      "Mean Node",
+      "True Node",
+      "Spirit"
     ]
   }
 }
