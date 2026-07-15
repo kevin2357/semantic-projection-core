@@ -14,6 +14,8 @@ from .contracts import (
     ProjectionProfileManifest,
     ProjectionOptions,
     ProjectionRequest,
+    TemporalProjectionOptions,
+    TemporalProjectionRequest,
 )
 from .engine import ENGINE_VERSION, ProjectionExecutionError, project
 from .ids import (
@@ -22,6 +24,7 @@ from .ids import (
     projected_package_id,
     projected_relationship_id,
     projection_request_id,
+    temporal_projection_request_id,
 )
 from .profile import ProjectionProfile
 from .registry import ProjectionProfileRegistry, ProjectionProfileRegistryError
@@ -34,7 +37,19 @@ from .rendering import (
     render_object_sentence,
     render_relationship_sentence,
 )
-from .validation import ProjectionValidationError, validate_contract, validate_projection_request
+from .validation import (
+    ProjectionValidationError,
+    validate_contract,
+    validate_projection_request,
+    validate_temporal_projection_request,
+)
+from .temporal import (
+    TemporalProjectionNotImplementedError,
+    TemporalSourceContractError,
+    adapt_foundry_temporal_source_bundle,
+    project_temporal,
+    validate_foundry_temporal_source_bundle,
+)
 
 __all__ = [
     "ENGINE_VERSION", "MappingExecution", "ProjectedObject",
@@ -67,3 +82,16 @@ def project_with_builtin_profiles(request):
     return project(request, registry=builtin_projection_registry())
 
 __all__.extend(["project_with_builtin_profiles"])
+
+
+__all__.extend([
+    "TemporalProjectionOptions",
+    "TemporalProjectionRequest",
+    "TemporalProjectionNotImplementedError",
+    "TemporalSourceContractError",
+    "adapt_foundry_temporal_source_bundle",
+    "project_temporal",
+    "temporal_projection_request_id",
+    "validate_foundry_temporal_source_bundle",
+    "validate_temporal_projection_request",
+])

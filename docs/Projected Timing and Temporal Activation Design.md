@@ -3,8 +3,8 @@
 ## Status
 
 **Design status:** approved post-extraction priority  
-**Implementation status:** not implemented  
-**Current safety policy:** Transit packages fail explicitly rather than silently projecting only their top-level target chart.
+**Implementation status:** Stage C1 implemented; projected temporal execution remains unimplemented  
+**Current safety policy:** Foundry temporal source bundles can be validated and adapted into `temporal_projection_request.v1`, but temporal execution still fails explicitly until `projected_temporal_activation_graph.v1` is implemented.
 
 This document records the intended design for timing-aware projection after the projection layer is extracted into its own repository.
 
@@ -493,3 +493,21 @@ projected_temporal_activation_graph.v1
 ```
 
 This is an intentional correctness guard, not a temporary generic failure.
+
+
+---
+
+## Stage C1 implementation note
+
+Chunk 3.beta.1 added:
+
+- frozen Foundry schema compatibility snapshots;
+- `TemporalProjectionRequest`;
+- `TemporalProjectionOptions`;
+- deterministic temporal request IDs;
+- `FoundryTemporalSourceAdapterV1` behavior through `adapt_foundry_temporal_source_bundle`;
+- cross-field and referential-integrity validation;
+- a validation-only `semantic-temporal-intake` CLI;
+- an explicit non-executable `project_temporal` boundary.
+
+See `Chunk 3.beta.1 Temporal Intake and Adapter Contract.md`.

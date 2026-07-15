@@ -45,3 +45,26 @@ def projected_relationship_id(*, profile_id: str, relationship_type: str, source
 
 def mapping_execution_id(*, mapping_rule_id: str, source_refs: list[str], context_id: str, result_refs: list[str]) -> str:
     return f"mapping_execution:{stable_hash([mapping_rule_id, sorted(source_refs), context_id, sorted(result_refs)])}"
+
+
+def temporal_projection_request_id(
+    *,
+    profile_id: str,
+    profile_version: str,
+    source_identity: dict,
+    target_identity: dict,
+    temporal_graph_id: str,
+    context: dict,
+    options: dict | None = None,
+) -> str:
+    """Stable identity for a generic temporal projection request."""
+    token = stable_hash({
+        "profile_id": profile_id,
+        "profile_version": profile_version,
+        "source_identity": source_identity,
+        "target_identity": target_identity,
+        "temporal_graph_id": temporal_graph_id,
+        "context": context,
+        "options": options or {},
+    })
+    return f"temporal_projection_request:{token}"

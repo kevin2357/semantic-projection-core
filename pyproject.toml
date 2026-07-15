@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "semantic-projection-core"
-version = "0.1.0"
+version = "0.2.0"
 description = "Deterministic, auditable projection of canonical source graphs into target-domain semantic graphs."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -15,6 +15,7 @@ dev = ["pytest>=8", "jsonschema>=4", "ruff>=0.5"]
 
 [project.scripts]
 semantic-project = "semantic_projection.cli:main"
+semantic-temporal-intake = "semantic_projection.temporal_cli:main"
 
 [project.entry-points."semantic_projection.profiles"]
 orthodox_astrology = "semantic_projection.profiles.orthodox_astrology:OrthodoxAstrologyProfile"

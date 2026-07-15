@@ -6,6 +6,7 @@ from typing import Any
 
 SCHEMA_PACKAGE = "semantic_projection.schemas"
 SUPPORTED_SOURCE_GRAPH_VERSIONS = {"1.3.0"}
+SUPPORTED_TEMPORAL_REQUEST_CONTRACTS = {"temporal_projection_request.v1"}
 
 
 class ProjectionValidationError(ValueError):
@@ -70,3 +71,25 @@ def validate_projected_graph_ids(graph: dict[str, Any]) -> None:
         duplicates = sorted({value for value in ids if value is not None and ids.count(value) > 1})
         if duplicates:
             raise ProjectionValidationError(f"Duplicate {field} IDs: {duplicates[:5]}")
+
+
+def validate_temporal_projection_request(request: dict[str, Any]) -> None:
+    """Validate Core's generic temporal request without executing projection."""
+    validate_contract(request, "temporal_projection_request_v1.schema.json")
+    if request.get("request_contract") not in SUPPORTED_TEMPORAL_REQUEST_CONTRACTS:
+        raise ProjectionValidationError(
+            f"Unsupported temporal request contract {request.get('request_contract')!r}; "
+            f"supported contracts: {sorted(SUPPORTED_TEMPORAL_REQUEST_CONTRACTS)}"
+        )
+    graph = request.get("static_source_graph") or {}
+    graph_version = graph.get("graph_version")
+    if graph_version not in SUPPORTED_SOURCE_GRAPH_VERSIONS:
+        raise ProjectionValidationError(
+            f"Unsupported static canonical source graph version {graph_version!r}; "
+            f"supported versions: {sorted(SUPPORTED_SOURCE_GRAPH_VERSIONS)}"
+        )
+    context = request.get("context") or {}
+    if not context.get("context_id"):
+        raise ProjectionValidationError("Temporal projection context_id must be non-empty.")
+    if not request.get("profile_id"):
+        raise ProjectionValidationError("Temporal projection profile_id must be non-empty.")

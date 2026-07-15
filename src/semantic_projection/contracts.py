@@ -163,6 +163,44 @@ class ProjectedSemanticGraph(DictContract):
     diagnostics: JsonDict
     projected_term_registry: JsonDict = field(default_factory=dict)
 
+@dataclass(slots=True)
+class TemporalProjectionOptions(DictContract):
+    """Execution controls for the future temporal projection pipeline.
+
+    Stage C1 validates and transports these options but does not execute
+    temporal projection.
+    """
+
+    include_observation_states: bool = True
+    include_projected_state_composition: bool = True
+    retain_unmapped_sources: bool = True
+    include_audit: bool = True
+    include_diagnostics: bool = True
+    unmapped_policy: str = "diagnostic"
+    extensions: JsonDict = field(default_factory=dict)
+
+
+@dataclass(slots=True)
+class TemporalProjectionRequest(DictContract):
+    """Generic Core request adapted from an upstream temporal source bundle."""
+
+    request_id: str
+    request_contract: str
+    profile_id: str
+    profile_version: str
+    source_identity: JsonDict
+    target_identity: JsonDict
+    static_source_graph: JsonDict
+    structural_evidence: JsonDict
+    temporal_source_graph: JsonDict
+    source_registries: JsonDict
+    context: JsonDict
+    options: JsonDict
+    upstream_contracts: JsonDict
+    limitations: list[str] = field(default_factory=list)
+    extensions: JsonDict = field(default_factory=dict)
+
+
 @dataclass
 class ProjectedTemporalState:
     state_id: str

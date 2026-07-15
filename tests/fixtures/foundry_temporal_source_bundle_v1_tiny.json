@@ -1,0 +1,362 @@
+{
+  "limitations": [
+    "Semantic Projection Core does not yet execute this bundle.",
+    "The bundle preserves source timing facts and carries no projected temporal meanings."
+  ],
+  "metadata": {
+    "bundle_id": "temporal_projection_source:test:c1",
+    "consumer_status": "reserved_for_semantic_projection_core_temporal_support",
+    "contract_version": "1.0.0",
+    "package_type": "temporal_projection_source_bundle",
+    "projection_neutral": true
+  },
+  "source_identity": {
+    "source_chart_id": "natal:test",
+    "source_chart_ids": [
+      "natal:test"
+    ],
+    "sensor_instance_id": "temporal:natal:test"
+  },
+  "source_registries": {
+    "activated_target_relationship_registry": {}
+  },
+  "static_source_graph": {
+    "boundary_notes": {
+      "allowed_before_projection": [
+        "calculated facts",
+        "source astrology objects",
+        "source operator primitives",
+        "graph topology",
+        "provenance",
+        "evidence tier and derivation lineage",
+        "projection-neutral structural strength"
+      ],
+      "excluded_from_canonical_graph": [
+        "orthodox theme tags",
+        "orthodox report claims",
+        "consumer report structure",
+        "projection-specific salience"
+      ],
+      "lineage_policy": "Relationship evidence tier and family grouping inherit the root-owner lineage of source and target objects."
+    },
+    "graph_layer": "canonical_source_graph",
+    "graph_type": "canonical_astrology_graph",
+    "graph_version": "1.3.0",
+    "indexes": {},
+    "objects": [
+      {
+        "declination": -10.14226527210214,
+        "evidence_metadata": {
+          "derivation_family": "direct_chart_object",
+          "derivation_type": "direct",
+          "evidence_family_group": "transit:natal:kevin:2026-01-01:2026-02-01:object-family:nMoon",
+          "evidence_tier": "core",
+          "independence_group": "transit:natal:kevin:2026-01-01:2026-02-01:object-family:nMoon",
+          "owner_object_ref": null,
+          "record_independence_group": "transit:natal:kevin:2026-01-01:2026-02-01:object-record:natal:Moon",
+          "root_owner_object_ref": "nMoon",
+          "sensor_instance_id": "transit:natal:kevin:2026-01-01:2026-02-01",
+          "source_chart_family_group": "natal:kevin:object-family:nMoon",
+          "source_chart_ids": [
+            "natal:kevin"
+          ],
+          "source_sensor_id": "transit:natal:kevin:2026-01-01:2026-02-01"
+        },
+        "facts": {
+          "absolute_dms": "342\u00b023'32.0\\\"",
+          "antiscia": {
+            "antiscia_lon": 197.60779051822544,
+            "antiscia_pretty": "Libra 17\u00b036'28.0\\\"",
+            "contra_antiscia_lon": 162.39220948177456,
+            "contra_antiscia_pretty": "Virgo 12\u00b023'32.0\\\""
+          },
+          "declination": -10.14226527210214,
+          "declination_pretty": "-10.14227\u00b0",
+          "dignity": {
+            "detriment_traditional": false,
+            "domicile_modern": false,
+            "domicile_traditional": false,
+            "exaltation": false,
+            "fall": false,
+            "is_triplicity_ruler": false,
+            "note": "Lightweight dignity model; terms/faces can be added later.",
+            "sign": "Pisces",
+            "triplicity_element": "Water",
+            "triplicity_ruler": "Venus"
+          },
+          "harmonics": {
+            "2": {
+              "lon": 324.7844189635491,
+              "pretty": "Aquarius 24\u00b047'03.9\\\""
+            },
+            "3": {
+              "lon": 307.1766284453238,
+              "pretty": "Aquarius 07\u00b010'35.9\\\""
+            },
+            "4": {
+              "lon": 289.56883792709823,
+              "pretty": "Capricorn 19\u00b034'07.8\\\""
+            },
+            "5": {
+              "lon": 271.9610474088727,
+              "pretty": "Capricorn 01\u00b057'39.8\\\""
+            },
+            "7": {
+              "lon": 236.74546637242202,
+              "pretty": "Scorpio 26\u00b044'43.7\\\""
+            },
+            "9": {
+              "lon": 201.5298853359709,
+              "pretty": "Libra 21\u00b031'47.6\\\""
+            }
+          },
+          "house": 1,
+          "lat": -3.4983044549627933,
+          "lon": 342.39220948177456,
+          "name": "nMoon",
+          "pretty": "Pisces 12\u00b023'32.0\\\"",
+          "retrograde": false,
+          "right_ascension": 345.1222903303412,
+          "speed_lon": 13.915573999616688,
+          "type": "planet_or_point"
+        },
+        "house": 1,
+        "id": "natal:Moon",
+        "longitude": 342.39220948177456,
+        "name": "Moon",
+        "object_type": "planet_or_point",
+        "operator_hints": [
+          {
+            "body": "Moon",
+            "operator": "regulate",
+            "source": "Moon operator family"
+          },
+          {
+            "body": "Moon",
+            "operator": "need",
+            "source": "Moon operator family"
+          },
+          {
+            "body": "Moon",
+            "operator": "remember",
+            "source": "Moon operator family"
+          }
+        ],
+        "pretty": "Pisces 12\u00b023'32.0\\\"",
+        "retrograde": false,
+        "right_ascension": 345.1222903303412,
+        "semantic_operator_hints": [
+          {
+            "body": "Moon",
+            "operator": "regulate",
+            "source": "Moon operator family"
+          },
+          {
+            "body": "Moon",
+            "operator": "need",
+            "source": "Moon operator family"
+          },
+          {
+            "body": "Moon",
+            "operator": "remember",
+            "source": "Moon operator family"
+          }
+        ],
+        "sign": "Pisces",
+        "sign_degree": 12.392209481774557,
+        "source_key": "nMoon",
+        "source_operator_hints": [
+          {
+            "body": "Moon",
+            "operator": "regulate",
+            "source": "Moon operator family"
+          },
+          {
+            "body": "Moon",
+            "operator": "need",
+            "source": "Moon operator family"
+          },
+          {
+            "body": "Moon",
+            "operator": "remember",
+            "source": "Moon operator family"
+          }
+        ],
+        "structural_strength_score": 0.1925,
+        "transit_target": true
+      }
+    ],
+    "projection_status": "pre_projection",
+    "relationship_type_ontology": [
+      "ACTIVATES_NATAL_RELATIONSHIP",
+      "ANTISCIA",
+      "ASPECT",
+      "COMPOSITE_ASPECT",
+      "CONTRA_ANTISCIA",
+      "DECLINATION_CONTRAPARALLEL",
+      "DECLINATION_PARALLEL",
+      "FIXED_STAR_CONJUNCTION",
+      "HARMONIC_PROJECTION",
+      "HAS_ANTISCIA_POINT",
+      "HAS_CONTRA_ANTISCIA_POINT",
+      "HAS_DECLINATION",
+      "HAS_DIGNITY",
+      "HAS_HARMONIC_POINT",
+      "HAS_SECT",
+      "HOUSE_OVERLAY",
+      "LOT_DERIVED_FROM",
+      "SYNASTRY_ASPECT",
+      "TRANSIT_ACTIVATION"
+    ],
+    "relationships": [],
+    "schema_version": "1.2.0",
+    "sensor_instance_id": "natal:test",
+    "source_chart_id": "natal:test",
+    "source_chart_ids": [
+      "natal:test"
+    ],
+    "source_sensor_id": "natal:test",
+    "summary": {
+      "object_count": 1,
+      "relationship_count": 0
+    }
+  },
+  "structural_evidence": {},
+  "target_identity": {
+    "chart_id": "natal:test",
+    "chart_type": "natal",
+    "label": "Test",
+    "semantic_scope": "individual_climate",
+    "subject_scope": "individual"
+  },
+  "temporal_source_graph": {
+    "activations": [
+      {
+        "activation_type": "transit_aspect_arc",
+        "activator_ref": "canonical:transiting_object:mars",
+        "aspect": "sextile",
+        "closest_observed_at": "2026-01-01T12:00:00-07:00",
+        "end_at": "2026-01-01T12:00:00-07:00",
+        "exact_at": null,
+        "exactness": {
+          "closest_orb": 0.9028636862735766,
+          "note": "No solved exact event is asserted by this source package.",
+          "sampled_exact_orb_threshold": 0.01,
+          "status": "closest_observed_only"
+        },
+        "id": "temporal_activation:a0599743c846eb645d65",
+        "motion": {
+          "changes_motion_within_activation": false,
+          "states": [
+            "direct"
+          ]
+        },
+        "observation_count": 1,
+        "observation_states": [
+          {
+            "activator_state": {
+              "house": null,
+              "latitude": null,
+              "longitude": null,
+              "retrograde": false,
+              "sign": null,
+              "speed": null
+            },
+            "date": "2026-01-01",
+            "distance": 59.09713631372642,
+            "observed_at": "2026-01-01T12:00:00-07:00",
+            "orb": 0.9028636862735766,
+            "phase": "closest_observed",
+            "rank": 3,
+            "relevance_score": 19.194,
+            "state_id": "temporal_state:f2514c97f8f42c91a4b9",
+            "strength_label": "very tight"
+          }
+        ],
+        "pass_index": 1,
+        "provenance": {
+          "max_observation_gap_days": 2,
+          "normalization_policy": "arc_first_with_observation_segmentation.v1",
+          "observation_join_policy": "candidate_id_exact",
+          "source_analysis_type": "transit_range_dataset",
+          "source_arc_id": "arc:tc:Mars:sextile:natal_Moon",
+          "source_candidate_id": "tc:Mars:sextile:natal_Moon",
+          "source_materialization": "full"
+        },
+        "relationship_type": "TRANSIT_ACTIVATION",
+        "sequence_id": "temporal_sequence:d233abb63112eed87cf5",
+        "source_refs": [
+          "transit_arc:arc:tc:Mars:sextile:natal_Moon",
+          "transit_candidate:tc:Mars:sextile:natal_Moon",
+          "transit_observation:2026-01-01:tc:Mars:sextile:natal_Moon"
+        ],
+        "start_at": "2026-01-01T12:00:00-07:00",
+        "target_chart_ref": "natal:test",
+        "target_house": 1,
+        "target_ref": "natal:Moon",
+        "target_type": "planet_or_point",
+        "transit_house_in_target_chart": 11
+      }
+    ],
+    "activators": [
+      {
+        "id": "canonical:transiting_object:mars",
+        "name": "Mars",
+        "object_type": "transiting_object",
+        "source_body": "Mars"
+      }
+    ],
+    "diagnostics": {
+      "limitations": [],
+      "warnings": []
+    },
+    "indexes": {
+      "activation_ids_by_activator": {
+        "canonical:transiting_object:mars": [
+          "temporal_activation:a0599743c846eb645d65"
+        ]
+      },
+      "activation_ids_by_start_month": {
+        "2026-01": [
+          "temporal_activation:a0599743c846eb645d65"
+        ]
+      },
+      "activation_ids_by_target": {
+        "natal:Moon": [
+          "temporal_activation:a0599743c846eb645d65"
+        ]
+      }
+    },
+    "metadata": {
+      "authoritative_unit": "activation_arc",
+      "contract_version": "1.0.0",
+      "graph_id": "canonical_temporal_graph:test:c1",
+      "normalization_policy": "arc_first_with_observation_segmentation.v1",
+      "package_type": "canonical_temporal_activation_graph",
+      "projection_neutral": true,
+      "source_analysis_type": "transit_range_dataset",
+      "source_materialization": "full"
+    },
+    "period": {
+      "day_count": 32,
+      "end_at": "2026-02-01",
+      "start_at": "2026-01-01"
+    },
+    "source_graph_ref": {},
+    "summary": {
+      "activation_count": 1,
+      "activator_count": 1,
+      "observation_state_count": 1,
+      "sampled_exact_count": 0,
+      "sequence_count": 1,
+      "warning_count": 0
+    },
+    "target_identity": {
+      "chart_id": "natal:test",
+      "chart_type": "natal",
+      "label": "Test",
+      "semantic_scope": "individual_climate",
+      "subject_scope": "individual"
+    }
+  }
+}

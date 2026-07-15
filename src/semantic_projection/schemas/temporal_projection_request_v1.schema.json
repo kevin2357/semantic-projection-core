@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "temporal_projection_request_v1.schema.json",
+  "title": "Temporal Projection Request v1",
+  "description": "Generic Semantic Projection Core request produced from an upstream temporal source adapter.",
+  "type": "object",
+  "required": [
+    "request_id",
+    "request_contract",
+    "profile_id",
+    "profile_version",
+    "source_identity",
+    "target_identity",
+    "static_source_graph",
+    "structural_evidence",
+    "temporal_source_graph",
+    "source_registries",
+    "context",
+    "options",
+    "upstream_contracts"
+  ],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "pattern": "^temporal_projection_request:"
+    },
+    "request_contract": {
+      "const": "temporal_projection_request.v1"
+    },
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_identity": {
+      "type": "object"
+    },
+    "target_identity": {
+      "type": "object"
+    },
+    "static_source_graph": {
+      "type": "object"
+    },
+    "structural_evidence": {
+      "type": "object"
+    },
+    "temporal_source_graph": {
+      "$ref": "canonical_temporal_activation_graph_v1.schema.json"
+    },
+    "source_registries": {
+      "type": "object"
+    },
+    "context": {
+      "$ref": "projection_context_v1.schema.json"
+    },
+    "options": {
+      "type": "object"
+    },
+    "upstream_contracts": {
+      "type": "object",
+      "required": [
+        "bundle_package_type",
+        "bundle_contract_version",
+        "temporal_graph_package_type",
+        "temporal_graph_contract_version"
+      ],
+      "properties": {
+        "bundle_package_type": {
+          "const": "temporal_projection_source_bundle"
+        },
+        "bundle_contract_version": {
+          "const": "1.0.0"
+        },
+        "temporal_graph_package_type": {
+          "const": "canonical_temporal_activation_graph"
+        },
+        "temporal_graph_contract_version": {
+          "const": "1.0.0"
+        }
+      },
+      "additionalProperties": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
