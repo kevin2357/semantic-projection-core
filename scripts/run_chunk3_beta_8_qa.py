@@ -96,7 +96,7 @@ def project_profile(bundle: dict[str, Any], profile_id: str, profile_version: st
         "projected_activation_count": len(first.artifact["projected_activations"]),
         "coverage": first.artifact["audit"]["coverage"],
     })
-    same = True if second is None else out1.read_bytes() == out2.read_bytes()
+    same = None if second is None else out1.read_bytes() == out2.read_bytes()
     return {
         "profile_id": profile_id,
         "profile_version": profile_version,
@@ -139,8 +139,8 @@ def main() -> int:
             "woofmapped_temporal",
             repeat=False,
         )
-        if not orthodox["byte_identical"] or not woof["byte_identical"]:
-            raise RuntimeError("Non-deterministic C8 profile output.")
+        if orthodox["byte_identical"] is not True:
+            raise RuntimeError("Orthodox deterministic repeat failed.")
         if orthodox["target_object_count"] < 188 or orthodox["projected_activation_count"] != 88:
             raise RuntimeError("Orthodox expanded coverage did not meet the C8 reference-fixture contract.")
         if woof["projected_activation_count"] != 54:
@@ -150,7 +150,10 @@ def main() -> int:
             "fixture": str(fixture.relative_to(ROOT)),
             "orthodox": orthodox,
             "woofmapped": woof,
-            "all_deterministic": True,
+            "all_executed_determinism_checks_passed": True,
+            "all_routes_determinism_tested": all(
+                row["determinism_repeat_executed"] for row in (orthodox, woof)
+            ),
         })
         write_json(OUTPUTS / "qa_summary.json", summary)
         return 0

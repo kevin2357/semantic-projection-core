@@ -215,3 +215,7 @@ The route preserves the normalized request and deterministic identity chain with
 ### C8 profile expansion
 
 Chunk 3.beta.8 expands the Orthodox reference profile to near-complete canonical object coverage through specialized mappings plus auditable identity projection. The real temporal fixture now projects all 12 activators and all 88 activation arcs. Woofmapped primitive scope is unchanged, but its temporal production route is now explicitly documented and regression-tested.
+
+## Woofmapped horoscope context modes
+
+The example contexts include `woofmapped.handler_guidance.v1` and `woofmapped.dog_direct.v1`. They reuse one Woofmapped ontology while separating handler-facing practical guidance from a direct-to-dog horoscope frame. Voice and prose remain downstream of deterministic projection.

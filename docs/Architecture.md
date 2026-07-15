@@ -74,3 +74,10 @@ The Orthodox reference profile now uses two complementary mapping modes:
 Identity projection does not collapse the Foundry/Core boundary. Foundry still owns the canonical fact row; Core emits a deterministic target object carrying source identity, canonical facts, mapping provenance, and profile ownership. Duplicate aliases may be excluded by explicit source-selection policy.
 
 Woofmapped timing continues to use the same generic temporal compiler while retaining its deliberately narrow primitive ontology. This demonstrates that temporal completeness and primitive breadth are independent profile choices.
+
+
+## Durable production metadata and audience contexts
+
+Production projected-temporal artifacts use capability and contract-generation metadata rather than internal development-pass labels. Chunk identifiers remain in historical implementation notes and QA summaries only.
+
+Audience-specific Woofmapped horoscope behavior is represented through context objects over one primitive profile. Handler-facing and dog-facing contexts may alter relevance, audience, and downstream guidance intent without introducing duplicate planet, house, aspect, or temporal mappings. Deterministic projection remains separate from downstream recommendation synthesis and prose realization.

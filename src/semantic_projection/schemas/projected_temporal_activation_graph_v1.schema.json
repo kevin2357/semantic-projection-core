@@ -79,6 +79,18 @@
             "summary",
             "forensic"
           ]
+        },
+        "capability_status": {
+          "type": "string",
+          "enum": [
+            "production_ready"
+          ],
+          "description": "Durable production capability status; not a development chunk label."
+        },
+        "contract_generation": {
+          "type": "string",
+          "const": "projected_temporal_activation_graph.v1",
+          "description": "Stable contract-generation identity for the projected temporal artifact."
         }
       },
       "additionalProperties": true
@@ -323,7 +335,13 @@
       "type": "object"
     },
     "audit": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "audit_generation": {
+          "type": "string",
+          "const": "temporal_projection_audit.v1"
+        }
+      }
     },
     "diagnostics": {
       "type": "object"

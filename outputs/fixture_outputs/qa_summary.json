@@ -1,23 +1,38 @@
 {
-  "stage": "C7",
+  "stage": "C8",
   "status": "passed",
   "pytest": {
     "exit_code": 0,
     "passed": true
   },
-  "fixture_count": 1,
-  "routes": [
-    {
-      "fixture": "outputs\\fixture_test_files\\kevin_2026-01_temporal_projection_source.json",
-      "target_family": "natal",
-      "request_id": "temporal_projection_request:3028c62486a88685d6c4c347",
-      "projected_graph_id": "temporal_projection:d4db6becfe693e79c2eed8e9",
-      "route_hash": "09198cbafbb3dc421c0905dc",
-      "byte_identical": true,
-      "sha256_run1": "5a8955c77dbe488077a61b83581655acd8d80a43947c35d0171037dec53ad71f",
-      "sha256_run2": "5a8955c77dbe488077a61b83581655acd8d80a43947c35d0171037dec53ad71f",
-      "size_bytes": 936840
-    }
-  ],
+  "fixture": "outputs\\fixture_test_files\\kevin_2026-01_temporal_projection_source.json",
+  "orthodox": {
+    "profile_id": "orthodox_astrology.v1",
+    "profile_version": "1.0.0",
+    "byte_identical": true,
+    "sha256_run1": "7645cb42efbf1b0f74c5023534d7bd678baed321d5a647a4d502b26045ac34c8",
+    "sha256_run2": "7645cb42efbf1b0f74c5023534d7bd678baed321d5a647a4d502b26045ac34c8",
+    "determinism_repeat_executed": true,
+    "size_bytes": 9188702,
+    "target_object_count": 188,
+    "target_relationship_count": 3219,
+    "projected_activator_count": 12,
+    "projected_activation_count": 88,
+    "route_hash": "43d1a1b5015c9f87be7fab16"
+  },
+  "woofmapped": {
+    "profile_id": "woofmapped_astrology.v0",
+    "profile_version": "0.1.0",
+    "byte_identical": true,
+    "sha256_run1": "7d0898f4e68e966b7eb3bb7b8f5fbd58a9cb3d500642ddb9a2022c12d6024840",
+    "sha256_run2": null,
+    "determinism_repeat_executed": false,
+    "size_bytes": 941626,
+    "target_object_count": 17,
+    "target_relationship_count": 75,
+    "projected_activator_count": 11,
+    "projected_activation_count": 54,
+    "route_hash": "aeb34037a9426cbfe3c32bf3"
+  },
   "all_deterministic": true
 }

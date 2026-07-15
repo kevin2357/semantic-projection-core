@@ -76,3 +76,20 @@ Add a dedicated future pass for synastry projection:
 - establish cross-profile synastry QA;
 - add temporal synastry routing when Foundry provides canonical fixtures;
 - compare synastry with Composite and Davison projection contracts without conflating their source identities.
+
+
+## Post-C8 Orthodox and temporal follow-ups
+
+- Audit the 1,020 canonical relationship rows currently outside the Orthodox profile's declared relationship scope; classify which families deserve identity projection and which are aliases, administrative edges, or intentionally excluded.
+- Consider explicit Orthodox temporal state composition so target-chart transit houses project to Orthodox house references rather than generic domain-unavailable status.
+- Consider a slimmer Orthodox temporal interchange/materialization for consumers that need current activations without embedding thousands of static relationships.
+- Preserve the retrospective documentation task **Evolution of Semantic Projection Core: Lessons from Static and Temporal Projection**.
+
+## Woofmapped horoscope contexts and downstream rendering
+
+Maintain two context modes over the same Woofmapped primitive profile:
+
+- handler-facing guidance about baseline-relative changes and practical adjustments to routines, training, enrichment, expectations, rest, social exposure, and handling;
+- dog-facing direct address in a playful horoscope voice, explaining what may feel different and offering advice for navigating or contextualizing those changes.
+
+These remain separate projection/rendering contexts, not separate primitive mappings. Projection owns audience and relevance framing; downstream reasoning and rendering own recommendations and prose.
