@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projected Relationship v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "relationship_type",
+    "source_id",
+    "target_id",
+    "operators",
+    "theme_tags",
+    "attributes",
+    "source_relationship_refs",
+    "mapping_rule_refs",
+    "context_refs",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "relationship_type": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "target_id": {
+      "type": "string"
+    },
+    "operators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "theme_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "attributes": {
+      "type": "object"
+    },
+    "source_relationship_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mapping_rule_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "context_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "projection_relevance_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "provenance": {
+      "type": "object"
+    }
+  }
+}

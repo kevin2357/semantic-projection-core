@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mapping Execution v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "execution_id",
+    "mapping_rule_id",
+    "mapping_rule_version",
+    "source_refs",
+    "context_refs",
+    "conditions_evaluated",
+    "result_refs",
+    "status",
+    "warnings"
+  ],
+  "properties": {
+    "execution_id": {
+      "type": "string"
+    },
+    "mapping_rule_id": {
+      "type": "string"
+    },
+    "mapping_rule_version": {
+      "type": "string"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "context_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "conditions_evaluated": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "result_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

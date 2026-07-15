@@ -1,0 +1,27 @@
+{
+  "ontology_id": "orthodox_astrology.v1",
+  "object_type": "orthodox_astrology_primitive",
+  "core_primitives": [
+    "identity_vitality",
+    "emotional_regulation",
+    "communication_interpretation",
+    "value_attraction_harmony",
+    "action_assertion_drive",
+    "growth_meaning_expansion",
+    "structure_constraint_commitment",
+    "freedom_change_disruption",
+    "imagination_idealization_permeability",
+    "depth_power_transformation",
+    "identity_interface",
+    "partnership_mirror",
+    "public_direction",
+    "private_roots"
+  ],
+  "major_relationship_types": [
+    "fuses_and_amplifies",
+    "polarizes_and_mirrors",
+    "pressures_and_develops",
+    "supports_and_facilitates",
+    "enables_and_coordinates"
+  ]
+}

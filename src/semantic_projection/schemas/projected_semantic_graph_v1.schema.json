@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projected Semantic Graph v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metadata",
+    "source_identity",
+    "source_graph_ref",
+    "target_ontology",
+    "objects",
+    "relationships",
+    "indexes",
+    "summary",
+    "audit",
+    "diagnostics"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "package_type",
+        "projection_id",
+        "engine_version",
+        "profile_id",
+        "profile_version",
+        "context_id",
+        "context_version"
+      ]
+    },
+    "source_identity": {
+      "type": "object"
+    },
+    "source_graph_ref": {
+      "type": "object"
+    },
+    "target_ontology": {
+      "type": "string"
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "$ref": "projected_object_v1.schema.json"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "projected_relationship_v1.schema.json"
+      }
+    },
+    "indexes": {
+      "type": "object"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "audit": {
+      "$ref": "projection_audit_v1.schema.json"
+    },
+    "diagnostics": {
+      "$ref": "projection_diagnostics_v1.schema.json"
+    },
+    "projected_term_registry": {
+      "type": "object"
+    }
+  }
+}

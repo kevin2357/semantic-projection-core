@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projected Term Registry v1",
+  "type": "object",
+  "required": [
+    "registry_id",
+    "registry_version",
+    "target_ontology",
+    "terms"
+  ],
+  "properties": {
+    "registry_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "registry_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_ontology": {
+      "type": "string",
+      "minLength": 1
+    },
+    "materialization": {
+      "type": "string"
+    },
+    "terms": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "term_type",
+          "canonical_label",
+          "short_description"
+        ],
+        "properties": {
+          "term_type": {
+            "enum": [
+              "operator",
+              "mode",
+              "domain",
+              "interface",
+              "relation",
+              "theme",
+              "orientation"
+            ]
+          },
+          "canonical_label": {
+            "type": "string"
+          },
+          "friendly_labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "short_description": {
+            "type": "string"
+          },
+          "long_description": {
+            "type": "string"
+          },
+          "core_operators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "semantic_facets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "related_terms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "output_guidance": {
+            "type": "object"
+          },
+          "extensions": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

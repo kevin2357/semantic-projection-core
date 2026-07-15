@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projection Profile Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "profile_version",
+    "engine_contract_version",
+    "source_ontology",
+    "target_ontology",
+    "implementation",
+    "supported_source_graph_types",
+    "mapping_rule_namespace",
+    "output_contract",
+    "deterministic"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "engine_contract_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_ontology": {
+      "type": "string"
+    },
+    "target_ontology": {
+      "type": "string"
+    },
+    "implementation": {
+      "type": "object",
+      "required": [
+        "type",
+        "entrypoint"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "python"
+          ]
+        },
+        "entrypoint": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "supported_source_graph_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_context_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "optional_context_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mapping_rule_namespace": {
+      "type": "string"
+    },
+    "output_contract": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    },
+    "extensions": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projected Semantic Graph Summary v1",
+  "type": "object",
+  "required": [
+    "metadata",
+    "source_identity",
+    "source_graph_ref",
+    "target_ontology",
+    "summary",
+    "coverage",
+    "diagnostics_summary"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object"
+    },
+    "source_identity": {
+      "type": "object"
+    },
+    "source_graph_ref": {
+      "type": "object"
+    },
+    "target_ontology": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": "object"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "diagnostics_summary": {
+      "type": "object",
+      "required": [
+        "error_count",
+        "warning_count",
+        "info_count",
+        "unmapped_source_count"
+      ],
+      "properties": {
+        "error_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warning_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "info_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unmapped_source_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

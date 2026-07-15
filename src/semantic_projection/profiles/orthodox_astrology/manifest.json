@@ -1,0 +1,49 @@
+{
+  "profile_id": "orthodox_astrology.v1",
+  "profile_version": "1.0.0",
+  "engine_contract_version": "1.0.0",
+  "source_ontology": "canonical_astrology_graph.v1",
+  "target_ontology": "orthodox_astrology.v1",
+  "implementation": {
+    "type": "python",
+    "entrypoint": "semantic_projection.profiles.orthodox_astrology.profile:OrthodoxAstrologyProfile"
+  },
+  "supported_source_graph_types": [
+    "composite",
+    "davison",
+    "lunar_return",
+    "natal",
+    "solar_return",
+    "synastry"
+  ],
+  "required_context_fields": [],
+  "optional_context_fields": [
+    "application_context",
+    "audience",
+    "parameters",
+    "relationship_type",
+    "subject_scope"
+  ],
+  "mapping_rule_namespace": "orthodox_astrology.v1",
+  "output_contract": "projected_semantic_graph.v1",
+  "deterministic": true,
+  "status": "reference_profile_relationship_projection",
+  "extensions": {
+    "chunk": "2.4",
+    "scope": "core objects, major aspects, registry-aware synastry, house overlays, contexts",
+    "supported_context_ids": [
+      "orthodox.relationship.general.v1",
+      "orthodox.relationship.professional.v1"
+    ],
+    "deferred": [
+      "expanded objects",
+      "minor aspects",
+      "timing-specific rules"
+    ],
+    "deferred_source_graph_types": [
+      "transit",
+      "transit_period",
+      "transit_range"
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projected Object v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "object_type",
+    "name",
+    "target_ontology",
+    "operators",
+    "attributes",
+    "source_refs",
+    "mapping_rule_refs",
+    "context_refs",
+    "provenance"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "object_type": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "target_ontology": {
+      "type": "string"
+    },
+    "operators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "attributes": {
+      "type": "object"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mapping_rule_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "context_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "structural_strength_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "projection_relevance_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "provenance": {
+      "type": "object"
+    }
+  }
+}

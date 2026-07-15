@@ -1,0 +1,42 @@
+{
+  "profile_id": "woofmapped_astrology.v0",
+  "profile_version": "0.1.0",
+  "engine_contract_version": "1.0.0",
+  "source_ontology": "canonical_astrology_graph.v1",
+  "target_ontology": "woofmapped_astrology.v0",
+  "implementation": {
+    "type": "python",
+    "entrypoint": "semantic_projection.profiles.woofmapped_astrology.profile:WoofmappedAstrologyProfile"
+  },
+  "supported_source_graph_types": [
+    "natal"
+  ],
+  "required_context_fields": [],
+  "optional_context_fields": [
+    "subject_scope",
+    "application_context",
+    "audience",
+    "parameters"
+  ],
+  "mapping_rule_namespace": "woofmapped_astrology.v0",
+  "output_contract": "projected_semantic_graph.v1",
+  "deterministic": true,
+  "status": "playful_experimental_reference_profile",
+  "extensions": {
+    "chunk": "2.6.woof",
+    "scope": "natal operators, signs/modes, Doghouses/domains, angles/interfaces, all SDK aspect types",
+    "house_mapping_policy": "doghouse",
+    "guardrails": [
+      "not veterinary advice",
+      "not behavioral diagnosis",
+      "not empirically validated",
+      "playful structural projection"
+    ],
+    "deferred": [
+      "transits",
+      "human-dog synastry",
+      "dog-dog synastry",
+      "pack models"
+    ]
+  }
+}

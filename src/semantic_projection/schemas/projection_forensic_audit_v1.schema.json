@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projection Forensic Audit v1",
+  "type": "object",
+  "required": ["metadata", "source_identity", "source_graph_ref", "audit", "diagnostics"],
+  "properties": {
+    "metadata": {"type": "object"},
+    "source_identity": {"type": "object"},
+    "source_graph_ref": {"type": "object"},
+    "audit": {"type": "object"},
+    "diagnostics": {"type": "object"}
+  }
+}

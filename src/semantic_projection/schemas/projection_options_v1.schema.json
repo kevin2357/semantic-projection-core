@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projection Options v1",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "retain_unmapped_sources": {
+      "type": "boolean"
+    },
+    "include_audit": {
+      "type": "boolean"
+    },
+    "include_diagnostics": {
+      "type": "boolean"
+    },
+    "unmapped_policy": {
+      "type": "string",
+      "enum": [
+        "diagnostic",
+        "passthrough",
+        "ignore",
+        "fail"
+      ]
+    },
+    "compact_audit": {
+      "type": "boolean"
+    },
+    "extensions": {
+      "type": "object"
+    }
+  }
+}

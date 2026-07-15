@@ -1,0 +1,1711 @@
+{
+  "registry_id": "orthodox_astrology.projected_terms",
+  "registry_version": "1.0.0",
+  "target_ontology": "orthodox_astrology.v1",
+  "terms": {
+    "action_assertion_drive": {
+      "term_type": "operator",
+      "canonical_label": "Action Assertion Drive",
+      "friendly_labels": [
+        "action assertion drive"
+      ],
+      "short_description": "A projected operator describing action assertion drive.",
+      "long_description": "This term represents the target-ontology function of action assertion drive. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "act",
+        "assert",
+        "defend",
+        "initiate"
+      ],
+      "semantic_facets": [
+        "action",
+        "assertion",
+        "conflict",
+        "desire"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "action assertion drive",
+        "possessive_phrase": "the subject's action assertion drive",
+        "subject_template": "{subject}'s action assertion drive",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "career_direction_status": {
+      "term_type": "domain",
+      "canonical_label": "Career Direction Status",
+      "friendly_labels": [
+        "career direction status"
+      ],
+      "short_description": "A projected context or life domain centered on career direction status.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with career direction status providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "career",
+        "direction",
+        "status"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of career direction status",
+        "location_phrase": "in career direction status",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "collaboration_contract": {
+      "term_type": "domain",
+      "canonical_label": "Collaboration Contract",
+      "friendly_labels": [
+        "collaboration contract"
+      ],
+      "short_description": "A projected context or life domain centered on collaboration contract.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with collaboration contract providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "collaboration",
+        "contract"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of collaboration contract",
+        "location_phrase": "in collaboration contract",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "collaboration_mirroring": {
+      "term_type": "theme",
+      "canonical_label": "Collaboration Mirroring",
+      "friendly_labels": [
+        "collaboration mirroring"
+      ],
+      "short_description": "A projected semantic theme concerning collaboration mirroring.",
+      "long_description": "This theme identifies collaboration mirroring as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "collaboration",
+        "mirroring"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "collaboration mirroring"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "commitment_structure": {
+      "term_type": "theme",
+      "canonical_label": "Commitment Structure",
+      "friendly_labels": [
+        "commitment structure"
+      ],
+      "short_description": "A projected semantic theme concerning commitment structure.",
+      "long_description": "This theme identifies commitment structure as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "commitment",
+        "structure"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "commitment structure"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "communication": {
+      "term_type": "theme",
+      "canonical_label": "Communication",
+      "friendly_labels": [
+        "communication"
+      ],
+      "short_description": "A projected semantic theme concerning communication.",
+      "long_description": "This theme identifies communication as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "communication"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "communication"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "communication_interpretation": {
+      "term_type": "operator",
+      "canonical_label": "Communication Interpretation",
+      "friendly_labels": [
+        "communication interpretation"
+      ],
+      "short_description": "A projected operator describing communication interpretation.",
+      "long_description": "This term represents the target-ontology function of communication interpretation. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "compare",
+        "interpret",
+        "represent",
+        "translate"
+      ],
+      "semantic_facets": [
+        "communication",
+        "exchange",
+        "interpretation",
+        "thought"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "communication interpretation",
+        "possessive_phrase": "the subject's communication interpretation",
+        "subject_template": "{subject}'s communication interpretation",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "communication_learning": {
+      "term_type": "domain",
+      "canonical_label": "Communication Learning",
+      "friendly_labels": [
+        "communication learning"
+      ],
+      "short_description": "A projected context or life domain centered on communication learning.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with communication learning providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "communication",
+        "learning"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of communication learning",
+        "location_phrase": "in communication learning",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "community_future": {
+      "term_type": "domain",
+      "canonical_label": "Community Future",
+      "friendly_labels": [
+        "community future"
+      ],
+      "short_description": "A projected context or life domain centered on community future.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with community future providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "community",
+        "future"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of community future",
+        "location_phrase": "in community future",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "conflict_drive": {
+      "term_type": "theme",
+      "canonical_label": "Conflict Drive",
+      "friendly_labels": [
+        "conflict drive"
+      ],
+      "short_description": "A projected semantic theme concerning conflict drive.",
+      "long_description": "This theme identifies conflict drive as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "conflict",
+        "drive"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "conflict drive"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "creative_contribution": {
+      "term_type": "domain",
+      "canonical_label": "Creative Contribution",
+      "friendly_labels": [
+        "creative contribution"
+      ],
+      "short_description": "A projected context or life domain centered on creative contribution.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with creative contribution providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "contribution",
+        "creative"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of creative contribution",
+        "location_phrase": "in creative contribution",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "creativity_expression": {
+      "term_type": "domain",
+      "canonical_label": "Creativity Expression",
+      "friendly_labels": [
+        "creativity expression"
+      ],
+      "short_description": "A projected context or life domain centered on creativity expression.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with creativity expression providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "creativity",
+        "expression"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of creativity expression",
+        "location_phrase": "in creativity expression",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "depth_power": {
+      "term_type": "theme",
+      "canonical_label": "Depth Power",
+      "friendly_labels": [
+        "depth power"
+      ],
+      "short_description": "A projected semantic theme concerning depth power.",
+      "long_description": "This theme identifies depth power as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "depth",
+        "power"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "depth power"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "depth_power_transformation": {
+      "term_type": "operator",
+      "canonical_label": "Depth Power Transformation",
+      "friendly_labels": [
+        "depth power transformation"
+      ],
+      "short_description": "A projected operator describing depth power transformation.",
+      "long_description": "This term represents the target-ontology function of depth power transformation. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "empower",
+        "expose",
+        "intensify",
+        "transform"
+      ],
+      "semantic_facets": [
+        "depth",
+        "intensity",
+        "power",
+        "transformation"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "depth power transformation",
+        "possessive_phrase": "the subject's depth power transformation",
+        "subject_template": "{subject}'s depth power transformation",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "dream_idealization": {
+      "term_type": "theme",
+      "canonical_label": "Dream Idealization",
+      "friendly_labels": [
+        "dream idealization"
+      ],
+      "short_description": "A projected semantic theme concerning dream idealization.",
+      "long_description": "This theme identifies dream idealization as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "dream",
+        "idealization"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "dream idealization"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "ease_support": {
+      "term_type": "theme",
+      "canonical_label": "Ease Support",
+      "friendly_labels": [
+        "ease support"
+      ],
+      "short_description": "A projected semantic theme concerning ease support.",
+      "long_description": "This theme identifies ease support as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "ease",
+        "support"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "ease support"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "emotional_regulation": {
+      "term_type": "operator",
+      "canonical_label": "Emotional Regulation",
+      "friendly_labels": [
+        "emotional regulation"
+      ],
+      "short_description": "A projected operator describing emotional regulation.",
+      "long_description": "This term represents the target-ontology function of emotional regulation. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "need",
+        "regulate",
+        "remember"
+      ],
+      "semantic_facets": [
+        "emotion",
+        "habit",
+        "memory",
+        "security"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "emotional regulation",
+        "possessive_phrase": "the subject's emotional regulation",
+        "subject_template": "{subject}'s emotional regulation",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "emotional_safety": {
+      "term_type": "theme",
+      "canonical_label": "Emotional Safety",
+      "friendly_labels": [
+        "emotional safety"
+      ],
+      "short_description": "A projected semantic theme concerning emotional safety.",
+      "long_description": "This theme identifies emotional safety as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "emotional",
+        "safety"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "emotional safety"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "enables_and_coordinates": {
+      "term_type": "relation",
+      "canonical_label": "Enables And Coordinates",
+      "friendly_labels": [
+        "enables and coordinates"
+      ],
+      "short_description": "A projected relationship in which two subsystems enables and coordinates.",
+      "long_description": "This relation describes how two projected endpoints interact: they enables and coordinates. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "cooperate",
+        "coordinate",
+        "enable"
+      ],
+      "semantic_facets": [
+        "ease_support"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "enables and coordinates",
+        "sentence_template": "{source_phrase} enables and coordinates {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "freedom_change": {
+      "term_type": "theme",
+      "canonical_label": "Freedom Change",
+      "friendly_labels": [
+        "freedom change"
+      ],
+      "short_description": "A projected semantic theme concerning freedom change.",
+      "long_description": "This theme identifies freedom change as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "change",
+        "freedom"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "freedom change"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "freedom_change_disruption": {
+      "term_type": "operator",
+      "canonical_label": "Freedom Change Disruption",
+      "friendly_labels": [
+        "freedom change disruption"
+      ],
+      "short_description": "A projected operator describing freedom change disruption.",
+      "long_description": "This term represents the target-ontology function of freedom change disruption. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "differentiate",
+        "disrupt",
+        "individuate",
+        "liberate"
+      ],
+      "semantic_facets": [
+        "change",
+        "disruption",
+        "freedom",
+        "novelty"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "freedom change disruption",
+        "possessive_phrase": "the subject's freedom change disruption",
+        "subject_template": "{subject}'s freedom change disruption",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "fuses_and_amplifies": {
+      "term_type": "relation",
+      "canonical_label": "Fuses And Amplifies",
+      "friendly_labels": [
+        "fuses and amplifies"
+      ],
+      "short_description": "A projected relationship in which two subsystems fuses and amplifies.",
+      "long_description": "This relation describes how two projected endpoints interact: they fuses and amplifies. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "amplify",
+        "co_activate",
+        "merge"
+      ],
+      "semantic_facets": [
+        "fusion_intensity"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "fuses and amplifies",
+        "sentence_template": "{source_phrase} fuses and amplifies {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "fusion_intensity": {
+      "term_type": "theme",
+      "canonical_label": "Fusion Intensity",
+      "friendly_labels": [
+        "fusion intensity"
+      ],
+      "short_description": "A projected semantic theme concerning fusion intensity.",
+      "long_description": "This theme identifies fusion intensity as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "fusion",
+        "intensity"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "fusion intensity"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "growth_edge": {
+      "term_type": "theme",
+      "canonical_label": "Growth Edge",
+      "friendly_labels": [
+        "growth edge"
+      ],
+      "short_description": "A projected semantic theme concerning growth edge.",
+      "long_description": "This theme identifies growth edge as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "edge",
+        "growth"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "growth edge"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "growth_meaning": {
+      "term_type": "theme",
+      "canonical_label": "Growth Meaning",
+      "friendly_labels": [
+        "growth meaning"
+      ],
+      "short_description": "A projected semantic theme concerning growth meaning.",
+      "long_description": "This theme identifies growth meaning as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "growth",
+        "meaning"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "growth meaning"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "growth_meaning_expansion": {
+      "term_type": "operator",
+      "canonical_label": "Growth Meaning Expansion",
+      "friendly_labels": [
+        "growth meaning expansion"
+      ],
+      "short_description": "A projected operator describing growth meaning expansion.",
+      "long_description": "This term represents the target-ontology function of growth meaning expansion. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "contextualize",
+        "encourage",
+        "expand",
+        "synthesize"
+      ],
+      "semantic_facets": [
+        "belief",
+        "growth",
+        "meaning",
+        "opportunity"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "growth meaning expansion",
+        "possessive_phrase": "the subject's growth meaning expansion",
+        "subject_template": "{subject}'s growth meaning expansion",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "hidden_processes": {
+      "term_type": "domain",
+      "canonical_label": "Hidden Processes",
+      "friendly_labels": [
+        "hidden processes"
+      ],
+      "short_description": "A projected context or life domain centered on hidden processes.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with hidden processes providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "hidden",
+        "processes"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of hidden processes",
+        "location_phrase": "in hidden processes",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "home_family": {
+      "term_type": "theme",
+      "canonical_label": "Home Family",
+      "friendly_labels": [
+        "home family"
+      ],
+      "short_description": "A projected semantic theme concerning home family.",
+      "long_description": "This theme identifies home family as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "family",
+        "home"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "home family"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "home_foundation": {
+      "term_type": "domain",
+      "canonical_label": "Home Foundation",
+      "friendly_labels": [
+        "home foundation"
+      ],
+      "short_description": "A projected context or life domain centered on home foundation.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with home foundation providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "foundation",
+        "home"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of home foundation",
+        "location_phrase": "in home foundation",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "identity_interface": {
+      "term_type": "interface",
+      "canonical_label": "Identity Interface",
+      "friendly_labels": [
+        "identity interface"
+      ],
+      "short_description": "A projected interface describing identity interface.",
+      "long_description": "This term represents the target-ontology function of identity interface. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "enter",
+        "interface",
+        "present"
+      ],
+      "semantic_facets": [
+        "approach",
+        "interface",
+        "presentation"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "identity interface",
+        "possessive_phrase": "the subject's identity interface",
+        "subject_template": "{subject}'s identity interface",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "identity_presence": {
+      "term_type": "domain",
+      "canonical_label": "Identity Presence",
+      "friendly_labels": [
+        "identity presence"
+      ],
+      "short_description": "A projected context or life domain centered on identity presence.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with identity presence providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "identity",
+        "presence"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of identity presence",
+        "location_phrase": "in identity presence",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "identity_visibility": {
+      "term_type": "theme",
+      "canonical_label": "Identity Visibility",
+      "friendly_labels": [
+        "identity visibility"
+      ],
+      "short_description": "A projected semantic theme concerning identity visibility.",
+      "long_description": "This theme identifies identity visibility as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "identity",
+        "visibility"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "identity visibility"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "identity_vitality": {
+      "term_type": "operator",
+      "canonical_label": "Identity Vitality",
+      "friendly_labels": [
+        "identity vitality"
+      ],
+      "short_description": "A projected operator describing identity vitality.",
+      "long_description": "This term represents the target-ontology function of identity vitality. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "express",
+        "illuminate",
+        "prioritize"
+      ],
+      "semantic_facets": [
+        "identity",
+        "purpose",
+        "visibility",
+        "vitality"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "identity vitality",
+        "possessive_phrase": "the subject's identity vitality",
+        "subject_template": "{subject}'s identity vitality",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "imagination_idealization_permeability": {
+      "term_type": "operator",
+      "canonical_label": "Imagination Idealization Permeability",
+      "friendly_labels": [
+        "imagination idealization permeability"
+      ],
+      "short_description": "A projected operator describing imagination idealization permeability.",
+      "long_description": "This term represents the target-ontology function of imagination idealization permeability. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "dissolve",
+        "idealize",
+        "imagine",
+        "spiritualize"
+      ],
+      "semantic_facets": [
+        "ambiguity",
+        "idealization",
+        "imagination",
+        "permeability"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "imagination idealization permeability",
+        "possessive_phrase": "the subject's imagination idealization permeability",
+        "subject_template": "{subject}'s imagination idealization permeability",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "information_exchange": {
+      "term_type": "domain",
+      "canonical_label": "Information Exchange",
+      "friendly_labels": [
+        "information exchange"
+      ],
+      "short_description": "A projected context or life domain centered on information exchange.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with information exchange providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "exchange",
+        "information"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of information exchange",
+        "location_phrase": "in information exchange",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "initiative_tension": {
+      "term_type": "theme",
+      "canonical_label": "Initiative Tension",
+      "friendly_labels": [
+        "initiative tension"
+      ],
+      "short_description": "A projected semantic theme concerning initiative tension.",
+      "long_description": "This theme identifies initiative tension as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "initiative",
+        "tension"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "initiative tension"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "innovation_change": {
+      "term_type": "theme",
+      "canonical_label": "Innovation Change",
+      "friendly_labels": [
+        "innovation change"
+      ],
+      "short_description": "A projected semantic theme concerning innovation change.",
+      "long_description": "This theme identifies innovation change as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "change",
+        "innovation"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "innovation change"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "meaning_learning_worldview": {
+      "term_type": "domain",
+      "canonical_label": "Meaning Learning Worldview",
+      "friendly_labels": [
+        "meaning learning worldview"
+      ],
+      "short_description": "A projected context or life domain centered on meaning learning worldview.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with meaning learning worldview providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "learning",
+        "meaning",
+        "worldview"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of meaning learning worldview",
+        "location_phrase": "in meaning learning worldview",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "network_future": {
+      "term_type": "domain",
+      "canonical_label": "Network Future",
+      "friendly_labels": [
+        "network future"
+      ],
+      "short_description": "A projected context or life domain centered on network future.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with network future providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "future",
+        "network"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of network future",
+        "location_phrase": "in network future",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "partnership_contract": {
+      "term_type": "domain",
+      "canonical_label": "Partnership Contract",
+      "friendly_labels": [
+        "partnership contract"
+      ],
+      "short_description": "A projected context or life domain centered on partnership contract.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with partnership contract providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "contract",
+        "partnership"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of partnership contract",
+        "location_phrase": "in partnership contract",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "partnership_mirror": {
+      "term_type": "interface",
+      "canonical_label": "Partnership Mirror",
+      "friendly_labels": [
+        "partnership mirror"
+      ],
+      "short_description": "A projected interface describing partnership mirror.",
+      "long_description": "This term represents the target-ontology function of partnership mirror. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "externalize",
+        "mirror",
+        "partner"
+      ],
+      "semantic_facets": [
+        "mirroring",
+        "other",
+        "partnership"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "partnership mirror",
+        "possessive_phrase": "the subject's partnership mirror",
+        "subject_template": "{subject}'s partnership mirror",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "partnership_mirroring": {
+      "term_type": "theme",
+      "canonical_label": "Partnership Mirroring",
+      "friendly_labels": [
+        "partnership mirroring"
+      ],
+      "short_description": "A projected semantic theme concerning partnership mirroring.",
+      "long_description": "This theme identifies partnership mirroring as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "mirroring",
+        "partnership"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "partnership mirroring"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "polarizes_and_mirrors": {
+      "term_type": "relation",
+      "canonical_label": "Polarizes And Mirrors",
+      "friendly_labels": [
+        "polarizes and mirrors"
+      ],
+      "short_description": "A projected relationship in which two subsystems polarizes and mirrors.",
+      "long_description": "This relation describes how two projected endpoints interact: they polarizes and mirrors. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "mirror",
+        "negotiate",
+        "polarize"
+      ],
+      "semantic_facets": [
+        "growth_edge"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "polarizes and mirrors",
+        "sentence_template": "{source_phrase} polarizes and mirrors {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "power_influence": {
+      "term_type": "theme",
+      "canonical_label": "Power Influence",
+      "friendly_labels": [
+        "power influence"
+      ],
+      "short_description": "A projected semantic theme concerning power influence.",
+      "long_description": "This theme identifies power influence as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "influence",
+        "power"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "power influence"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "pressures_and_develops": {
+      "term_type": "relation",
+      "canonical_label": "Pressures And Develops",
+      "friendly_labels": [
+        "pressures and develops"
+      ],
+      "short_description": "A projected relationship in which two subsystems pressures and develops.",
+      "long_description": "This relation describes how two projected endpoints interact: they pressures and develops. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "activate",
+        "develop",
+        "stress"
+      ],
+      "semantic_facets": [
+        "growth_edge"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "pressures and develops",
+        "sentence_template": "{source_phrase} pressures and develops {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "private_roots": {
+      "term_type": "interface",
+      "canonical_label": "Private Roots",
+      "friendly_labels": [
+        "private roots"
+      ],
+      "short_description": "A projected interface describing private roots.",
+      "long_description": "This term represents the target-ontology function of private roots. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "privatize",
+        "root",
+        "secure"
+      ],
+      "semantic_facets": [
+        "home",
+        "private foundation",
+        "roots"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "private roots",
+        "possessive_phrase": "the subject's private roots",
+        "subject_template": "{subject}'s private roots",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "private_unconscious": {
+      "term_type": "domain",
+      "canonical_label": "Private Unconscious",
+      "friendly_labels": [
+        "private unconscious"
+      ],
+      "short_description": "A projected context or life domain centered on private unconscious.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with private unconscious providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "private",
+        "unconscious"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of private unconscious",
+        "location_phrase": "in private unconscious",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "professional_growth_meaning": {
+      "term_type": "theme",
+      "canonical_label": "Professional Growth Meaning",
+      "friendly_labels": [
+        "professional growth meaning"
+      ],
+      "short_description": "A projected semantic theme concerning professional growth meaning.",
+      "long_description": "This theme identifies professional growth meaning as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "growth",
+        "meaning",
+        "professional"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "professional growth meaning"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "professional_rapport": {
+      "term_type": "theme",
+      "canonical_label": "Professional Rapport",
+      "friendly_labels": [
+        "professional rapport"
+      ],
+      "short_description": "A projected semantic theme concerning professional rapport.",
+      "long_description": "This theme identifies professional rapport as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "professional",
+        "rapport"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "professional rapport"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "public_direction": {
+      "term_type": "interface",
+      "canonical_label": "Public Direction",
+      "friendly_labels": [
+        "public direction"
+      ],
+      "short_description": "A projected interface describing public direction.",
+      "long_description": "This term represents the target-ontology function of public direction. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "aspire",
+        "direct",
+        "publicize"
+      ],
+      "semantic_facets": [
+        "career",
+        "direction",
+        "public role"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "public direction",
+        "possessive_phrase": "the subject's public direction",
+        "subject_template": "{subject}'s public direction",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "public_direction_status": {
+      "term_type": "domain",
+      "canonical_label": "Public Direction Status",
+      "friendly_labels": [
+        "public direction status"
+      ],
+      "short_description": "A projected context or life domain centered on public direction status.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with public direction status providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "direction",
+        "public",
+        "status"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of public direction status",
+        "location_phrase": "in public direction status",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "resource_stewardship": {
+      "term_type": "domain",
+      "canonical_label": "Resource Stewardship",
+      "friendly_labels": [
+        "resource stewardship"
+      ],
+      "short_description": "A projected context or life domain centered on resource stewardship.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with resource stewardship providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "resource",
+        "stewardship"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of resource stewardship",
+        "location_phrase": "in resource stewardship",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "role_commitment_structure": {
+      "term_type": "theme",
+      "canonical_label": "Role Commitment Structure",
+      "friendly_labels": [
+        "role commitment structure"
+      ],
+      "short_description": "A projected semantic theme concerning role commitment structure.",
+      "long_description": "This theme identifies role commitment structure as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "commitment",
+        "role",
+        "structure"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "role commitment structure"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "role_presence": {
+      "term_type": "domain",
+      "canonical_label": "Role Presence",
+      "friendly_labels": [
+        "role presence"
+      ],
+      "short_description": "A projected context or life domain centered on role presence.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with role presence providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "presence",
+        "role"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of role presence",
+        "location_phrase": "in role presence",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "romance_affection": {
+      "term_type": "theme",
+      "canonical_label": "Romance Affection",
+      "friendly_labels": [
+        "romance affection"
+      ],
+      "short_description": "A projected semantic theme concerning romance affection.",
+      "long_description": "This theme identifies romance affection as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "affection",
+        "romance"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "romance affection"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "shared_resources_depth": {
+      "term_type": "domain",
+      "canonical_label": "Shared Resources Depth",
+      "friendly_labels": [
+        "shared resources depth"
+      ],
+      "short_description": "A projected context or life domain centered on shared resources depth.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with shared resources depth providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "depth",
+        "resources",
+        "shared"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of shared resources depth",
+        "location_phrase": "in shared resources depth",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "shared_resources_risk": {
+      "term_type": "domain",
+      "canonical_label": "Shared Resources Risk",
+      "friendly_labels": [
+        "shared resources risk"
+      ],
+      "short_description": "A projected context or life domain centered on shared resources risk.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with shared resources risk providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "resources",
+        "risk",
+        "shared"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of shared resources risk",
+        "location_phrase": "in shared resources risk",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "strategy_learning": {
+      "term_type": "domain",
+      "canonical_label": "Strategy Learning",
+      "friendly_labels": [
+        "strategy learning"
+      ],
+      "short_description": "A projected context or life domain centered on strategy learning.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with strategy learning providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "learning",
+        "strategy"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of strategy learning",
+        "location_phrase": "in strategy learning",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "structure_constraint_commitment": {
+      "term_type": "operator",
+      "canonical_label": "Structure Constraint Commitment",
+      "friendly_labels": [
+        "structure constraint commitment"
+      ],
+      "short_description": "A projected operator describing structure constraint commitment.",
+      "long_description": "This term represents the target-ontology function of structure constraint commitment. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "constrain",
+        "endure",
+        "stabilize",
+        "structure"
+      ],
+      "semantic_facets": [
+        "commitment",
+        "constraint",
+        "durability",
+        "structure"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "structure constraint commitment",
+        "possessive_phrase": "the subject's structure constraint commitment",
+        "subject_template": "{subject}'s structure constraint commitment",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "supports_and_facilitates": {
+      "term_type": "relation",
+      "canonical_label": "Supports And Facilitates",
+      "friendly_labels": [
+        "supports and facilitates"
+      ],
+      "short_description": "A projected relationship in which two subsystems supports and facilitates.",
+      "long_description": "This relation describes how two projected endpoints interact: they supports and facilitates. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "facilitate",
+        "flow",
+        "support"
+      ],
+      "semantic_facets": [
+        "ease_support"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "supports and facilitates",
+        "sentence_template": "{source_phrase} supports and facilitates {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "team_climate_support": {
+      "term_type": "theme",
+      "canonical_label": "Team Climate Support",
+      "friendly_labels": [
+        "team climate support"
+      ],
+      "short_description": "A projected semantic theme concerning team climate support.",
+      "long_description": "This theme identifies team climate support as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "climate",
+        "support",
+        "team"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "team climate support"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "team_foundation": {
+      "term_type": "theme",
+      "canonical_label": "Team Foundation",
+      "friendly_labels": [
+        "team foundation"
+      ],
+      "short_description": "A projected semantic theme concerning team foundation.",
+      "long_description": "This theme identifies team foundation as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "foundation",
+        "team"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "team foundation"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "value_attraction_harmony": {
+      "term_type": "operator",
+      "canonical_label": "Value Attraction Harmony",
+      "friendly_labels": [
+        "value attraction harmony"
+      ],
+      "short_description": "A projected operator describing value attraction harmony.",
+      "long_description": "This term represents the target-ontology function of value attraction harmony. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "attract",
+        "bond",
+        "connect",
+        "value"
+      ],
+      "semantic_facets": [
+        "attraction",
+        "harmony",
+        "relationship",
+        "values"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "value attraction harmony",
+        "possessive_phrase": "the subject's value attraction harmony",
+        "subject_template": "{subject}'s value attraction harmony",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "values_alignment_resources": {
+      "term_type": "theme",
+      "canonical_label": "Values Alignment Resources",
+      "friendly_labels": [
+        "values alignment resources"
+      ],
+      "short_description": "A projected semantic theme concerning values alignment resources.",
+      "long_description": "This theme identifies values alignment resources as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "alignment",
+        "resources",
+        "values"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "values alignment resources"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "values_resources": {
+      "term_type": "theme",
+      "canonical_label": "Values Resources",
+      "friendly_labels": [
+        "values resources"
+      ],
+      "short_description": "A projected semantic theme concerning values resources.",
+      "long_description": "This theme identifies values resources as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "resources",
+        "values"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "values resources"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "vision_idealization": {
+      "term_type": "theme",
+      "canonical_label": "Vision Idealization",
+      "friendly_labels": [
+        "vision idealization"
+      ],
+      "short_description": "A projected semantic theme concerning vision idealization.",
+      "long_description": "This theme identifies vision idealization as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "idealization",
+        "vision"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "vision idealization"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "work_routine_service": {
+      "term_type": "domain",
+      "canonical_label": "Work Routine Service",
+      "friendly_labels": [
+        "work routine service"
+      ],
+      "short_description": "A projected context or life domain centered on work routine service.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with work routine service providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "routine",
+        "service",
+        "work"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of work routine service",
+        "location_phrase": "in work routine service",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "workflow_service": {
+      "term_type": "domain",
+      "canonical_label": "Workflow Service",
+      "friendly_labels": [
+        "workflow service"
+      ],
+      "short_description": "A projected context or life domain centered on workflow service.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with workflow service providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "service",
+        "workflow"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of workflow service",
+        "location_phrase": "in workflow service",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "ontology_id": "woofmapped_astrology.v0",
+  "profile_version": "0.1.0",
+  "status": "playful_experimental_reference_profile",
+  "layers": {
+    "operators": "canine subsystems preserving planetary core verbs",
+    "modes": "sign-derived canine operating styles",
+    "domains": "Doghouse life domains",
+    "interfaces": "angle-derived canine interfaces",
+    "relations": "aspect-derived subsystem interactions"
+  },
+  "house_mapping_policy": "doghouse",
+  "guardrails": [
+    "not_veterinary_advice",
+    "not_behavioral_diagnosis",
+    "not_empirically_validated"
+  ]
+}

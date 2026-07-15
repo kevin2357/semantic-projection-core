@@ -1,0 +1,44 @@
+{
+  "profile_id": "cognitive_architecture_demo.v0",
+  "profile_version": "0.2.0",
+  "engine_contract_version": "1.0.0",
+  "source_ontology": "canonical_astrology_graph.v1",
+  "target_ontology": "cognitive_architecture_demo.v0",
+  "implementation": {
+    "type": "python",
+    "entrypoint": "semantic_projection.profiles.cognitive_architecture_demo.profile:CognitiveArchitectureDemoProfile"
+  },
+  "supported_source_graph_types": [
+    "natal"
+  ],
+  "required_context_fields": [],
+  "optional_context_fields": [
+    "subject_scope",
+    "application_context",
+    "audience",
+    "parameters"
+  ],
+  "mapping_rule_namespace": "cognitive_architecture_demo.v0",
+  "output_contract": "projected_semantic_graph.v1",
+  "deterministic": true,
+  "status": "expanded_experimental_demo",
+  "extensions": {
+    "chunk": "2.6.woof",
+    "scope": "natal operators, signs/modes, houses/domains, angles/interfaces, all SDK aspect types",
+    "guardrails": [
+      "not clinical",
+      "not empirically validated",
+      "not diagnostic",
+      "architectural proof only"
+    ],
+    "supported_aspects": [
+      "conjunction",
+      "semisextile",
+      "sextile",
+      "square",
+      "trine",
+      "quincunx",
+      "opposition"
+    ]
+  }
+}

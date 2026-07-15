@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projection Diagnostics v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "errors",
+    "warnings",
+    "infos",
+    "unmapped_source_refs",
+    "fallbacks"
+  ],
+  "properties": {
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "infos": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "unmapped_source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fallbacks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

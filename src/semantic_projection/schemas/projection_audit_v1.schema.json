@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projection Audit v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "profile_version",
+    "engine_version",
+    "request_hash",
+    "source_graph_hash",
+    "context_hash",
+    "mapping_executions",
+    "coverage",
+    "unmapped_source_refs",
+    "fallbacks",
+    "diagnostics_ref"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string"
+    },
+    "profile_version": {
+      "type": "string"
+    },
+    "engine_version": {
+      "type": "string"
+    },
+    "request_hash": {
+      "type": "string"
+    },
+    "source_graph_hash": {
+      "type": "string"
+    },
+    "context_hash": {
+      "type": "string"
+    },
+    "mapping_executions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "unmapped_source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fallbacks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "diagnostics_ref": {
+      "type": "string"
+    }
+  }
+}

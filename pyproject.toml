@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-projection-core"
+version = "0.1.0"
+description = "Deterministic, auditable projection of canonical source graphs into target-domain semantic graphs."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "jsonschema>=4", "ruff>=0.5"]
+
+[project.scripts]
+semantic-project = "semantic_projection.cli:main"
+
+[project.entry-points."semantic_projection.profiles"]
+orthodox_astrology = "semantic_projection.profiles.orthodox_astrology:OrthodoxAstrologyProfile"
+cognitive_architecture_demo = "semantic_projection.profiles.cognitive_architecture_demo:CognitiveArchitectureDemoProfile"
+woofmapped_astrology = "semantic_projection.profiles.woofmapped_astrology:WoofmappedAstrologyProfile"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+semantic_projection = ["schemas/*.json", "profiles/**/*.json"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"

@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projected Temporal Activation Graph v1",
+  "description": "Reserved contract for directional, time-bounded activations over an existing projected semantic target graph. The current SDK rejects transit packages until this contract is implemented.",
+  "type": "object",
+  "required": [
+    "metadata",
+    "source_identity",
+    "source_graph_ref",
+    "target_ontology",
+    "target_graph_ref",
+    "transient_objects",
+    "temporal_states",
+    "activations",
+    "indexes",
+    "summary",
+    "audit",
+    "diagnostics"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "package_type",
+        "contract_version"
+      ],
+      "properties": {
+        "package_type": {
+          "const": "projected_temporal_activation_graph"
+        },
+        "contract_version": {
+          "const": "1.0.0"
+        },
+        "projection_id": {
+          "type": "string"
+        },
+        "profile_id": {
+          "type": "string"
+        },
+        "profile_version": {
+          "type": "string"
+        },
+        "context_id": {
+          "type": "string"
+        },
+        "context_version": {
+          "type": "string"
+        }
+      }
+    },
+    "source_identity": {
+      "type": "object"
+    },
+    "source_graph_ref": {
+      "type": "object"
+    },
+    "target_ontology": {
+      "type": "string"
+    },
+    "target_graph_ref": {
+      "type": "object"
+    },
+    "transient_objects": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "temporal_states": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "state_id",
+          "projected_object_id",
+          "observed_at",
+          "attributes",
+          "source_refs"
+        ],
+        "properties": {
+          "state_id": {
+            "type": "string"
+          },
+          "projected_object_id": {
+            "type": "string"
+          },
+          "observed_at": {
+            "type": "string"
+          },
+          "attributes": {
+            "type": "object"
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "activations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "activation_id",
+          "activation_type",
+          "activator_id",
+          "target_id",
+          "relationship_type",
+          "attributes",
+          "source_refs",
+          "mapping_rule_refs",
+          "provenance"
+        ],
+        "properties": {
+          "activation_id": {
+            "type": "string"
+          },
+          "activation_type": {
+            "type": "string"
+          },
+          "activator_id": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "relationship_type": {
+            "type": "string"
+          },
+          "start_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "exact_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "end_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "phase": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pass_index": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "applying": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "orb": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "attributes": {
+            "type": "object"
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "mapping_rule_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "provenance": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "indexes": {
+      "type": "object"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "object"
+    },
+    "diagnostics": {
+      "type": "object"
+    }
+  }
+}

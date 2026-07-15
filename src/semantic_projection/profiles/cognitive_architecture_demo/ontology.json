@@ -1,0 +1,17 @@
+{
+  "ontology_id": "cognitive_architecture_demo.v0",
+  "profile_version": "0.2.0",
+  "status": "expanded_experimental_demo",
+  "layers": {
+    "operators": "cognitive process/orientation/interface primitives",
+    "modes": "sign-derived cognitive operating modes",
+    "domains": "house-derived cognitive domains",
+    "relations": "aspect-derived interaction modes"
+  },
+  "guardrails": [
+    "experimental",
+    "not_clinical",
+    "not_empirically_validated",
+    "not_diagnostic"
+  ]
+}

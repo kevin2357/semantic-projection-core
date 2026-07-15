@@ -1,0 +1,1509 @@
+{
+  "registry_id": "cognitive_architecture_demo.projected_terms",
+  "registry_version": "0.2.0",
+  "target_ontology": "cognitive_architecture_demo.v0",
+  "terms": {
+    "abstraction_exploration_mode": {
+      "term_type": "mode",
+      "canonical_label": "Abstraction Exploration Mode",
+      "friendly_labels": [
+        "abstraction exploration mode"
+      ],
+      "short_description": "An operating style characterized by abstraction exploration mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through abstraction exploration mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "abstraction",
+        "exploration",
+        "mode"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a abstraction exploration mode style",
+        "verb_phrase": "operates through abstraction exploration mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "abstraction_worldview_long_range_learning": {
+      "term_type": "domain",
+      "canonical_label": "Abstraction Worldview Long Range Learning",
+      "friendly_labels": [
+        "abstraction worldview long range learning"
+      ],
+      "short_description": "A projected context or life domain centered on abstraction worldview long range learning.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with abstraction worldview long range learning providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "abstraction",
+        "learning",
+        "long",
+        "range",
+        "worldview"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of abstraction worldview long range learning",
+        "location_phrase": "in abstraction worldview long range learning",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "action_selection": {
+      "term_type": "operator",
+      "canonical_label": "Action Selection",
+      "friendly_labels": [
+        "action selection"
+      ],
+      "short_description": "A projected operator describing action selection.",
+      "long_description": "This term represents the target-ontology function of action selection. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "assert",
+        "defend",
+        "mobilize",
+        "select_action"
+      ],
+      "semantic_facets": [
+        "action_selection",
+        "boundary_response",
+        "effort_allocation"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "action selection",
+        "possessive_phrase": "the subject's action selection",
+        "subject_template": "{subject}'s action selection",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "active_interface": {
+      "term_type": "interface",
+      "canonical_label": "Active Interface",
+      "friendly_labels": [
+        "active interface"
+      ],
+      "short_description": "A projected interface describing active interface.",
+      "long_description": "This term represents the target-ontology function of active interface. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "initiate_response",
+        "interface",
+        "present"
+      ],
+      "semantic_facets": [
+        "first_response_policy",
+        "system_boundary"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "active interface",
+        "possessive_phrase": "the subject's active interface",
+        "subject_template": "{subject}'s active interface",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "adjacent_low_bandwidth_coordination": {
+      "term_type": "relation",
+      "canonical_label": "Adjacent Low Bandwidth Coordination",
+      "friendly_labels": [
+        "adjacent low bandwidth coordination"
+      ],
+      "short_description": "A projected relationship in which two subsystems adjacent low bandwidth coordination.",
+      "long_description": "This relation describes how two projected endpoints interact: they adjacent low bandwidth coordination. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "adjacent_signal",
+        "incrementally_adjust",
+        "weakly_coordinate"
+      ],
+      "semantic_facets": [
+        "low_bandwidth_adjacency"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "adjacent low bandwidth coordination",
+        "sentence_template": "{source_phrase} adjacent low bandwidth coordination {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "associative_permeable_integration_mode": {
+      "term_type": "mode",
+      "canonical_label": "Associative Permeable Integration Mode",
+      "friendly_labels": [
+        "associative permeable integration mode"
+      ],
+      "short_description": "An operating style characterized by associative permeable integration mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through associative permeable integration mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "associative",
+        "integration",
+        "mode",
+        "permeable"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a associative permeable integration mode style",
+        "verb_phrase": "operates through associative permeable integration mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "available_coordination": {
+      "term_type": "theme",
+      "canonical_label": "Available Coordination",
+      "friendly_labels": [
+        "available coordination"
+      ],
+      "short_description": "A projected semantic theme concerning available coordination.",
+      "long_description": "This theme identifies available coordination as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "available",
+        "coordination"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "available coordination"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "change_adaptation": {
+      "term_type": "operator",
+      "canonical_label": "Change Adaptation",
+      "friendly_labels": [
+        "change adaptation"
+      ],
+      "short_description": "A projected operator describing change adaptation.",
+      "long_description": "This term represents the target-ontology function of change adaptation. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "differentiate",
+        "disrupt",
+        "novelize",
+        "update"
+      ],
+      "semantic_facets": [
+        "change_adaptation",
+        "model_revision",
+        "novelty_detection"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "change adaptation",
+        "possessive_phrase": "the subject's change adaptation",
+        "subject_template": "{subject}'s change adaptation",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "co_activates_and_fuses": {
+      "term_type": "relation",
+      "canonical_label": "Co Activates And Fuses",
+      "friendly_labels": [
+        "co activates and fuses"
+      ],
+      "short_description": "A projected relationship in which two subsystems co activates and fuses.",
+      "long_description": "This relation describes how two projected endpoints interact: they co activates and fuses. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "amplify",
+        "co_activate",
+        "fuse"
+      ],
+      "semantic_facets": [
+        "shared_activation"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "co activates and fuses",
+        "sentence_template": "{source_phrase} co activates and fuses {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "communication_processing": {
+      "term_type": "operator",
+      "canonical_label": "Communication Processing",
+      "friendly_labels": [
+        "communication processing"
+      ],
+      "short_description": "A projected operator describing communication processing.",
+      "long_description": "This term represents the target-ontology function of communication processing. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "compare",
+        "encode",
+        "exchange",
+        "translate"
+      ],
+      "semantic_facets": [
+        "attention_switching",
+        "communication",
+        "symbolic_processing"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "communication processing",
+        "possessive_phrase": "the subject's communication processing",
+        "subject_template": "{subject}'s communication processing",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "comparative_balancing_mode": {
+      "term_type": "mode",
+      "canonical_label": "Comparative Balancing Mode",
+      "friendly_labels": [
+        "comparative balancing mode"
+      ],
+      "short_description": "An operating style characterized by comparative balancing mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through comparative balancing mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "balancing",
+        "comparative",
+        "mode"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a comparative balancing mode style",
+        "verb_phrase": "operates through comparative balancing mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "competitive_alternation": {
+      "term_type": "theme",
+      "canonical_label": "Competitive Alternation",
+      "friendly_labels": [
+        "competitive alternation"
+      ],
+      "short_description": "A projected semantic theme concerning competitive alternation.",
+      "long_description": "This theme identifies competitive alternation as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "alternation",
+        "competitive"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "competitive alternation"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "constraint_management": {
+      "term_type": "operator",
+      "canonical_label": "Constraint Management",
+      "friendly_labels": [
+        "constraint management"
+      ],
+      "short_description": "A projected operator describing constraint management.",
+      "long_description": "This term represents the target-ontology function of constraint management. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "constrain",
+        "inhibit",
+        "sequence",
+        "stabilize"
+      ],
+      "semantic_facets": [
+        "constraint_management",
+        "durability",
+        "error_control"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "constraint management",
+        "possessive_phrase": "the subject's constraint management",
+        "subject_template": "{subject}'s constraint management",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "counterpart_model": {
+      "term_type": "interface",
+      "canonical_label": "Counterpart Model",
+      "friendly_labels": [
+        "counterpart model"
+      ],
+      "short_description": "A projected interface describing counterpart model.",
+      "long_description": "This term represents the target-ontology function of counterpart model. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "complement",
+        "model_other",
+        "negotiate"
+      ],
+      "semantic_facets": [
+        "dyadic_modeling",
+        "external_complement"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "counterpart model",
+        "possessive_phrase": "the subject's counterpart model",
+        "subject_template": "{subject}'s counterpart model",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "deep_search_guarded_transformation_mode": {
+      "term_type": "mode",
+      "canonical_label": "Deep Search Guarded Transformation Mode",
+      "friendly_labels": [
+        "deep search guarded transformation mode"
+      ],
+      "short_description": "An operating style characterized by deep search guarded transformation mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through deep search guarded transformation mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "deep",
+        "guarded",
+        "mode",
+        "search",
+        "transformation"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a deep search guarded transformation mode style",
+        "verb_phrase": "operates through deep search guarded transformation mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "default_pattern_memory": {
+      "term_type": "orientation",
+      "canonical_label": "Default Pattern Memory",
+      "friendly_labels": [
+        "default pattern memory"
+      ],
+      "short_description": "A projected orientation describing default pattern memory.",
+      "long_description": "This term represents the target-ontology function of default pattern memory. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "default",
+        "reuse",
+        "revert"
+      ],
+      "semantic_facets": [
+        "fallback_pattern",
+        "familiar_strategy"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "default pattern memory",
+        "possessive_phrase": "the subject's default pattern memory",
+        "subject_template": "{subject}'s default pattern memory",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "developmental_orientation": {
+      "term_type": "orientation",
+      "canonical_label": "Developmental Orientation",
+      "friendly_labels": [
+        "developmental orientation"
+      ],
+      "short_description": "A projected orientation describing developmental orientation.",
+      "long_description": "This term represents the target-ontology function of developmental orientation. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "approach",
+        "develop",
+        "orient"
+      ],
+      "semantic_facets": [
+        "developmental_pull",
+        "learning_direction"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "developmental orientation",
+        "possessive_phrase": "the subject's developmental orientation",
+        "subject_template": "{subject}'s developmental orientation",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "differentiation_exchange_mode": {
+      "term_type": "mode",
+      "canonical_label": "Differentiation Exchange Mode",
+      "friendly_labels": [
+        "differentiation exchange mode"
+      ],
+      "short_description": "An operating style characterized by differentiation exchange mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through differentiation exchange mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "differentiation",
+        "exchange",
+        "mode"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a differentiation exchange mode style",
+        "verb_phrase": "operates through differentiation exchange mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "dyadic_modeling_counterpart_interaction": {
+      "term_type": "domain",
+      "canonical_label": "Dyadic Modeling Counterpart Interaction",
+      "friendly_labels": [
+        "dyadic modeling counterpart interaction"
+      ],
+      "short_description": "A projected context or life domain centered on dyadic modeling counterpart interaction.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with dyadic modeling counterpart interaction providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "counterpart",
+        "dyadic",
+        "interaction",
+        "modeling"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of dyadic modeling counterpart interaction",
+        "location_phrase": "in dyadic modeling counterpart interaction",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "emotional_regulation": {
+      "term_type": "operator",
+      "canonical_label": "Emotional Regulation",
+      "friendly_labels": [
+        "emotional regulation"
+      ],
+      "short_description": "A projected operator describing emotional regulation.",
+      "long_description": "This term represents the target-ontology function of emotional regulation. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "regulate",
+        "retain",
+        "signal_need"
+      ],
+      "semantic_facets": [
+        "affect_regulation",
+        "habit",
+        "safety_memory"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "emotional regulation",
+        "possessive_phrase": "the subject's emotional regulation",
+        "subject_template": "{subject}'s emotional regulation",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "enables_optional_coordination": {
+      "term_type": "relation",
+      "canonical_label": "Enables Optional Coordination",
+      "friendly_labels": [
+        "enables optional coordination"
+      ],
+      "short_description": "A projected relationship in which two subsystems enables optional coordination.",
+      "long_description": "This relation describes how two projected endpoints interact: they enables optional coordination. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "coordinate",
+        "enable",
+        "offer_pathway"
+      ],
+      "semantic_facets": [
+        "available_coordination"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "enables optional coordination",
+        "sentence_template": "{source_phrase} enables optional coordination {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "error_correction_refinement_mode": {
+      "term_type": "mode",
+      "canonical_label": "Error Correction Refinement Mode",
+      "friendly_labels": [
+        "error correction refinement mode"
+      ],
+      "short_description": "An operating style characterized by error correction refinement mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through error correction refinement mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "correction",
+        "error",
+        "mode",
+        "refinement"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a error correction refinement mode style",
+        "verb_phrase": "operates through error correction refinement mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "executive_direction_public_output": {
+      "term_type": "domain",
+      "canonical_label": "Executive Direction Public Output",
+      "friendly_labels": [
+        "executive direction public output"
+      ],
+      "short_description": "A projected context or life domain centered on executive direction public output.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with executive direction public output providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "direction",
+        "executive",
+        "output",
+        "public"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of executive direction public output",
+        "location_phrase": "in executive direction public output",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "executive_output_direction": {
+      "term_type": "interface",
+      "canonical_label": "Executive Output Direction",
+      "friendly_labels": [
+        "executive output direction"
+      ],
+      "short_description": "A projected interface describing executive output direction.",
+      "long_description": "This term represents the target-ontology function of executive output direction. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "direct",
+        "externalize",
+        "prioritize_output"
+      ],
+      "semantic_facets": [
+        "executive_direction",
+        "visible_objective"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "executive output direction",
+        "possessive_phrase": "the subject's executive output direction",
+        "subject_template": "{subject}'s executive output direction",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "expressive_self_amplification_mode": {
+      "term_type": "mode",
+      "canonical_label": "Expressive Self Amplification Mode",
+      "friendly_labels": [
+        "expressive self amplification mode"
+      ],
+      "short_description": "An operating style characterized by expressive self amplification mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through expressive self amplification mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "amplification",
+        "expressive",
+        "mode",
+        "self"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a expressive self amplification mode style",
+        "verb_phrase": "operates through expressive self amplification mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "external_trigger_interface": {
+      "term_type": "interface",
+      "canonical_label": "External Trigger Interface",
+      "friendly_labels": [
+        "external trigger interface"
+      ],
+      "short_description": "A projected interface describing external trigger interface.",
+      "long_description": "This term represents the target-ontology function of external trigger interface. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "encounter",
+        "externalize",
+        "trigger"
+      ],
+      "semantic_facets": [
+        "encounter_channel",
+        "externally_evoked_change"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "external trigger interface",
+        "possessive_phrase": "the subject's external trigger interface",
+        "subject_template": "{subject}'s external trigger interface",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "facilitates_and_automates": {
+      "term_type": "relation",
+      "canonical_label": "Facilitates And Automates",
+      "friendly_labels": [
+        "facilitates and automates"
+      ],
+      "short_description": "A projected relationship in which two subsystems facilitates and automates.",
+      "long_description": "This relation describes how two projected endpoints interact: they facilitates and automates. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "automate",
+        "facilitate",
+        "support"
+      ],
+      "semantic_facets": [
+        "low_friction_support"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "facilitates and automates",
+        "sentence_template": "{source_phrase} facilitates and automates {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "foundational_memory_internal_base": {
+      "term_type": "domain",
+      "canonical_label": "Foundational Memory Internal Base",
+      "friendly_labels": [
+        "foundational memory internal base"
+      ],
+      "short_description": "A projected context or life domain centered on foundational memory internal base.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with foundational memory internal base providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "base",
+        "foundational",
+        "internal",
+        "memory"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of foundational memory internal base",
+        "location_phrase": "in foundational memory internal base",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "frictional_coordination": {
+      "term_type": "theme",
+      "canonical_label": "Frictional Coordination",
+      "friendly_labels": [
+        "frictional coordination"
+      ],
+      "short_description": "A projected semantic theme concerning frictional coordination.",
+      "long_description": "This theme identifies frictional coordination as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "coordination",
+        "frictional"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "frictional coordination"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "generative_expression_play": {
+      "term_type": "domain",
+      "canonical_label": "Generative Expression Play",
+      "friendly_labels": [
+        "generative expression play"
+      ],
+      "short_description": "A projected context or life domain centered on generative expression play.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with generative expression play providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "expression",
+        "generative",
+        "play"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of generative expression play",
+        "location_phrase": "in generative expression play",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "hierarchical_goal_constraint_mode": {
+      "term_type": "mode",
+      "canonical_label": "Hierarchical Goal Constraint Mode",
+      "friendly_labels": [
+        "hierarchical goal constraint mode"
+      ],
+      "short_description": "An operating style characterized by hierarchical goal constraint mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through hierarchical goal constraint mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "constraint",
+        "goal",
+        "hierarchical",
+        "mode"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a hierarchical goal constraint mode style",
+        "verb_phrase": "operates through hierarchical goal constraint mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "identity_organization": {
+      "term_type": "operator",
+      "canonical_label": "Identity Organization",
+      "friendly_labels": [
+        "identity organization"
+      ],
+      "short_description": "A projected operator describing identity organization.",
+      "long_description": "This term represents the target-ontology function of identity organization. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "organize",
+        "prioritize",
+        "stabilize"
+      ],
+      "semantic_facets": [
+        "central_coherence",
+        "identity_priority",
+        "self_model"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "identity organization",
+        "possessive_phrase": "the subject's identity organization",
+        "subject_template": "{subject}'s identity organization",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "imagination_permeability": {
+      "term_type": "operator",
+      "canonical_label": "Imagination Permeability",
+      "friendly_labels": [
+        "imagination permeability"
+      ],
+      "short_description": "A projected operator describing imagination permeability.",
+      "long_description": "This term represents the target-ontology function of imagination permeability. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "associate",
+        "blur",
+        "idealize",
+        "simulate"
+      ],
+      "semantic_facets": [
+        "ambiguity_processing",
+        "boundary_permeability",
+        "imagination"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "imagination permeability",
+        "possessive_phrase": "the subject's imagination permeability",
+        "subject_template": "{subject}'s imagination permeability",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "initiation_mode": {
+      "term_type": "mode",
+      "canonical_label": "Initiation Mode",
+      "friendly_labels": [
+        "initiation mode"
+      ],
+      "short_description": "An operating style characterized by initiation mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through initiation mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "initiation",
+        "mode"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a initiation mode style",
+        "verb_phrase": "operates through initiation mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "intensity_transformation": {
+      "term_type": "operator",
+      "canonical_label": "Intensity Transformation",
+      "friendly_labels": [
+        "intensity transformation"
+      ],
+      "short_description": "A projected operator describing intensity transformation.",
+      "long_description": "This term represents the target-ontology function of intensity transformation. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "control",
+        "expose",
+        "intensify",
+        "transform"
+      ],
+      "semantic_facets": [
+        "control_processing",
+        "deep_reorganization",
+        "salience_intensity"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "intensity transformation",
+        "possessive_phrase": "the subject's intensity transformation",
+        "subject_template": "{subject}'s intensity transformation",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "interferes_and_forces_adaptation": {
+      "term_type": "relation",
+      "canonical_label": "Interferes And Forces Adaptation",
+      "friendly_labels": [
+        "interferes and forces adaptation"
+      ],
+      "short_description": "A projected relationship in which two subsystems interferes and forces adaptation.",
+      "long_description": "This relation describes how two projected endpoints interact: they interferes and forces adaptation. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "force_adaptation",
+        "interfere",
+        "pressure"
+      ],
+      "semantic_facets": [
+        "frictional_coordination"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "interferes and forces adaptation",
+        "sentence_template": "{source_phrase} interferes and forces adaptation {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "internal_foundation": {
+      "term_type": "interface",
+      "canonical_label": "Internal Foundation",
+      "friendly_labels": [
+        "internal foundation"
+      ],
+      "short_description": "A projected interface describing internal foundation.",
+      "long_description": "This term represents the target-ontology function of internal foundation. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "baseline",
+        "privatize",
+        "root"
+      ],
+      "semantic_facets": [
+        "foundational_memory",
+        "private_state_baseline"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "internal foundation",
+        "possessive_phrase": "the subject's internal foundation",
+        "subject_template": "{subject}'s internal foundation",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "latent_processing_hidden_state_integration": {
+      "term_type": "domain",
+      "canonical_label": "Latent Processing Hidden State Integration",
+      "friendly_labels": [
+        "latent processing hidden state integration"
+      ],
+      "short_description": "A projected context or life domain centered on latent processing hidden state integration.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with latent processing hidden state integration providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "hidden",
+        "integration",
+        "latent",
+        "processing",
+        "state"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of latent processing hidden state integration",
+        "location_phrase": "in latent processing hidden state integration",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "local_information_exchange": {
+      "term_type": "domain",
+      "canonical_label": "Local Information Exchange",
+      "friendly_labels": [
+        "local information exchange"
+      ],
+      "short_description": "A projected context or life domain centered on local information exchange.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with local information exchange providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "exchange",
+        "information",
+        "local"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of local information exchange",
+        "location_phrase": "in local information exchange",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "low_bandwidth_adjacency": {
+      "term_type": "theme",
+      "canonical_label": "Low Bandwidth Adjacency",
+      "friendly_labels": [
+        "low bandwidth adjacency"
+      ],
+      "short_description": "A projected semantic theme concerning low bandwidth adjacency.",
+      "long_description": "This theme identifies low bandwidth adjacency as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "adjacency",
+        "bandwidth",
+        "low"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "low bandwidth adjacency"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "low_friction_support": {
+      "term_type": "theme",
+      "canonical_label": "Low Friction Support",
+      "friendly_labels": [
+        "low friction support"
+      ],
+      "short_description": "A projected semantic theme concerning low friction support.",
+      "long_description": "This theme identifies low friction support as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "friction",
+        "low",
+        "support"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "low friction support"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "maintenance_routine_error_correction": {
+      "term_type": "domain",
+      "canonical_label": "Maintenance Routine Error Correction",
+      "friendly_labels": [
+        "maintenance routine error correction"
+      ],
+      "short_description": "A projected context or life domain centered on maintenance routine error correction.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with maintenance routine error correction providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "correction",
+        "error",
+        "maintenance",
+        "routine"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of maintenance routine error correction",
+        "location_phrase": "in maintenance routine error correction",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "meaning_abstraction": {
+      "term_type": "operator",
+      "canonical_label": "Meaning Abstraction",
+      "friendly_labels": [
+        "meaning abstraction"
+      ],
+      "short_description": "A projected operator describing meaning abstraction.",
+      "long_description": "This term represents the target-ontology function of meaning abstraction. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "contextualize",
+        "expand",
+        "forecast",
+        "generalize"
+      ],
+      "semantic_facets": [
+        "abstraction",
+        "meaning_modeling",
+        "possibility_generation"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "meaning abstraction",
+        "possessive_phrase": "the subject's meaning abstraction",
+        "subject_template": "{subject}'s meaning abstraction",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "mismatches_and_requires_recalibration": {
+      "term_type": "relation",
+      "canonical_label": "Mismatches And Requires Recalibration",
+      "friendly_labels": [
+        "mismatches and requires recalibration"
+      ],
+      "short_description": "A projected relationship in which two subsystems mismatches and requires recalibration.",
+      "long_description": "This relation describes how two projected endpoints interact: they mismatches and requires recalibration. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "adapt_repeatedly",
+        "misalign",
+        "recalibrate"
+      ],
+      "semantic_facets": [
+        "recurrent_recalibration"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "mismatches and requires recalibration",
+        "sentence_template": "{source_phrase} mismatches and requires recalibration {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "network_coordination_future_modeling": {
+      "term_type": "domain",
+      "canonical_label": "Network Coordination Future Modeling",
+      "friendly_labels": [
+        "network coordination future modeling"
+      ],
+      "short_description": "A projected context or life domain centered on network coordination future modeling.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with network coordination future modeling providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "coordination",
+        "future",
+        "modeling",
+        "network"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of network coordination future modeling",
+        "location_phrase": "in network coordination future modeling",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "polarizes_and_alternates": {
+      "term_type": "relation",
+      "canonical_label": "Polarizes And Alternates",
+      "friendly_labels": [
+        "polarizes and alternates"
+      ],
+      "short_description": "A projected relationship in which two subsystems polarizes and alternates.",
+      "long_description": "This relation describes how two projected endpoints interact: they polarizes and alternates. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+      "core_operators": [
+        "alternate",
+        "mirror",
+        "polarize"
+      ],
+      "semantic_facets": [
+        "competitive_alternation"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "verb_phrase": "polarizes and alternates",
+        "sentence_template": "{source_phrase} polarizes and alternates {target_phrase}.",
+        "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "protective_attachment_mode": {
+      "term_type": "mode",
+      "canonical_label": "Protective Attachment Mode",
+      "friendly_labels": [
+        "protective attachment mode"
+      ],
+      "short_description": "An operating style characterized by protective attachment mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through protective attachment mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "attachment",
+        "mode",
+        "protective"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a protective attachment mode style",
+        "verb_phrase": "operates through protective attachment mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "recurrent_recalibration": {
+      "term_type": "theme",
+      "canonical_label": "Recurrent Recalibration",
+      "friendly_labels": [
+        "recurrent recalibration"
+      ],
+      "short_description": "A projected semantic theme concerning recurrent recalibration.",
+      "long_description": "This theme identifies recurrent recalibration as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "recalibration",
+        "recurrent"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "recurrent recalibration"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "resource_ease_convergence": {
+      "term_type": "orientation",
+      "canonical_label": "Resource Ease Convergence",
+      "friendly_labels": [
+        "resource ease convergence"
+      ],
+      "short_description": "A projected orientation describing resource ease convergence.",
+      "long_description": "This term represents the target-ontology function of resource ease convergence. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "converge",
+        "ease",
+        "resource"
+      ],
+      "semantic_facets": [
+        "low_friction_gain",
+        "resource_availability"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "resource ease convergence",
+        "possessive_phrase": "the subject's resource ease convergence",
+        "subject_template": "{subject}'s resource ease convergence",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "resource_valuation_stability": {
+      "term_type": "domain",
+      "canonical_label": "Resource Valuation Stability",
+      "friendly_labels": [
+        "resource valuation stability"
+      ],
+      "short_description": "A projected context or life domain centered on resource valuation stability.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with resource valuation stability providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "resource",
+        "stability",
+        "valuation"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of resource valuation stability",
+        "location_phrase": "in resource valuation stability",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "self_interface_response_initiation": {
+      "term_type": "domain",
+      "canonical_label": "Self Interface Response Initiation",
+      "friendly_labels": [
+        "self interface response initiation"
+      ],
+      "short_description": "A projected context or life domain centered on self interface response initiation.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with self interface response initiation providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "initiation",
+        "interface",
+        "response",
+        "self"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of self interface response initiation",
+        "location_phrase": "in self interface response initiation",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "shared_activation": {
+      "term_type": "theme",
+      "canonical_label": "Shared Activation",
+      "friendly_labels": [
+        "shared activation"
+      ],
+      "short_description": "A projected semantic theme concerning shared activation.",
+      "long_description": "This theme identifies shared activation as a recurring semantic facet in the projected graph.",
+      "core_operators": [],
+      "semantic_facets": [
+        "activation",
+        "shared"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "shared activation"
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "shared_risk_deep_integration": {
+      "term_type": "domain",
+      "canonical_label": "Shared Risk Deep Integration",
+      "friendly_labels": [
+        "shared risk deep integration"
+      ],
+      "short_description": "A projected context or life domain centered on shared risk deep integration.",
+      "long_description": "This domain describes where the projected operator is organized or expressed, with shared risk deep integration providing the structural context.",
+      "core_operators": [],
+      "semantic_facets": [
+        "deep",
+        "integration",
+        "risk",
+        "shared"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "context_phrase": "within the domain of shared risk deep integration",
+        "location_phrase": "in shared risk deep integration",
+        "composition_template": "{operator_phrase} is organized {context_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "stabilization_persistence_mode": {
+      "term_type": "mode",
+      "canonical_label": "Stabilization Persistence Mode",
+      "friendly_labels": [
+        "stabilization persistence mode"
+      ],
+      "short_description": "An operating style characterized by stabilization persistence mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through stabilization persistence mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "mode",
+        "persistence",
+        "stabilization"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a stabilization persistence mode style",
+        "verb_phrase": "operates through stabilization persistence mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "system_revision_differentiation_mode": {
+      "term_type": "mode",
+      "canonical_label": "System Revision Differentiation Mode",
+      "friendly_labels": [
+        "system revision differentiation mode"
+      ],
+      "short_description": "An operating style characterized by system revision differentiation mode.",
+      "long_description": "This mode describes how a projected operator tends to perform its function: through system revision differentiation mode. It modifies the operator rather than replacing it.",
+      "core_operators": [],
+      "semantic_facets": [
+        "differentiation",
+        "mode",
+        "revision",
+        "system"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "adverbial_phrase": "in a system revision differentiation mode style",
+        "verb_phrase": "operates through system revision differentiation mode",
+        "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    },
+    "valuation_preference": {
+      "term_type": "operator",
+      "canonical_label": "Valuation Preference",
+      "friendly_labels": [
+        "valuation preference"
+      ],
+      "short_description": "A projected operator describing valuation preference.",
+      "long_description": "This term represents the target-ontology function of valuation preference. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+      "core_operators": [
+        "evaluate",
+        "harmonize",
+        "prefer",
+        "weight"
+      ],
+      "semantic_facets": [
+        "affiliative_tuning",
+        "preference_weighting",
+        "value_assignment"
+      ],
+      "related_terms": [],
+      "output_guidance": {
+        "noun_phrase": "valuation preference",
+        "possessive_phrase": "the subject's valuation preference",
+        "subject_template": "{subject}'s valuation preference",
+        "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+      },
+      "extensions": {
+        "authorship": "profile_level",
+        "prescriptive": false
+      }
+    }
+  }
+}

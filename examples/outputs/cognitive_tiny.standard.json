@@ -1,0 +1,590 @@
+{
+  "metadata": {
+    "package_type": "projected_semantic_graph",
+    "projection_id": "projection:4653f32a5143887290e282c3",
+    "engine_version": "0.5.0",
+    "profile_id": "cognitive_architecture_demo.v0",
+    "profile_version": "0.2.0",
+    "context_id": "cognitive_architecture.general.v0",
+    "context_version": "0.2.0",
+    "projected_term_registry_id": "cognitive_architecture_demo.projected_terms",
+    "projected_term_registry_version": "0.2.0",
+    "materialization_mode": "standard"
+  },
+  "source_identity": {
+    "source_chart_id": "natal:chunk28",
+    "source_chart_ids": [
+      "natal:chunk28"
+    ],
+    "sensor_instance_id": "natal:chunk28"
+  },
+  "source_graph_ref": {
+    "graph_type": "canonical_astrology_graph",
+    "graph_version": "1.3.0",
+    "source_graph_hash": "0addbeca3ce9e7a4c7f5a1c1"
+  },
+  "target_ontology": "cognitive_architecture_demo.v0",
+  "objects": [
+    {
+      "id": "projected:cognitive_architecture_demo.v0:b8d6b3dac898584a5c85ae5e",
+      "object_type": "cognitive_process_primitive",
+      "name": "action_selection",
+      "target_ontology": "cognitive_architecture_demo.v0",
+      "operators": [
+        "assert",
+        "defend",
+        "mobilize",
+        "select_action"
+      ],
+      "source_refs": [
+        "canonical:object:natal:Mars"
+      ],
+      "mapping_rule_refs": [
+        "cognitive_architecture_demo.v0.object.mars.action_selection"
+      ],
+      "context_refs": [
+        "cognitive_architecture.general.v0"
+      ],
+      "attributes": {
+        "canonical_object_name": "Mars",
+        "source_names": [
+          "Mars"
+        ],
+        "cognitive_domains": [
+          "action_selection",
+          "effort_allocation",
+          "boundary_response"
+        ],
+        "source_sign": "Leo",
+        "projected_mode": "expressive_self_amplification_mode",
+        "source_house": 6,
+        "projected_domain": "maintenance_routine_error_correction",
+        "projection_composition": {
+          "operator": "action_selection",
+          "mode": "expressive_self_amplification_mode",
+          "domain": "maintenance_routine_error_correction"
+        },
+        "projection_relevance_components": {
+          "structural_strength": 1.0,
+          "profile_salience": 0.94,
+          "context_salience": 1.0
+        },
+        "demo_guardrails": [
+          "experimental",
+          "not_clinical",
+          "not_empirically_validated",
+          "not_diagnostic"
+        ],
+        "term_ref": "cognitive_architecture_demo.projected_terms:0.2.0:action_selection",
+        "mode_ref": "cognitive_architecture_demo.projected_terms:0.2.0:expressive_self_amplification_mode",
+        "domain_ref": "cognitive_architecture_demo.projected_terms:0.2.0:maintenance_routine_error_correction"
+      },
+      "structural_strength_score": null,
+      "projection_relevance_score": 0.94,
+      "provenance": {
+        "profile_layer": "cognitive_object_mapping",
+        "source_object_type": "planet_or_point"
+      }
+    },
+    {
+      "id": "projected:cognitive_architecture_demo.v0:da253e1d5ccac98f36a2abb3",
+      "object_type": "cognitive_process_primitive",
+      "name": "identity_organization",
+      "target_ontology": "cognitive_architecture_demo.v0",
+      "operators": [
+        "organize",
+        "prioritize",
+        "stabilize"
+      ],
+      "source_refs": [
+        "canonical:object:natal:Sun"
+      ],
+      "mapping_rule_refs": [
+        "cognitive_architecture_demo.v0.object.sun.identity_organization"
+      ],
+      "context_refs": [
+        "cognitive_architecture.general.v0"
+      ],
+      "attributes": {
+        "canonical_object_name": "Sun",
+        "source_names": [
+          "Sun"
+        ],
+        "cognitive_domains": [
+          "central_coherence",
+          "identity_priority",
+          "self_model"
+        ],
+        "source_sign": "Libra",
+        "projected_mode": "comparative_balancing_mode",
+        "source_house": 8,
+        "projected_domain": "shared_risk_deep_integration",
+        "projection_composition": {
+          "operator": "identity_organization",
+          "mode": "comparative_balancing_mode",
+          "domain": "shared_risk_deep_integration"
+        },
+        "projection_relevance_components": {
+          "structural_strength": 1.0,
+          "profile_salience": 1.0,
+          "context_salience": 1.0
+        },
+        "demo_guardrails": [
+          "experimental",
+          "not_clinical",
+          "not_empirically_validated",
+          "not_diagnostic"
+        ],
+        "term_ref": "cognitive_architecture_demo.projected_terms:0.2.0:identity_organization",
+        "mode_ref": "cognitive_architecture_demo.projected_terms:0.2.0:comparative_balancing_mode",
+        "domain_ref": "cognitive_architecture_demo.projected_terms:0.2.0:shared_risk_deep_integration"
+      },
+      "structural_strength_score": null,
+      "projection_relevance_score": 1.0,
+      "provenance": {
+        "profile_layer": "cognitive_object_mapping",
+        "source_object_type": "planet_or_point"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "id": "projected_relation:cognitive_architecture_demo.v0:253b9d6862ed32dc3e66b5fd",
+      "relationship_type": "enables_optional_coordination",
+      "source_id": "projected:cognitive_architecture_demo.v0:da253e1d5ccac98f36a2abb3",
+      "target_id": "projected:cognitive_architecture_demo.v0:b8d6b3dac898584a5c85ae5e",
+      "source_relationship_refs": [
+        "canonical:relationship:aspect:Sun:Mars"
+      ],
+      "mapping_rule_refs": [
+        "cognitive_architecture_demo.v0.aspect.sextile.enables_optional_coordination"
+      ],
+      "context_refs": [
+        "cognitive_architecture.general.v0"
+      ],
+      "operators": [
+        "coordinate",
+        "enable",
+        "offer_pathway"
+      ],
+      "theme_tags": [
+        "action_selection",
+        "available_coordination",
+        "identity_organization"
+      ],
+      "attributes": {
+        "canonical_aspect": "sextile",
+        "orb": null,
+        "source_process": "identity_organization",
+        "target_process": "action_selection",
+        "source_mode": "comparative_balancing_mode",
+        "target_mode": "expressive_self_amplification_mode",
+        "source_domain": "shared_risk_deep_integration",
+        "target_domain": "maintenance_routine_error_correction",
+        "interaction_mode": "available_coordination",
+        "projection_relevance_components": {
+          "structural_strength": 1.0,
+          "profile_salience": 0.82,
+          "context_salience": 1.0
+        },
+        "projection_first_reasoning": {
+          "source_mapping": "identity_organization",
+          "relationship_mapping": "enables_optional_coordination",
+          "target_mapping": "action_selection",
+          "source_mode": "comparative_balancing_mode",
+          "target_mode": "expressive_self_amplification_mode"
+        },
+        "demo_guardrails": [
+          "experimental",
+          "not_clinical",
+          "not_empirically_validated",
+          "not_diagnostic"
+        ],
+        "relation_ref": "cognitive_architecture_demo.projected_terms:0.2.0:enables_optional_coordination",
+        "interaction_mode_ref": "cognitive_architecture_demo.projected_terms:0.2.0:available_coordination"
+      },
+      "projection_relevance_score": 0.82,
+      "provenance": {
+        "profile_layer": "cognitive_relationship_mapping"
+      }
+    }
+  ],
+  "indexes": {
+    "object_by_id": {
+      "projected:cognitive_architecture_demo.v0:b8d6b3dac898584a5c85ae5e": 0,
+      "projected:cognitive_architecture_demo.v0:da253e1d5ccac98f36a2abb3": 1
+    },
+    "relationship_by_id": {
+      "projected_relation:cognitive_architecture_demo.v0:253b9d6862ed32dc3e66b5fd": 0
+    },
+    "projected_objects_by_source_ref": {
+      "natal:Mars": [
+        "projected:cognitive_architecture_demo.v0:b8d6b3dac898584a5c85ae5e"
+      ],
+      "natal:Sun": [
+        "projected:cognitive_architecture_demo.v0:da253e1d5ccac98f36a2abb3"
+      ]
+    },
+    "projected_relationships_by_source_ref": {
+      "canonical:relationship:aspect:Sun:Mars": [
+        "projected_relation:cognitive_architecture_demo.v0:253b9d6862ed32dc3e66b5fd"
+      ]
+    }
+  },
+  "summary": {
+    "object_count": 2,
+    "relationship_count": 1,
+    "mapped_source_object_count": 2,
+    "mapped_source_relationship_count": 1,
+    "unmapped_source_count": 0,
+    "profile_scope_coverage": {
+      "classification_contract": "projection_scope_classification.v1",
+      "objects": {
+        "eligible_count": 2,
+        "mapped_eligible_count": 2,
+        "eligible_but_unmapped_count": 0,
+        "outside_declared_scope_count": 0,
+        "excluded_by_source_selection_policy_count": 0,
+        "declared_scope_coverage": 1.0,
+        "eligible_but_unmapped_ids": []
+      },
+      "relationships": {
+        "eligible_count": 1,
+        "mapped_eligible_count": 1,
+        "eligible_but_unmapped_count": 0,
+        "outside_declared_scope_count": 0,
+        "excluded_by_source_selection_policy_count": 0,
+        "declared_scope_coverage": 1.0,
+        "eligible_but_unmapped_ids": []
+      },
+      "source_selection_policy": {
+        "node_variant": "true",
+        "fortune_variant": "part_of_fortune"
+      }
+    },
+    "profile_scope": "expanded_natal_operator_mode_domain_interface_and_sdk_aspects",
+    "experimental_demo": true,
+    "validated_psychological_model": false,
+    "diagnostic_use_permitted": false,
+    "supported_object_names": [
+      "ASC",
+      "DSC",
+      "IC",
+      "Jupiter",
+      "MC",
+      "Mars",
+      "Mercury",
+      "Moon",
+      "Neptune",
+      "North Node",
+      "Part of Fortune",
+      "Pluto",
+      "Saturn",
+      "South Node",
+      "Sun",
+      "Uranus",
+      "Venus",
+      "Vertex"
+    ],
+    "supported_sign_modes": {
+      "Aquarius": "system_revision_differentiation_mode",
+      "Aries": "initiation_mode",
+      "Cancer": "protective_attachment_mode",
+      "Capricorn": "hierarchical_goal_constraint_mode",
+      "Gemini": "differentiation_exchange_mode",
+      "Leo": "expressive_self_amplification_mode",
+      "Libra": "comparative_balancing_mode",
+      "Pisces": "associative_permeable_integration_mode",
+      "Sagittarius": "abstraction_exploration_mode",
+      "Scorpio": "deep_search_guarded_transformation_mode",
+      "Taurus": "stabilization_persistence_mode",
+      "Virgo": "error_correction_refinement_mode"
+    },
+    "supported_house_domains": {
+      "1": "self_interface_response_initiation",
+      "2": "resource_valuation_stability",
+      "3": "local_information_exchange",
+      "4": "foundational_memory_internal_base",
+      "5": "generative_expression_play",
+      "6": "maintenance_routine_error_correction",
+      "7": "dyadic_modeling_counterpart_interaction",
+      "8": "shared_risk_deep_integration",
+      "9": "abstraction_worldview_long_range_learning",
+      "10": "executive_direction_public_output",
+      "11": "network_coordination_future_modeling",
+      "12": "latent_processing_hidden_state_integration"
+    },
+    "supported_aspects": [
+      "conjunction",
+      "opposition",
+      "quincunx",
+      "semisextile",
+      "sextile",
+      "square",
+      "trine"
+    ],
+    "interaction_mode_counts": {
+      "available_coordination": 1
+    },
+    "projected_mode_counts": {
+      "comparative_balancing_mode": 1,
+      "expressive_self_amplification_mode": 1
+    },
+    "projected_domain_counts": {
+      "maintenance_routine_error_correction": 1,
+      "shared_risk_deep_integration": 1
+    }
+  },
+  "audit": {
+    "profile_id": "cognitive_architecture_demo.v0",
+    "profile_version": "0.2.0",
+    "engine_version": "0.5.0",
+    "request_hash": "4653f32a5143887290e282c3",
+    "source_graph_hash": "0addbeca3ce9e7a4c7f5a1c1",
+    "context_hash": "1d5bfb36acecbf75fedf4ec8",
+    "coverage": {
+      "source_object_count": 2,
+      "mapped_source_object_count": 2,
+      "unmapped_source_object_count": 0,
+      "source_relationship_count": 1,
+      "mapped_source_relationship_count": 1,
+      "unmapped_source_relationship_count": 0
+    },
+    "diagnostics_ref": "projection_diagnostics",
+    "mapping_execution_count": 3,
+    "unmapped_source_count": 0,
+    "fallback_count": 0
+  },
+  "diagnostics": {
+    "summary": {
+      "error_count": 0,
+      "warning_count": 0,
+      "info_count": 0,
+      "unmapped_source_count": 0,
+      "fallback_count": 0
+    },
+    "errors": [],
+    "warnings": []
+  },
+  "projected_term_registry": {
+    "registry_id": "cognitive_architecture_demo.projected_terms",
+    "registry_version": "0.2.0",
+    "target_ontology": "cognitive_architecture_demo.v0",
+    "materialization": "used_terms_subset",
+    "terms": {
+      "action_selection": {
+        "term_type": "operator",
+        "canonical_label": "Action Selection",
+        "friendly_labels": [
+          "action selection"
+        ],
+        "short_description": "A projected operator describing action selection.",
+        "long_description": "This term represents the target-ontology function of action selection. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+        "core_operators": [
+          "assert",
+          "defend",
+          "mobilize",
+          "select_action"
+        ],
+        "semantic_facets": [
+          "action_selection",
+          "boundary_response",
+          "effort_allocation"
+        ],
+        "related_terms": [],
+        "output_guidance": {
+          "noun_phrase": "action selection",
+          "possessive_phrase": "the subject's action selection",
+          "subject_template": "{subject}'s action selection",
+          "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+        },
+        "extensions": {
+          "authorship": "profile_level",
+          "prescriptive": false
+        }
+      },
+      "available_coordination": {
+        "term_type": "theme",
+        "canonical_label": "Available Coordination",
+        "friendly_labels": [
+          "available coordination"
+        ],
+        "short_description": "A projected semantic theme concerning available coordination.",
+        "long_description": "This theme identifies available coordination as a recurring semantic facet in the projected graph.",
+        "core_operators": [],
+        "semantic_facets": [
+          "available",
+          "coordination"
+        ],
+        "related_terms": [],
+        "output_guidance": {
+          "noun_phrase": "available coordination"
+        },
+        "extensions": {
+          "authorship": "profile_level",
+          "prescriptive": false
+        }
+      },
+      "comparative_balancing_mode": {
+        "term_type": "mode",
+        "canonical_label": "Comparative Balancing Mode",
+        "friendly_labels": [
+          "comparative balancing mode"
+        ],
+        "short_description": "An operating style characterized by comparative balancing mode.",
+        "long_description": "This mode describes how a projected operator tends to perform its function: through comparative balancing mode. It modifies the operator rather than replacing it.",
+        "core_operators": [],
+        "semantic_facets": [
+          "balancing",
+          "comparative",
+          "mode"
+        ],
+        "related_terms": [],
+        "output_guidance": {
+          "adverbial_phrase": "in a comparative balancing mode style",
+          "verb_phrase": "operates through comparative balancing mode",
+          "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+        },
+        "extensions": {
+          "authorship": "profile_level",
+          "prescriptive": false
+        }
+      },
+      "enables_optional_coordination": {
+        "term_type": "relation",
+        "canonical_label": "Enables Optional Coordination",
+        "friendly_labels": [
+          "enables optional coordination"
+        ],
+        "short_description": "A projected relationship in which two subsystems enables optional coordination.",
+        "long_description": "This relation describes how two projected endpoints interact: they enables optional coordination. It preserves source relationship geometry while expressing the interaction in target-domain language.",
+        "core_operators": [
+          "coordinate",
+          "enable",
+          "offer_pathway"
+        ],
+        "semantic_facets": [
+          "available_coordination"
+        ],
+        "related_terms": [],
+        "output_guidance": {
+          "verb_phrase": "enables optional coordination",
+          "sentence_template": "{source_phrase} enables optional coordination {target_phrase}.",
+          "composition_template": "{source_phrase} {verb_phrase} {target_phrase}."
+        },
+        "extensions": {
+          "authorship": "profile_level",
+          "prescriptive": false
+        }
+      },
+      "expressive_self_amplification_mode": {
+        "term_type": "mode",
+        "canonical_label": "Expressive Self Amplification Mode",
+        "friendly_labels": [
+          "expressive self amplification mode"
+        ],
+        "short_description": "An operating style characterized by expressive self amplification mode.",
+        "long_description": "This mode describes how a projected operator tends to perform its function: through expressive self amplification mode. It modifies the operator rather than replacing it.",
+        "core_operators": [],
+        "semantic_facets": [
+          "amplification",
+          "expressive",
+          "mode",
+          "self"
+        ],
+        "related_terms": [],
+        "output_guidance": {
+          "adverbial_phrase": "in a expressive self amplification mode style",
+          "verb_phrase": "operates through expressive self amplification mode",
+          "composition_template": "{operator_phrase} operates {adverbial_phrase}."
+        },
+        "extensions": {
+          "authorship": "profile_level",
+          "prescriptive": false
+        }
+      },
+      "identity_organization": {
+        "term_type": "operator",
+        "canonical_label": "Identity Organization",
+        "friendly_labels": [
+          "identity organization"
+        ],
+        "short_description": "A projected operator describing identity organization.",
+        "long_description": "This term represents the target-ontology function of identity organization. It should be read as an active subsystem or interface whose core verbs are preserved by the projection profile.",
+        "core_operators": [
+          "organize",
+          "prioritize",
+          "stabilize"
+        ],
+        "semantic_facets": [
+          "central_coherence",
+          "identity_priority",
+          "self_model"
+        ],
+        "related_terms": [],
+        "output_guidance": {
+          "noun_phrase": "identity organization",
+          "possessive_phrase": "the subject's identity organization",
+          "subject_template": "{subject}'s identity organization",
+          "composition_template": "{subject_phrase} operates {mode_phrase} {domain_phrase}."
+        },
+        "extensions": {
+          "authorship": "profile_level",
+          "prescriptive": false
+        }
+      },
+      "maintenance_routine_error_correction": {
+        "term_type": "domain",
+        "canonical_label": "Maintenance Routine Error Correction",
+        "friendly_labels": [
+          "maintenance routine error correction"
+        ],
+        "short_description": "A projected context or life domain centered on maintenance routine error correction.",
+        "long_description": "This domain describes where the projected operator is organized or expressed, with maintenance routine error correction providing the structural context.",
+        "core_operators": [],
+        "semantic_facets": [
+          "correction",
+          "error",
+          "maintenance",
+          "routine"
+        ],
+        "related_terms": [],
+        "output_guidance": {
+          "context_phrase": "within the domain of maintenance routine error correction",
+          "location_phrase": "in maintenance routine error correction",
+          "composition_template": "{operator_phrase} is organized {context_phrase}."
+        },
+        "extensions": {
+          "authorship": "profile_level",
+          "prescriptive": false
+        }
+      },
+      "shared_risk_deep_integration": {
+        "term_type": "domain",
+        "canonical_label": "Shared Risk Deep Integration",
+        "friendly_labels": [
+          "shared risk deep integration"
+        ],
+        "short_description": "A projected context or life domain centered on shared risk deep integration.",
+        "long_description": "This domain describes where the projected operator is organized or expressed, with shared risk deep integration providing the structural context.",
+        "core_operators": [],
+        "semantic_facets": [
+          "deep",
+          "integration",
+          "risk",
+          "shared"
+        ],
+        "related_terms": [],
+        "output_guidance": {
+          "context_phrase": "within the domain of shared risk deep integration",
+          "location_phrase": "in shared risk deep integration",
+          "composition_template": "{operator_phrase} is organized {context_phrase}."
+        },
+        "extensions": {
+          "authorship": "profile_level",
+          "prescriptive": false
+        }
+      }
+    }
+  }
+}
