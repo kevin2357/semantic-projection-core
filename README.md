@@ -165,3 +165,10 @@ See:
 - `docs/Chunk 3.beta.1 Temporal Intake and Adapter Contract.md`
 - `docs/Chunk 3.beta.2 Projected Temporal Contract and Operational Foundations.md`
 
+## Temporal projection development status
+
+Stage C3 now supports validated Foundry intake plus a temporal-foundations inspection route that reuses the ordinary static projection engine and existing profile object mappings. Full projected activation arcs remain intentionally disabled until Stage C4.
+
+```bat
+semantic-temporal-foundations --request temporal_request.json --out temporal_foundations.json
+```

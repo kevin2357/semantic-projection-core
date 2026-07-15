@@ -16,6 +16,7 @@ dev = ["pytest>=8", "jsonschema>=4", "ruff>=0.5"]
 [project.scripts]
 semantic-project = "semantic_projection.cli:main"
 semantic-temporal-intake = "semantic_projection.temporal_cli:main"
+semantic-temporal-foundations = "semantic_projection.temporal_foundations_cli:main"
 
 [project.entry-points."semantic_projection.profiles"]
 orthodox_astrology = "semantic_projection.profiles.orthodox_astrology:OrthodoxAstrologyProfile"

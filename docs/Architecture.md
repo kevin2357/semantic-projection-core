@@ -25,3 +25,7 @@ This is an intake boundary only. The generic static engine remains unchanged, an
 ## Projected temporal contract
 
 Stage C2 defines `projected_temporal_activation_graph.v1` as an extension of the static architecture. The projected target graph remains an ordinary projected semantic graph. Temporal activators and activation arcs reference that graph while preserving Foundry-owned timing facts under explicit `temporal_facts` envelopes. Static and temporal IDs use separate namespaces.
+
+## Stage C3 temporal reuse boundary
+
+Temporal projection now reuses the ordinary static projection engine for the target graph and delegates persistent activator mapping to each profile's existing object mapper. The temporal layer orchestrates role and time; it does not duplicate object, sign, house, or projected-term vocabularies. Activation arcs remain a Stage C4 responsibility.

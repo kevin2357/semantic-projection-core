@@ -55,6 +55,7 @@ from .temporal import (
     TemporalSourceContractError,
     adapt_foundry_temporal_source_bundle,
     project_temporal,
+    project_temporal_foundations,
     validate_foundry_temporal_source_bundle,
 )
 
@@ -122,3 +123,6 @@ __all__.extend([
     "projected_temporal_activation_id",
     "projected_temporal_state_id",
 ])
+
+from .artifact_identity import ArtifactIdentity, identify_artifact
+__all__.extend(["ArtifactIdentity", "identify_artifact", "project_temporal_foundations"])

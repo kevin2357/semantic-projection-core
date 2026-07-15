@@ -9,7 +9,10 @@ from .contracts import (
     TemporalProjectionOptions,
     TemporalProjectionRequest,
 )
-from .ids import temporal_projection_request_id
+from .ids import (
+    temporal_projection_request_id, projection_request_id,
+    projected_temporal_activator_id,
+)
 from .validation import (
     ProjectionValidationError,
     validate_contract,
@@ -252,15 +255,131 @@ def adapt_foundry_temporal_source_bundle(
     return request
 
 
-def project_temporal(*args: Any, **kwargs: Any) -> None:
-    """Reserved execution entry point.
+def _static_projection_request(request: TemporalProjectionRequest):
+    from .contracts import ProjectionRequest, ProjectionOptions
+    return ProjectionRequest(
+        request_id=projection_request_id(
+            profile_id=request.profile_id,
+            profile_version=request.profile_version,
+            source_identity=request.source_identity,
+            context=request.context,
+            options=ProjectionOptions().to_dict(),
+        ),
+        profile_id=request.profile_id,
+        profile_version=request.profile_version,
+        source_graph=deepcopy(request.static_source_graph),
+        structural_evidence=deepcopy(request.structural_evidence),
+        source_identity=deepcopy(request.source_identity),
+        context=deepcopy(request.context),
+        source_registries=deepcopy(request.source_registries),
+        options=ProjectionOptions().to_dict(),
+    )
 
-    Stage C2 keeps temporal execution disabled. The projected temporal output
-    contract is now defined, but object/activation mappings begin in Stage C3.
+
+def project_temporal_foundations(
+    request: TemporalProjectionRequest | Mapping[str, Any],
+) -> dict[str, Any]:
+    """Execute Stage C3 static-target and persistent-activator projection.
+
+    Activation arcs are deliberately not mapped here. The result is an
+    inspectable foundation artifact used to prove reuse of the static profile
+    and projected-term vocabulary.
     """
+    from .profiles import builtin_projection_registry
+    from .engine import project
+    from .contracts import TemporalProjectionRequest as RequestContract
+
+    request_obj = (
+        request if isinstance(request, RequestContract)
+        else RequestContract.from_dict(deepcopy(dict(request)))
+    )
+    validate_temporal_projection_request(request_obj.to_dict())
+    registry = builtin_projection_registry()
+    profile = registry.resolve(request_obj.profile_id, request_obj.profile_version)
+    static_request = _static_projection_request(request_obj)
+    projected_target = project(static_request, registry=registry).to_dict()
+
+    context_id = str(request_obj.context.get("context_id"))
+    projected_activators: list[dict[str, Any]] = []
+    unmapped: list[str] = []
+    source_activators = sorted(
+        request_obj.temporal_source_graph.get("activators") or [],
+        key=lambda row: str(row.get("id") or ""),
+    )
+    for source in source_activators:
+        source_ref = str(source.get("id") or "")
+        synthetic = {
+            "id": source_ref,
+            "object_type": "planet_or_point",
+            "name": source.get("source_body") or source.get("name"),
+            "source_key": source.get("source_body") or source.get("name"),
+        }
+        drafts = profile.project_object(deepcopy(synthetic), static_request) or []
+        if not drafts:
+            unmapped.append(source_ref)
+            continue
+        draft = drafts[0]
+        operator_ref = str(draft.get("target_key") or draft.get("name") or source_ref)
+        projected_activators.append({
+            "id": projected_temporal_activator_id(
+                profile_id=request_obj.profile_id,
+                source_activator_ref=source_ref,
+                projected_operator_ref=operator_ref,
+                context_id=context_id,
+            ),
+            "source_activator_ref": source_ref,
+            "source_body": source.get("source_body") or source.get("name"),
+            "projected_operator_ref": operator_ref,
+            "projected_object_type": "temporal_activator",
+            "operators": sorted(set(draft.get("operators") or [])),
+            "source_refs": [source_ref],
+            "mapping_rule_refs": [str(draft.get("mapping_rule_id"))],
+            "context_refs": [context_id],
+            "attributes": deepcopy(draft.get("attributes") or {}),
+            "provenance": {
+                **deepcopy(draft.get("provenance") or {}),
+                "temporal_projection_stage": "C3",
+                "mapping_reuse": "profile.project_object",
+            },
+        })
+
+    target_index = projected_target.get("indexes", {}).get("projected_objects_by_source_ref", {})
+    return {
+        "metadata": {
+            "package_type": "projected_temporal_foundations",
+            "contract_version": "0.1.0",
+            "stage": "C3",
+            "request_id": request_obj.request_id,
+            "profile_id": request_obj.profile_id,
+            "profile_version": request_obj.profile_version,
+            "context_id": context_id,
+            "execution_status": "static_target_and_activators_only",
+        },
+        "source_identity": deepcopy(request_obj.source_identity),
+        "target_identity": deepcopy(request_obj.target_identity),
+        "projected_target_graph": projected_target,
+        "projected_activators": projected_activators,
+        "target_resolution_index": deepcopy(target_index),
+        "coverage": {
+            "source_activator_count": len(source_activators),
+            "mapped_activator_count": len(projected_activators),
+            "unmapped_activator_count": len(unmapped),
+            "unmapped_activator_refs": unmapped,
+            "static_source_object_count": len(request_obj.static_source_graph.get("objects") or []),
+            "projected_target_object_count": len(projected_target.get("objects") or []),
+        },
+        "projected_term_registry": deepcopy(projected_target.get("projected_term_registry") or {}),
+        "limitations": [
+            "Stage C3 maps the static target graph and persistent activators only.",
+            "Projected activation arcs and observation-state compositions begin in Stage C4.",
+        ],
+    }
+
+
+def project_temporal(*args: Any, **kwargs: Any) -> None:
+    """Reserved complete temporal execution entry point."""
     raise TemporalProjectionNotImplementedError(
-        "Temporal projection execution is not implemented in Stage C2. "
-        "Foundry temporal_projection_source_bundle.v1 intake and the "
-        "projected_temporal_activation_graph.v1 contract are supported, "
-        "but temporal mappings are not emitted until Stage C3 and later."
+        "Complete temporal projection is not implemented in Stage C3. "
+        "Use project_temporal_foundations() to inspect static-target and "
+        "persistent-activator mapping reuse. Activation arcs begin in Stage C4."
     )

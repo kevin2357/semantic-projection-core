@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "projected_temporal_foundations_v1.schema.json",
+  "title": "Projected Temporal Foundations v0.1",
+  "description": "Stage C3 inspection artifact containing the ordinary static projected target graph plus persistent projected temporal activators. It does not contain projected activation arcs.",
+  "type": "object",
+  "required": [
+    "metadata",
+    "source_identity",
+    "target_identity",
+    "projected_target_graph",
+    "projected_activators",
+    "target_resolution_index",
+    "coverage",
+    "projected_term_registry",
+    "limitations"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "package_type",
+        "contract_version",
+        "stage",
+        "request_id",
+        "profile_id",
+        "profile_version",
+        "context_id",
+        "execution_status"
+      ],
+      "properties": {
+        "package_type": {
+          "const": "projected_temporal_foundations"
+        },
+        "contract_version": {
+          "const": "0.1.0"
+        },
+        "stage": {
+          "const": "C3"
+        },
+        "execution_status": {
+          "const": "static_target_and_activators_only"
+        }
+      }
+    },
+    "source_identity": {
+      "type": "object"
+    },
+    "target_identity": {
+      "type": "object"
+    },
+    "projected_target_graph": {
+      "type": "object"
+    },
+    "projected_activators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source_activator_ref",
+          "projected_operator_ref",
+          "mapping_rule_refs",
+          "provenance"
+        ]
+      }
+    },
+    "target_resolution_index": {
+      "type": "object"
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "source_activator_count",
+        "mapped_activator_count",
+        "unmapped_activator_count",
+        "unmapped_activator_refs",
+        "static_source_object_count",
+        "projected_target_object_count"
+      ]
+    },
+    "projected_term_registry": {
+      "type": "object"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

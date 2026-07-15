@@ -515,3 +515,7 @@ See `Chunk 3.beta.1 Temporal Intake and Adapter Contract.md`.
 ## Stage C2 contract freeze
 
 Semantic Projection Core 0.3.0 defines the initial `projected_temporal_activation_graph.v1` contract. The contract separates Core-owned `projected_*` semantic fields from Foundry-owned `temporal_facts`, preserves arc-first nesting, requires activator-to-target directionality, and separates upstream source limitations from projected-artifact limitations.
+
+## Stage C3 implementation note
+
+The static target graph is now projected through the existing engine, and persistent transiting activators are projected through existing profile object mappings. This confirms the intended design rule: temporal projection is static projection plus a preserved activation envelope, not a parallel ontology engine.

@@ -110,5 +110,5 @@ def test_observation_count_must_reconcile():
 
 
 def test_temporal_execution_remains_disabled_after_c2_contract_work():
-    with pytest.raises(TemporalProjectionNotImplementedError, match="Stage C2"):
+    with pytest.raises(TemporalProjectionNotImplementedError, match="Stage C3"):
         project_temporal()

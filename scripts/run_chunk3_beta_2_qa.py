@@ -36,14 +36,28 @@ def run(command: list[str], *, log_name: str, expected_codes: set[int] = {0}) ->
 
 
 def find_bundle() -> Path:
-    candidates = sorted(FIXTURES.glob("*temporal_projection_source*.json"))
-    if not candidates:
-        candidates = sorted(FIXTURES.glob("*.json"))
-    if not candidates:
+    from semantic_projection import identify_artifact
+    candidates = sorted(FIXTURES.glob("*.json"))
+    matches = []
+    identities = []
+    for candidate in candidates:
+        try:
+            payload = json.loads(candidate.read_text(encoding="utf-8"))
+            identity = identify_artifact(payload)
+            identities.append({"file": candidate.name, **identity.to_dict()})
+            if identity.kind == "foundry_temporal_projection_source_bundle":
+                matches.append(candidate)
+        except Exception:
+            identities.append({"file": candidate.name, "kind": "unreadable"})
+    (OUTPUTS / "fixture_inventory.json").write_text(
+        json.dumps(identities, indent=2) + "\n", encoding="utf-8"
+    )
+    if len(matches) != 1:
         raise FileNotFoundError(
-            f"Place a Foundry temporal_projection_source_bundle.v1 JSON under {FIXTURES}"
+            "Expected exactly one temporal_projection_source_bundle.v1 under "
+            f"{FIXTURES}; found {len(matches)}. See fixture_inventory.json."
         )
-    return candidates[0]
+    return matches[0]
 
 
 def sha256(path: Path) -> str:
