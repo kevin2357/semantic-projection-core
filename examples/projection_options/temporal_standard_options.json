@@ -1,0 +1,9 @@
+{
+  "include_observation_states": true,
+  "include_projected_state_composition": true,
+  "retain_unmapped_sources": true,
+  "include_audit": true,
+  "include_diagnostics": true,
+  "unmapped_policy": "diagnostic",
+  "extensions": {}
+}

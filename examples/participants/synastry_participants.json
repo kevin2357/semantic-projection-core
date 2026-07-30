@@ -1,0 +1,16 @@
+{
+  "participants": [
+    {
+      "participant_id": "participant_a",
+      "role": "person_a",
+      "species": "human",
+      "label": "Participant A"
+    },
+    {
+      "participant_id": "participant_b",
+      "role": "person_b",
+      "species": "human",
+      "label": "Participant B"
+    }
+  ]
+}

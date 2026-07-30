@@ -309,6 +309,7 @@ def _activator_selection_status(profile: Any, source: Mapping[str, Any]) -> str:
 
 def _project_static_target_and_activators(
     request_obj: TemporalProjectionRequest,
+    registry: Any,
 ) -> tuple[
     dict[str, Any],
     list[dict[str, Any]],
@@ -316,10 +317,8 @@ def _project_static_target_and_activators(
     dict[str, Any],
 ]:
     """Reuse the static engine and profile object mappings for Stage C3/C4."""
-    from .profiles import builtin_projection_registry
     from .engine import project
 
-    registry = builtin_projection_registry()
     profile = registry.resolve(request_obj.profile_id, request_obj.profile_version)
     static_request = _static_projection_request(request_obj)
     projected_target = project(static_request, registry=registry).to_dict()
@@ -596,6 +595,8 @@ def _annotate_upstream_limitations(limitations: list[str]) -> list[dict[str, Any
 
 def project_temporal(
     request: TemporalProjectionRequest | Mapping[str, Any] | None = None,
+    *,
+    registry: Any | None = None,
 ) -> dict[str, Any]:
     """Execute Stage C4 directional activation-arc projection.
 
@@ -619,7 +620,7 @@ def project_temporal(
     )
     validate_temporal_projection_request(request_obj.to_dict())
 
-    registry = builtin_projection_registry()
+    registry = registry or builtin_projection_registry()
     profile = registry.resolve(request_obj.profile_id, request_obj.profile_version)
     static_request = _static_projection_request(request_obj)
     (
@@ -627,7 +628,7 @@ def project_temporal(
         projected_activators,
         activator_drafts,
         activator_coverage,
-    ) = _project_static_target_and_activators(request_obj)
+    ) = _project_static_target_and_activators(request_obj, registry)
 
     context_id = str(request_obj.context.get("context_id"))
     context_version = str(request_obj.context.get("context_version"))

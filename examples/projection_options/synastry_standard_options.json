@@ -1,0 +1,8 @@
+{
+  "retain_unmapped_sources": true,
+  "include_audit": true,
+  "include_diagnostics": true,
+  "unmapped_policy": "diagnostic",
+  "compact_audit": false,
+  "extensions": {}
+}

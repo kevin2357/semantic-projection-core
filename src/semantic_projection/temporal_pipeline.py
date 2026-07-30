@@ -59,6 +59,7 @@ def project_foundry_temporal_bundle(
     context: Mapping[str, Any] | ProjectionContext,
     options: Mapping[str, Any] | TemporalProjectionOptions | None = None,
     output_mode: str = "standard",
+    registry: Any | None = None,
 ) -> TemporalPipelineResult:
     """Validate, adapt, project, materialize, and issue a deterministic receipt.
 
@@ -73,7 +74,7 @@ def project_foundry_temporal_bundle(
         context=context,
         options=options,
     )
-    full = project_temporal(request)
+    full = project_temporal(request, registry=registry)
     artifact = materialize_projected_temporal_graph(full, mode=output_mode)
     summary = temporal_projection_summary_view(full)
     receipt_payload = {
