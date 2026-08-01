@@ -1,0 +1,65 @@
+# Contracts
+
+SPC's public contracts are Python dataclasses that serialize to plain dictionaries and are backed by packaged JSON Schemas under `src/semantic_projection/schemas`.
+
+## Static request
+
+`ProjectionRequest` contains:
+
+- deterministic `request_id`;
+- exact `profile_id` and `profile_version`;
+- complete canonical `source_graph`;
+- optional `structural_evidence`;
+- `source_identity`;
+- versioned `context`;
+- optional `source_registries`;
+- execution `options`.
+
+`ProjectionOptions` controls audit and diagnostic inclusion, unmapped-source behavior, and optional coverage thresholds. Context describes what the projection is for; options describe how execution behaves.
+
+## Static result
+
+`projected_semantic_graph.v1` contains metadata, source identity and graph reference, target ontology, projected objects and relationships, indexes, summary, a used-term registry, audit, diagnostics, and provenance.
+
+Projected rows retain `source_refs`, `mapping_rule_refs`, context references, and deterministic identity. They are target-domain semantic units, not final claims or prose.
+
+## Temporal source and request
+
+SPC accepts AGF's frozen `temporal_projection_source_bundle.v1` version 1.0.0. The adapter validates supported contract versions, arc-first authority, projection neutrality, cross-field counts, and referential integrity before producing `temporal_projection_request.v1`.
+
+The request combines:
+
+- a static target source graph;
+- a canonical temporal source graph;
+- source and target identity;
+- upstream contract metadata;
+- a profile, context, and temporal options.
+
+## Temporal result
+
+`projected_temporal_activation_graph.v1` contains:
+
+- an ordinary projected static target graph;
+- persistent projected activators;
+- directional projected activation arcs;
+- projected sequence summaries;
+- observation states nested in preserved `temporal_facts`;
+- indexes and summary;
+- audit, diagnostics, limitations, and provenance;
+- the used projected-term registry.
+
+Source and projected limitations are separate fields. Upstream omissions are annotated, never repaired by inventing facts.
+
+The production route also emits `temporal_projection_route_receipt.v1`, which records the source bundle, request, projected graph, profile, context, target family, output mode, semantic hashes, coverage, and deterministic route hash.
+
+## Synastry preparation
+
+`project_synastry()` accepts a canonical relationship graph, structural evidence, source identity, at least two participant records, relationship kind, profile, context, options, registry, and optional source registries. It returns the prepared `ProjectionRequest`, projected artifact, and participant index.
+
+Participant records require `participant_id`; role, species, and label are optional. Owners discovered on source objects are retained in the participant index with an `unspecified` role when they were not supplied explicitly.
+
+## Validation
+
+When `jsonschema` is installed, `validate_contract()` performs full schema validation. The package retains basic required-field validation when it is unavailable. Specialized validators additionally enforce deterministic/reference integrity that JSON Schema alone cannot express.
+
+The schemas are the field-level authority. This page describes their role and composition rather than duplicating every property.

@@ -1,245 +1,106 @@
 # Semantic Projection Core
 
-Semantic Projection Core is a generic Python library and SDK for **deterministic projection of structured source graphs into auditable target-domain semantic graphs**.
+Semantic Projection Core (SPC) is a Python library for deterministic, auditable projection of canonical source graphs into target-domain semantic graphs.
 
-Rather than interpreting source data directly, the engine performs explicit structural projection using projection profiles, contexts, registries, and deterministic graph transformations.
+```text
+canonical graph + structural evidence + source registries
+                     +
+       versioned profile + context
+                     |
+                     v
+ projected graph + term registry + audit + diagnostics
+```
 
-The result is a projected semantic graph that is:
+SPC projects structure through explicit mappings. It does not calculate astrology charts, synthesize final claims, prescribe advice, apply game mechanics, or publish reports. Those responsibilities belong upstream or downstream of the projection boundary.
 
-- Deterministic
-- Explainable
-- Auditable
-- Provenance-preserving
-- Independent of any specific source domain
+## Current capabilities
 
-Originally developed alongside **Astrology Graph Foundry**, the engine is intentionally domain-agnostic and already includes multiple reference projection profiles demonstrating the same infrastructure across very different target ontologies.
+- Generic profile-driven static projection engine
+- Deterministic IDs, provenance, audit, diagnostics, and scope-aware coverage
+- Exact-version profile registry with optional Python entry-point discovery
+- Full, standard, summary, and forensic materializations
+- Profile-owned projected term registries and used-term subsets
+- Deterministic local rendering helpers
+- Astrology Graph Foundry temporal-bundle validation and adaptation
+- Directional, arc-first temporal projection with preserved timing facts
+- End-to-end temporal materialization and route receipts
+- Participant-aware synastry projection
+- Interactive and unattended natal, temporal, and synastry tools
 
----
+Bundled profiles are:
 
-## Philosophy
+- `orthodox_astrology.v1` 1.0.0 — expanded reference profile
+- `cognitive_architecture_demo.v0` 0.2.0 — experimental architecture demonstration
+- `woofmapped_astrology.v0` 0.1.0 — playful experimental reference profile
 
-> **Project structure, not interpretation.**
+## Install and test
 
-Projection profiles define explicit correspondences between semantic structures.
+SPC requires Python 3.10 or newer and has no runtime dependencies.
 
-Semantic Projection Core transforms graphs.
-
-Interpretation, reasoning, narrative generation, visualization, publication, and domain-specific advice are intentionally downstream concerns built on top of projected structure.
-
-In short:
-
-> **Semantic Projection Core projects structure—not meaning. Meaning emerges downstream from projected structure.**
-
----
-
-## Design Principles
-
-- Deterministic
-- Explicit
-- Auditable
-- Provenance-preserving
-- Domain-independent
-- Schema-driven
-- Context-aware
-- Registry-backed
-- Structural rather than interpretive
-
----
-
-## Responsibilities
-
-Semantic Projection Core owns:
-
-- projection request, context, profile, and registry contracts;
-- deterministic projection engine and stable IDs;
-- audit, diagnostics, scope-aware coverage, and materialization;
-- projected term registries;
-- deterministic rendering primitives;
-- standalone generic CLI;
-- Foundry temporal source-bundle validation and generic temporal request intake;
-- validated `projected_temporal_activation_graph.v1` contract and deterministic temporal ID namespaces.
-
-It intentionally **does not** calculate astrology charts. **Astrology Graph Foundry** is one upstream producer of canonical source graphs and one integration client of this library.
-
----
-
-## Included Reference Profiles
-
-Current built-in reference profiles include:
-
-- ✅ Orthodox Astrology
-- ✅ Cognitive Architecture *(experimental reference ontology)*
-- ✅ Woofmapped Astrology *(demonstration reference ontology)*
-
-These demonstrate that the projection engine itself is generic rather than astrology-specific.
-
----
-
-## Current Status
-
-**Implemented**
-
-- Generic projection engine
-- Profile registry
-- Context system
-- Deterministic IDs
-- Materialization modes
-- Projected term registries
-- Deterministic rendering primitives
-- Standalone static projection CLI
-- Validation-only temporal intake CLI
-- `temporal_projection_request.v1`
-- `projected_temporal_activation_graph.v1` schema and referential-integrity validation
-- UTF-8 operational logging
-- one-command fixture QA workflow
-
-**Planned**
-
-- Temporal activation projection
-- Plugin-discovered projection profiles
-- Richer deterministic rendering
-- Claim compiler integration
-- Publication / report layer
-
----
-
-## Local Development
-
-```bat
-python -m pip install -e .[dev]
+```powershell
+python -m pip install -e ".[dev]"
 python -m pytest -q
 ```
 
----
+## Common workflows
 
-## Generic API
+Project a static package:
 
-```python
-from semantic_projection import (
-    ProjectionRequest,
-    project_with_builtin_profiles,
-)
-
-result = project_with_builtin_profiles(request)
+```powershell
+python tools/project_natal.py `
+  --source path/to/natal-package.json `
+  --profile orthodox `
+  --context examples/contexts/orthodox_general_context.json `
+  --out outputs/natal.standard.json
 ```
 
----
+Project an Astrology Graph Foundry temporal source bundle:
 
-## Temporal Intake
-
-Stage C1 can validate and adapt Astrology Graph Foundry's frozen temporal handoff without yet executing temporal projection:
-
-```bat
-semantic-temporal-intake ^
-  --bundle temporal_projection_source.json ^
-  --projection-profile cognitive_architecture_demo.v0 ^
-  --projection-profile-version 0.2.0 ^
-  --projection-context examples\contexts\cognitive_architecture_general_context.json ^
-  --out temporal_projection_request.json
+```powershell
+python tools/project_temporal.py `
+  --bundle path/to/temporal_projection_source_bundle.json `
+  --profile orthodox `
+  --context examples/contexts/orthodox_general_context.json `
+  --out outputs/temporal.standard.json `
+  --receipt-out outputs/temporal.receipt.json
 ```
 
-Temporal mapping execution remains intentionally disabled. The output contract is now implemented and validated; Stage C3 will begin reusing static target/object mappings.
+Project participant-aware synastry:
 
----
-
-## Generic CLI
-
-```bat
-semantic-project ^
-  --request request.json ^
-  --output-mode standard ^
-  --out projected.json
+```powershell
+python tools/project_synastry.py `
+  --source path/to/synastry-package.json `
+  --participants participants.json `
+  --profile orthodox `
+  --context examples/contexts/orthodox_synastry_general_context.json `
+  --out outputs/synastry.standard.json
 ```
 
----
-
-## Documentation
-
-See:
-
-- `docs/Architecture.md`
-- `docs/Profile Authoring Guide.md`
-- `docs/Installation and Integration.md`
-- `docs/Extraction History.md`
-- `docs/Ideas and Future Work.md`
-- `docs/Chunk 3.beta.1 Temporal Intake and Adapter Contract.md`
-- `docs/Chunk 3.beta.2 Projected Temporal Contract and Operational Foundations.md`
-
-## Temporal projection development status
-
-Stage C3 now supports validated Foundry intake plus a temporal-foundations inspection route that reuses the ordinary static projection engine and existing profile object mappings. Full projected activation arcs remain intentionally disabled until Stage C4.
-
-```bat
-semantic-temporal-foundations --request temporal_request.json --out temporal_foundations.json
-```
-
-## Temporal projection status
-
-Stage C4 now supports experimental directional activation-arc projection from a
-validated `temporal_projection_request.v1` into
-`projected_temporal_activation_graph.v1`.
-
-```bat
-semantic-temporal-project --request request.json --out projected-temporal.json
-```
-
-The output projects structure only. Temporal reasoning, rendering, and
-consumer-facing reports remain downstream.
-
-## Temporal materializations
-
-Projected temporal graphs support `full`, `standard`, `summary`, and `forensic` materializations. The standard view preserves all defining activation arcs and observation facts while compacting audit and diagnostic payloads.
-
-## Temporal cross-profile projection
-
-Stage C6 validates the same canonical temporal facts across Orthodox, Cognitive, and Woofmapped profiles, plus context-sensitive Orthodox variants. Run `scripts\\run_chunk3_beta_6_qa.bat` for the complete one-command QA flow.
-
-## End-to-end temporal production route
-
-Stage C7 provides one supported command from a Foundry source bundle to a projected temporal materialization:
-
-```bat
-semantic-temporal-run ^
-  --bundle temporal_projection_source.json ^
-  --projection-profile cognitive_architecture_demo.v0 ^
-  --projection-profile-version 0.2.0 ^
-  --projection-context examples\contexts\cognitive_architecture_general_context.json ^
-  --output-mode standard ^
-  --out projected_temporal.standard.json ^
-  --receipt-out temporal_route_receipt.json
-```
-
-The route preserves the normalized request and deterministic identity chain without creating a second projection implementation. Run `scripts\run_chunk3_beta_7_qa.bat` for complete production-route QA over every Foundry temporal fixture in `outputs\fixture_test_files`.
-
-
-### C8 profile expansion
-
-Chunk 3.beta.8 expands the Orthodox reference profile to near-complete canonical object coverage through specialized mappings plus auditable identity projection. The real temporal fixture now projects all 12 activators and all 88 activation arcs. Woofmapped primitive scope is unchanged, but its temporal production route is now explicitly documented and regression-tested.
-
-## Woofmapped horoscope context modes
-
-The example contexts include `woofmapped.handler_guidance.v1` and `woofmapped.dog_direct.v1`. They reuse one Woofmapped ontology while separating handler-facing practical guidance from a direct-to-dog horoscope frame. Voice and prose remain downstream of deterministic projection.
-
+The tools prompt for omitted required values and support `--help`, explicit options, request output, and `full`, `standard`, `summary`, or `forensic` materialization.
 
 ## Woofmapping convenience tools
 
-The `tools` directory provides opinionated entry points for every currently
-supported major Woofmapped projection shape. Each command uses the bundled
-Woofmapped profile and an appropriate context by default while retaining the
-generic output-mode, options, and context overrides.
-
-```bat
-python tools\woofmap_natal.py --source dog_natal.full.json --out dog_natal.woofmapped.standard.json
-
-python tools\woofmap_transit.py --bundle dog_transits.temporal_projection_source.json --audience handler --out dog_transits.woofmapped.handler.standard.json
-
-python tools\woofmap_synastry.py --source handler_dog_synastry.full.json --kind human-dog --participant-a-id handler --participant-a-label Kevin --participant-b-id dog --participant-b-label Bre --out handler_dog.woofmapped.standard.json
+```powershell
+python tools/woofmap_natal.py --source dog-natal.json --out dog-natal.woof.json
+python tools/woofmap_transit.py --bundle dog-transits.json --audience handler --out dog-transits.woof.json
+python tools/woofmap_synastry.py --source pair.json --kind human-dog --participant-a-id handler --participant-b-id dog --out pair.woof.json
 ```
 
-Transit audiences are `handler`, `dog`, and `hybrid`. Synastry kinds are
-`human-dog` and `dog-dog`; participant roles and species receive sensible
-defaults and may be overridden explicitly.
+Transit audiences are `handler`, `dog`, and `hybrid`. Synastry kinds are `human-dog` and `dog-dog`.
 
-## Synastry projection
+## Python API
 
-Version 0.10.0 adds `project_synastry()` with participant-role preservation for Orthodox and Woofmapped reference profiles, plus handler, dog-direct, hybrid, human–dog, and dog–dog Woofmapped contexts.
+```python
+from semantic_projection import ProjectionRequest, project_with_builtin_profiles
+
+request = ProjectionRequest.from_dict(request_data)
+projected = project_with_builtin_profiles(request).to_dict()
+```
+
+Temporal integrations should use `project_foundry_temporal_bundle()`. Synastry integrations should use `project_synastry()`.
+
+## Architecture boundary
+
+Astrology Graph Foundry is SPC's upstream producer of canonical astrology graphs, structural evidence, source identities, and canonical temporal bundles. SPC owns target-domain projection and its artifacts. Consumers such as Mythos and AstroWoof own application semantics and publication after projection.
+
+See the [documentation index](docs/README.md) for current guides, reference material, integration contracts, roadmap, and clearly separated implementation history.
