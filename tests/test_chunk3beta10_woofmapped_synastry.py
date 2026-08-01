@@ -50,6 +50,27 @@ def test_woofmapped_human_dog_synastry_preserves_roles():
     assert {attrs["source_participant_role"], attrs["target_participant_role"]} == {"handler", "dog"}
 
 
+def test_synastry_projection_preserves_supplied_source_registries():
+    result = project_synastry(
+        source_graph=_source_graph(),
+        structural_evidence={},
+        source_identity={"source_chart_ids": ["human", "dog"]},
+        participants=[
+            {"participant_id": "human", "role": "handler", "species": "human"},
+            {"participant_id": "dog", "role": "dog", "species": "canine"},
+        ],
+        relationship_kind="human_dog",
+        profile_id="woofmapped_astrology.v0",
+        profile_version="0.1.0",
+        context=_context("woofmapped_human_dog_synastry_context.json"),
+        registry=builtin_projection_registry(),
+        source_registries={"theme_registry": {"example": ["trust"]}},
+    )
+    assert result.request.source_registries == {
+        "theme_registry": {"example": ["trust"]}
+    }
+
+
 def test_orthodox_synastry_is_identity_projection_with_ownership():
     result = project_synastry(
         source_graph=_source_graph(),

@@ -412,17 +412,21 @@ def _project_static_target_and_activators(
 
 def project_temporal_foundations(
     request: TemporalProjectionRequest | Mapping[str, Any],
+    *,
+    registry: Any | None = None,
 ) -> dict[str, Any]:
     """Execute Stage C3-compatible static-target and persistent-activator projection."""
     from .contracts import TemporalProjectionRequest as RequestContract
+    from .profiles import builtin_projection_registry
 
     request_obj = (
         request if isinstance(request, RequestContract)
         else RequestContract.from_dict(deepcopy(dict(request)))
     )
     validate_temporal_projection_request(request_obj.to_dict())
+    registry = registry or builtin_projection_registry()
     projected_target, projected_activators, _, coverage = (
-        _project_static_target_and_activators(request_obj)
+        _project_static_target_and_activators(request_obj, registry)
     )
     context_id = str(request_obj.context.get("context_id"))
     target_index = projected_target.get("indexes", {}).get(

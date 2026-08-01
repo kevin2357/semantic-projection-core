@@ -221,6 +221,25 @@ Chunk 3.beta.8 expands the Orthodox reference profile to near-complete canonical
 The example contexts include `woofmapped.handler_guidance.v1` and `woofmapped.dog_direct.v1`. They reuse one Woofmapped ontology while separating handler-facing practical guidance from a direct-to-dog horoscope frame. Voice and prose remain downstream of deterministic projection.
 
 
+## Woofmapping convenience tools
+
+The `tools` directory provides opinionated entry points for every currently
+supported major Woofmapped projection shape. Each command uses the bundled
+Woofmapped profile and an appropriate context by default while retaining the
+generic output-mode, options, and context overrides.
+
+```bat
+python tools\woofmap_natal.py --source dog_natal.full.json --out dog_natal.woofmapped.standard.json
+
+python tools\woofmap_transit.py --bundle dog_transits.temporal_projection_source.json --audience handler --out dog_transits.woofmapped.handler.standard.json
+
+python tools\woofmap_synastry.py --source handler_dog_synastry.full.json --kind human-dog --participant-a-id handler --participant-a-label Kevin --participant-b-id dog --participant-b-label Bre --out handler_dog.woofmapped.standard.json
+```
+
+Transit audiences are `handler`, `dog`, and `hybrid`. Synastry kinds are
+`human-dog` and `dog-dog`; participant roles and species receive sensible
+defaults and may be overridden explicitly.
+
 ## Synastry projection
 
 Version 0.10.0 adds `project_synastry()` with participant-role preservation for Orthodox and Woofmapped reference profiles, plus handler, dog-direct, hybrid, human–dog, and dog–dog Woofmapped contexts.

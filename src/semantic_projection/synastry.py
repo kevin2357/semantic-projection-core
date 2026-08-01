@@ -100,6 +100,7 @@ def project_synastry(
     context: JsonDict,
     registry: ProjectionProfileRegistry,
     options: JsonDict | None = None,
+    source_registries: JsonDict | None = None,
 ) -> SynastryProjectionResult:
     graph, participant_index = prepare_synastry_source_graph(
         source_graph,
@@ -130,7 +131,7 @@ def project_synastry(
         structural_evidence=deepcopy(structural_evidence),
         source_identity=identity,
         context=context_copy,
-        source_registries={},
+        source_registries=deepcopy(source_registries or {}),
         options=options_dict,
     )
     artifact = project(request, registry=registry).to_dict()
