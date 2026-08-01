@@ -15,6 +15,14 @@ python -m pip install -e ".[dev]"
 python -m pytest -q
 ```
 
+Capability-oriented QA can also be run through the stable wrapper:
+
+```powershell
+python scripts/run_qa.py --suite all --coverage
+python scripts/run_qa.py --suite temporal
+python scripts/run_qa.py --suite woofmapped
+```
+
 ## Choose an entry point
 
 The repository provides friendly tools for common saved-package workflows:

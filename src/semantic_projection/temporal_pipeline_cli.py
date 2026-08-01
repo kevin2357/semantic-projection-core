@@ -20,9 +20,7 @@ def _write(path: str | None, value: dict) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(
-        description="Run the complete Foundry temporal bundle → projected temporal artifact route."
-    )
+    parser = argparse.ArgumentParser(description="Run the complete Foundry temporal bundle -> projected temporal artifact route.")
     parser.add_argument("--bundle", required=True)
     parser.add_argument("--projection-profile", required=True)
     parser.add_argument("--projection-profile-version", required=True)
@@ -40,13 +38,8 @@ def main(argv: list[str] | None = None) -> int:
         bundle = json.loads(Path(args.bundle).read_text(encoding="utf-8"))
         identity = identify_artifact(bundle)
         if identity.kind != "foundry_temporal_projection_source_bundle":
-            raise ValueError(
-                "Expected temporal_projection_source_bundle.v1; "
-                f"received {identity.kind} ({identity.package_type!r})."
-            )
-        context = ProjectionContext.from_dict(
-            json.loads(Path(args.projection_context).read_text(encoding="utf-8"))
-        )
+            raise ValueError(f"Expected temporal_projection_source_bundle.v1; received {identity.kind} ({identity.package_type!r}).")
+        context = ProjectionContext.from_dict(json.loads(Path(args.projection_context).read_text(encoding="utf-8")))
         result = project_foundry_temporal_bundle(
             bundle,
             profile_id=args.projection_profile,
@@ -73,15 +66,23 @@ def main(argv: list[str] | None = None) -> int:
             source_activators=((metadata.get("coverage") or {}).get("activators") or {}).get("source_activator_count"),
             eligible_activators=((metadata.get("coverage") or {}).get("activators") or {}).get("eligible_activator_count"),
             projected_activators=((metadata.get("coverage") or {}).get("activators") or {}).get("mapped_eligible_activator_count"),
-            profile_scope_excluded_activators=((metadata.get("coverage") or {}).get("activators") or {}).get("profile_scope_excluded_activator_count"),
+            profile_scope_excluded_activators=((metadata.get("coverage") or {}).get("activators") or {}).get(
+                "profile_scope_excluded_activator_count"
+            ),
             policy_excluded_activators=((metadata.get("coverage") or {}).get("activators") or {}).get("policy_excluded_activator_count"),
-            eligible_but_unmapped_activators=((metadata.get("coverage") or {}).get("activators") or {}).get("eligible_but_unmapped_activator_count"),
+            eligible_but_unmapped_activators=((metadata.get("coverage") or {}).get("activators") or {}).get(
+                "eligible_but_unmapped_activator_count"
+            ),
             source_activations=((metadata.get("coverage") or {}).get("activations") or {}).get("source_activation_count"),
             eligible_activations=((metadata.get("coverage") or {}).get("activations") or {}).get("eligible_activation_count"),
             projected_activations=((metadata.get("coverage") or {}).get("activations") or {}).get("projected_activation_count"),
             target_scope_excluded=((metadata.get("coverage") or {}).get("activations") or {}).get("target_excluded_by_profile_scope_count"),
-            target_source_policy_excluded=((metadata.get("coverage") or {}).get("activations") or {}).get("target_excluded_by_source_selection_policy_count"),
-            target_eligible_but_unmapped=((metadata.get("coverage") or {}).get("activations") or {}).get("target_eligible_but_unmapped_count"),
+            target_source_policy_excluded=((metadata.get("coverage") or {}).get("activations") or {}).get(
+                "target_excluded_by_source_selection_policy_count"
+            ),
+            target_eligible_but_unmapped=((metadata.get("coverage") or {}).get("activations") or {}).get(
+                "target_eligible_but_unmapped_count"
+            ),
             failed_activations=((metadata.get("coverage") or {}).get("activations") or {}).get("failed_activation_count"),
             output=args.out,
         )

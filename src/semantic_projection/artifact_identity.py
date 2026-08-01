@@ -1,7 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
-from typing import Any, Mapping
+from typing import Any
 
 
 @dataclass(frozen=True, slots=True)
@@ -40,6 +41,13 @@ def identify_artifact(value: Mapping[str, Any]) -> ArtifactIdentity:
         return ArtifactIdentity(
             kind="temporal_projection_request",
             package_type="temporal_projection_request",
+            contract_version="1.0.0",
+            recognized=True,
+        )
+    if all(key in value for key in ("request_id", "profile_id", "source_graph", "context")):
+        return ArtifactIdentity(
+            kind="projection_request",
+            package_type="projection_request",
             contract_version="1.0.0",
             recognized=True,
         )

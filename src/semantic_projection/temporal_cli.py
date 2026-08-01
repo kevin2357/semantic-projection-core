@@ -2,17 +2,16 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
-import sys
-import traceback
 import logging
+import sys
+from pathlib import Path
 
 from .contracts import ProjectionContext, TemporalProjectionOptions
-from .temporal import TemporalSourceContractError, adapt_foundry_temporal_source_bundle
 from .logging_config import configure_logging, log_event
+from .temporal import adapt_foundry_temporal_source_bundle
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description=(
             "Validate a Foundry temporal_projection_source_bundle.v1 and "
@@ -28,7 +27,7 @@ def main() -> None:
     parser.add_argument("--omit-observation-states", action="store_true")
     parser.add_argument("--debug", action="store_true", help="Show traceback for expected validation errors")
     parser.add_argument("--log-file", default="semantic_projection.log", help="UTF-8 Core operational log")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     logger = configure_logging(
         log_path=args.log_file,
         level=logging.DEBUG if args.debug else logging.INFO,
@@ -47,9 +46,7 @@ def main() -> None:
         bundle = json.loads(Path(args.bundle).read_text(encoding="utf-8"))
         context_payload = json.loads(Path(args.projection_context).read_text(encoding="utf-8"))
         context = ProjectionContext.from_dict(context_payload)
-        options = TemporalProjectionOptions(
-            include_observation_states=not args.omit_observation_states
-        )
+        options = TemporalProjectionOptions(include_observation_states=not args.omit_observation_states)
         request = adapt_foundry_temporal_source_bundle(
             bundle,
             profile_id=args.projection_profile,
@@ -72,7 +69,8 @@ def main() -> None:
             activator_count=len(request.temporal_source_graph.get("activators") or []),
             activation_count=len(request.temporal_source_graph.get("activations") or []),
         )
-    except TemporalSourceContractError as exc:
+        return 0
+    except Exception as exc:
         logger.warning(
             "temporal_intake_rejected reason=%r bundle=%r profile_id=%r",
             str(exc),
@@ -81,9 +79,9 @@ def main() -> None:
         )
         print(f"ERROR temporal_source_contract: {exc}", file=sys.stderr)
         if args.debug:
-            traceback.print_exc()
-        raise SystemExit(2) from exc
+            raise
+        return 2
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

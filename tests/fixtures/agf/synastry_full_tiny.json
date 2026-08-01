@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "package_type": "synastry_dataset",
+    "source_chart_id": "synastry:natal:human:natal:dog",
+    "source_chart_ids": ["natal:human", "natal:dog"],
+    "sensor_instance_id": "synastry:natal:human:natal:dog"
+  },
+  "canonical_astrology_graph": {
+    "graph_type": "synastry",
+    "graph_version": "1.3.0",
+    "objects": [
+      {"id": "human:Saturn", "name": "Saturn", "object_type": "planet", "subject_owner": "human", "sign": "Libra", "house": 6},
+      {"id": "human:Venus", "name": "Venus", "object_type": "planet", "subject_owner": "human", "sign": "Taurus", "house": 2},
+      {"id": "dog:Mars", "name": "Mars", "object_type": "planet", "subject_owner": "dog", "sign": "Aries", "house": 1},
+      {"id": "dog:Moon", "name": "Moon", "object_type": "planet", "subject_owner": "dog", "sign": "Cancer", "house": 4}
+    ],
+    "relationships": [
+      {"id": "synastry:human-saturn-square-dog-mars", "source_id": "human:Saturn", "target_id": "dog:Mars", "relationship_type": "SYNASTRY_ASPECT", "aspect": "square", "operator_key": "aspect:square", "theme_key": "theme:boundaries", "structural_strength_score": 0.88},
+      {"id": "synastry:dog-moon-trine-human-venus", "source_id": "dog:Moon", "target_id": "human:Venus", "relationship_type": "SYNASTRY_ASPECT", "aspect": "trine", "operator_key": "aspect:trine", "theme_key": "theme:bonding", "structural_strength_score": 0.82}
+    ]
+  },
+  "structural_evidence_graph": {},
+  "source_registries": {
+    "operator_registry": {
+      "aspect:square": ["friction", "adaptation"],
+      "aspect:trine": ["flow", "support"]
+    },
+    "theme_registry": {
+      "theme:boundaries": ["boundaries", "structure"],
+      "theme:bonding": ["bonding", "comfort"]
+    }
+  }
+}
