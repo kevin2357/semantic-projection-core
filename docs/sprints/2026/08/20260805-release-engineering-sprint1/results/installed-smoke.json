@@ -1,0 +1,53 @@
+{
+  "evidence_contract": "semantic_projection.slice2_installed_smoke.v1",
+  "candidate": {
+    "distribution": "semantic-projection-core",
+    "distribution_version": "0.10.0",
+    "engine_version": "0.10.0",
+    "package_version": "0.10.0",
+    "wheel": "semantic_projection_core-0.10.0-py3-none-any.whl",
+    "wheel_size": 123402,
+    "wheel_sha256": "264dd80c29cc9b3ceacf42dd7c472979d18b0ceec6185893693066f5c2340d98"
+  },
+  "installation": {
+    "editable": false,
+    "python": "3.12.13",
+    "source_checkout_on_pythonpath": false,
+    "module_location_kind": "fresh_venv_site_packages",
+    "runtime_dependency": "jsonschema 4.26.0"
+  },
+  "wheel_contents": {
+    "member_count": 98,
+    "context_json_count": 13,
+    "schema_json_count": 19,
+    "profile_json_count": 9,
+    "has_distribution_entry_points": true,
+    "has_runtime_smoke_module": true
+  },
+  "semantic_resources": {
+    "resource_count": 41,
+    "sha256": "4ddcbc98bda8af59563a37ab73608b08d4991d4b0d81d00a4b732f2260187912",
+    "algorithm": "sha256(path + NUL + content_sha256 + LF)"
+  },
+  "profile_entry_points": {
+    "discovered": 3,
+    "names": [
+      "cognitive_architecture_demo",
+      "orthodox_astrology",
+      "woofmapped_astrology"
+    ]
+  },
+  "console_commands": {
+    "semantic-project": "representative static summary passed",
+    "semantic-temporal-intake": "AGF temporal bundle adaptation passed",
+    "semantic-temporal-foundations": "foundations materialization passed",
+    "semantic-temporal-project": "representative temporal summary passed",
+    "semantic-temporal-run": "complete temporal route and receipt passed",
+    "semantic-runtime-smoke": "non-editable installed-runtime verification passed"
+  },
+  "source_verification": {
+    "pytest": "146 passed",
+    "focused_ruff": "passed"
+  },
+  "status": "passed"
+}

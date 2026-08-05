@@ -39,7 +39,17 @@ A `ProjectionContext` is versioned plain data. Common fields include:
 
 Context can change relevance, audience framing, or target-domain emphasis. It must not mutate the canonical source graph or alter projection-neutral timing facts. Context is also distinct from output voice: a handler-facing context can declare guidance intent without SPC inventing recommendations or prose.
 
-Bundled contexts live under `examples/contexts`. The general tools filter this directory by target domain and route. Explicit `--context` input always supplies the complete selected context.
+The authoritative bundled contexts are installed under the
+`semantic_projection.contexts` package. Resolve them by exact ID and version
+with `load_bundled_context()`. The copies under `examples/contexts` exist for
+repository tools, examples, and human inspection; they are compatibility
+copies, not the installed runtime authority. Tests require the copies to remain
+semantically identical.
+
+`semantic_resource_manifest()` inventories and fingerprints every packaged
+context, profile JSON resource, projected-term registry, and schema. The
+installed-runtime smoke command validates every context and reports this
+fingerprint without relying on repository-relative paths.
 
 ## Woofmapped context families
 

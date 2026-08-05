@@ -1,0 +1,27 @@
+{
+  "context_id": "woofmapped.handler_guidance.v1",
+  "context_version": "1.0.0",
+  "subject_scope": "dog",
+  "relationship_type": null,
+  "age_band": null,
+  "target_domain": "woofmapped_astrology.v0",
+  "application_context": "woofmapped_temporal_horoscope",
+  "audience": "handler",
+  "output_intent": "structured_semantic_model_for_handler_guidance",
+  "constraints": {
+    "playful_experimental_projection": true,
+    "veterinary_advice": false,
+    "behavioral_diagnosis": false,
+    "house_mapping_policy": "doghouse",
+    "preserve_baseline_comparison": true,
+    "recommendation_scope": "routine_training_enrichment_expectations_handling"
+  },
+  "parameters": {
+    "audience_contract": {"primary": "handler", "subject": "dog", "address_mode": "about_subject"},
+    "guidance_targets": ["routine_adjustment", "training_expectations", "enrichment", "stress_reduction", "handling", "social_exposure", "rest"]
+  },
+  "extensions": {
+    "rendering_boundary": "voice_and_prose_remain_downstream",
+    "primitive_mapping_policy": "reuse_woofmapped_profile_without_new_primitives"
+  }
+}

@@ -1,5 +1,7 @@
 """Extraction-ready semantic projection contracts and generic engine."""
 
+from ._version import __version__
+
 from .contracts import (
     MappingExecution,
     ProjectedObject,
@@ -61,7 +63,7 @@ from .temporal import (
 )
 
 __all__ = [
-    "ENGINE_VERSION", "MappingExecution", "ProjectedObject",
+    "__version__", "ENGINE_VERSION", "MappingExecution", "ProjectedObject",
     "ProjectedRelationship", "ProjectedSemanticGraph",
     "ProjectedTemporalActivation", "ProjectedTemporalActivationGraph",
     "ProjectedTemporalState", "ProjectionAudit",
@@ -152,3 +154,6 @@ __all__.extend([
 
 from .synastry import SynastryProjectionResult, prepare_synastry_source_graph, project_synastry
 __all__.extend(["SynastryProjectionResult", "prepare_synastry_source_graph", "project_synastry"])
+
+from .resources import bundled_contexts, load_bundled_context, semantic_resource_manifest
+__all__.extend(["bundled_contexts", "load_bundled_context", "semantic_resource_manifest"])

@@ -35,11 +35,20 @@ Bundled profiles are:
 
 ## Install and test
 
-SPC requires Python 3.10 or newer and has no runtime dependencies.
+SPC requires Python 3.10 or newer. Full Draft 2020-12 JSON Schema validation is
+a required runtime behavior and is provided through the declared `jsonschema`
+dependency.
 
 ```powershell
 python -m pip install -e ".[dev]"
 python -m pytest -q
+```
+
+An installed distribution can verify its version alignment, entry points, and
+packaged semantic-resource fingerprint without consulting a source checkout:
+
+```powershell
+semantic-runtime-smoke --require-installed --json
 ```
 
 ## Common workflows
@@ -91,10 +100,15 @@ Transit audiences are `handler`, `dog`, and `hybrid`. Synastry kinds are `human-
 ## Python API
 
 ```python
-from semantic_projection import ProjectionRequest, project_with_builtin_profiles
+from semantic_projection import (
+    ProjectionRequest,
+    load_bundled_context,
+    project_with_builtin_profiles,
+)
 
 request = ProjectionRequest.from_dict(request_data)
 projected = project_with_builtin_profiles(request).to_dict()
+context = load_bundled_context("orthodox.general.v1", "1.0.0")
 ```
 
 Temporal integrations should use `project_foundry_temporal_bundle()`. Synastry integrations should use `project_synastry()`.

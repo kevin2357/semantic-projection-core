@@ -60,6 +60,10 @@ Participant records require `participant_id`; role, species, and label are optio
 
 ## Validation
 
-When `jsonschema` is installed, `validate_contract()` performs full schema validation. The package retains basic required-field validation when it is unavailable. Specialized validators additionally enforce deterministic/reference integrity that JSON Schema alone cannot express.
+`validate_contract()` performs full Draft 2020-12 JSON Schema validation.
+`jsonschema` is a required runtime dependency so validation depth cannot vary
+with the ambient environment. Specialized validators additionally enforce
+deterministic and reference-integrity rules that JSON Schema alone cannot
+express.
 
 The schemas are the field-level authority. This page describes their role and composition rather than duplicating every property.

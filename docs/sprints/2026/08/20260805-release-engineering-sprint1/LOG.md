@@ -127,3 +127,67 @@ entries rather than rewriting prior observations.
 - Slice 1 gate: audit complete; current candidate blocked pending approved fixes
   assigned to Slices 2–7.
 - No Slice 2 implementation has begun. Awaiting user review and approval.
+
+## 2026-08-05 - Slice 1 approval and commit boundary
+
+- User approved the Slice 1 audit and plan.
+- Committed Slice 1 as `b8bd1b17ab7cd82f84a2c2713781c2e9b02d7035`
+  (`Audit SPC release readiness`).
+- Began only the approved Slice 2 installable-package boundary.
+
+## 2026-08-05 - Slice 2 implementation
+
+- Moved the 13 versioned context JSON resources into the installed
+  `semantic_projection.contexts` package. Retained repository examples as
+  non-authoritative compatibility copies and added equality tests.
+- Declared `jsonschema>=4,<5` as a runtime dependency and removed conditional
+  shallow contract validation.
+- Established `semantic_projection._version.__version__` as the single version
+  source for distribution metadata, package identity, and `ENGINE_VERSION`.
+- Added exact installed context resolution, deterministic semantic-resource
+  inventory/fingerprinting, and `semantic-runtime-smoke`.
+- Added tests for version alignment, complete packaged contexts, exact-version
+  failure, fingerprint stability/change sensitivity, entry-point discovery,
+  and editable-install rejection.
+
+## 2026-08-05 - Slice 2 source and wheel verification
+
+- Focused tests initially found that the pre-existing editable distribution
+  metadata did not hot-reload the newly declared console script. The test was
+  corrected to reserve that assertion for a fresh install; the fresh wheel did
+  expose the command as required.
+- Full source suite passed: 146 tests in 86.95 seconds.
+- Focused Ruff check passed after import-order and command-boundary annotation
+  cleanup.
+- Built the wheel through PEP 517 isolation, then rebuilt after the final source
+  adjustments and installed the rebuilt wheel into a second fresh environment.
+- Final Slice 2 candidate wheel:
+  `semantic_projection_core-0.10.0-py3-none-any.whl`, 123,402 bytes,
+  SHA-256 `264dd80c29cc9b3ceacf42dd7c472979d18b0ceec6185893693066f5c2340d98`.
+- Archive inspection found 98 members: 13 context JSON files, 19 schemas, nine
+  profile semantic resources, runtime smoke code, and distribution entry-point
+  metadata.
+- Installed smoke ran with `--require-installed --json`: non-editable 0.10.0
+  distribution, 0.10.0 engine/package, three discovered profile entry points,
+  41 semantic resources, aggregate resource SHA-256
+  `4ddcbc98bda8af59563a37ab73608b08d4991d4b0d81d00a4b732f2260187912`.
+- Cleared `PYTHONPATH` and ran all five previously supported commands from a
+  directory outside the checkout through representative static, temporal
+  intake, foundations, temporal projection, and complete temporal pipeline
+  routes. All passed; import inspection resolved the fresh environment's
+  `site-packages`.
+- Wrote `results/installed-smoke.json` and
+  `results/SLICE 2 - Installable Package Boundary.md`.
+- Slice 2 gate passed. Changes are uncommitted pending review; Slices 3 and
+  later have not begun.
+
+## 2026-08-05 - Slice 2 cleanup and review boundary
+
+- Re-ran focused resource/CLI tests: 23 passed. Focused Ruff and
+  `git diff --check` passed.
+- Parsed the 13 packaged contexts and compact installed-smoke evidence as JSON.
+- Deleted the exact temporary build, wheel-install, fixture, and generated-output
+  directories after preserving compact evidence and hashes. No candidate wheel
+  is retained in the repository; later slices must rebuild from reviewed source.
+- Working tree intentionally contains only the uncommitted Slice 2 source,
+  tests, documentation, and compact evidence for user review.

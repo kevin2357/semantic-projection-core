@@ -32,9 +32,10 @@ from .validation import (
     validate_projected_graph_ids,
     validate_projection_request,
 )
+from ._version import __version__
 
 JsonDict = dict[str, Any]
-ENGINE_VERSION = "0.10.0"
+ENGINE_VERSION = __version__
 
 
 class ProjectionExecutionError(RuntimeError):

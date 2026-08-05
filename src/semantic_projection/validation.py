@@ -4,6 +4,9 @@ import json
 from importlib.resources import files
 from typing import Any
 
+from jsonschema import Draft202012Validator
+from referencing import Registry, Resource
+
 SCHEMA_PACKAGE = "semantic_projection.schemas"
 SUPPORTED_SOURCE_GRAPH_VERSIONS = {"1.3.0"}
 SUPPORTED_TEMPORAL_REQUEST_CONTRACTS = {"temporal_projection_request.v1"}
@@ -18,31 +21,15 @@ def load_schema(schema_name: str) -> dict[str, Any]:
     return json.loads(resource.read_text(encoding="utf-8"))
 
 
-def _manual_required_check(value: dict[str, Any], schema: dict[str, Any]) -> None:
-    missing = [key for key in schema.get("required", []) if key not in value]
-    if missing:
-        raise ProjectionValidationError(f"Missing required fields: {', '.join(missing)}")
-
-
 def validate_contract(value: dict[str, Any], schema_name: str) -> None:
     schema = load_schema(schema_name)
-    try:
-        from jsonschema import Draft202012Validator
-    except ImportError:
-        _manual_required_check(value, schema)
-        return
-    try:
-        from referencing import Registry, Resource
-
-        registry = Registry()
-        schema_root = files(SCHEMA_PACKAGE)
-        for resource in schema_root.iterdir():
-            if resource.name.endswith(".schema.json"):
-                content = json.loads(resource.read_text(encoding="utf-8"))
-                registry = registry.with_resource(resource.name, Resource.from_contents(content))
-        validator = Draft202012Validator(schema, registry=registry)
-    except ImportError:
-        validator = Draft202012Validator(schema)
+    registry = Registry()
+    schema_root = files(SCHEMA_PACKAGE)
+    for resource in schema_root.iterdir():
+        if resource.name.endswith(".schema.json"):
+            content = json.loads(resource.read_text(encoding="utf-8"))
+            registry = registry.with_resource(resource.name, Resource.from_contents(content))
+    validator = Draft202012Validator(schema, registry=registry)
     errors = sorted(validator.iter_errors(value), key=lambda error: list(error.path))
     if errors:
         first = errors[0]

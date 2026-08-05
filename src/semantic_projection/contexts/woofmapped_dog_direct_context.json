@@ -1,0 +1,27 @@
+{
+  "context_id": "woofmapped.dog_direct.v1",
+  "context_version": "1.0.0",
+  "subject_scope": "dog",
+  "relationship_type": null,
+  "age_band": null,
+  "target_domain": "woofmapped_astrology.v0",
+  "application_context": "woofmapped_temporal_horoscope",
+  "audience": "dog",
+  "output_intent": "structured_semantic_model_for_direct_to_dog_horoscope",
+  "constraints": {
+    "playful_experimental_projection": true,
+    "veterinary_advice": false,
+    "behavioral_diagnosis": false,
+    "house_mapping_policy": "doghouse",
+    "direct_second_person": true,
+    "avoid_claiming_literal_astrological_comprehension": true
+  },
+  "parameters": {
+    "audience_contract": {"primary": "dog", "subject": "dog", "address_mode": "direct_second_person"},
+    "guidance_targets": ["notice_changes", "navigate_activation", "seek_rest", "use_routine", "ask_handler_for_support", "contextualize_feelings"]
+  },
+  "extensions": {
+    "rendering_boundary": "playful_voice_and_sentence_style_remain_downstream",
+    "primitive_mapping_policy": "reuse_woofmapped_profile_without_new_primitives"
+  }
+}

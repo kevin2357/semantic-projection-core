@@ -4,17 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "semantic-projection-core"
-version = "0.10.0"
+dynamic = ["version"]
 description = "Deterministic, auditable projection of canonical source graphs into target-domain semantic graphs."
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = ["jsonschema>=4,<5"]
 
 [project.optional-dependencies]
 dev = [
     "coverage[toml]>=7.6",
     "hypothesis>=6.100",
-    "jsonschema>=4",
     "pytest>=8",
     "pytest-cov>=5",
     "ruff>=0.5",
@@ -26,6 +25,7 @@ semantic-temporal-intake = "semantic_projection.temporal_cli:main"
 semantic-temporal-foundations = "semantic_projection.temporal_foundations_cli:main"
 semantic-temporal-project = "semantic_projection.temporal_projection_cli:main"
 semantic-temporal-run = "semantic_projection.temporal_pipeline_cli:main"
+semantic-runtime-smoke = "semantic_projection.runtime_cli:main"
 
 [project.entry-points."semantic_projection.profiles"]
 orthodox_astrology = "semantic_projection.profiles.orthodox_astrology:OrthodoxAstrologyProfile"
@@ -35,8 +35,11 @@ woofmapped_astrology = "semantic_projection.profiles.woofmapped_astrology:Woofma
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.dynamic]
+version = {attr = "semantic_projection._version.__version__"}
+
 [tool.setuptools.package-data]
-semantic_projection = ["schemas/*.json", "profiles/**/*.json"]
+semantic_projection = ["schemas/*.json", "profiles/**/*.json", "contexts/*.json"]
 
 [tool.ruff]
 line-length = 140

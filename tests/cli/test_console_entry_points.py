@@ -25,6 +25,7 @@ MODULE_ENTRY_POINTS = (
     "semantic_projection.temporal_foundations_cli",
     "semantic_projection.temporal_projection_cli",
     "semantic_projection.temporal_pipeline_cli",
+    "semantic_projection.runtime_cli",
 )
 TOOL_ENTRY_POINTS = (
     "tools/project_natal.py",

@@ -1,0 +1,13 @@
+{
+  "context_id": "orthodox.synastry.general.v1",
+  "context_version": "1.0.0",
+  "subject_scope": "synastry",
+  "target_domain": "orthodox_astrology.v1",
+  "application_context": "relationship_analysis",
+  "relationship_type": "synastry",
+  "audience": "analyst",
+  "output_intent": "structured_semantic_model",
+  "constraints": {"preserve_participant_ownership": true},
+  "parameters": {},
+  "extensions": {}
+}
