@@ -1,0 +1,97 @@
+{
+  "manifest_contract": "semantic_projection.external_release_manifest.v1",
+  "status": "qualified_awaiting_publication",
+  "distribution": {
+    "name": "semantic-projection-core",
+    "version": "0.10.0",
+    "python_package": "semantic_projection",
+    "python_requires": ">=3.10",
+    "engine_version": "0.10.0"
+  },
+  "source": {
+    "qualified_commit": "caa4e3c5243b226d914b8c36ca5dcbeaeb885232",
+    "expected_annotated_tag": "semantic-projection-core-v0.10.0"
+  },
+  "artifact": {
+    "filename": "semantic_projection_core-0.10.0-py3-none-any.whl",
+    "bytes": 130243,
+    "sha256": "60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150"
+  },
+  "reproducible_build": {
+    "source_date_epoch": 1785958444,
+    "python": "3.12.13",
+    "build": "1.5.0",
+    "setuptools": "80.9.0",
+    "wheel": "0.45.1",
+    "clean_archive_builds": 2,
+    "byte_identical": true
+  },
+  "installed_runtime": {
+    "manifest_contract": "semantic_projection.runtime_release_manifest.v1",
+    "runtime_package": {
+      "resource_count": 101,
+      "sha256": "209be10ee879312293d7955f76dc7d9c0ade2dcb4e3a2fead11d424483f80611"
+    },
+    "semantic_resources": {
+      "resource_count": 44,
+      "sha256": "74ba2450c20e4b8c636ba2ffcb0a8b6db8ae3e0964f552cfdfbf78bde1145afd"
+    },
+    "schemas": {
+      "resource_count": 21,
+      "sha256": "559ca31adc4e718b247defc90044ecb0cb5ca113d76ddc5581fe3955449e6963"
+    },
+    "release_compatibility": {
+      "contract_id": "semantic_projection.release_compatibility.v1",
+      "resource_sha256": "6559d842bb514beb21ff1a12abac56205e1c440a8b5ac59cf9f1f3dadab6182f"
+    }
+  },
+  "profiles": [
+    {
+      "profile_id": "cognitive_architecture_demo.v0",
+      "profile_version": "0.2.0",
+      "policy_resource_count": 8,
+      "policy_resource_sha256": "289a4bfbb38f0ba7da64e9b312759756866bbaac46406332b7e6ff77fa35a676"
+    },
+    {
+      "profile_id": "orthodox_astrology.v1",
+      "profile_version": "1.0.0",
+      "policy_resource_count": 8,
+      "policy_resource_sha256": "98390bd70e8afb8aad1f5e60181c8893c4eec99e2e337b52ed54a9667501d365"
+    },
+    {
+      "profile_id": "woofmapped_astrology.v0",
+      "profile_version": "0.1.0",
+      "policy_resource_count": 8,
+      "policy_resource_sha256": "e59152cc26e9537372b21b82e39b08119b1cb6b880c970f869e6b9e00b8916eb"
+    }
+  ],
+  "contexts": [
+    {"context_id": "cognitive_architecture.general.v0", "context_version": "0.2.0", "resource_sha256": "99e7b0f1c46070c9a4e8b617c68ddcf304be0fb88dc5b7caec47fa939aca80a9"},
+    {"context_id": "orthodox.general.v1", "context_version": "1.0.0", "resource_sha256": "5fecfca7029a002c0acb75758722a7f25ba387e6f3f050c7560e152ee28184a9"},
+    {"context_id": "orthodox.relationship.general.v1", "context_version": "1.0.0", "resource_sha256": "f08788d4666ef3583c15595af6880773f0fe5fe73a2c4e51fbece5a4df490ca4"},
+    {"context_id": "orthodox.relationship.professional.v1", "context_version": "1.0.0", "resource_sha256": "fb01e5b2373ec88a15f2e98ce773dfd491d3bb304dea466164b726d06ed8afc4"},
+    {"context_id": "orthodox.synastry.general.v1", "context_version": "1.0.0", "resource_sha256": "be4352d9c93c593c9f13cb979ddb88a98ec98f7c3786a88a9b6d433add655332"},
+    {"context_id": "orthodox.synastry.professional.v1", "context_version": "1.0.0", "resource_sha256": "a97df225362e53057986908fe94cdde7ff8999dfbdbff2da802a52999c693ec1"},
+    {"context_id": "woofmapped.dog_direct.v1", "context_version": "1.0.0", "resource_sha256": "a231d96be44e0816e0db25c623cb76432c4c54c94369e6edd936ab240717146f"},
+    {"context_id": "woofmapped.synastry.dog_dog.v1.asymmetric", "context_version": "1.0.0", "resource_sha256": "bf00a6d65e5dc1c2d1d95ed8282323852bd5a6f4288fbed9f51f5cdd695878e7"},
+    {"context_id": "woofmapped.synastry.dog_dog.v1", "context_version": "1.0.0", "resource_sha256": "274a75c3ef00eb912e773f4ad8dbb7f8b911ed02d588115e83bc11b9a892861b"},
+    {"context_id": "woofmapped.doghouse.general.v0", "context_version": "0.1.0", "resource_sha256": "30705406dd45ab1cae5055392fd23f53d69cdbd0f91d11cb820601fb40528cdd"},
+    {"context_id": "woofmapped.handler_guidance.v1", "context_version": "1.0.0", "resource_sha256": "80e55258876897538be5d3a1d0a7b9431361ecfe53202ad1ae67249da1e98780"},
+    {"context_id": "woofmapped.synastry.human_dog.v1", "context_version": "1.0.0", "resource_sha256": "bb76e09bd9247200ee7121e5d143409a411145fafd0b185f5402af967a5eda5f"},
+    {"context_id": "woofmapped.hybrid_horoscope.v1", "context_version": "1.0.0", "resource_sha256": "4c26a5ee4b48d58217ea5888e40871aa574a77239c357afb4cae866c4c6ddb84"}
+  ],
+  "qualification": {
+    "source_suite": "157 passed",
+    "installed_static_cases": 6,
+    "woofmapped_natal_contexts": 4,
+    "installed_temporal_route": true,
+    "negative_cases": 6,
+    "agf_spc_sbe_boundary": "pass",
+    "final_exact_wheel_downstream_recheck": "pass"
+  },
+  "publication": {
+    "status": "not_started",
+    "remote_tag_verified": false,
+    "published_assets_verified": false
+  }
+}

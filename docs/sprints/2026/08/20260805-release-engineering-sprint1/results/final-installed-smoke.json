@@ -1,0 +1,48 @@
+{
+  "evidence_contract": "semantic_projection.final_installed_smoke.v1",
+  "status": "pass",
+  "wheel": {
+    "filename": "semantic_projection_core-0.10.0-py3-none-any.whl",
+    "bytes": 130243,
+    "sha256": "60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150"
+  },
+  "installed_runtime": {
+    "python": "3.12.13",
+    "distribution_version": "0.10.0",
+    "package_version": "0.10.0",
+    "engine_version": "0.10.0",
+    "editable": false,
+    "console_entry_points": 6,
+    "profile_entry_points": 3,
+    "bundled_contexts": 13,
+    "runtime_package_resource_count": 101,
+    "runtime_package_sha256": "209be10ee879312293d7955f76dc7d9c0ade2dcb4e3a2fead11d424483f80611",
+    "semantic_resource_count": 44,
+    "semantic_resource_sha256": "74ba2450c20e4b8c636ba2ffcb0a8b6db8ae3e0964f552cfdfbf78bde1145afd",
+    "schema_count": 21,
+    "schema_sha256": "559ca31adc4e718b247defc90044ecb0cb5ca113d76ddc5581fe3955449e6963"
+  },
+  "installed_qa": {
+    "static_cases": 6,
+    "woofmapped_natal_contexts": 4,
+    "temporal_route": "pass",
+    "negative_cases": 6,
+    "source_checkout_imported": false,
+    "static_artifact_sha256": {
+      "orthodox": "8b93e1354e40a33687ebdcd482e9a399ed1b301dfecd3e22e3bbad84ac397b28",
+      "cognitive": "3182c7e31d54f52bb047fc693847729cd2a7a6cb28cf8335823e2365e47f5762",
+      "woof-general": "373e07a15255cd7730e7048c937dbc754fe08a705b43bad75b0ea109973b7b53",
+      "woof-handler": "14094fa34841d294ad8cfca521a1edf6d2af7f1a543a19595324f278fa97be06",
+      "woof-direct-to-dog": "8609627be09af43bb178512815e3ba58a52d553793185b5c12632d3100762dad",
+      "woof-hybrid": "3bbeac74b786e7d1dab7f2eb5b993a1b176027a9843ca2b3517932790a140d2e"
+    },
+    "temporal_artifact_sha256": "101098227cf95fcabf4bd2d07ca8f60f9d803ce2879dc732e8e518dcfebe4fb5"
+  },
+  "final_downstream_recheck": {
+    "agf_spc_sbe": "pass",
+    "spc_runtime_package_sha256": "209be10ee879312293d7955f76dc7d9c0ade2dcb4e3a2fead11d424483f80611",
+    "spc_semantic_resource_sha256": "74ba2450c20e4b8c636ba2ffcb0a8b6db8ae3e0964f552cfdfbf78bde1145afd",
+    "sbe_run_status": "pass",
+    "sbe_selected_authoring_packet_sha256": "ad664768088644cdd8f584e587c4e16308d2aed2d865433a348686ce808f417f"
+  }
+}

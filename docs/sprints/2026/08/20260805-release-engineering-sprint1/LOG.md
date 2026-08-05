@@ -417,3 +417,67 @@ entries rather than rewriting prior observations.
   `results/SLICE 6 - Controlled Downstream Compatibility Candidate.md`.
 - Slice 6 gate passed. Changes remain uncommitted pending review; Slice 7 has
   not begun.
+
+## 2026-08-05 - Slice 6 approval and commit boundary
+
+- User approved Slice 6 and authorized continuation.
+- Committed Slice 6 as `caa4e3c5243b226d914b8c36ca5dcbeaeb885232`
+  (`Prove installed AGF SPC SBE compatibility`).
+- Began the approved local/reproducibility portion of Slice 7. Retained the
+  separate explicit boundary against tag, push, GitHub release, or upload.
+
+## 2026-08-05 - Slice 7 reproducible build
+
+- Fixed `SOURCE_DATE_EPOCH` to qualified commit time `1785958444` and pinned
+  CPython 3.12.13, build 1.5.0, setuptools 80.9.0, and wheel 0.45.1.
+- Built two independent clean Git archives with PEP 517 isolation disabled so
+  the pinned build backend remained authoritative.
+- Both outputs were byte-identical 130243-byte wheels at
+  `60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150`.
+- A third identical build populated the ignored local `dist/` publication
+  asset. A fourth identical build was installed directly into the protected
+  smoke environment to work around Windows ACL inheritance on generated files.
+
+## 2026-08-05 - Slice 7 final exact-wheel QA
+
+- Found that clean Git archive line-ending normalization changes exact packaged
+  JSON resource hashes relative to working-checkout candidate builds. Parsed
+  semantic content and canonical context content hashes were unchanged.
+- Treated the change as provenance-significant: discarded earlier resource
+  hashes as final identities and reran all installed QA against the exact
+  archive-built wheel.
+- Final installed identities: runtime package 101 records at
+  `209be10ee879312293d7955f76dc7d9c0ade2dcb4e3a2fead11d424483f80611`;
+  semantic resources 44 records at
+  `74ba2450c20e4b8c636ba2ffcb0a8b6db8ae3e0964f552cfdfbf78bde1145afd`;
+  schemas 21 records at
+  `559ca31adc4e718b247defc90044ecb0cb5ca113d76ddc5581fe3955449e6963`.
+- Final installed smoke passed six commands, three profile entry points, 13
+  contexts, exact version alignment, and non-editable installation.
+- Final installed deterministic QA passed all six static cases, four
+  Woofmapping contexts, temporal projection, registry checks, and six negative
+  cases without checkout imports.
+- Rebuilt and installed AGF 0.5.0 beside the exact final SPC wheel and pinned
+  SBE 0.1.0. The AGF-to-SPC-to-SBE boundary passed; SBE selected 50 claims and
+  returned status `pass` with packet SHA-256
+  `ad664768088644cdd8f584e587c4e16308d2aed2d865433a348686ce808f417f`.
+
+## 2026-08-05 - Slice 7 local release handoff
+
+- Added release-specific checksum, external manifest, exact-hash requirement,
+  compatibility guide, consumer integration guide, and release notes under
+  `releases/0.10.0/`.
+- Updated the general consumer handoff with the final qualified hash and real
+  future private-release URL while marking that URL inactive until publication.
+- Wrote `results/reproducible-build-verification.json`,
+  `results/final-installed-smoke.json`, and
+  `results/SLICE 7 - Reproducibility and Publication Candidate.md`.
+- Local release gate passed. Tag creation, push, GitHub release, asset upload,
+  private-path download verification, publication evidence, and project-level
+  released-baseline update remain pending explicit approval.
+- Removed approximately 180.8 MB of disposable Slice 7 environments and build
+  trees. Windows ACLs prevented removal of the two reproducibility-proof wheel
+  copies (260,486 bytes total) under the external temporary staging directory;
+  no cache, environment, expanded fixture, or other large temporary artifact
+  remains. The authoritative candidate wheel remains under the repository's
+  ignored `dist/` directory.

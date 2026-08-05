@@ -1,0 +1,29 @@
+{
+  "evidence_contract": "semantic_projection.reproducible_build.v1",
+  "status": "pass",
+  "qualified_commit": "caa4e3c5243b226d914b8c36ca5dcbeaeb885232",
+  "source_date_epoch": 1785958444,
+  "toolchain": {
+    "python": "3.12.13",
+    "build": "1.5.0",
+    "setuptools": "80.9.0",
+    "wheel": "0.45.1"
+  },
+  "builds": [
+    {
+      "source": "independent clean Git archive A",
+      "filename": "semantic_projection_core-0.10.0-py3-none-any.whl",
+      "bytes": 130243,
+      "sha256": "60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150"
+    },
+    {
+      "source": "independent clean Git archive B",
+      "filename": "semantic_projection_core-0.10.0-py3-none-any.whl",
+      "bytes": 130243,
+      "sha256": "60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150"
+    }
+  ],
+  "byte_identical": true,
+  "final_asset": "dist/semantic_projection_core-0.10.0-py3-none-any.whl",
+  "publication_status": "not_started"
+}

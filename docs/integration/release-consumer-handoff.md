@@ -7,9 +7,11 @@ what to install, invoke, validate, preserve, and reject for SPC 0.10.0. It
 summarizes the [release compatibility contract](../reference/release-compatibility.md)
 without duplicating native schemas.
 
-The final immutable wheel URL and SHA-256 do not exist until Slice 7 publishes
-the qualified release. Slice qualification hashes are evidence, not dependency
-pins.
+The final qualified wheel SHA-256 is
+`60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150`.
+The private release URL remains inactive until the approved publication step.
+Do not attempt the URL or promote the requirement before publication is
+verified.
 
 ## Install and verify
 
@@ -22,8 +24,8 @@ A hash-checked requirements entry should use the final published asset, for
 example:
 
 ```text
-semantic-projection-core @ https://github.com/OWNER/semantic-projection-core/releases/download/semantic-projection-core-v0.10.0/semantic_projection_core-0.10.0-py3-none-any.whl \
-    --hash=sha256:FINAL_PUBLISHED_SHA256
+semantic-projection-core @ https://github.com/kevin2357/semantic-projection-core/releases/download/semantic-projection-core-v0.10.0/semantic_projection_core-0.10.0-py3-none-any.whl \
+    --hash=sha256:60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150
 ```
 
 After installation, run:
