@@ -90,6 +90,7 @@ def project_foundry_temporal_bundle(
         "context_version": (request.context or {}).get("context_version"),
         "target_family": classify_temporal_target(bundle),
         "output_mode": output_mode,
+        "runtime_identity": deepcopy((full.get("metadata") or {}).get("runtime_identity") or {}),
         "summary_semantic_hashes": deepcopy(summary.get("semantic_hashes") or {}),
         "coverage": deepcopy((summary.get("summary") or {}).get("coverage") or summary.get("coverage") or {}),
     }

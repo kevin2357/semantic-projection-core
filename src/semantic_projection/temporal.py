@@ -429,6 +429,15 @@ def project_temporal_foundations(
         _project_static_target_and_activators(request_obj, registry)
     )
     context_id = str(request_obj.context.get("context_id"))
+    from .runtime_identity import projection_runtime_identity
+
+    runtime_identity = projection_runtime_identity(
+        profile_id=request_obj.profile_id,
+        profile_version=request_obj.profile_version,
+        context=request_obj.context,
+        route="temporal_foundations",
+        output_contract="projected_temporal_foundations.v0.1",
+    )
     target_index = projected_target.get("indexes", {}).get(
         "projected_objects_by_source_ref", {}
     )
@@ -441,6 +450,8 @@ def project_temporal_foundations(
             "profile_id": request_obj.profile_id,
             "profile_version": request_obj.profile_version,
             "context_id": context_id,
+            "context_version": request_obj.context.get("context_version"),
+            "runtime_identity": runtime_identity,
             "execution_status": "static_target_and_activators_only",
         },
         "source_identity": deepcopy(request_obj.source_identity),
@@ -1018,6 +1029,15 @@ def project_temporal(
         ),
     }
     diagnostic_summary = _temporal_diagnostic_summary(diagnostics)
+    from .runtime_identity import projection_runtime_identity
+
+    runtime_identity = projection_runtime_identity(
+        profile_id=request_obj.profile_id,
+        profile_version=request_obj.profile_version,
+        context=request_obj.context,
+        route="temporal_projection",
+        output_contract="projected_temporal_activation_graph.v1",
+    )
     graph = {
         "metadata": {
             "package_type": "projected_temporal_activation_graph",
@@ -1032,6 +1052,7 @@ def project_temporal(
             "materialization_mode": "full",
             "capability_status": "production_ready",
             "contract_generation": "projected_temporal_activation_graph.v1",
+            "runtime_identity": runtime_identity,
         },
         "source_identity": deepcopy(request_obj.source_identity),
         "target_identity": deepcopy(request_obj.target_identity),
@@ -1105,6 +1126,7 @@ def project_temporal(
             "projected_semantics_owner": "Semantic Projection Core",
             "arc_mapping_reuse": "profile.project_relationship",
             "object_mapping_reuse": "profile.project_object",
+            "runtime_identity": runtime_identity,
         },
         "upstream_source_limitations": _annotate_upstream_limitations(list(request_obj.limitations)),
         "projected_artifact_limitations": [

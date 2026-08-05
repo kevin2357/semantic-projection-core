@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "runtime_identity_v1.schema.json",
+  "title": "Semantic Projection Runtime Identity v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["identity_contract", "distribution", "release_compatibility", "runtime_package", "semantic_resources", "schemas", "profile", "context", "route", "output_contract"],
+  "properties": {
+    "identity_contract": {"const": "semantic_projection.runtime_identity.v1"},
+    "distribution": {
+      "type": "object",
+      "required": ["name", "version", "package_version"],
+      "properties": {
+        "name": {"const": "semantic-projection-core"},
+        "version": {"type": "string"},
+        "package_version": {"type": "string"}
+      }
+    },
+    "release_compatibility": {
+      "type": "object",
+      "required": ["contract_id", "resource_sha256"],
+      "properties": {
+        "contract_id": {"type": "string"},
+        "resource_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "runtime_package": {"$ref": "#/$defs/resource_set_summary"},
+    "semantic_resources": {"$ref": "#/$defs/resource_set_summary"},
+    "schemas": {"$ref": "#/$defs/resource_set_summary"},
+    "profile": {
+      "type": "object",
+      "required": ["profile_id", "profile_version", "policy_resource_set"],
+      "properties": {
+        "profile_id": {"type": "string"},
+        "profile_version": {"type": "string"},
+        "policy_resource_set": {
+          "type": "object",
+          "required": ["bundled", "algorithm", "sha256", "resource_count"]
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "required": ["context_id", "context_version", "content_sha256", "bundled", "resource_path", "resource_sha256"],
+      "properties": {
+        "context_id": {"type": ["string", "null"]},
+        "context_version": {"type": ["string", "null"]},
+        "content_sha256": {"$ref": "#/$defs/sha256"},
+        "bundled": {"type": "boolean"},
+        "resource_path": {"type": ["string", "null"]},
+        "resource_sha256": {"oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]}
+      }
+    },
+    "route": {"type": "string", "minLength": 1},
+    "output_contract": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "resource_set_summary": {
+      "type": "object",
+      "required": ["algorithm", "sha256", "resource_count"],
+      "properties": {
+        "algorithm": {"type": "string"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "resource_count": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

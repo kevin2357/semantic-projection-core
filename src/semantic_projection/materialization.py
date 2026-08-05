@@ -129,6 +129,7 @@ def external_audit_artifact(projected: JsonDict) -> JsonDict:
             "profile_version": metadata.get("profile_version"),
             "context_id": metadata.get("context_id"),
             "engine_version": metadata.get("engine_version"),
+            "runtime_identity": deepcopy(metadata.get("runtime_identity") or {}),
         },
         "source_identity": deepcopy(projected.get("source_identity") or {}),
         "source_graph_ref": deepcopy(projected.get("source_graph_ref") or {}),

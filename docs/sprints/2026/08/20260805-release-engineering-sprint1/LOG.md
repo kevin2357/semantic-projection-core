@@ -244,3 +244,70 @@ entries rather than rewriting prior observations.
   entry-point documents passed.
 - Parsed the packaged release compatibility contract and compact evidence JSON.
 - `git diff --check` passed.
+
+## 2026-08-05 - Slice 3 approval and commit boundary
+
+- User approved Slice 3 and authorized continuation.
+- Committed Slice 3 as `bc49739f2084e007e28cd62ca5fdb6b4f9527e4a`
+  (`Freeze SPC 0.10.0 compatibility contract`).
+- Began only the approved Slice 4 provenance and release-identity work.
+
+## 2026-08-05 - Slice 4 runtime and policy identity
+
+- Determined that the Slice 2 semantic-resource fingerprint covered JSON
+  resources but not executable profile mappings or source-selection policy.
+- Added complete installed runtime inventory covering SPC Python/JSON content
+  plus distribution `METADATA`, `WHEEL`, and `entry_points.txt`.
+- Added schema-only, profile-policy, and exact context identity sets. Modified
+  contexts with a bundled ID/version no longer claim bundled resource identity
+  unless their complete parsed content matches.
+- Added `semantic_projection.runtime_release_manifest.v1`, its schema, Python
+  API, and `semantic-runtime-smoke --release-manifest-out` generation route.
+- Added compact `semantic_projection.runtime_identity.v1` receipts to static,
+  temporal-foundations, temporal projection, materialization, forensic audit,
+  and temporal receipt paths.
+- Added native runtime-identity schema requirements and updated the static
+  contract fixture accordingly.
+
+## 2026-08-05 - Slice 4 defect and QA
+
+- Found that Slice 3 declared temporal foundations contract 1.0.0 while the
+  implemented artifact and schema use 0.1.0. Corrected compatibility JSON and
+  reference documentation; added a regression assertion.
+- Added tests proving executable mapping changes affect both runtime and profile
+  fingerprints, semantic resource changes affect their aggregate, and altered
+  context content cannot impersonate a bundled context.
+- Initial full run: 151 passed and six temporal contract-skeleton fixture
+  failures because the fixture lacked newly required runtime identity. Execution
+  provenance tests were already passing.
+- Updated the standalone temporal contract fixture with a valid real identity.
+- Corrected full run: 157 passed in 132.53 seconds.
+- Focused temporal/provenance suite: 19 passed. Focused Ruff passed.
+- Source-checkout preview identities: runtime package 101 records at
+  `ac8dd4b0beca9b2946837a93f9dcb72d86650f810fc4577c18f24e41a8a41eab`;
+  semantic resources 44 records at
+  `2262689d70b38e3319a7f19a6431462a863acbb68bc8f1da31550c0a9fc72773`;
+  schemas 21 records at
+  `051c3e2814c7ac4bb75e15bfd7361049b6d267374059b393c51d8c3e7ab72c84`.
+  These are explicitly not final installed-wheel release identities.
+- Wrote `results/provenance-identity-verification.json` and
+  `results/SLICE 4 - Provenance and Release Identity.md`.
+- Slice 4 gate passed. Changes remain uncommitted pending review; Slice 5 has
+  not begun.
+
+## 2026-08-05 - Slice 4 runtime-cost correction and final verification
+
+- Observed that the corrected 157-test run took 132.53 seconds because each
+  artifact identity re-read all installed code and semantic resources.
+- Added process-lifetime caching of immutable installed inventory records.
+  Editable processes must restart after file changes and remain ineligible for
+  release qualification.
+- The final full suite passed all 157 tests in 91.63 seconds; focused Ruff
+  passed. Runtime identity overhead no longer materially increased suite time.
+- Final source-checkout preview runtime package identity changed with the cache
+  implementation to 101 records at
+  `8ab92812c14f03d574fdb88e83d5b6c83a06e7dcd32e26f8fc49dd282dd9aee0`.
+  Semantic, schema, compatibility, and profile-policy fingerprints were
+  unchanged. All preview values remain non-release evidence.
+- Relative links across eight created/materially updated entry documents and
+  `git diff --check` passed.

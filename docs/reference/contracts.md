@@ -21,6 +21,11 @@ SPC's public contracts are Python dataclasses that serialize to plain dictionari
 
 `projected_semantic_graph.v1` contains metadata, source identity and graph reference, target ontology, projected objects and relationships, indexes, summary, a used-term registry, audit, diagnostics, and provenance.
 
+Generated metadata includes `semantic_projection.runtime_identity.v1`, which
+binds the artifact to installed code, declarative semantic resources, schemas,
+profile policy, context content, route, and output contract. See
+[Runtime and release identity](runtime-and-release-identity.md).
+
 Projected rows retain `source_refs`, `mapping_rule_refs`, context references, and deterministic identity. They are target-domain semantic units, not final claims or prose.
 
 ## Temporal source and request
@@ -51,6 +56,10 @@ The request combines:
 Source and projected limitations are separate fields. Upstream omissions are annotated, never repaired by inventing facts.
 
 The production route also emits `temporal_projection_route_receipt.v1`, which records the source bundle, request, projected graph, profile, context, target family, output mode, semantic hashes, coverage, and deterministic route hash.
+
+Temporal artifacts and route receipts carry the same runtime identity; temporal
+foundations carry a foundations-specific receipt. The foundations contract is
+currently 0.1.0, while the projected temporal graph and route receipt are 1.0.0.
 
 ## Synastry preparation
 

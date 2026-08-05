@@ -1,10 +1,11 @@
 from __future__ import annotations
 
+import json
 from copy import deepcopy
 from dataclasses import replace
-import json
 from typing import Any
 
+from ._version import __version__
 from .contracts import (
     MappingExecution,
     ProjectedObject,
@@ -24,15 +25,14 @@ from .ids import (
     stable_hash,
 )
 from .profile import ProjectionProfile
-from .term_registry import attach_registry_refs_and_subset
 from .registry import ProjectionProfileRegistry
+from .runtime_identity import projection_runtime_identity
+from .term_registry import attach_registry_refs_and_subset
 from .validation import (
-    ProjectionValidationError,
     validate_contract,
     validate_projected_graph_ids,
     validate_projection_request,
 )
-from ._version import __version__
 
 JsonDict = dict[str, Any]
 ENGINE_VERSION = __version__
@@ -488,6 +488,13 @@ def project(
         unmapped_source_refs=diagnostics.unmapped_source_refs,
         fallbacks=deepcopy(diagnostics.fallbacks),
     )
+    runtime_identity = projection_runtime_identity(
+        profile_id=profile.manifest.profile_id,
+        profile_version=profile.manifest.profile_version,
+        context=request_obj.context,
+        route="static_projection",
+        output_contract=profile.manifest.output_contract,
+    )
 
     graph = ProjectedSemanticGraph(
         metadata={
@@ -498,6 +505,7 @@ def project(
             "profile_version": profile.manifest.profile_version,
             "context_id": context.context_id,
             "context_version": context.context_version,
+            "runtime_identity": runtime_identity,
         },
         source_identity=deepcopy(request_obj.source_identity),
         source_graph_ref={

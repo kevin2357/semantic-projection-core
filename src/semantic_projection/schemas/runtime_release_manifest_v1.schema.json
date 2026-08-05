@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "runtime_release_manifest_v1.schema.json",
+  "title": "Semantic Projection Runtime Release Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifest_contract", "distribution", "release_compatibility", "runtime_package", "semantic_resources", "schemas", "profiles", "contexts"],
+  "properties": {
+    "manifest_contract": {"const": "semantic_projection.runtime_release_manifest.v1"},
+    "distribution": {"type": "object", "required": ["name", "version", "package_version"]},
+    "release_compatibility": {"type": "object", "required": ["contract_id", "resource_sha256"]},
+    "runtime_package": {"$ref": "#/$defs/resource_set"},
+    "semantic_resources": {"$ref": "#/$defs/resource_set"},
+    "schemas": {"$ref": "#/$defs/resource_set"},
+    "profiles": {"type": "array", "items": {"type": "object"}},
+    "contexts": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "resource_set": {
+      "type": "object",
+      "required": ["algorithm", "sha256", "resource_count", "resources"],
+      "properties": {
+        "algorithm": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "resource_count": {"type": "integer", "minimum": 1},
+        "resources": {"type": "array", "items": {"type": "object", "required": ["path", "sha256", "size"]}}
+      }
+    }
+  }
+}

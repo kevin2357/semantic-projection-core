@@ -1,0 +1,52 @@
+{
+  "evidence_contract": "semantic_projection.slice4_provenance_verification.v1",
+  "candidate": {
+    "distribution": "semantic-projection-core",
+    "version": "0.10.0",
+    "runtime_identity_contract": "semantic_projection.runtime_identity.v1",
+    "runtime_release_manifest_contract": "semantic_projection.runtime_release_manifest.v1"
+  },
+  "source_checkout_preview": {
+    "release_qualified": false,
+    "runtime_package": {
+      "resource_count": 101,
+      "sha256": "8ab92812c14f03d574fdb88e83d5b6c83a06e7dcd32e26f8fc49dd282dd9aee0"
+    },
+    "semantic_resources": {
+      "resource_count": 44,
+      "sha256": "2262689d70b38e3319a7f19a6431462a863acbb68bc8f1da31550c0a9fc72773"
+    },
+    "schemas": {
+      "resource_count": 21,
+      "sha256": "051c3e2814c7ac4bb75e15bfd7361049b6d267374059b393c51d8c3e7ab72c84"
+    },
+    "release_compatibility_sha256": "328fe0010ae060c136fa24a81eac589cc05613de451378c4dc852205e5fb06f2",
+    "profile_policy_sets": {
+      "cognitive_architecture_demo.v0@0.2.0": "e73542ad9e47699fc4146013035a29273fcedf8c6f014df5f6152b783be368da",
+      "orthodox_astrology.v1@1.0.0": "45b6c6b1b28b0b9ef445f8c0f01f084f06fa5649f45c17ec538ef2d06d563a8b",
+      "woofmapped_astrology.v0@0.1.0": "f0afe9a704bb434393008cb316a25ce9d0f8340c9c357cdcd33675badcef288a"
+    },
+    "bundled_context_count": 13
+  },
+  "artifact_routes_verified": [
+    "static_projection",
+    "static_full_standard_summary_forensic_materialization",
+    "static_external_forensic_audit",
+    "temporal_foundations",
+    "temporal_projection",
+    "temporal_route_receipt"
+  ],
+  "change_sensitivity": {
+    "executable_profile_mapping_change_updates_runtime_fingerprint": true,
+    "executable_profile_mapping_change_updates_profile_policy_fingerprint": true,
+    "semantic_resource_record_change_updates_semantic_fingerprint": true,
+    "modified_context_cannot_claim_bundled_resource_identity": true
+  },
+  "verification": {
+    "full_source_suite": "157 passed in 91.63 seconds after immutable-inventory caching",
+    "focused_provenance_tests": "19 passed",
+    "focused_ruff": "passed",
+    "runtime_release_manifest_schema": "passed"
+  },
+  "status": "passed"
+}

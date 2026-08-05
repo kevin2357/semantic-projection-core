@@ -8,12 +8,22 @@ from semantic_projection import (
     ProjectedTemporalSequenceSummary,
     ProjectedTemporalState,
     ProjectionValidationError,
+    load_bundled_context,
     projected_temporal_activation_id,
     projected_temporal_activator_id,
     projected_temporal_contract_skeleton,
     projected_temporal_sequence_id,
     projected_temporal_state_id,
+    projection_runtime_identity,
     validate_projected_temporal_activation_graph,
+)
+
+RUNTIME_IDENTITY = projection_runtime_identity(
+    profile_id="cognitive_architecture_demo.v0",
+    profile_version="0.2.0",
+    context=load_bundled_context("cognitive_architecture.general.v0", "0.2.0"),
+    route="temporal_projection",
+    output_contract="projected_temporal_activation_graph.v1",
 )
 
 
@@ -47,6 +57,7 @@ def metadata() -> dict:
         "context_id": "cognitive_architecture.general.v0",
         "context_version": "0.2.0",
         "materialization_mode": "full",
+        "runtime_identity": RUNTIME_IDENTITY,
     }
 
 

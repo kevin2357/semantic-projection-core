@@ -25,8 +25,12 @@
         "profile_id",
         "profile_version",
         "context_id",
-        "context_version"
-      ]
+        "context_version",
+        "runtime_identity"
+      ],
+      "properties": {
+        "runtime_identity": {"$ref": "runtime_identity_v1.schema.json"}
+      }
     },
     "source_identity": {
       "type": "object"

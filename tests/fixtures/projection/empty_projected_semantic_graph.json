@@ -37,7 +37,54 @@
     "package_type": "projected_semantic_graph",
     "profile_id": "orthodox_astrology.v1",
     "profile_version": "1.0.0",
-    "projection_id": "projection:empty-fixture"
+    "projection_id": "projection:empty-fixture",
+    "runtime_identity": {
+      "identity_contract": "semantic_projection.runtime_identity.v1",
+      "distribution": {
+        "name": "semantic-projection-core",
+        "version": "0.1.0",
+        "package_version": "0.1.0"
+      },
+      "release_compatibility": {
+        "contract_id": "semantic_projection.release_compatibility.v1",
+        "resource_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "runtime_package": {
+        "algorithm": "sha256(path + NUL + content_sha256 + LF)",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "resource_count": 1
+      },
+      "semantic_resources": {
+        "algorithm": "sha256(path + NUL + content_sha256 + LF)",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "resource_count": 1
+      },
+      "schemas": {
+        "algorithm": "sha256(path + NUL + content_sha256 + LF)",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "resource_count": 1
+      },
+      "profile": {
+        "profile_id": "orthodox_astrology.v1",
+        "profile_version": "1.0.0",
+        "policy_resource_set": {
+          "bundled": true,
+          "algorithm": "sha256(path + NUL + content_sha256 + LF)",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "resource_count": 1
+        }
+      },
+      "context": {
+        "context_id": "orthodox.general.v1",
+        "context_version": "1.0.0",
+        "content_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "bundled": true,
+        "resource_path": "contexts/orthodox_general_context.json",
+        "resource_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "route": "static_projection",
+      "output_contract": "projected_semantic_graph.v1"
+    }
   },
   "objects": [],
   "relationships": [],

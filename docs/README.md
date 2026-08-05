@@ -26,6 +26,7 @@ Semantic Projection Core (SPC) deterministically compiles canonical source graph
 - [Projected term registries](reference/projected-term-registries.md)
 - [Materialization and artifact identity](reference/materialization-and-artifacts.md)
 - [Release compatibility contract](reference/release-compatibility.md)
+- [Runtime and release identity](reference/runtime-and-release-identity.md)
 
 ## Integration and extension
 

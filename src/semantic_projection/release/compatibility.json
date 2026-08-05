@@ -27,7 +27,7 @@
     },
     "temporal_foundations": {
       "package_type": "projected_temporal_foundations",
-      "contract_version": "1.0.0"
+      "contract_version": "0.1.0"
     },
     "temporal_route_receipt": {
       "package_type": "temporal_projection_route_receipt",

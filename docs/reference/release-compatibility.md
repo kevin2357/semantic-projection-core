@@ -28,6 +28,9 @@ Distribution metadata, `semantic_projection.__version__`, and
 The final release wheel must be pinned by its exact SHA-256; a version number
 alone is not an immutable runtime identity.
 
+Generated artifacts also carry the installed runtime and resource fingerprints
+described in [Runtime and release identity](runtime-and-release-identity.md).
+
 ## Supported source boundaries
 
 ### Static
@@ -72,7 +75,7 @@ graph passed to the static command is not supported.
 |---|---|
 | Static | `projected_semantic_graph.v1` |
 | Temporal projection | `projected_temporal_activation_graph` 1.0.0 |
-| Temporal foundations | `projected_temporal_foundations` 1.0.0 |
+| Temporal foundations | `projected_temporal_foundations` 0.1.0 |
 | Temporal route receipt | `temporal_projection_route_receipt` 1.0.0 |
 
 Supported materializations are `full`, `standard`, `summary`, and `forensic`.

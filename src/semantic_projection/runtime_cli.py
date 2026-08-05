@@ -12,6 +12,7 @@ from typing import Any
 from . import ENGINE_VERSION, __version__
 from .profiles import builtin_projection_registry
 from .resources import bundled_contexts, release_compatibility, semantic_resource_manifest
+from .runtime_identity import runtime_release_manifest
 from .validation import validate_contract
 
 DISTRIBUTION_NAME = "semantic-projection-core"
@@ -47,6 +48,7 @@ def runtime_report() -> dict[str, Any]:
     discovered = builtin_projection_registry()
     discovered_count = discovered.discover_entry_points(replace=True)
     compatibility = release_compatibility()
+    release_manifest = runtime_release_manifest()
     versions_aligned = (
         distribution_version
         == ENGINE_VERSION
@@ -63,6 +65,13 @@ def runtime_report() -> dict[str, Any]:
             "contract_id": compatibility["contract_id"],
             "distribution_version": compatibility["distribution"]["version"],
         },
+        "runtime_release_manifest": {
+            "manifest_contract": release_manifest["manifest_contract"],
+            "runtime_package": {
+                key: release_manifest["runtime_package"][key]
+                for key in ("algorithm", "sha256", "resource_count")
+            },
+        },
         "python": {"version": ".".join(map(str, sys.version_info[:3])), "executable": sys.executable},
         "module_file": str(Path(__file__).resolve()),
         "profiles": discovered.manifests(),
@@ -78,6 +87,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Inspect and verify the installed SPC runtime.")
     parser.add_argument("--json", action="store_true", help="Emit the deterministic JSON report.")
     parser.add_argument("--require-installed", action="store_true", help="Reject editable installations.")
+    parser.add_argument("--release-manifest-out", help="Write the full installed runtime release manifest as JSON.")
     return parser
 
 
@@ -91,6 +101,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.require_installed and report["distribution"]["editable"]:
         print("semantic-runtime-smoke: editable installation is not an immutable runtime", file=sys.stderr)
         return 2
+    if args.release_manifest_out:
+        target = Path(args.release_manifest_out)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(
+            json.dumps(runtime_release_manifest(), indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
     if args.json:
         print(json.dumps(report, indent=2, sort_keys=True))
     else:

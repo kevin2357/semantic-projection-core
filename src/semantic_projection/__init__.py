@@ -157,3 +157,6 @@ __all__.extend(["SynastryProjectionResult", "prepare_synastry_source_graph", "pr
 
 from .resources import bundled_contexts, load_bundled_context, release_compatibility, semantic_resource_manifest
 __all__.extend(["bundled_contexts", "load_bundled_context", "release_compatibility", "semantic_resource_manifest"])
+
+from .runtime_identity import projection_runtime_identity, runtime_release_manifest
+__all__.extend(["projection_runtime_identity", "runtime_release_manifest"])

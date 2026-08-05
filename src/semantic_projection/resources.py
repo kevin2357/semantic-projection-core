@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import json
 from collections.abc import Iterable, Mapping
+from functools import lru_cache
 from hashlib import sha256
 from importlib import resources
 from typing import Any
 
 RESOURCE_ROOTS = ("contexts", "profiles", "release", "schemas")
+RUNTIME_SUFFIXES = (".json", ".py")
 
 
 def _walk_json(root, prefix: str) -> Iterable[tuple[str, bytes]]:
@@ -20,14 +22,52 @@ def _walk_json(root, prefix: str) -> Iterable[tuple[str, bytes]]:
             yield path, child.read_bytes()
 
 
-def semantic_resource_records() -> list[dict[str, Any]]:
-    """Describe every packaged semantic-policy JSON resource in stable order."""
+def _walk_runtime(root, prefix: str = "") -> Iterable[tuple[str, bytes]]:
+    for child in sorted(root.iterdir(), key=lambda item: item.name):
+        path = f"{prefix}/{child.name}" if prefix else child.name
+        if child.is_dir():
+            if child.name != "__pycache__":
+                yield from _walk_runtime(child, path)
+        elif child.name.endswith(RUNTIME_SUFFIXES):
+            yield path, child.read_bytes()
+
+
+def _records(rows: Iterable[tuple[str, bytes]]) -> list[dict[str, Any]]:
+    return [
+        {"path": path, "sha256": sha256(content).hexdigest(), "size": len(content)}
+        for path, content in rows
+    ]
+
+
+@lru_cache(maxsize=1)
+def _semantic_resource_values() -> tuple[tuple[str, str, int], ...]:
     package_root = resources.files("semantic_projection")
     records = []
     for root_name in RESOURCE_ROOTS:
-        for path, content in _walk_json(package_root.joinpath(root_name), root_name):
-            records.append({"path": path, "sha256": sha256(content).hexdigest(), "size": len(content)})
-    return records
+        records.extend(_records(_walk_json(package_root.joinpath(root_name), root_name)))
+    return tuple((record["path"], record["sha256"], record["size"]) for record in records)
+
+
+def semantic_resource_records() -> list[dict[str, Any]]:
+    """Describe every packaged semantic-policy JSON resource in stable order."""
+    return [
+        {"path": path, "sha256": content_sha256, "size": size}
+        for path, content_sha256, size in _semantic_resource_values()
+    ]
+
+
+@lru_cache(maxsize=1)
+def _runtime_package_values() -> tuple[tuple[str, str, int], ...]:
+    records = _records(_walk_runtime(resources.files("semantic_projection")))
+    return tuple((record["path"], record["sha256"], record["size"]) for record in records)
+
+
+def runtime_package_records() -> list[dict[str, Any]]:
+    """Describe installed executable Python and semantic JSON package content."""
+    return [
+        {"path": path, "sha256": content_sha256, "size": size}
+        for path, content_sha256, size in _runtime_package_values()
+    ]
 
 
 def aggregate_resource_records(records: Iterable[Mapping[str, Any]]) -> str:
@@ -42,12 +82,20 @@ def aggregate_resource_records(records: Iterable[Mapping[str, Any]]) -> str:
 
 
 def semantic_resource_manifest() -> dict[str, Any]:
-    records = semantic_resource_records()
+    return resource_set_manifest(semantic_resource_records())
+
+
+def runtime_package_manifest() -> dict[str, Any]:
+    return resource_set_manifest(runtime_package_records())
+
+
+def resource_set_manifest(records: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
+    normalized = [dict(record) for record in records]
     return {
         "algorithm": "sha256(path + NUL + content_sha256 + LF)",
-        "sha256": aggregate_resource_records(records),
-        "resource_count": len(records),
-        "resources": records,
+        "sha256": aggregate_resource_records(normalized),
+        "resource_count": len(normalized),
+        "resources": sorted(normalized, key=lambda item: str(item["path"])),
     }
 
 

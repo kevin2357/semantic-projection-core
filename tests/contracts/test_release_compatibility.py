@@ -45,6 +45,10 @@ def test_release_contract_matches_implemented_source_and_output_contracts():
     assert source["foundry_temporal_graph"]["contract_version"] in SUPPORTED_FOUNDRY_TEMPORAL_GRAPH_CONTRACT_VERSIONS
     assert source["temporal_request"] in SUPPORTED_TEMPORAL_REQUEST_CONTRACTS
     assert contract["output_contracts"]["materialization_modes"] == sorted(MATERIALIZATION_MODES)
+    assert contract["output_contracts"]["temporal_foundations"] == {
+        "package_type": "projected_temporal_foundations",
+        "contract_version": "0.1.0",
+    }
 
 
 def test_release_contract_freezes_four_supported_woofmapped_natal_contexts():

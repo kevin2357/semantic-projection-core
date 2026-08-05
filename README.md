@@ -48,7 +48,7 @@ An installed distribution can verify its version alignment, entry points, and
 packaged semantic-resource fingerprint without consulting a source checkout:
 
 ```powershell
-semantic-runtime-smoke --require-installed --json
+semantic-runtime-smoke --require-installed --json --release-manifest-out release-manifest.json
 ```
 
 ## Common workflows

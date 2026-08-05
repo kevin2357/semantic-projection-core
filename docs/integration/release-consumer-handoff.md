@@ -42,6 +42,10 @@ Reject the runtime unless:
 - the packaged release compatibility contract is present; and
 - the semantic-resource fingerprint matches the final release manifest.
 
+Generate and archive the installed runtime manifest with
+`--release-manifest-out`. Verify both its complete runtime-package fingerprint
+and its semantic-resource fingerprint against the published release evidence.
+
 ## AGF handoff
 
 AGF produces the source; it must not delegate calculation or canonical graph
@@ -92,15 +96,17 @@ delivery.
 
 ## What to archive
 
-Until Slice 4 adds runtime identity directly to output provenance, the
-orchestrator must retain an external run manifest containing:
+SPC artifacts now carry `semantic_projection.runtime_identity.v1`, including
+installed runtime, semantic-resource, schema, profile-policy, context, route,
+and output-contract identity. The orchestrator must verify that receipt against
+the qualified runtime release manifest and additionally retain:
 
 - final wheel SHA-256 and release tag;
 - engine/distribution version;
-- semantic-resource-set SHA-256;
+- runtime-package and semantic-resource-set SHA-256 values;
 - release compatibility contract ID;
 - exact profile ID/version;
-- exact context ID/version and context content hash;
+- exact context ID/version, canonical content hash, and packaged resource hash;
 - target ontology and projected-term registry ID/version;
 - materialization mode;
 - AGF source contract identities and immutable source artifact hash;
@@ -108,8 +114,8 @@ orchestrator must retain an external run manifest containing:
 - untouched projected artifact hash, coverage, diagnostics, and limitations;
 - downstream SBE runtime/input identity.
 
-The external manifest recommendation is an interim integration control. Slice 4
-will define which runtime/resource identities SPC itself emits.
+The final wheel SHA-256 remains external to embedded provenance because an
+installed package cannot reconstruct the original wheel bytes.
 
 ## Reject rather than guess
 

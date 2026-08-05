@@ -35,7 +35,8 @@
         "profile_version",
         "context_id",
         "context_version",
-        "materialization_mode"
+        "materialization_mode",
+        "runtime_identity"
       ],
       "properties": {
         "package_type": {
@@ -55,6 +56,9 @@
         "engine_version": {
           "type": "string",
           "minLength": 1
+        },
+        "runtime_identity": {
+          "$ref": "runtime_identity_v1.schema.json"
         },
         "profile_id": {
           "type": "string",

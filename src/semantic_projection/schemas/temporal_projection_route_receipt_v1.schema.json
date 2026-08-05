@@ -11,7 +11,7 @@
         "package_type", "contract_version", "source_bundle_id",
         "source_temporal_graph_id", "request_id", "projected_graph_id",
         "profile_id", "profile_version", "target_family", "output_mode",
-        "summary_semantic_hashes", "route_hash"
+        "summary_semantic_hashes", "runtime_identity", "route_hash"
       ],
       "properties": {
         "package_type": {"const": "temporal_projection_route_receipt"},
@@ -27,6 +27,7 @@
         "target_family": {"type": "string"},
         "output_mode": {"enum": ["full", "standard", "summary", "forensic"]},
         "summary_semantic_hashes": {"type": "object"},
+        "runtime_identity": {"$ref": "runtime_identity_v1.schema.json"},
         "coverage": {"type": "object"},
         "route_hash": {"type": "string", "minLength": 24, "maxLength": 24}
       },
