@@ -23,6 +23,16 @@ A consumer may own a target-domain profile. Mythos, for example, projects Foundr
 
 Similarly, AstroWoof authoring tools consume Woofmapped graphs and merge their used-term registries before selecting semantic bases for editorial work. Final card prose is downstream of projection.
 
+AstroWoof's cross-system architecture and consumer obligations are maintained in
+the separate
+[astrowoof-project documentation](https://github.com/kevin2357/astrowoof-project/blob/main/docs/architecture/Semantic%20Projection%20Integration.md),
+including its
+[projected canine graph handoff](https://github.com/kevin2357/astrowoof-project/blob/main/docs/contracts/Projected%20Canine%20Graph%20Contract.md).
+Those documents are authoritative for AstroWoof integration and product policy;
+SPC's code, schemas, and documentation remain authoritative for projection
+behavior. Product audience modes, authoring policy, cards, delivery, and UI must
+not be inferred from similarly named SPC projection contexts.
+
 These patterns are preferred: SPC acts as compiler/runtime, while the consumer owns application policy and its derived contracts.
 
 ## Registry aggregation

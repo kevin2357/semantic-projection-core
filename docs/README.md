@@ -30,6 +30,7 @@ Semantic Projection Core (SPC) deterministically compiles canonical source graph
 
 - [Astrology Graph Foundry integration](integration/astrology-graph-foundry.md)
 - [Downstream consumer contract](integration/downstream-consumers.md)
+- [AstroWoof project integration](https://github.com/kevin2357/astrowoof-project/blob/main/docs/architecture/Semantic%20Projection%20Integration.md) — downstream architecture and consumer policy, not SPC implementation authority.
 - [Profile authoring](guides/profile-authoring.md)
 - [Roadmap](roadmap.md)
 
