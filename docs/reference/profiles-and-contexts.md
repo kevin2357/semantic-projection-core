@@ -62,4 +62,10 @@ Woofmapped currently provides:
 - human-dog synastry;
 - symmetric and asymmetric dog-dog synastry.
 
+SPC 0.10.0 formally qualifies the general Doghouse, handler-guidance,
+direct-to-dog, and hybrid contexts as its supported four-context static natal
+set. This freezes projection compatibility, not downstream audience or prose
+behavior. See the
+[release compatibility contract](release-compatibility.md#four-supported-woofmapping-natal-contexts).
+
 These contexts reuse one primitive profile. They are not separate astrologies hiding in a trench coat.

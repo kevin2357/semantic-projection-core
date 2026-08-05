@@ -48,3 +48,9 @@ Summary artifacts retain semantic hashes but omit rows. Consumers needing indivi
 ## Compatibility discipline
 
 Pin profile and contract versions in repeatable workflows. Validate artifacts at ingestion. Preserve route receipts where source-to-result traceability matters. When a consumer needs behavior not represented by the current contract, add a versioned consumer layer or propose an SPC contract evolution rather than overloading unrelated fields.
+
+Production consumers must additionally pin the exact wheel SHA-256 and verify
+the installed semantic-resource fingerprint. The supported 0.10.0 boundary and
+consumer procedure are frozen in the
+[release compatibility contract](../reference/release-compatibility.md) and
+[release consumer handoff](release-consumer-handoff.md).

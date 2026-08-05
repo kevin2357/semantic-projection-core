@@ -41,11 +41,18 @@
     ],
     "deferred_source_graph_types": [],
     "supported_context_ids": [
+      "woofmapped.doghouse.general.v0",
       "woofmapped.handler_guidance.v1",
       "woofmapped.dog_direct.v1",
       "woofmapped.hybrid_horoscope.v1",
       "woofmapped.synastry.human_dog.v1",
       "woofmapped.synastry.dog_dog.v1"
+    ],
+    "supported_natal_context_ids": [
+      "woofmapped.doghouse.general.v0",
+      "woofmapped.handler_guidance.v1",
+      "woofmapped.dog_direct.v1",
+      "woofmapped.hybrid_horoscope.v1"
     ]
   }
 }

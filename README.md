@@ -118,3 +118,7 @@ Temporal integrations should use `project_foundry_temporal_bundle()`. Synastry i
 Astrology Graph Foundry is SPC's upstream producer of canonical astrology graphs, structural evidence, source identities, and canonical temporal bundles. SPC owns target-domain projection and its artifacts. Consumers such as Mythos and AstroWoof own application semantics and publication after projection.
 
 See the [documentation index](docs/README.md) for current guides, reference material, integration contracts, roadmap, and clearly separated implementation history.
+
+Production consumers should start with the
+[0.10.0 release compatibility contract](docs/reference/release-compatibility.md)
+and [release consumer handoff](docs/integration/release-consumer-handoff.md).

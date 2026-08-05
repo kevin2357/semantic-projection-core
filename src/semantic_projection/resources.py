@@ -8,7 +8,7 @@ from hashlib import sha256
 from importlib import resources
 from typing import Any
 
-RESOURCE_ROOTS = ("contexts", "profiles", "schemas")
+RESOURCE_ROOTS = ("contexts", "profiles", "release", "schemas")
 
 
 def _walk_json(root, prefix: str) -> Iterable[tuple[str, bytes]]:
@@ -82,4 +82,10 @@ def load_bundled_context(context_id: str, context_version: str) -> dict[str, Any
             f"available versions: {available}"
         )
     resource = resources.files("semantic_projection.contexts").joinpath(matches[0]["resource"])
+    return json.loads(resource.read_text(encoding="utf-8"))
+
+
+def release_compatibility() -> dict[str, Any]:
+    """Load the machine-readable compatibility contract for this distribution."""
+    resource = resources.files("semantic_projection.release").joinpath("compatibility.json")
     return json.loads(resource.read_text(encoding="utf-8"))

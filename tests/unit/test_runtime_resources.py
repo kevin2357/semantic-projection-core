@@ -63,6 +63,10 @@ def test_semantic_resource_manifest_is_stable_and_sensitive_to_changes():
 def test_runtime_report_discovers_distribution_entry_points():
     report = runtime_report()
     assert report["status"] == "ok"
+    assert report["release_compatibility"] == {
+        "contract_id": "semantic_projection.release_compatibility.v1",
+        "distribution_version": "0.10.0",
+    }
     assert report["profile_entry_points_discovered"] == 3
     assert {item["name"] for item in report["profile_entry_points"]} == {
         "cognitive_architecture_demo",

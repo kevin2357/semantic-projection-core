@@ -11,7 +11,7 @@ from typing import Any
 
 from . import ENGINE_VERSION, __version__
 from .profiles import builtin_projection_registry
-from .resources import bundled_contexts, semantic_resource_manifest
+from .resources import bundled_contexts, release_compatibility, semantic_resource_manifest
 from .validation import validate_contract
 
 DISTRIBUTION_NAME = "semantic-projection-core"
@@ -46,13 +46,23 @@ def runtime_report() -> dict[str, Any]:
 
     discovered = builtin_projection_registry()
     discovered_count = discovered.discover_entry_points(replace=True)
-    versions_aligned = distribution_version == ENGINE_VERSION == __version__
+    compatibility = release_compatibility()
+    versions_aligned = (
+        distribution_version
+        == ENGINE_VERSION
+        == __version__
+        == compatibility["distribution"]["version"]
+    )
     return {
         "report_contract": "semantic_projection.runtime_smoke.v1",
         "status": "ok" if versions_aligned else "error",
         "distribution": {"name": DISTRIBUTION_NAME, "version": distribution_version, "editable": editable},
         "engine_version": ENGINE_VERSION,
         "package_version": __version__,
+        "release_compatibility": {
+            "contract_id": compatibility["contract_id"],
+            "distribution_version": compatibility["distribution"]["version"],
+        },
         "python": {"version": ".".join(map(str, sys.version_info[:3])), "executable": sys.executable},
         "module_file": str(Path(__file__).resolve()),
         "profiles": discovered.manifests(),

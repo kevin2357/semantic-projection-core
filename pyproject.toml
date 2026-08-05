@@ -39,7 +39,7 @@ where = ["src"]
 version = {attr = "semantic_projection._version.__version__"}
 
 [tool.setuptools.package-data]
-semantic_projection = ["schemas/*.json", "profiles/**/*.json", "contexts/*.json"]
+semantic_projection = ["schemas/*.json", "profiles/**/*.json", "contexts/*.json", "release/*.json"]
 
 [tool.ruff]
 line-length = 140

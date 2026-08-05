@@ -51,3 +51,9 @@ python -m pip install -e ".[dev]"
 ```
 
 AGF's own documentation remains authoritative for generating canonical packages and temporal bundles.
+
+Editable sibling installation is development-only. Production AGF integration
+must pin the published SPC wheel by exact SHA-256 and use the public artifact or
+top-level runtime boundary. Imports from SPC profile mapping modules are not a
+supported release interface. See the
+[release consumer handoff](release-consumer-handoff.md).

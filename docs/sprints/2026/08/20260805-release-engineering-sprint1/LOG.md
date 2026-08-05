@@ -191,3 +191,56 @@ entries rather than rewriting prior observations.
   is retained in the repository; later slices must rebuild from reviewed source.
 - Working tree intentionally contains only the uncommitted Slice 2 source,
   tests, documentation, and compact evidence for user review.
+
+## 2026-08-05 - Slice 2 approval and commit boundary
+
+- User approved Slice 2 and authorized continuation.
+- Committed Slice 2 as `114906d5e6c6fe67095cc757a023b70b99b437f7`
+  (`Establish installable SPC runtime boundary`).
+- Began only the approved Slice 3 stable release and compatibility contract.
+
+## 2026-08-05 - Slice 3 compatibility freeze
+
+- Added packaged `semantic_projection.release_compatibility.v1` describing the
+  0.10.0 runtime, source/output contracts, profiles, commands,
+  materializations, failure policy, and supported four-context natal set.
+- Added consistency tests tying the machine contract to implementation
+  constants, manifests, bundled contexts, materialization modes, and installed
+  distribution entry points.
+- Added the release compatibility reference and consumer handoff. Clarified
+  high-level Python/CLI support, unsupported internal imports/routes, exact-hash
+  installation, preservation requirements, and failure behavior.
+- Formally declared the general, handler, direct-to-dog, and hybrid context
+  identities as supported static Woofmapped natal contexts. This is projection
+  compatibility, not downstream audience or prose policy.
+- Recorded that graph versions are enforced while manifest graph-type lists are
+  qualified support declarations rather than a generic type-rejection check.
+
+## 2026-08-05 - Slice 3 downstream reconciliation and QA
+
+- Read-only AGF inspection at `259058d` confirmed its permissive
+  `semantic-projection-core>=0.10.0` dependency and internal SPC imports. The
+  consumer handoff marks both unsuitable for immutable production integration.
+- Read-only AstroWoof API inspection at `e0d171d` confirmed its proposed 0.10.0
+  compatibility set and unresolved exact-context question. SPC's contract now
+  answers the identity/version portion; materialization promotion remains a
+  downstream decision.
+- Observed pre-existing untracked API path `src/astrowoof_api/storage/`; made no
+  downstream changes.
+- Focused compatibility/resource tests passed: 10 tests.
+- Full SPC suite passed: 150 tests in 92.04 seconds. Focused Ruff passed.
+- Wrote `results/compatibility-contract-verification.json` and
+  `results/SLICE 3 - Stable Release and Compatibility Contracts.md`.
+- Slice 3 gate passed. Changes remain uncommitted pending review; Slice 4 has
+  not begun.
+
+## 2026-08-05 - Slice 3 final gate verification
+
+- The first relative-link command mishandled repository-root Markdown files and
+  emitted PowerShell path errors; its apparent pass line was discarded as an
+  invalid check result.
+- Re-ran the corrected checker with terminating errors and an explicit root
+  base. All relative links in the eight created or materially updated
+  entry-point documents passed.
+- Parsed the packaged release compatibility contract and compact evidence JSON.
+- `git diff --check` passed.

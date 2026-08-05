@@ -1,0 +1,76 @@
+{
+  "contract_id": "semantic_projection.release_compatibility.v1",
+  "distribution": {
+    "name": "semantic-projection-core",
+    "version": "0.10.0",
+    "python_requires": ">=3.10",
+    "engine_version": "0.10.0",
+    "engine_contract_version": "1.0.0"
+  },
+  "source_contracts": {
+    "canonical_static_graph_versions": ["1.3.0"],
+    "foundry_temporal_bundle": {
+      "package_type": "temporal_projection_source_bundle",
+      "contract_version": "1.0.0"
+    },
+    "foundry_temporal_graph": {
+      "package_type": "canonical_temporal_activation_graph",
+      "contract_version": "1.0.0"
+    },
+    "temporal_request": "temporal_projection_request.v1"
+  },
+  "output_contracts": {
+    "static": "projected_semantic_graph.v1",
+    "temporal": {
+      "package_type": "projected_temporal_activation_graph",
+      "contract_version": "1.0.0"
+    },
+    "temporal_foundations": {
+      "package_type": "projected_temporal_foundations",
+      "contract_version": "1.0.0"
+    },
+    "temporal_route_receipt": {
+      "package_type": "temporal_projection_route_receipt",
+      "contract_version": "1.0.0"
+    },
+    "materialization_modes": ["forensic", "full", "standard", "summary"]
+  },
+  "profiles": [
+    {
+      "profile_id": "cognitive_architecture_demo.v0",
+      "profile_version": "0.2.0",
+      "static_source_graph_types": ["natal"]
+    },
+    {
+      "profile_id": "orthodox_astrology.v1",
+      "profile_version": "1.0.0",
+      "static_source_graph_types": ["composite", "davison", "lunar_return", "natal", "solar_return", "synastry"]
+    },
+    {
+      "profile_id": "woofmapped_astrology.v0",
+      "profile_version": "0.1.0",
+      "static_source_graph_types": ["natal", "synastry"],
+      "supported_natal_contexts": [
+        {"context_id": "woofmapped.dog_direct.v1", "context_version": "1.0.0"},
+        {"context_id": "woofmapped.doghouse.general.v0", "context_version": "0.1.0"},
+        {"context_id": "woofmapped.handler_guidance.v1", "context_version": "1.0.0"},
+        {"context_id": "woofmapped.hybrid_horoscope.v1", "context_version": "1.0.0"}
+      ]
+    }
+  ],
+  "console_scripts": [
+    "semantic-project",
+    "semantic-runtime-smoke",
+    "semantic-temporal-foundations",
+    "semantic-temporal-intake",
+    "semantic-temporal-project",
+    "semantic-temporal-run"
+  ],
+  "profile_entry_point_group": "semantic_projection.profiles",
+  "failure_policy": {
+    "exact_profile_version_required": true,
+    "exact_context_version_required_for_bundled_context_resolution": true,
+    "unsupported_contract_or_graph_version_rejected": true,
+    "cli_validation_error_exit_code": 2
+  }
+}
