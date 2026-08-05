@@ -361,3 +361,59 @@ entries rather than rewriting prior observations.
   `results/SLICE 5 - Packaged Deterministic QA.md`.
 - Slice 5 gate passed. Changes remain uncommitted pending review; Slice 6 has
   not begun.
+
+## 2026-08-05 - Slice 5 approval and commit boundary
+
+- User approved Slice 5 and authorized continuation.
+- Committed Slice 5 as `06a605b066fcb57eae7b205f563e994f851575e5`
+  (`Qualify deterministic installed SPC runtime`).
+- Began only the approved Slice 6 controlled downstream compatibility work.
+
+## 2026-08-05 - Slice 6 installed candidate preparation
+
+- Confirmed clean AGF and SBE working trees at commits
+  `259058db9861d867a6c747c31eb1297c6be2a023` and
+  `06dcb3c81bf4c6f38540f92b4346d4675b0642b8` respectively.
+- Built AGF 0.5.0 from a clean Git archive and SPC 0.10.0 from the approved
+  Slice 5 commit. Selected the released SBE 0.1.0 wheel whose SHA-256 matches
+  its exact-hash consumer requirement.
+- The first combined install attempted AGF's optional live dependency. PyPI
+  exposed `pyswisseph` source but no compatible CPython 3.12 binary, and the
+  host lacked MSVC 14 or newer. No candidate incompatibility was implicated.
+- Installed the three wheel artifacts without AGF's optional live extra and
+  installed SPC's declared `jsonschema` dependency. All three distributions
+  resolved from the isolated environment's `site-packages`.
+- Ella's params and prior projected artifacts were available, but her original
+  canonical AGF package was not. Declined to infer or reconstruct it from
+  downstream artifacts. Switched to the slice's permitted replay route using
+  AGF's current checked-in full natal fixture.
+
+## 2026-08-05 - Slice 6 cross-repository compatibility result
+
+- Added a standalone installed-artifact harness that copies no code from AGF
+  or SBE and imports SPC only from `site-packages`.
+- Replayed the AGF 1.3.0 `natal:kevin` fixture containing 189 objects and 4,239
+  relationships through all four Woofmapping natal contexts twice.
+- Every context was deterministic and schema-valid with 17 projected objects,
+  75 relationships, 47 closed projected-term definitions, identical source
+  topology, and reconciled embedded runtime/policy identities.
+- Invoked installed `astrowoof-build-natal-basis` using the preferred
+  `astrowoof.projected_natal_input.v0.1` manifest. SBE exited 0 with batch and
+  subject status `pass`, retained all 47 term keys, and selected 50 claims from
+  108 candidates including 13 syntheses.
+- Repeated installed SBE extraction into a separate output tree; the selected
+  authoring packet was byte-identical at
+  `495ae4894e1275e661f7e653de55bf51af1efba48627af2356b554874214e28c`.
+- Compared the packet with SBE's checked-in Kevin reference: selection
+  statistics and registry term keys were unchanged; 40 of 50 canonical claim
+  wordings matched. Ten changed with current AGF canonical relationship
+  identities. Exact golden identity is not a compatibility requirement.
+- Exact wheel hashes: AGF
+  `d1dad0b36a4529ff2c161f0a7de9696525fcf30a313b12bdcc4713e1d71c00f5`;
+  SPC `127a4ccbc589d738d526f6e0be848a0e304845d297131ff482062e8bbafd6a62`;
+  SBE `58f8d93066cce040ebfc07bc89ffb11254895f0768965aa305296a722aa39dfe`.
+- Full SPC suite passed all 157 tests in 95.11 seconds. Focused Ruff passed.
+- Wrote `results/cross-repository-compatibility.json` and
+  `results/SLICE 6 - Controlled Downstream Compatibility Candidate.md`.
+- Slice 6 gate passed. Changes remain uncommitted pending review; Slice 7 has
+  not begun.
