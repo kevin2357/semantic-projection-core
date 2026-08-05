@@ -311,3 +311,53 @@ entries rather than rewriting prior observations.
   unchanged. All preview values remain non-release evidence.
 - Relative links across eight created/materially updated entry documents and
   `git diff --check` passed.
+
+## 2026-08-05 - Slice 4 approval and commit boundary
+
+- User approved Slice 4 and authorized continuation.
+- Committed Slice 4 as `a5777a7dd5d028b76b6822e0bedb75d39607848b`
+  (`Embed exact SPC runtime provenance`).
+- Began only the approved Slice 5 packaged deterministic QA work.
+
+## 2026-08-05 - Slice 5 harness and clean-environment defect
+
+- Added an installed-wheel qualification harness independent of repository test
+  helpers and designed to run beside copied AGF boundary fixtures.
+- Created a fresh Python 3.12 environment and installed the repository with its
+  development dependencies for source-suite qualification.
+- First full suite run: 156 passed and one failed. The failure was an obsolete
+  test allowance that deliberately excluded `semantic-runtime-smoke` from
+  installed editable metadata. The fresh environment correctly installed it.
+- Removed the allowance so release compatibility now requires exact equality
+  with installed command metadata.
+- Corrected full suite: 157 passed in 94.60 seconds. Focused Ruff passed.
+
+## 2026-08-05 - Slice 5 installed candidate QA
+
+- Built `semantic_projection_core-0.10.0-py3-none-any.whl` and installed it into
+  a new environment outside the checkout.
+- Copied the standalone harness and two compact AGF boundary fixtures outside
+  the checkout, cleared `PYTHONPATH`, and confirmed the module resolved from
+  the clean environment's `site-packages`.
+- Six static cases passed canonical-byte repetition and schema validation:
+  Orthodox, cognitive demonstration, Woofmapping general, handler,
+  direct-to-dog, and hybrid.
+- All four Woofmapping contexts preserved identical source topology, resolved
+  every projected-term reference, and merged without registry conflicts.
+- A repeated full Woofmapping handler temporal route produced identical
+  artifacts and receipts and passed native validation.
+- Negative QA rejected unsupported source/profile versions, an unavailable
+  context version, a physically removed installed context resource, a
+  conflicting projected-term definition, and malformed output.
+- All six installed console scripts passed safe invocation. All three declared
+  profile entry points resolved from installed distribution metadata.
+- Candidate wheel: 129379 bytes at
+  `0c4b64932a1a5b717b108e1637ecde9222ddd017f31c4fd9647ff6adc3715bf2`.
+  Installed runtime package set:
+  `a3408e8032d6a65d74716ba5e1e2fd7baa7c47aebfdbe7b196e9c3b17cd4ae48`.
+  Semantic resource set:
+  `2262689d70b38e3319a7f19a6431462a863acbb68bc8f1da31550c0a9fc72773`.
+- Wrote `results/deterministic-fixture-summary.json` and
+  `results/SLICE 5 - Packaged Deterministic QA.md`.
+- Slice 5 gate passed. Changes remain uncommitted pending review; Slice 6 has
+  not begun.

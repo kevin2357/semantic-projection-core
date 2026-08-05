@@ -72,6 +72,4 @@ def test_release_contract_console_scripts_match_installed_distribution_metadata(
         for item in metadata.entry_points().select(group="console_scripts")
         if item.dist and item.dist.metadata["Name"] == "semantic-projection-core"
     }
-    # The current editable metadata predates semantic-runtime-smoke; a fresh
-    # wheel assertion is retained in installed-package QA.
-    assert set(contract["console_scripts"]) - {"semantic-runtime-smoke"} == installed
+    assert set(contract["console_scripts"]) == installed

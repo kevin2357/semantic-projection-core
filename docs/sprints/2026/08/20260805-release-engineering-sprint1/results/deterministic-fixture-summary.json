@@ -1,0 +1,77 @@
+{
+  "evidence_contract": "semantic_projection.installed_qa_summary.v1",
+  "status": "pass",
+  "candidate": {
+    "distribution": "semantic-projection-core",
+    "version": "0.10.0",
+    "wheel": "semantic_projection_core-0.10.0-py3-none-any.whl",
+    "wheel_bytes": 129379,
+    "wheel_sha256": "0c4b64932a1a5b717b108e1637ecde9222ddd017f31c4fd9647ff6adc3715bf2",
+    "runtime_package_set_sha256": "a3408e8032d6a65d74716ba5e1e2fd7baa7c47aebfdbe7b196e9c3b17cd4ae48",
+    "semantic_resource_set_sha256": "2262689d70b38e3319a7f19a6431462a863acbb68bc8f1da31550c0a9fc72773"
+  },
+  "execution": {
+    "python": "3.12.13",
+    "installed_from_wheel": true,
+    "source_checkout_imported": false,
+    "full_source_suite": "157 passed",
+    "installed_console_scripts": 6,
+    "installed_profile_entry_points": 3
+  },
+  "fixtures": {
+    "natal_full_tiny.json": "e9fb6b7a2c38cfd2a3a2f5325af0a40d6f02e447bc2ad8ec2c957b31236a06e7",
+    "foundry_temporal_source_bundle_v1_tiny.json": "cf2bd4c5e099fac29afa71804494513863ea5dfa9e478cbeac4fbc275af80569"
+  },
+  "static_cases": {
+    "orthodox_astrology.v1@1.0.0": {
+      "objects": 8,
+      "relationships": 7,
+      "artifact_sha256": "9646a22037ecbd65ca7c5ec27f35f24fccae7ce765b4aba48fcbf0fa381f7546"
+    },
+    "cognitive_architecture_demo.v0@0.2.0": {
+      "objects": 7,
+      "relationships": 6,
+      "artifact_sha256": "ff2556ef812618121376fb92c51f023a27e3f28f8fee5e1cc57a8b776e956106"
+    },
+    "woofmapped_astrology.v0@0.1.0/general": {
+      "objects": 7,
+      "relationships": 6,
+      "artifact_sha256": "bedec213a6df8822aacec0081dd06b755ac26ef5dcf02ab28de0fe507ace5ece"
+    },
+    "woofmapped_astrology.v0@0.1.0/handler": {
+      "objects": 7,
+      "relationships": 6,
+      "artifact_sha256": "de1972639695634446d835da205ef309751e7dcc35ed4e6bc886a00567079cd0"
+    },
+    "woofmapped_astrology.v0@0.1.0/direct-to-dog": {
+      "objects": 7,
+      "relationships": 6,
+      "artifact_sha256": "79bd97d1a33cff94a3e96ef04ef553f5d05156a8f8e316c09dc5c6a23b32fd6b"
+    },
+    "woofmapped_astrology.v0@0.1.0/hybrid": {
+      "objects": 7,
+      "relationships": 6,
+      "artifact_sha256": "0b01102210e23363f52e504fbb544e6b21f8d6a6afc2e7a1bed60bb3e2bc4d82"
+    }
+  },
+  "woof_contexts": {
+    "source_topology_sha256": "8ce9d2c7d42e8c7112e10e4977d439526e23bf8e16ea4f77e3dab33ea205a27a",
+    "projected_registry_sha256": "968c459ab84631f7f81438ce3691e29c28beef0ed5536c6f23e18887a47e5005",
+    "merged_projected_term_count": 28
+  },
+  "temporal": {
+    "context": "woofmapped.handler_guidance.v1@1.0.0",
+    "activators": 1,
+    "activations": 1,
+    "artifact_sha256": "75abd7256af0daeb6c4c2856d02d6f8ea659d761bad8e016461687ff093a2e5c",
+    "receipt_sha256": "f69b00ce900eb3ac6b8b8e6c617e0745de42931c2dd8e47643708ba5655a68ee"
+  },
+  "negative_cases": [
+    "unsupported source version rejected",
+    "unsupported profile version rejected",
+    "unknown exact context version rejected",
+    "physically missing packaged context rejected",
+    "conflicting projected-term definition rejected",
+    "invalid output contract rejected"
+  ]
+}
