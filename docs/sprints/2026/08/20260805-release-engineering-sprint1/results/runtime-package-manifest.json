@@ -1,0 +1,106 @@
+{
+  "schema_version": "semantic_projection.release_resource_audit.v0.1",
+  "status": "source_audit_not_release_manifest",
+  "audited_commit": "fa0f2ce1956927644e83e35735366a620ece1089",
+  "candidate": {
+    "distribution": "semantic-projection-core",
+    "distribution_version": "0.10.0",
+    "import_package": "semantic_projection",
+    "engine_version": "0.10.0",
+    "requires_python": ">=3.10",
+    "wheel_filename": "semantic_projection_core-0.10.0-py3-none-any.whl",
+    "annotated_tag": "semantic-projection-core-v0.10.0"
+  },
+  "profiles": [
+    {
+      "profile_id": "cognitive_architecture_demo.v0",
+      "profile_version": "0.2.0",
+      "registry_id": "cognitive_architecture_demo.projected_terms",
+      "registry_version": "0.2.0",
+      "term_count": 56
+    },
+    {
+      "profile_id": "orthodox_astrology.v1",
+      "profile_version": "1.0.0",
+      "registry_id": "orthodox_astrology.projected_terms",
+      "registry_version": "1.0.0",
+      "term_count": 68
+    },
+    {
+      "profile_id": "woofmapped_astrology.v0",
+      "profile_version": "0.1.0",
+      "registry_id": "woofmapped_astrology.projected_terms",
+      "registry_version": "0.1.0",
+      "term_count": 56
+    }
+  ],
+  "contracts": {
+    "canonical_source_graph_versions": ["1.3.0"],
+    "foundry_temporal_bundle_versions": ["1.0.0"],
+    "foundry_canonical_temporal_graph_versions": ["1.0.0"],
+    "temporal_request_contracts": ["temporal_projection_request.v1"],
+    "projected_temporal_graph_versions": ["1.0.0"],
+    "profile_engine_contract_versions": ["1.0.0"]
+  },
+  "entry_points": {
+    "console_scripts": [
+      "semantic-project",
+      "semantic-temporal-foundations",
+      "semantic-temporal-intake",
+      "semantic-temporal-project",
+      "semantic-temporal-run"
+    ],
+    "profile_entry_points": [
+      "cognitive_architecture_demo",
+      "orthodox_astrology",
+      "woofmapped_astrology"
+    ]
+  },
+  "source_resource_audit": {
+    "aggregate_algorithm": "sha256(sorted(path + NUL + file_sha256 + LF))",
+    "categories": [
+      {
+        "name": "engine_and_profile_python",
+        "file_count": 48,
+        "bytes": 256460,
+        "aggregate_sha256": "8bf48e417c3a5c140398353d42a930aec0097a4a61939e1abad7701dd77712b4"
+      },
+      {
+        "name": "schemas",
+        "file_count": 19,
+        "bytes": 47223,
+        "aggregate_sha256": "e1bab1bb672869753bbd36607fa704fa5d1ebe474f90864229dc3cbfb74bd96f"
+      },
+      {
+        "name": "profile_json",
+        "file_count": 9,
+        "bytes": 184388,
+        "aggregate_sha256": "ad560128ccad8fb799e12b358969393d9a74ccd6166b8bbf1ef23f4599e23497"
+      },
+      {
+        "name": "contexts",
+        "file_count": 13,
+        "bytes": 8637,
+        "aggregate_sha256": "6aa1342891c70d238635729a7a32b542f808edc9d31ce6ed29018db2b33722c1",
+        "currently_packaged": false
+      }
+    ],
+    "candidate_file_count": 89,
+    "candidate_bytes": 496708,
+    "candidate_aggregate_sha256": "22eb5a11c10c33cb81c18a3785c99491e3cc7bac2b64570c63c40f4a3c423607",
+    "release_identity": false,
+    "reason": "This hashes source-audit paths before installed context packaging and release-manifest implementation."
+  },
+  "qualification": {
+    "python": "CPython 3.12.13",
+    "platform": "Windows win32",
+    "tests_passed": 139,
+    "branch_coverage_percent": 89.01,
+    "json_files_parsed": 41,
+    "schemas_metaschema_validated": 19,
+    "editable_profile_entry_points_discovered": 3,
+    "installed_wheel_verified": false,
+    "reproducible_build_verified": false
+  }
+}
+
