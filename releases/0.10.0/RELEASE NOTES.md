@@ -34,5 +34,7 @@ with the exact-hash requirement in `requirements-production.txt`, run the
 installed smoke, and preserve the release and artifact provenance described in
 `CONSUMER INTEGRATION.md`.
 
-Publication, annotated-tag creation, and remote asset verification remain
-pending explicit approval.
+Published from annotated tag `semantic-projection-core-v0.10.0`, targeting
+release commit `68f11c56ff1ad26873958cf955b7f3699895e870`. All release assets were
+downloaded through GitHub's authenticated asset API and matched against their
+qualified local hashes.

@@ -2,18 +2,38 @@
 
 ## Result
 
-Status: **local release gate passed; publication awaiting approval**
+Status: **published and remotely verified**
 
 The final SPC 0.10.0 wheel is byte-reproducible, installable outside the
 checkout, fully smoke-tested, and prepared with checksums, release manifest,
-compatibility guidance, consumer instructions, and release notes. No tag,
-push, GitHub release, upload, or private-release download has occurred.
+compatibility guidance, consumer instructions, and release notes. Annotated tag
+`semantic-projection-core-v0.10.0` targets release commit
+`68f11c56ff1ad26873958cf955b7f3699895e870`; the private GitHub release is live,
+and every published asset was downloaded through the authenticated asset API
+and matched against its qualified local bytes.
 
 Evidence:
 
 - [reproducible-build-verification.json](reproducible-build-verification.json)
 - [final-installed-smoke.json](final-installed-smoke.json)
+- [publication-verification.json](publication-verification.json)
 - [release package](../../../../../../releases/0.10.0/RELEASE%20NOTES.md)
+
+## Publication
+
+The release is available at
+`https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.10.0`.
+GitHub reports the annotated tag as unsigned and the release object's optional
+platform `immutable` flag as false. This release therefore derives immutable
+consumer identity from the non-moving annotated tag plus the mandatory wheel
+SHA-256 pin, not from a claim of cryptographic tag signing or GitHub's release
+immutability feature.
+
+The uploaded `release-manifest.json` is deliberately the byte-identical
+qualification-time snapshot and retains status `qualified_awaiting_publication`.
+Post-publication state and authenticated download receipts are recorded
+separately in `publication-verification.json`, avoiding a circular attempt to
+change an asset after verifying its immutable hash.
 
 ## Reproducible build
 

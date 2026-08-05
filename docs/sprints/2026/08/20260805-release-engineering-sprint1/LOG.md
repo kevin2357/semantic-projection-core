@@ -481,3 +481,25 @@ entries rather than rewriting prior observations.
   no cache, environment, expanded fixture, or other large temporary artifact
   remains. The authoritative candidate wheel remains under the repository's
   ignored `dist/` directory.
+
+## 2026-08-05 - Slice 7 publication
+
+- Committed the qualified release package as
+  `68f11c56ff1ad26873958cf955b7f3699895e870` and pushed `main`.
+- Created and pushed annotated tag `semantic-projection-core-v0.10.0`; remote
+  tag object `3cbdb620e24d52b4fb1dfb65903c2149cac80280` dereferences to the intended
+  release commit. GitHub reports the annotated tag as unsigned.
+- Published private GitHub release `365787784` at
+  `https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.10.0`.
+- Uploaded wheel asset `503035345`, checksum asset `503035349`, and external
+  manifest asset `503035357`.
+- Downloaded all three assets through GitHub's authenticated release-asset API.
+  Each downloaded asset matched its qualified local SHA-256; the checksum file
+  also named the exact wheel hash and filename.
+- GitHub's optional release-object `immutable` flag is false. Consumer
+  immutability is enforced by the non-moving annotated tag and mandatory exact
+  wheel SHA-256 pin; no claim of signed-tag or platform-enforced release
+  immutability is made.
+- Reconciled `astrowoof-project` release-strategy documentation with the
+  published SPC 0.10.0 baseline. API target-image installation remains a
+  downstream integration gate, not an SPC publication guarantee.
