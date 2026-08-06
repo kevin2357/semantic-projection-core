@@ -100,28 +100,27 @@ only the earlier semantic understudy—has downstream evidence.
 - `CONSUMER INTEGRATION.md`; and
 - `RELEASE NOTES.md`.
 
-The exact final wheel remains locally in ignored
-`dist/semantic_projection_core-0.10.0-py3-none-any.whl` for the approved upload
-step. It is not committed as a repository blob.
+The exact final wheel was uploaded from the ignored
+`dist/semantic_projection_core-0.10.0-py3-none-any.whl` staging path. It is not
+committed as a repository blob; the private GitHub release is the distribution
+channel.
 
-## Remaining publication gate
+## Publication completion
 
-After explicit approval, the remaining state-changing operations are:
+After explicit approval, the release process:
 
-1. commit this release handoff;
-2. create annotated tag `semantic-projection-core-v0.10.0` at that release
-   commit and verify its local dereference;
-3. push the release commit and immutable tag;
-4. create the private GitHub release and upload the wheel, `SHA256SUMS.txt`, and
-   `release-manifest.json`;
-5. download all assets through the real private-release path using ephemeral
-   least-privilege authentication;
-6. verify downloaded hashes and remote tag dereference;
-7. write `publication-verification.json`, update publication status and
-   project-level released-baseline documentation, then commit those records;
-8. clean retained publication artifacts and confirm every changed working tree
-   is clean.
+1. committed the release handoff at
+   `68f11c56ff1ad26873958cf955b7f3699895e870`;
+2. created and pushed annotated tag `semantic-projection-core-v0.10.0` at that
+   commit;
+3. published the wheel, `SHA256SUMS.txt`, and `release-manifest.json`;
+4. downloaded all assets through the authenticated private-release path;
+5. verified downloaded hashes and remote tag dereference;
+6. committed publication receipts at
+   `3f0d4bc620dc5e9d339a2c48243b25b2401f03eb`; and
+7. updated the AstroWoof project-level released baseline.
 
-The GitHub CLI was absent during the Slice 1 audit. Publication may use a
-least-privilege GitHub API flow or an available authenticated browser session,
-but credentials must never enter command output, repository files, or evidence.
+The GitHub CLI remained unavailable, so publication used the GitHub API with an
+ephemeral credential obtained from the existing credential manager. No
+credential entered command output, repository files, release assets, or sprint
+evidence.

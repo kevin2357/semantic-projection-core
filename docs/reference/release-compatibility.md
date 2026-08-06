@@ -25,8 +25,11 @@ stable Python API.
 
 Distribution metadata, `semantic_projection.__version__`, and
 `ENGINE_VERSION` derive from one source. A consumer must reject disagreement.
-The final release wheel must be pinned by its exact SHA-256; a version number
-alone is not an immutable runtime identity.
+The published release is tagged `semantic-projection-core-v0.10.0`. Its wheel
+SHA-256 is
+`60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150`.
+Consumers must pin that exact hash; a version number or tag alone is not an
+immutable runtime identity.
 
 Generated artifacts also carry the installed runtime and resource fingerprints
 described in [Runtime and release identity](runtime-and-release-identity.md).

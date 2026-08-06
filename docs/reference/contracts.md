@@ -73,6 +73,7 @@ Participant records require `participant_id`; role, species, and label are optio
 `jsonschema` is a required runtime dependency so validation depth cannot vary
 with the ambient environment. Specialized validators additionally enforce
 deterministic and reference-integrity rules that JSON Schema alone cannot
-express.
+express. The rationale is preserved in
+[ADR-0002](../decisions/ADR-0002%20-%20Require%20Invariant%20Full%20Schema%20Validation%20at%20Runtime.md).
 
 The schemas are the field-level authority. This page describes their role and composition rather than duplicating every property.

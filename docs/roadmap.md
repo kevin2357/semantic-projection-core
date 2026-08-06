@@ -2,6 +2,18 @@
 
 This page lists work not implemented in the current release. Completed development plans live under `history/`.
 
+## Release integration and operations
+
+- Replace AGF's permissive SPC dependency and internal profile-mapping imports
+  before using AGF as a production orchestrator.
+- Install and smoke-test the exact 0.10.0 wheel in the AstroWoof API's target
+  Linux image; publication alone does not qualify a deployment environment.
+- Turn the evidenced reproducible-build procedure into one maintained release
+  command or workflow without weakening independent clean-archive verification.
+- Evaluate signed annotated tags and GitHub's platform release-immutability
+  control for future releases. SPC 0.10.0 has neither and relies on its
+  non-moving tag plus mandatory wheel hash.
+
 ## Projection and extension
 
 - Provide a polished direct workflow for loading consumer-owned profile directories, complementing installed Python entry-point discovery.

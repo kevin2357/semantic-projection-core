@@ -1,10 +1,11 @@
 # Semantic Projection Core Release Engineering Sprint 1
 
 ```yaml
-status: active
+status: completed
 owner: semantic-projection-core
 scope: release qualification and publication
 started: 2026-08-05
+completed: 2026-08-05
 candidate_distribution: semantic-projection-core
 candidate_version: 0.10.0
 ```
@@ -150,4 +151,3 @@ The sprint exits only when:
 - No compatibility promise is made for private Python modules unless Slice 3
   intentionally promotes one.
 - No existing release tag or historical artifact will be rewritten.
-

@@ -2,13 +2,15 @@
 
 ## Install
 
-SPC requires Python 3.10 or newer and has no runtime dependencies. From a checkout:
+SPC requires Python 3.10 or newer. Full Draft 2020-12 JSON Schema validation is
+required runtime behavior and is supplied by the declared `jsonschema>=4,<5`
+dependency. From a checkout:
 
 ```powershell
 python -m pip install -e .
 ```
 
-For development and full JSON Schema validation:
+For development and the test/tooling dependencies:
 
 ```powershell
 python -m pip install -e ".[dev]"

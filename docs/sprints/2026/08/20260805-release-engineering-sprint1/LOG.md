@@ -503,3 +503,48 @@ entries rather than rewriting prior observations.
 - Reconciled `astrowoof-project` release-strategy documentation with the
   published SPC 0.10.0 baseline. API target-image installation remains a
   downstream integration gate, not an SPC publication guarantee.
+
+## 2026-08-05 - End-of-day documentation retrospective
+
+- Re-read the full sprint chronology, all slice results, current guides,
+  reference documents, integration handoffs, release files, roadmap, and test
+  documentation against the published release state.
+- Corrected stale consumer instructions that still described the private
+  release URL as inactive, the runtime identity manifest as future Slice 7
+  work, and full JSON Schema validation as a development-only capability.
+- Marked the sprint plan completed and reconciled the Slice 7 result with the
+  actual tag, upload, authenticated download verification, publication-evidence
+  commit, and project-level documentation update.
+- Promoted three durable decisions into SPC's first ADR set: executable semantic
+  policy participates in release identity; full schema validation is invariant
+  runtime behavior; and immutable qualification evidence remains separate from
+  post-publication receipts.
+- Added a compact retrospective preserving the archive line-ending discovery,
+  unavailable Ella source boundary, unsigned/non-platform-immutable release
+  limitation, unexpectedly direct packaging path, and remaining AGF/API work.
+- Updated the roadmap with production consumer migration, target-image smoke,
+  reproducible-build automation, and optional future signing/platform
+  immutability work. No new SPC feature or downstream product behavior was
+  inferred.
+
+## 2026-08-05 - SPC and AstroWoof project authority reconciliation
+
+- Re-read the project control plane's SPC integration architecture, projected
+  graph consumer contract, release strategy, milestone, vocabulary, lifecycle,
+  and open questions against the published SPC 0.10.0 contract and runtime
+  identity implementation.
+- Corrected project text that still treated formal four-context natal support
+  as unresolved; the exact general, handler, direct-to-dog, and hybrid
+  ID/version pairs are packaged release compatibility facts.
+- Corrected project text that said SPC emitted no whole-profile configuration
+  hash. Native artifacts now carry the bundled profile's executable
+  `policy_resource_set` fingerprint along with runtime, semantic-resource,
+  schema, and context identities.
+- Reframed the remaining project question as placement of existing SPC
+  identities in AstroWoof-owned run/delivery schemas, not invention of a
+  competing hash.
+- Adopted one authoritative project decision into SPC's consumer guidance:
+  AstroWoof currently selects `full` as its conservative initial SBE input even
+  though SPC supports all row-bearing materializations.
+- Found no project decision that required changing SPC projection semantics,
+  profile configuration, release compatibility, or ownership boundaries.

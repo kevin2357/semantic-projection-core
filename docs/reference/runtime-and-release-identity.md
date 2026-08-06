@@ -53,9 +53,17 @@ semantic-runtime-smoke `
 ```
 
 The manifest validates against
-`runtime_release_manifest_v1.schema.json`. Slice 7 will generate this file from
-the final qualified wheel and pair it with the wheel's separately calculated
-SHA-256.
+`runtime_release_manifest_v1.schema.json`. The 0.10.0 release was generated
+from reproducible clean archives and pairs the installed manifest with wheel
+SHA-256
+`60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150`.
+See [ADR-0001](../decisions/ADR-0001%20-%20Include%20Executable%20Semantic%20Policy%20in%20Release%20Identity.md)
+for the identity boundary.
+
+The published external manifest is the qualification-time snapshot. Remote
+release IDs and authenticated download verification live in separate
+publication evidence so the uploaded manifest never changes after hashing; see
+[ADR-0003](../decisions/ADR-0003%20-%20Separate%20Qualification%20Evidence%20from%20Publication%20Receipts.md).
 
 An installed Python package cannot recover the byte hash of the original wheel
 after extraction. The wheel SHA-256 therefore remains an external release and

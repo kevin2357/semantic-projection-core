@@ -1,8 +1,8 @@
 # Semantic Projection Core 0.10.0 Consumer Integration
 
 The private GitHub release asset is intended to be installed by exact URL and
-hash. The URL below becomes valid only after publication approval and release
-creation:
+hash. The release is published and the URL below is active for authenticated
+consumers with access to the private repository:
 
 ```text
 semantic-projection-core @ https://github.com/kevin2357/semantic-projection-core/releases/download/semantic-projection-core-v0.10.0/semantic_projection_core-0.10.0-py3-none-any.whl \

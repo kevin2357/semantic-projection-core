@@ -37,6 +37,11 @@ Semantic Projection Core (SPC) deterministically compiles canonical source graph
 - [Profile authoring](guides/profile-authoring.md)
 - [Roadmap](roadmap.md)
 
+## Decisions
+
+- [Architecture decision records](decisions/README.md) — durable rationale for
+  runtime identity, validation, and release-evidence boundaries.
+
 ## Documentation authority
 
 Current code and JSON Schemas are the executable contract. The reference pages explain that contract; guides show supported workflows. Historical documents retain design rationale and implementation chronology but may describe behavior that was incomplete at the time.

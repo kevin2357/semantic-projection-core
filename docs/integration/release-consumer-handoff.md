@@ -9,9 +9,9 @@ without duplicating native schemas.
 
 The final qualified wheel SHA-256 is
 `60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150`.
-The private release URL remains inactive until the approved publication step.
-Do not attempt the URL or promote the requirement before publication is
-verified.
+The private release is published and its assets have been downloaded through
+GitHub's authenticated asset API and verified against their qualified hashes:
+`https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.10.0`.
 
 ## Install and verify
 
@@ -78,8 +78,11 @@ For each saved AGF natal artifact, execute the exact
 - `woofmapped.dog_direct.v1` 1.0.0;
 - `woofmapped.hybrid_horoscope.v1` 1.0.0.
 
-Use `standard`, `full`, or `forensic` materialization for SBE. `summary` lacks
-the graph rows SBE needs.
+SPC supports `standard`, `full`, or `forensic` materialization for SBE;
+`summary` lacks the graph rows SBE needs. AstroWoof's current project-level
+integration policy selects `full` as the conservative initial materialization
+so every row and evidence surface remains available. That selection is a
+downstream promotion policy, not a restriction of SPC's native compatibility.
 
 Persist the normalized request and untouched native output for every context.
 Before constructing the SBE input bundle, require compatible engine, profile,
