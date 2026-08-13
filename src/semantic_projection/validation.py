@@ -89,6 +89,41 @@ def validate_projected_graph_ids(graph: dict[str, Any]) -> None:
             raise ProjectionValidationError(f"Duplicate {field} IDs: {duplicates[:5]}")
 
 
+def validate_projected_bounded_semantic_graph(graph: dict[str, Any]) -> None:
+    """Validate bounded output shape, references, and epistemic closure."""
+
+    validate_contract(graph, "projected_bounded_semantic_graph_v1.schema.json")
+    validate_projected_graph_ids(graph)
+    object_ids = {row["id"] for row in graph.get("objects") or []}
+    correspondence_ids: set[str] = set()
+    evidence = (graph.get("source_evidence") or {}).get("records") or {}
+    for kind in ("objects", "relationships"):
+        for row in graph.get(kind) or []:
+            correspondence_id = row["correspondence_id"]
+            if correspondence_id in correspondence_ids:
+                raise ProjectionValidationError(
+                    f"Duplicate bounded correspondence ID {correspondence_id!r}"
+                )
+            correspondence_ids.add(correspondence_id)
+            missing = [
+                ref
+                for ref in row["epistemic_basis"]["evidence_refs"]
+                if ref not in evidence
+            ]
+            if missing:
+                raise ProjectionValidationError(
+                    f"Projected bounded {kind[:-1]} {row['id']!r} references "
+                    f"missing source evidence: {missing[:5]}"
+                )
+    for row in graph.get("relationships") or []:
+        for endpoint in ("source_id", "target_id"):
+            if row[endpoint] not in object_ids:
+                raise ProjectionValidationError(
+                    f"Projected bounded relationship {row['id']!r} references "
+                    f"unknown {endpoint} {row[endpoint]!r}"
+                )
+
+
 def validate_temporal_projection_request(request: dict[str, Any]) -> None:
     """Validate Core's generic temporal request without executing projection."""
     validate_contract(request, "temporal_projection_request_v1.schema.json")

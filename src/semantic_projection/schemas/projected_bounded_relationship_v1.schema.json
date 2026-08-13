@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projected Bounded Relationship v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "correspondence_id", "relationship_type", "source_id", "target_id",
+    "operators", "theme_tags", "attributes", "source_relationship_refs",
+    "mapping_rule_refs", "context_refs", "epistemic_basis", "provenance"
+  ],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "correspondence_id": {"type": "string", "pattern": "^bounded_correspondence:relationship:"},
+    "relationship_type": {"type": "string", "minLength": 1},
+    "source_id": {"type": "string", "minLength": 1},
+    "target_id": {"type": "string", "minLength": 1},
+    "operators": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "theme_tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "attributes": {"type": "object"},
+    "source_relationship_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "mapping_rule_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "context_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+    "epistemic_basis": {"$ref": "projected_bounded_object_v1.schema.json#/$defs/epistemic_basis"},
+    "projection_relevance_score": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "provenance": {"type": "object"},
+    "structural_strength_score": false
+  }
+}

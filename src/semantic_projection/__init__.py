@@ -5,36 +5,38 @@ from ._version import __version__
 from .contracts import (
     BoundedNatalProjectionRequest,
     MappingExecution,
+    ProjectedBoundedSemanticGraph,
     ProjectedObject,
     ProjectedRelationship,
     ProjectedSemanticGraph,
-    ProjectedTemporalActivator,
     ProjectedTemporalActivation,
     ProjectedTemporalActivationGraph,
+    ProjectedTemporalActivator,
     ProjectedTemporalSequenceSummary,
     ProjectedTemporalState,
     ProjectionAudit,
     ProjectionContext,
     ProjectionDiagnostics,
-    ProjectionProfileManifest,
     ProjectionOptions,
+    ProjectionProfileManifest,
     ProjectionRequest,
     TemporalProjectionOptions,
     TemporalProjectionRequest,
 )
 from .engine import ENGINE_VERSION, ProjectionExecutionError, project
 from .ids import (
+    bounded_correspondence_id,
     mapping_execution_id,
     projected_object_id,
     projected_package_id,
     projected_relationship_id,
+    projected_temporal_activation_id,
+    projected_temporal_activator_id,
+    projected_temporal_graph_id,
+    projected_temporal_sequence_id,
+    projected_temporal_state_id,
     projection_request_id,
     temporal_projection_request_id,
-    projected_temporal_graph_id,
-    projected_temporal_activator_id,
-    projected_temporal_sequence_id,
-    projected_temporal_activation_id,
-    projected_temporal_state_id,
 )
 from .profile import ProjectionProfile
 from .registry import ProjectionProfileRegistry, ProjectionProfileRegistryError
@@ -47,13 +49,6 @@ from .rendering import (
     render_object_sentence,
     render_relationship_sentence,
 )
-from .validation import (
-    ProjectionValidationError,
-    validate_contract,
-    validate_bounded_natal_projection_request,
-    validate_projection_request,
-    validate_temporal_projection_request,
-)
 from .temporal import (
     TemporalProjectionNotImplementedError,
     TemporalSourceContractError,
@@ -62,6 +57,14 @@ from .temporal import (
     project_temporal,
     project_temporal_foundations,
     validate_foundry_temporal_source_bundle,
+)
+from .validation import (
+    ProjectionValidationError,
+    validate_bounded_natal_projection_request,
+    validate_contract,
+    validate_projected_bounded_semantic_graph,
+    validate_projection_request,
+    validate_temporal_projection_request,
 )
 
 __all__ = [
@@ -104,6 +107,23 @@ __all__.extend([
     "projection_summary_view",
     "materialize_projected_temporal_graph",
     "temporal_projection_summary_view",
+])
+
+from .bounded_contract import (
+    OUTPUT_CONTRACT as BOUNDED_OUTPUT_CONTRACT,
+    bounded_evidence_closure,
+    build_projected_bounded_contract,
+    projected_bounded_correspondence_id,
+)
+
+__all__.extend([
+    "BOUNDED_OUTPUT_CONTRACT",
+    "ProjectedBoundedSemanticGraph",
+    "bounded_correspondence_id",
+    "bounded_evidence_closure",
+    "build_projected_bounded_contract",
+    "projected_bounded_correspondence_id",
+    "validate_projected_bounded_semantic_graph",
 ])
 
 

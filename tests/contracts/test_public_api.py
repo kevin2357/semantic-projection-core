@@ -14,6 +14,12 @@ def test_public_api_exports_current_supported_routes():
         "materialize_projected_graph",
         "materialize_projected_temporal_graph",
         "identify_artifact",
+        "BoundedNatalProjectionRequest",
+        "ProjectedBoundedSemanticGraph",
+        "adapt_foundry_bounded_natal_dataset",
+        "bounded_evidence_closure",
+        "build_projected_bounded_contract",
+        "validate_projected_bounded_semantic_graph",
     }
     assert expected <= set(semantic_projection.__all__)
     assert all(hasattr(semantic_projection, name) for name in expected)

@@ -43,6 +43,21 @@ def projected_relationship_id(*, profile_id: str, relationship_type: str, source
     return f"projected_relation:{profile_id}:{stable_hash([relationship_type, source_id, target_id, sorted(source_refs), context_id])}"
 
 
+def bounded_correspondence_id(
+    *,
+    kind: str,
+    profile_id: str,
+    semantic_key: str,
+    source_refs: list[str],
+) -> str:
+    """Identify parallel bounded material independently of projection context."""
+
+    return (
+        f"bounded_correspondence:{kind}:{profile_id}:"
+        f"{stable_hash([semantic_key, sorted(source_refs)])}"
+    )
+
+
 def mapping_execution_id(*, mapping_rule_id: str, source_refs: list[str], context_id: str, result_refs: list[str]) -> str:
     return f"mapping_execution:{stable_hash([mapping_rule_id, sorted(source_refs), context_id, sorted(result_refs)])}"
 

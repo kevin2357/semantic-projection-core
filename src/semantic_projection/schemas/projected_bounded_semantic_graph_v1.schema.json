@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Projected Bounded Semantic Graph v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metadata", "source_identity", "source_artifact_ref", "target_ontology",
+    "source_capabilities", "source_feature_dispositions", "source_evidence",
+    "objects", "relationships", "indexes", "summary",
+    "projected_term_registry", "audit", "diagnostics", "provenance", "limitations"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "package_type", "contract_version", "output_contract", "projection_id",
+        "engine_version", "profile_id", "profile_version", "context_id",
+        "context_version", "runtime_identity"
+      ],
+      "properties": {
+        "package_type": {"const": "projected_bounded_semantic_graph"},
+        "contract_version": {"const": "1.0.0"},
+        "output_contract": {"const": "projected_bounded_semantic_graph.v1"},
+        "runtime_identity": {"$ref": "runtime_identity_v1.schema.json"}
+      },
+      "additionalProperties": true
+    },
+    "source_identity": {"type": "object"},
+    "source_artifact_ref": {
+      "type": "object",
+      "required": ["package_type", "package_schema_version", "graph_type", "graph_version", "source_artifact_sha256"]
+    },
+    "target_ontology": {"type": "string", "minLength": 1},
+    "source_capabilities": {"type": "object"},
+    "source_feature_dispositions": {"type": "object"},
+    "source_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_contract", "materialization", "records", "direct_refs",
+        "resolved_prerequisite_refs", "unresolved_prerequisite_refs",
+        "source_registry_record_count", "materialized_record_count", "semantic_sha256"
+      ],
+      "properties": {
+        "evidence_contract": {"const": "agf.bounded_uncertainty_evidence.v1.0.0"},
+        "materialization": {"const": "direct_refs_plus_resolvable_prerequisites"},
+        "records": {"type": "object", "additionalProperties": {"type": "object"}},
+        "direct_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "resolved_prerequisite_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "unresolved_prerequisite_refs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "source_registry_record_count": {"type": "integer", "minimum": 0},
+        "materialized_record_count": {"type": "integer", "minimum": 0},
+        "semantic_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "objects": {"type": "array", "items": {"$ref": "projected_bounded_object_v1.schema.json"}},
+    "relationships": {"type": "array", "items": {"$ref": "projected_bounded_relationship_v1.schema.json"}},
+    "indexes": {"type": "object"},
+    "summary": {"type": "object"},
+    "projected_term_registry": {"type": "object"},
+    "audit": {"type": "object"},
+    "diagnostics": {"type": "object"},
+    "provenance": {
+      "type": "object",
+      "required": [
+        "upstream_contracts", "runtime_identity", "epistemic_identity",
+        "context_epistemic_policy", "evidence_materialization_policy"
+      ]
+    },
+    "limitations": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  }
+}

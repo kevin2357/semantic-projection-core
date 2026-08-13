@@ -183,6 +183,28 @@ class ProjectedSemanticGraph(DictContract):
     diagnostics: JsonDict
     projected_term_registry: JsonDict = field(default_factory=dict)
 
+
+@dataclass(slots=True)
+class ProjectedBoundedSemanticGraph(DictContract):
+    """Separate output contract for bounded invariant projection."""
+
+    metadata: JsonDict
+    source_identity: JsonDict
+    source_artifact_ref: JsonDict
+    target_ontology: str
+    source_capabilities: JsonDict
+    source_feature_dispositions: JsonDict
+    source_evidence: JsonDict
+    objects: list[JsonDict]
+    relationships: list[JsonDict]
+    indexes: JsonDict
+    summary: JsonDict
+    projected_term_registry: JsonDict
+    audit: JsonDict
+    diagnostics: JsonDict
+    provenance: JsonDict
+    limitations: list[str] = field(default_factory=list)
+
 @dataclass(slots=True)
 class TemporalProjectionOptions(DictContract):
     """Execution controls for the future temporal projection pipeline.

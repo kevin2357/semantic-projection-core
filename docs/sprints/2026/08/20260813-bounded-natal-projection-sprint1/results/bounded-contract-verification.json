@@ -1,0 +1,50 @@
+{
+  "artifact_type": "spc_projected_bounded_contract_verification",
+  "date": "2026-08-13",
+  "status": "slice_3_gate_candidate",
+  "output_contract": "projected_bounded_semantic_graph.v1",
+  "existing_output_contract": {
+    "contract": "projected_semantic_graph.v1",
+    "schema_changed": false
+  },
+  "contract_capabilities": {
+    "separate_package_type": true,
+    "artifact_scoped_evidence": true,
+    "recursive_exact_prerequisite_closure": true,
+    "opaque_prerequisites_preserved": true,
+    "source_capabilities_preserved": true,
+    "source_feature_dispositions_preserved": true,
+    "context_independent_correspondence": true,
+    "context_specific_projection_identity": true,
+    "epistemic_identity": true,
+    "runtime_identity": true,
+    "structural_strength_permitted": false,
+    "mapping_execution": false
+  },
+  "epistemic_identity_inputs": [
+    "source_artifact_sha256",
+    "evidence_semantic_sha256",
+    "source_capabilities_sha256",
+    "source_feature_dispositions_sha256"
+  ],
+  "cross_context_assertions": {
+    "projection_id_varies": true,
+    "correspondence_id_varies": false,
+    "source_evidence_varies": false,
+    "epistemic_identity_varies": false
+  },
+  "verification": {
+    "focused_bounded_tests": {"status": "passed", "count": 26},
+    "full_spc_tests": {"status": "passed", "count": 183, "seconds": 60.75},
+    "ruff_focused": "passed",
+    "public_api": "passed",
+    "existing_schema_diff": "empty",
+    "json_parse": "passed",
+    "markdown_validation": "passed",
+    "git_diff_check": "passed"
+  },
+  "gate": {
+    "ready_for_review": true,
+    "slice_4_started": false
+  }
+}

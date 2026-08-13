@@ -240,3 +240,55 @@ entries rather than rewriting prior observations.
 - No bounded semantic projection, output artifact, profile mapping, installed
   CLI, or release version change is included in Slice 2.
 - Slice 2 gate disposition: ready for review. Slice 3 has not begun.
+
+## 2026-08-13 — Slice 2 approval and publication
+
+- User approved Slice 2 using the commit/push/continue boundary.
+- Committed the atomic intake boundary as `b63be2e` (`Add bounded natal intake
+  boundary`) and pushed `main` to `origin`.
+- Began Slice 3 only after the approved intake contract was immutable upstream.
+
+## 2026-08-13 — Slice 3 projected bounded contract and provenance
+
+- Added `projected_bounded_semantic_graph.v1` as a separate package contract.
+  The existing `projected_semantic_graph.v1` file was not modified.
+- Added bounded-specific projected object and relationship schemas. Every row
+  requires an invariant epistemic basis, direct source-evidence refs, evidence
+  family groups, proof scope, source refs, mapping refs, and a context-independent
+  correspondence ID. Structural strength is prohibited by schema.
+- Added `ProjectedBoundedSemanticGraph`, contract construction, validation,
+  artifact recognition, and public correspondence/evidence helpers.
+- Added artifact-scoped evidence closure. Direct evidence is mandatory;
+  prerequisite records are recursively included only when their identifiers
+  exactly resolve in the source registry; non-registry prerequisites remain
+  verbatim in an unresolved-reference list rather than being guessed or dropped.
+- The output preserves source capabilities and feature dispositions verbatim,
+  records source and runtime identities, and hashes the evidence subset,
+  capabilities, and dispositions into an epistemic identity.
+- Projection artifact identity remains context-specific. Correspondence identity
+  excludes context and is derived from kind, exact profile, semantic key, and
+  source refs so parallel context artifacts can be compared safely.
+- The contract records
+  `context_epistemic_policy=certainty_invariant_across_contexts`. Tests prove two
+  contexts have different projection IDs but identical source evidence,
+  epistemic identity, and correspondence IDs for structurally parallel rows.
+- The contract builder is mapping-neutral. Slice 3 can produce a valid empty
+  bounded artifact or validate supplied projected rows, but it does not map an
+  AGF object or relationship into Woofmapping semantics.
+
+## 2026-08-13 — Slice 3 verification and gate disposition
+
+- Focused bounded intake/contract suite: 26 passed.
+- Full SPC suite after contract implementation: 183 passed in 60.75 seconds.
+- Ruff passed for the new contract implementation, changed contract/ID/validation
+  modules, and focused tests. The legacy top-level export module retains broader
+  pre-existing Ruff noise and was checked through public API tests plus manual
+  import ordering for the changed block.
+- Public API coverage now asserts the bounded request, output, intake, evidence,
+  builder, and validator exports.
+- Exact static output schema diff against HEAD: empty.
+- JSON, Markdown, schema, and `git diff --check` validation were run after result
+  documentation.
+- No Woofmapping object/relationship mapping, projected-term registry, execution
+  CLI, profile entry point, version bump, or release change is included.
+- Slice 3 gate disposition: ready for review. Slice 4 has not begun.

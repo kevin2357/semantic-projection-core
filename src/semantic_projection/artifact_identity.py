@@ -27,6 +27,7 @@ _KIND_BY_PACKAGE_TYPE = {
     "canonical_temporal_activation_graph": "canonical_temporal_activation_graph",
     "projected_temporal_activation_graph": "projected_temporal_activation_graph",
     "projected_semantic_graph": "projected_static_graph",
+    "projected_bounded_semantic_graph": "projected_bounded_graph",
     "projection_forensic_audit": "projection_forensic_audit",
     "projection_qa_result": "projection_qa_result",
     "temporal_projection_qa_result": "temporal_projection_qa_result",
