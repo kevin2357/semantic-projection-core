@@ -1,0 +1,31 @@
+{
+  "profile_id": "woofmapped_bounded_astrology.v0",
+  "profile_version": "0.1.0",
+  "engine_contract_version": "1.0.0",
+  "source_ontology": "bounded_canonical_astrology_graph.v1",
+  "target_ontology": "woofmapped_astrology.v0",
+  "implementation": {
+    "type": "python",
+    "entrypoint": "semantic_projection.profiles.woofmapped_bounded_astrology.profile:WoofmappedBoundedAstrologyProfile"
+  },
+  "supported_source_graph_types": ["bounded_natal"],
+  "required_context_fields": [],
+  "optional_context_fields": ["subject_scope", "application_context", "audience", "parameters"],
+  "mapping_rule_namespace": "woofmapped_bounded_astrology.v0",
+  "output_contract": "projected_bounded_semantic_graph.v1",
+  "deterministic": true,
+  "status": "experimental_bounded_reference_profile",
+  "extensions": {
+    "source_package_type": "bounded_natal_dataset",
+    "source_graph_version": "1.7.0",
+    "source_epistemic_policy": "invariant_categorical_facts_only",
+    "structural_strength_policy": "unavailable_no_default",
+    "relationship_mapping_status": "deferred_to_slice_5",
+    "supported_context_ids": [
+      "woofmapped.doghouse.general.v0",
+      "woofmapped.handler_guidance.v1",
+      "woofmapped.dog_direct.v1",
+      "woofmapped.hybrid_horoscope.v1"
+    ]
+  }
+}

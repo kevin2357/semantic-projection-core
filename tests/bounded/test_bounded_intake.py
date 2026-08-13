@@ -111,6 +111,18 @@ def test_released_extra_availability_reason_is_preserved_not_reinterpreted():
     assert adapt(artifact).source_artifact["uncertainty_assessment"]["evidence_registry"]["uncertainty:bodies:Sun"] == evidence
 
 
+def test_promoted_qualifiers_require_their_distinct_evidence_refs():
+    artifact = load_artifact()
+    artifact["canonical_astrology_graph"]["objects"][0]["house_number"] = 8
+    with pytest.raises(BoundedNatalSourceContractError, match="house_uncertainty_evidence_ref"):
+        validate_foundry_bounded_natal_dataset(artifact)
+
+    artifact = load_artifact()
+    artifact["canonical_astrology_graph"]["objects"][0]["triplicity_ruler"] = "Sun"
+    with pytest.raises(BoundedNatalSourceContractError, match="triplicity_uncertainty_evidence_ref"):
+        validate_foundry_bounded_natal_dataset(artifact)
+
+
 def test_existing_static_route_rejects_bounded_graph_with_route_guidance():
     artifact = load_artifact()
     request = {

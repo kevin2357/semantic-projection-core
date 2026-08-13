@@ -219,6 +219,22 @@ def validate_foundry_bounded_natal_dataset(
         for ref in _evidence_refs(row):
             if ref not in registry:
                 _reject(f"Bounded object {row_id!r} references missing evidence {ref!r}")
+        if (
+            row.get("house_number") is not None
+            and row.get("object_type") != "bounded_house_cusp"
+            and not row.get("house_uncertainty_evidence_ref")
+        ):
+            _reject(
+                f"Bounded object {row_id!r} has house_number without "
+                "house_uncertainty_evidence_ref"
+            )
+        if row.get("triplicity_ruler") is not None and not row.get(
+            "triplicity_uncertainty_evidence_ref"
+        ):
+            _reject(
+                f"Bounded object {row_id!r} has triplicity_ruler without "
+                "triplicity_uncertainty_evidence_ref"
+            )
 
     for row in relationships:
         row_id = str(row["id"])

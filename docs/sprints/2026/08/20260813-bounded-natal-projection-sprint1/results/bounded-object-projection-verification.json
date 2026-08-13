@@ -1,0 +1,58 @@
+{
+  "artifact_type": "spc_bounded_object_projection_verification",
+  "date": "2026-08-13",
+  "status": "slice_4_gate_candidate",
+  "profile": {
+    "profile_id": "woofmapped_bounded_astrology.v0",
+    "profile_version": "0.1.0",
+    "target_ontology": "woofmapped_astrology.v0",
+    "output_contract": "projected_bounded_semantic_graph.v1",
+    "policy_resource_set_bundled": true,
+    "installed_entry_point_advertised": false
+  },
+  "supported_object_families": [
+    "bounded_angle",
+    "bounded_antiscia_point",
+    "bounded_calculated_point_with_known_primitive",
+    "bounded_contra_antiscia_point",
+    "bounded_harmonic_point",
+    "bounded_house_cusp",
+    "bounded_natal_body_with_known_primitive"
+  ],
+  "explicitly_outside_scope": [
+    "bounded_sect_state",
+    "bounded_calculated_point_without_known_primitive"
+  ],
+  "semantic_controls": {
+    "missing_sign_defaulted": false,
+    "missing_house_defaulted": false,
+    "structural_strength_emitted": false,
+    "projection_relevance_emitted": false,
+    "derived_owner_identity_preserved": true,
+    "derived_evidence_family_preserved": true,
+    "unsupported_passthrough": false,
+    "relationship_mapping": false
+  },
+  "evidence_hardening": {
+    "house_promotion_requires_distinct_ref": true,
+    "triplicity_promotion_requires_distinct_ref": true,
+    "cusp_house_number_is_intrinsic_identity": true
+  },
+  "verification": {
+    "bounded_tests": {"status": "passed", "count": 34},
+    "full_spc_tests": {"status": "passed", "count": 191, "seconds": 61.04},
+    "ruff": "passed",
+    "manifest_schema": "passed",
+    "term_registry": "passed",
+    "runtime_profile_resource_identity": "passed",
+    "determinism": "passed",
+    "input_immutability": "passed",
+    "json_parse": "passed",
+    "markdown_validation": "passed",
+    "git_diff_check": "passed"
+  },
+  "gate": {
+    "ready_for_review": true,
+    "slice_5_started": false
+  }
+}

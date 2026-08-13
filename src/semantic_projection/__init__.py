@@ -126,6 +126,16 @@ __all__.extend([
     "validate_projected_bounded_semantic_graph",
 ])
 
+from .bounded_projection import (
+    BoundedProjectionExecutionError,
+    project_bounded_natal_objects,
+)
+
+__all__.extend([
+    "BoundedProjectionExecutionError",
+    "project_bounded_natal_objects",
+])
+
 
 __all__.extend([
     "TemporalProjectionOptions",

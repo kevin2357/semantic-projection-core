@@ -292,3 +292,80 @@ entries rather than rewriting prior observations.
 - No Woofmapping object/relationship mapping, projected-term registry, execution
   CLI, profile entry point, version bump, or release change is included.
 - Slice 3 gate disposition: ready for review. Slice 4 has not begun.
+
+## 2026-08-13 — Slice 3 approval and publication
+
+- User approved Slice 3 using the commit/push/continue boundary.
+- Committed the bounded output contract as `15186db` (`Define projected bounded
+  graph contract`) and pushed `main` to `origin`.
+- Began Slice 4 only after the contract and provenance boundary were immutable
+  upstream.
+
+## 2026-08-13 — Slice 4 Woofmapping bounded object projection
+
+- Added independently versioned profile policy
+  `woofmapped_bounded_astrology.v0` 0.1.0 with its own manifest, source-selection
+  policy, mapping namespace, ontology resource, and projected-term registry.
+- The target ontology remains `woofmapped_astrology.v0`. The profile reuses the
+  established canine primitive meanings while keeping bounded source policy and
+  registry identity separately fingerprintable.
+- Added deterministic object-only execution through
+  `project_bounded_natal_objects`. It resolves only the exact bounded profile,
+  validates one of the four supported contexts, maps declared object families,
+  builds artifact-scoped evidence closure, attaches a used-term registry subset,
+  and emits the Slice 3 bounded contract.
+- Mapped known bounded bodies, angles, calculated points, house cusps, and
+  coordinate-derived objects. Sign indexes become established Woofmapping modes;
+  invariant houses become Doghouse domains. No sign or house is manufactured
+  when absent.
+- Derived antiscia, contra-antiscia, and harmonic objects preserve their root
+  owner's target operator and add an explicit coordinate-transform role,
+  transform kind/qualifier, owner reference, and owner-family provenance. They
+  remain separate source-supported objects and do not become independent votes.
+- House cusp objects map directly to the corresponding Doghouse domain while
+  preserving source sign and ruler facts as source attributes.
+- Bounded sect state and calculated points without an established primitive are
+  classified outside declared scope and listed in audit coverage. They are not
+  passed through or assigned decorative new meanings.
+- Projection relevance remains `null` for every Slice 4 object. Structural
+  strength is absent. Relationship projection remains explicitly deferred to
+  Slice 5.
+- The bounded projected-term registry is an artifact-scoped used-term subset
+  with bounded profile identity. Emitted object, mode, and domain refs all
+  resolve to embedded definitions.
+
+## 2026-08-13 — Slice 4 intake hardening finding
+
+- Object mapping made visible that promoted `house_number` and
+  `triplicity_ruler` fields can have distinct evidence refs beyond the object's
+  primary uncertainty evidence.
+- Hardened bounded intake so non-cusp house promotions require
+  `house_uncertainty_evidence_ref` and triplicity promotions require
+  `triplicity_uncertainty_evidence_ref`. Both refs must resolve in the source
+  registry and become part of projected epistemic closure.
+- House cusp `house_number` is intrinsic cusp identity rather than a promoted
+  placement and therefore correctly does not require a separate house-membership
+  evidence ref.
+
+## 2026-08-13 — Slice 4 packaging boundary
+
+- The bounded profile resources are included by existing package-data rules and
+  receive a bundled policy-resource fingerprint in runtime identity.
+- The profile is not yet added to installed entry-point discovery or the 0.10.0
+  release-compatibility declaration. Advertising a new installed supported
+  profile while distribution compatibility still identifies immutable 0.10.0
+  would be false. Installed exposure and release declaration remain Slice 8/9
+  work after relationship and QA gates.
+
+## 2026-08-13 — Slice 4 verification and gate disposition
+
+- Bounded suite: 34 passed.
+- Full SPC suite: 191 passed in 61.04 seconds.
+- Ruff on bounded intake/execution/profile modules and focused tests: passed.
+- Manifest schema and projected-term registry semantic validation: passed.
+- Runtime identity reports the bounded profile policy resource set as bundled
+  and content-addressed.
+- Existing exact and temporal release declarations and routes remain unchanged.
+- JSON, Markdown, and `git diff --check` validation were run after result
+  documentation.
+- Slice 4 gate disposition: ready for review. Slice 5 has not begun.
