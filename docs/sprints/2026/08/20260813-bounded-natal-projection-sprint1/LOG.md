@@ -179,3 +179,64 @@ entries rather than rewriting prior observations.
 - No implementation source, runtime schema, profile, CLI, test, version, or
   package resource changed in Slice 1.
 - Slice 1 gate disposition: ready for review. Slice 2 has not begun.
+
+## 2026-08-13 — Slice 1 approval and publication
+
+- User approved Slice 1 using the commit/push/continue boundary.
+- Committed the Slice 1 audit as `e30cddf` (`Audit bounded natal projection
+  contract`) and pushed `main` to `origin`.
+- Began Slice 2 only after the approved evidence was immutable upstream.
+
+## 2026-08-13 — Slice 2 bounded wire intake
+
+- Added `BoundedNatalProjectionRequest`, a dedicated
+  `bounded_natal_projection_request.v1` schema, and an SPC-owned consumer schema
+  for the exact AGF 0.8 bounded fields and identities SPC consumes.
+- Added `validate_foundry_bounded_natal_dataset` and
+  `adapt_foundry_bounded_natal_dataset`. Intake accepts one full source artifact,
+  deep-copies it, validates cross-section consistency, and produces deterministic
+  request and source-artifact identities without importing AGF.
+- Validation pins package 1.0.0, graph 1.7.0, evidence 1.0.0, calculation profile
+  1.12.0, and interval proof 1.0.0. It reconciles chart identity, package/graph
+  capabilities, invariant-subgraph basis, counts, IDs, endpoints, ownership,
+  direct evidence refs, family metadata, and epistemic classifications.
+- Validation rejects exact positional/scoring fields prohibited by bounded
+  semantics. Missing structural strength remains absent rather than receiving an
+  exact-profile default.
+- Capability reconciliation intentionally permits the canonical graph to expose
+  the post-finalization structural capability additions that are absent from the
+  package-level pre-finalization capability copy; all shared keys must agree.
+- Added explicit wrong-route detection before the existing static graph-version
+  check so callers receive bounded-route guidance rather than a generic version
+  error. Existing temporal behavior was not changed.
+- Added artifact recognition for the AGF bounded dataset and prepared bounded
+  request.
+- Added a compact, schema-shaped fixture owned by SPC tests. It is not represented
+  as a full AGF native-schema fixture or as qualification evidence for AGF itself.
+
+## 2026-08-13 — Slice 2 defects found and resolved
+
+- The first cross-repository generated-artifact probe showed that AGF finalizes
+  three structural capabilities only on the canonical graph, after the package
+  level initially copies graph capabilities. Requiring the two maps to be
+  byte-identical would reject valid release-shaped output. The validator now
+  requires all package-declared keys to agree and reads structural capability
+  assertions from the finalized graph.
+- The older AGF unit assessment helper predates mandatory generalized evidence
+  identity and omits `evidence_contract_version`. The cross-repository probe added
+  the released evidence identity to that synthetic assessment; the SPC boundary
+  correctly remains strict for the qualified 1.12.0 profile.
+
+## 2026-08-13 — Slice 2 verification and gate disposition
+
+- Focused bounded/contract suite: 28 passed during initial integration.
+- Final bounded intake suite: 15 passed.
+- Full SPC suite: 172 passed in 60.79 seconds.
+- Ruff on all touched Python modules and the bounded tests: passed.
+- Cross-repository source-shaped probe generated an AGF bounded package through
+  the current builder and adapted it through SPC successfully after supplying
+  the released evidence identity to the older synthetic assessment helper.
+- `git diff --check` and Markdown/JSON checks were run after result documentation.
+- No bounded semantic projection, output artifact, profile mapping, installed
+  CLI, or release version change is included in Slice 2.
+- Slice 2 gate disposition: ready for review. Slice 3 has not begun.

@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "schema_version": "1.0.0",
+    "analysis_type": "bounded_natal_dataset",
+    "person": "Scout",
+    "source_chart_id": "astrowoof:dog:018f",
+    "source_chart_ids": ["astrowoof:dog:018f"],
+    "canonical_graph_contract": "bounded_canonical_astrology_graph.v1",
+    "calculation_provenance": {
+      "contract_version": "agf.bounded_natal.calculation_provenance.v1.0.0",
+      "calculation_basis_status": "complete_bounded_live_profile",
+      "calculation_profile_version": "agf.bounded_natal.calculation_profile.v1.12.0",
+      "normalization_policy_version": "agf.bounded_birth_time.normalization_policy.v1.0.0",
+      "canonical_json_policy_version": "agf.canonical_json.v1.0.0",
+      "source_input": {},
+      "configuration_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "calculation_profile": {},
+      "output_artifact_hash": {}
+    }
+  },
+  "person": {"person": "Scout", "source_chart_id": "astrowoof:dog:018f"},
+  "birth_time_basis": {
+    "mode": "bounded",
+    "earliest_local": "2020-05-17T08:00:00",
+    "latest_local": "2020-05-17T12:00:00"
+  },
+  "bounded_natal": {"source_chart_id": "astrowoof:dog:018f", "bodies": {}, "aspects": []},
+  "uncertainty_assessment": {
+    "evidence_contract_version": "agf.bounded_uncertainty_evidence.v1.0.0",
+    "status": "complete",
+    "proof_profile": {"version": "agf.interval_proof.v1.0.0"},
+    "interval": {"boundary_policy": "inclusive"},
+    "evaluation_count": 241,
+    "failures": [],
+    "body_evidence": {},
+    "aspect_evidence": [],
+    "feature_dispositions": {
+      "representative_longitudes": "prohibited_precision_laundering",
+      "structural_strength_scores": "unavailable_for_bounded_invariant_subgraph"
+    },
+    "evidence_registry": {
+      "uncertainty:bodies:Sun": {
+        "evidence_contract_version": "agf.bounded_uncertainty_evidence.v1.0.0",
+        "feature_key": "body:Sun",
+        "classification": "invariant",
+        "value_kind": "body_coordinate",
+        "possibilities": {"possibility_type": "categorical_set", "values": ["Aries"], "count": 1},
+        "prerequisite_refs": ["provider:ephemeris"],
+        "range_evidence": null,
+        "transition_witnesses": [],
+        "counterexamples": [],
+        "proof_scope": "complete_normalized_birth_interval",
+        "availability": "available"
+      },
+      "uncertainty:aspects:Sun:Mars": {
+        "evidence_contract_version": "agf.bounded_uncertainty_evidence.v1.0.0",
+        "feature_key": "aspect:Sun:Mars",
+        "classification": "invariant",
+        "value_kind": "aspect_type",
+        "possibilities": {"possibility_type": "categorical_set", "values": ["trine"], "count": 1},
+        "prerequisite_refs": ["uncertainty:bodies:Sun"],
+        "range_evidence": null,
+        "transition_witnesses": [],
+        "counterexamples": [],
+        "proof_scope": "complete_normalized_birth_interval"
+      }
+    }
+  },
+  "capabilities": {
+    "supports_bounded_categorical_placements": true,
+    "supports_exact_longitudes": false,
+    "supports_structural_strength_scores": false,
+    "supports_canonical_claims": false,
+    "supports_semantic_graph_activation": false,
+    "supports_house_transits": false,
+    "supports_angle_transits": false
+  },
+  "canonical_astrology_graph": {
+    "graph_type": "bounded_canonical_astrology_graph",
+    "graph_version": "1.7.0",
+    "source_chart_id": "astrowoof:dog:018f",
+    "source_chart_ids": ["astrowoof:dog:018f"],
+    "projection_status": "pre_projection",
+    "objects": [
+      {
+        "id": "astrowoof:dog:018f:Sun",
+        "object_type": "bounded_natal_body",
+        "name": "Sun",
+        "sign_index": 0,
+        "motion_state": "direct",
+        "uncertainty_evidence_ref": "uncertainty:bodies:Sun",
+        "evidence_metadata": {
+          "evidence_tier": "core",
+          "derivation_type": "direct",
+          "derivation_family": "natal_body",
+          "source_sensor_id": "astrowoof:dog:018f",
+          "sensor_instance_id": "astrowoof:dog:018f",
+          "source_chart_ids": ["astrowoof:dog:018f"],
+          "record_independence_group": "astrowoof:dog:018f:object-record:Sun",
+          "evidence_family_group": "astrowoof:dog:018f:object-family:Sun",
+          "independence_group": "astrowoof:dog:018f:object-family:Sun",
+          "source_chart_family_group": "chart:018f:object-family:Sun"
+        }
+      },
+      {
+        "id": "astrowoof:dog:018f:Mars",
+        "object_type": "bounded_natal_body",
+        "name": "Mars",
+        "sign_index": 4,
+        "motion_state": "direct",
+        "uncertainty_evidence_ref": "uncertainty:bodies:Sun",
+        "evidence_metadata": {
+          "evidence_tier": "core",
+          "derivation_type": "direct",
+          "derivation_family": "natal_body",
+          "source_sensor_id": "astrowoof:dog:018f",
+          "sensor_instance_id": "astrowoof:dog:018f",
+          "source_chart_ids": ["astrowoof:dog:018f"],
+          "record_independence_group": "astrowoof:dog:018f:object-record:Mars",
+          "evidence_family_group": "astrowoof:dog:018f:object-family:Mars",
+          "independence_group": "astrowoof:dog:018f:object-family:Mars",
+          "source_chart_family_group": "chart:018f:object-family:Mars"
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "id": "rel:bounded:trine",
+        "relationship_type": "BOUNDED_INVARIANT_ASPECT",
+        "source_id": "astrowoof:dog:018f:Sun",
+        "target_id": "astrowoof:dog:018f:Mars",
+        "aspect": "trine",
+        "uncertainty_evidence_ref": "uncertainty:aspects:Sun:Mars",
+        "evidence_metadata": {
+          "evidence_tier": "core",
+          "derivation_type": "direct",
+          "derivation_family": "aspect",
+          "source_sensor_id": "astrowoof:dog:018f",
+          "sensor_instance_id": "astrowoof:dog:018f",
+          "source_chart_ids": ["astrowoof:dog:018f"],
+          "record_independence_group": "astrowoof:dog:018f:relationship-record:trine",
+          "evidence_family_group": "astrowoof:dog:018f:relationship-family:Sun:Mars",
+          "independence_group": "astrowoof:dog:018f:relationship-family:Sun:Mars",
+          "source_chart_family_group": "chart:018f:relationship-family:Sun:Mars"
+        }
+      }
+    ],
+    "summary": {
+      "basis": "bounded_invariant_subgraph",
+      "object_count": 2,
+      "relationship_count": 1,
+      "raw_counts_are_independence_weights": false
+    },
+    "capabilities": {
+      "supports_bounded_categorical_placements": true,
+      "supports_exact_longitudes": false,
+      "supports_structural_strength_scores": false,
+      "supports_canonical_claims": false,
+      "supports_semantic_graph_activation": false,
+      "supports_house_transits": false,
+      "supports_angle_transits": false
+    }
+  },
+  "structural_evidence_graph": {
+    "graph_type": "structural_evidence_graph",
+    "graph_version": "1.3.0",
+    "source_graph_type": "canonical_astrology_graph",
+    "source_sensor_id": "astrowoof:dog:018f",
+    "sensor_instance_id": "astrowoof:dog:018f",
+    "source_chart_id": "astrowoof:dog:018f",
+    "source_chart_ids": ["astrowoof:dog:018f"],
+    "projection_status": "pre_projection",
+    "basis": "bounded_invariant_subgraph",
+    "record_independence_group_count": 3,
+    "evidence_family_group_count": 3,
+    "source_chart_family_group_count": 3,
+    "independence_policy": {},
+    "score_policy": {"status": "unavailable"},
+    "claim_policy": {"status": "none_emitted"}
+  },
+  "semantic_boundary": {
+    "canonical_graph_contract": "bounded_canonical_astrology_graph.v1",
+    "bounded_birth_time": true
+  }
+}

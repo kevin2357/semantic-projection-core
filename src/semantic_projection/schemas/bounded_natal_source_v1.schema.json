@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SPC Consumer Boundary for AGF Bounded Natal Dataset v1",
+  "type": "object",
+  "required": [
+    "metadata",
+    "birth_time_basis",
+    "uncertainty_assessment",
+    "capabilities",
+    "canonical_astrology_graph",
+    "structural_evidence_graph",
+    "semantic_boundary"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "analysis_type",
+        "source_chart_id",
+        "source_chart_ids",
+        "canonical_graph_contract",
+        "calculation_provenance"
+      ],
+      "properties": {
+        "schema_version": {"const": "1.0.0"},
+        "analysis_type": {"const": "bounded_natal_dataset"},
+        "source_chart_id": {"type": "string", "minLength": 1},
+        "source_chart_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "canonical_graph_contract": {"const": "bounded_canonical_astrology_graph.v1"},
+        "calculation_provenance": {
+          "type": "object",
+          "required": ["contract_version", "calculation_profile_version", "configuration_sha256"],
+          "properties": {
+            "contract_version": {"const": "agf.bounded_natal.calculation_provenance.v1.0.0"},
+            "calculation_profile_version": {"const": "agf.bounded_natal.calculation_profile.v1.12.0"},
+            "configuration_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "birth_time_basis": {"type": "object"},
+    "uncertainty_assessment": {
+      "type": "object",
+      "required": [
+        "evidence_contract_version",
+        "status",
+        "proof_profile",
+        "evidence_registry",
+        "feature_dispositions"
+      ],
+      "properties": {
+        "evidence_contract_version": {"const": "agf.bounded_uncertainty_evidence.v1.0.0"},
+        "proof_profile": {
+          "type": "object",
+          "required": ["version"],
+          "properties": {"version": {"const": "agf.interval_proof.v1.0.0"}},
+          "additionalProperties": true
+        },
+        "evidence_registry": {"type": "object", "additionalProperties": {"type": "object"}},
+        "feature_dispositions": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "capabilities": {"type": "object"},
+    "canonical_astrology_graph": {
+      "type": "object",
+      "required": [
+        "graph_type",
+        "graph_version",
+        "source_chart_id",
+        "source_chart_ids",
+        "projection_status",
+        "objects",
+        "relationships",
+        "summary",
+        "capabilities"
+      ],
+      "properties": {
+        "graph_type": {"const": "bounded_canonical_astrology_graph"},
+        "graph_version": {"const": "1.7.0"},
+        "source_chart_id": {"type": "string", "minLength": 1},
+        "source_chart_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "projection_status": {"const": "pre_projection"},
+        "objects": {"type": "array", "items": {"type": "object"}},
+        "relationships": {"type": "array", "items": {"type": "object"}},
+        "summary": {"type": "object"},
+        "capabilities": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "structural_evidence_graph": {
+      "type": "object",
+      "required": [
+        "sensor_instance_id",
+        "source_chart_id",
+        "source_chart_ids",
+        "basis",
+        "record_independence_group_count",
+        "evidence_family_group_count"
+      ],
+      "additionalProperties": true
+    },
+    "semantic_boundary": {
+      "type": "object",
+      "required": ["canonical_graph_contract", "bounded_birth_time"],
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -3,6 +3,7 @@
 from ._version import __version__
 
 from .contracts import (
+    BoundedNatalProjectionRequest,
     MappingExecution,
     ProjectedObject,
     ProjectedRelationship,
@@ -49,6 +50,7 @@ from .rendering import (
 from .validation import (
     ProjectionValidationError,
     validate_contract,
+    validate_bounded_natal_projection_request,
     validate_projection_request,
     validate_temporal_projection_request,
 )
@@ -160,3 +162,21 @@ __all__.extend(["bundled_contexts", "load_bundled_context", "release_compatibili
 
 from .runtime_identity import projection_runtime_identity, runtime_release_manifest
 __all__.extend(["projection_runtime_identity", "runtime_release_manifest"])
+
+from .bounded import (
+    BOUNDED_REQUEST_CONTRACT,
+    SUPPORTED_BOUNDED_SOURCE,
+    BoundedNatalSourceContractError,
+    adapt_foundry_bounded_natal_dataset,
+    validate_foundry_bounded_natal_dataset,
+)
+
+__all__.extend([
+    "BOUNDED_REQUEST_CONTRACT",
+    "SUPPORTED_BOUNDED_SOURCE",
+    "BoundedNatalProjectionRequest",
+    "BoundedNatalSourceContractError",
+    "adapt_foundry_bounded_natal_dataset",
+    "validate_bounded_natal_projection_request",
+    "validate_foundry_bounded_natal_dataset",
+])

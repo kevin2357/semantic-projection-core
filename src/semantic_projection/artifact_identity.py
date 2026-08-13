@@ -22,6 +22,7 @@ class ArtifactIdentity:
 
 
 _KIND_BY_PACKAGE_TYPE = {
+    "bounded_natal_dataset": "foundry_bounded_natal_dataset",
     "temporal_projection_source_bundle": "foundry_temporal_projection_source_bundle",
     "canonical_temporal_activation_graph": "canonical_temporal_activation_graph",
     "projected_temporal_activation_graph": "projected_temporal_activation_graph",
@@ -37,6 +38,20 @@ def identify_artifact(value: Mapping[str, Any]) -> ArtifactIdentity:
     metadata = value.get("metadata") if isinstance(value.get("metadata"), Mapping) else {}
     package_type = metadata.get("package_type")
     contract_version = metadata.get("contract_version")
+    if value.get("request_contract") == "bounded_natal_projection_request.v1":
+        return ArtifactIdentity(
+            kind="bounded_natal_projection_request",
+            package_type="bounded_natal_projection_request",
+            contract_version="1.0.0",
+            recognized=True,
+        )
+    if metadata.get("analysis_type") == "bounded_natal_dataset":
+        return ArtifactIdentity(
+            kind="foundry_bounded_natal_dataset",
+            package_type="bounded_natal_dataset",
+            contract_version=str(metadata.get("schema_version") or ""),
+            recognized=True,
+        )
     if value.get("request_contract") == "temporal_projection_request.v1":
         return ArtifactIdentity(
             kind="temporal_projection_request",

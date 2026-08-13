@@ -1,7 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import asdict, dataclass, field
-from typing import Any, Mapping, TypeVar, Type
+from typing import Any, TypeVar
 
 JsonDict = dict[str, Any]
 T = TypeVar("T", bound="DictContract")
@@ -14,7 +15,7 @@ class DictContract:
         return asdict(self)
 
     @classmethod
-    def from_dict(cls: Type[T], value: Mapping[str, Any]) -> T:
+    def from_dict(cls: type[T], value: Mapping[str, Any]) -> T:  # noqa: PYI019 -- Python 3.10 lacks typing.Self
         return cls(**dict(value))  # type: ignore[arg-type]
 
 
@@ -78,6 +79,25 @@ class ProjectionRequest(DictContract):
     options: JsonDict = field(
         default_factory=lambda: ProjectionOptions().to_dict()
     )
+
+
+@dataclass(slots=True)
+class BoundedNatalProjectionRequest(DictContract):
+    """Atomic request prepared from one validated AGF bounded natal dataset."""
+
+    request_id: str
+    request_contract: str
+    profile_id: str
+    profile_version: str
+    source_artifact: JsonDict
+    source_identity: JsonDict
+    context: JsonDict
+    options: JsonDict = field(
+        default_factory=lambda: ProjectionOptions().to_dict()
+    )
+    upstream_contracts: JsonDict = field(default_factory=dict)
+    limitations: list[str] = field(default_factory=list)
+    extensions: JsonDict = field(default_factory=dict)
 
 
 @dataclass(slots=True)

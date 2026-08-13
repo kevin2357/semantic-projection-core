@@ -10,6 +10,9 @@ from referencing import Registry, Resource
 SCHEMA_PACKAGE = "semantic_projection.schemas"
 SUPPORTED_SOURCE_GRAPH_VERSIONS = {"1.3.0"}
 SUPPORTED_TEMPORAL_REQUEST_CONTRACTS = {"temporal_projection_request.v1"}
+SUPPORTED_BOUNDED_NATAL_REQUEST_CONTRACTS = {
+    "bounded_natal_projection_request.v1"
+}
 
 
 class ProjectionValidationError(ValueError):
@@ -45,6 +48,12 @@ def validate_projection_request(request: dict[str, Any]) -> None:
         "transit_range_dataset",
         "transit_period_dataset",
     }
+    if graph.get("graph_type") == "bounded_canonical_astrology_graph":
+        raise ProjectionValidationError(
+            "Bounded natal source packages require "
+            "bounded_natal_projection_request.v1; they cannot be projected "
+            "through the exact static semantic graph route."
+        )
     if str(graph.get("graph_type") or "").lower() in temporal_graph_types:
         raise ProjectionValidationError(
             "Temporal source packages require temporal_projection_request.v1; they cannot be projected as a static semantic graph."
@@ -57,6 +66,19 @@ def validate_projection_request(request: dict[str, Any]) -> None:
     context = request.get("context") or {}
     if context.get("target_domain") and request.get("profile_id", "").split(".")[0] == "":
         raise ProjectionValidationError("profile_id must be non-empty")
+
+
+def validate_bounded_natal_projection_request(request: dict[str, Any]) -> None:
+    """Validate a prepared bounded request without executing projection."""
+
+    validate_contract(request, "bounded_natal_projection_request_v1.schema.json")
+    contract = request.get("request_contract")
+    if contract not in SUPPORTED_BOUNDED_NATAL_REQUEST_CONTRACTS:
+        raise ProjectionValidationError(
+            f"Unsupported bounded natal request contract {contract!r}; "
+            "supported contracts: "
+            f"{sorted(SUPPORTED_BOUNDED_NATAL_REQUEST_CONTRACTS)}"
+        )
 
 
 def validate_projected_graph_ids(graph: dict[str, Any]) -> None:

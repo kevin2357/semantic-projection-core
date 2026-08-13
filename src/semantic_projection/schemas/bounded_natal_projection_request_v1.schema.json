@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bounded Natal Projection Request v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request_id",
+    "request_contract",
+    "profile_id",
+    "profile_version",
+    "source_artifact",
+    "source_identity",
+    "context",
+    "options",
+    "upstream_contracts",
+    "limitations",
+    "extensions"
+  ],
+  "properties": {
+    "request_id": {"type": "string", "pattern": "^bounded_natal_projection_request:"},
+    "request_contract": {"const": "bounded_natal_projection_request.v1"},
+    "profile_id": {"type": "string", "minLength": 1},
+    "profile_version": {"type": "string", "minLength": 1},
+    "source_artifact": {"$ref": "bounded_natal_source_v1.schema.json"},
+    "source_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_chart_id", "source_chart_ids", "sensor_instance_id", "source_artifact_sha256"],
+      "properties": {
+        "source_chart_id": {"type": "string", "minLength": 1},
+        "source_chart_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "sensor_instance_id": {"type": "string", "minLength": 1},
+        "source_artifact_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      }
+    },
+    "context": {"type": "object"},
+    "options": {"$ref": "projection_options_v1.schema.json"},
+    "upstream_contracts": {"type": "object"},
+    "limitations": {"type": "array", "items": {"type": "string"}},
+    "extensions": {"type": "object"}
+  }
+}

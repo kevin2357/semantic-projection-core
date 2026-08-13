@@ -1,0 +1,57 @@
+{
+  "artifact_type": "spc_bounded_intake_verification",
+  "date": "2026-08-13",
+  "status": "slice_2_gate_candidate",
+  "request_contract": "bounded_natal_projection_request.v1",
+  "qualified_source": {
+    "distribution": "astrology-graph-foundry",
+    "version": "0.8.0",
+    "package_type": "bounded_natal_dataset",
+    "package_schema_version": "1.0.0",
+    "graph_type": "bounded_canonical_astrology_graph",
+    "graph_version": "1.7.0",
+    "evidence_contract": "agf.bounded_uncertainty_evidence.v1.0.0",
+    "calculation_profile": "agf.bounded_natal.calculation_profile.v1.12.0",
+    "proof_profile": "agf.interval_proof.v1.0.0"
+  },
+  "boundary": {
+    "atomic_source_artifact": true,
+    "mutates_input": false,
+    "agf_runtime_dependency": false,
+    "consumer_schema_packaged": true,
+    "cross_section_validation": true,
+    "projection_execution": false,
+    "existing_static_schema_changed": false,
+    "existing_temporal_schema_changed": false
+  },
+  "validation_coverage": [
+    "exact_contract_versions",
+    "source_identity_reconciliation",
+    "capability_reconciliation",
+    "bounded_invariant_subgraph_basis",
+    "non_weighting_counts",
+    "unique_ids",
+    "relationship_endpoint_closure",
+    "derived_owner_closure",
+    "direct_evidence_reference_closure",
+    "evidence_family_identity",
+    "epistemic_classification",
+    "forbidden_precision_and_scores",
+    "summary_count_reconciliation",
+    "wrong_route_rejection"
+  ],
+  "verification": {
+    "focused_contract_tests": {"status": "passed", "count": 28},
+    "final_bounded_intake_tests": {"status": "passed", "count": 15},
+    "full_spc_tests": {"status": "passed", "count": 172, "seconds": 60.79},
+    "ruff": "passed",
+    "cross_repository_source_shaped_probe": "passed",
+    "json_parse": "passed",
+    "markdown_validation": "passed",
+    "git_diff_check": "passed"
+  },
+  "gate": {
+    "ready_for_review": true,
+    "slice_3_started": false
+  }
+}
