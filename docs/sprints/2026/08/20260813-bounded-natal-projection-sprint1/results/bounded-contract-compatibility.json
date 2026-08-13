@@ -1,0 +1,125 @@
+{
+  "artifact_type": "spc_bounded_contract_compatibility_audit",
+  "audit_date": "2026-08-13",
+  "status": "slice_1_gate_candidate",
+  "implementation_changes": false,
+  "source_release": {
+    "distribution": "astrology-graph-foundry",
+    "version": "0.8.0",
+    "tag": "astrology-graph-foundry-v0.8.0",
+    "commit": "2e5feef35e6d7144c3e639ece0aba9ff587ea4e9",
+    "wheel_sha256": "f236de0bb7c254c4421f571e816f2314251636ebbed9aa3cb9cb2a09925c04ae",
+    "runtime_manifest_sha256": "413c84728bc279bdfa67f892481ebe9837c0306093c2d28444caf239043ed5e2"
+  },
+  "supported_source_contracts": {
+    "package_type": "bounded_natal_dataset",
+    "package_schema_version": "1.0.0",
+    "graph_type": "bounded_canonical_astrology_graph",
+    "graph_version": "1.7.0",
+    "evidence_contract": "agf.bounded_uncertainty_evidence.v1.0.0",
+    "calculation_profile": "agf.bounded_natal.calculation_profile.v1.12.0",
+    "interval_proof_profile": "agf.interval_proof.v1.0.0"
+  },
+  "candidate_spc_boundary": {
+    "distribution_version": "0.11.0",
+    "engine_version": "0.11.0",
+    "request_contract": "bounded_natal_projection_request.v1",
+    "output_contract": "projected_bounded_semantic_graph.v1",
+    "console_entry_point": "semantic-bounded-project",
+    "profile_id": "woofmapped_bounded_astrology.v0",
+    "profile_version": "0.1.0",
+    "target_ontology": "woofmapped_astrology.v0"
+  },
+  "fixed_invariants": {
+    "existing_projected_semantic_graph_v1_unchanged": true,
+    "atomic_full_source_artifact_intake": true,
+    "agf_runtime_dependency": false,
+    "context_may_change_epistemic_certainty": false,
+    "preserve_evidence_family_identity": true,
+    "family_multiplicity_may_inflate_relevance_or_coverage": false,
+    "representative_or_midpoint_values_permitted": false,
+    "missing_structural_strength_default": null,
+    "raw_counts_are_weights": false
+  },
+  "supported_object_types": [
+    "bounded_angle",
+    "bounded_antiscia_point",
+    "bounded_calculated_point",
+    "bounded_contra_antiscia_point",
+    "bounded_harmonic_point",
+    "bounded_house_cusp",
+    "bounded_natal_body",
+    "bounded_sect_state"
+  ],
+  "supported_relationship_types": [
+    "BOUNDED_HAS_ANTISCIA_POINT",
+    "BOUNDED_HAS_CONTRA_ANTISCIA_POINT",
+    "BOUNDED_HAS_HARMONIC_POINT",
+    "BOUNDED_INVARIANT_ANGLE_ASPECT",
+    "BOUNDED_INVARIANT_ASPECT",
+    "BOUNDED_INVARIANT_CALCULATED_POINT_ASPECT",
+    "BOUNDED_INVARIANT_DECLINATION_CONTRAPARALLEL",
+    "BOUNDED_INVARIANT_DECLINATION_PARALLEL",
+    "BOUNDED_INVARIANT_DERIVED_ASPECT"
+  ],
+  "evidence_policy": {
+    "classification_vocabulary": [
+      "conditional",
+      "inconclusive",
+      "invariant",
+      "unavailable",
+      "variable"
+    ],
+    "materialization": "direct_refs_plus_recursively_resolvable_prerequisites",
+    "direct_dangling_reference": "fatal",
+    "unresolved_prerequisite": "preserve_opaque_ref_and_diagnose",
+    "preserve_records_verbatim": true,
+    "availability_is_epistemic_classification": false
+  },
+  "context_ids": [
+    "woofmapped.dog_direct.v1",
+    "woofmapped.doghouse.general.v0",
+    "woofmapped.handler_guidance.v1",
+    "woofmapped.hybrid_horoscope.v1"
+  ],
+  "compatibility_warnings": [
+    {
+      "code": "agf.evidence.availability_vocabulary_not_closed",
+      "severity": "upstream_reconciliation_required",
+      "blocking_slice_2": false,
+      "detail": "Released implementation emits reason values outside the standalone bounded evidence schema enum, while the package schema does not validate every evidence_registry value against that schema."
+    },
+    {
+      "code": "spc.static.score_default_is_unsafe_for_bounded",
+      "severity": "must_not_reuse",
+      "blocking_slice_2": false,
+      "detail": "Existing Woofmapping treats missing structural strength as 1.0; bounded absence means unavailable and must remain null/non-scoring."
+    },
+    {
+      "code": "spc.static.context_scoped_ids_need_parallel_correspondence",
+      "severity": "new_contract_requirement",
+      "blocking_slice_2": false,
+      "detail": "Existing projected IDs include context_id, so bounded outputs require an additional context-independent correspondence identity."
+    }
+  ],
+  "unsupported_first_release": [
+    "bounded_temporal_activation",
+    "bounded_synastry",
+    "bounded_composite",
+    "bounded_davison",
+    "representative_chart_selection",
+    "rectification",
+    "probability_or_confidence_inference",
+    "exact_orb_or_strength_inference",
+    "orthodox_bounded_profile",
+    "cognitive_bounded_profile"
+  ],
+  "gate": {
+    "source_boundary_explicit": true,
+    "semantic_invariants_explicit": true,
+    "unsupported_cases_explicit": true,
+    "contract_names_selected": true,
+    "profile_ownership_selected": true,
+    "ready_for_slice_2_review": true
+  }
+}

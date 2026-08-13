@@ -1,11 +1,12 @@
 # Bounded Natal Projection Sprint 1
 
 ```yaml
-status: proposed
+status: active
 owner: semantic-projection-core
 scope: bounded-birth-time canonical graph intake and Woofmapping projection
 created: 2026-08-13
 implementation_authorized: false
+current_gate: slice_1_review
 candidate_distribution_version: 0.11.0
 candidate_engine_version: 0.11.0
 candidate_output_contract: projected_bounded_semantic_graph.v1
@@ -335,4 +336,3 @@ The sprint exits only when:
 - Publishing 0.11.0, moving consumer pins, or declaring production readiness is
   not implied by implementation completion and requires separate release
   qualification and approval.
-

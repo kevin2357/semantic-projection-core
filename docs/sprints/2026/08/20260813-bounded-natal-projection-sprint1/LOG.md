@@ -104,3 +104,78 @@ entries rather than rewriting prior observations.
 - No source, schema, test, package, profile, CLI, release, tag, remote, or
   downstream repository change was made.
 
+## 2026-08-13 — Slice 1 released-contract audit
+
+- User approved the sprint scaffold, committed as `1d28af3` and pushed to
+  `origin/main`, then authorized beginning the audit.
+- Read the released AGF bounded package, graph, evidence, calculation-provenance,
+  evidence-provenance, and structural-evidence schemas; bounded package builder;
+  interval/evidence construction paths; semantic-boundary finalization; bounded
+  tests; release manifests; installed qualification; oracle summaries; and the
+  four bounded/decoupling sprint histories.
+- Read SPC's static request and output schemas, validation, contracts, engine,
+  audit/coverage calculation, artifact identity, deterministic IDs, profile
+  registry, runtime provenance, term-registry materialization, Woofmapping
+  manifest/mappings/context behavior, all four natal contexts, package resources,
+  release compatibility, and relevant tests.
+- Confirmed that accepting graph version 1.7.0 through the existing static route
+  would be unsafe: its request separates sections that must remain mutually
+  consistent, its validator knows only graph version rather than bounded package
+  identity, its profile expects exact-source shapes, and its score fallback turns
+  intentionally absent bounded strength into `1.0`.
+- Selected an atomic full-package intake. Callers provide the released
+  `bounded_natal_dataset`; SPC extracts and cross-validates its graph, evidence,
+  structural, identity, capability, and provenance sections.
+- Selected dependency-neutral consumer validation: SPC will package an SPC-owned
+  schema for the fields and invariants it consumes and add semantic/reference
+  validators. It will not import AGF at runtime and will not copy or claim
+  ownership of AGF's complete native schemas.
+- Selected additive identities for implementation: request
+  `bounded_natal_projection_request.v1`, output
+  `projected_bounded_semantic_graph.v1`, CLI `semantic-bounded-project`, and
+  sibling profile `woofmapped_bounded_astrology.v0` version 0.1.0. The target
+  ontology and four existing context IDs remain Woofmapping identities.
+- Retained 0.11.0 as the candidate distribution/engine version. This is an
+  additive public feature release; qualification and publication remain later
+  approval boundaries.
+- Selected artifact-scoped evidence materialization: preserve verbatim every
+  directly used evidence record plus recursively resolvable prerequisites,
+  retain unresolved prerequisite identifiers as opaque source references, and
+  record the source artifact hash and closure diagnostics. Do not copy the full
+  source registry merely because it exists.
+- Selected a context-independent correspondence identity in addition to each
+  context-specific projected ID, because the current static ID algorithm includes
+  `context_id` and therefore cannot itself correlate parallel context artifacts.
+- Selected family-aware coverage alongside ordinary record coverage. Raw record
+  counts remain diagnostic topology counts and must be labelled non-weighting.
+
+## 2026-08-13 — Upstream contract inconsistency found during Slice 1
+
+- AGF's published generalized evidence schema enumerates availability values
+  `available`, `disabled_by_configuration`, `unsupported_provider_field`,
+  `missing_provider_field`, `nonfinite_provider_value`, and `provider_failure`.
+- Released AGF 0.8 implementation also emits values including `disabled`,
+  `prerequisite_unavailable`, `prerequisite_variable_or_unavailable`, and
+  `unsupported_profile` for some terrestrial, triplicity, calculated-point, and
+  optional-external-feature evidence.
+- The bounded package schema does not apply the generalized evidence schema to
+  every `evidence_registry` value, so package-level schema validation does not
+  detect that vocabulary difference. Some evidence families also use specialized
+  shapes rather than the generalized envelope.
+- SPC will not guess that these reasons are equivalent or reject an otherwise
+  released artifact solely because a reason token is outside the standalone
+  schema enum. It will treat `classification` as the epistemic state, preserve
+  `availability` and `status_reason` verbatim as source reason vocabulary, and
+  validate the fields needed for each consumed feature family. The mismatch is
+  recorded as an upstream compatibility warning for AGF reconciliation.
+
+## 2026-08-13 — Slice 1 verification and gate disposition
+
+- Created `results/SLICE 1 - Released Contract and Semantic Audit.md` and
+  `results/bounded-contract-compatibility.json`.
+- Parsed the machine-readable compatibility evidence as JSON.
+- Ran Markdown trailing-whitespace and fence-balance checks and `git diff
+  --check`.
+- No implementation source, runtime schema, profile, CLI, test, version, or
+  package resource changed in Slice 1.
+- Slice 1 gate disposition: ready for review. Slice 2 has not begun.
