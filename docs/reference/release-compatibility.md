@@ -3,7 +3,7 @@
 ## Authority and scope
 
 This page freezes the supported consumer boundary for
-`semantic-projection-core` 0.10.0. The packaged
+`semantic-projection-core` 0.11.0. The packaged
 `semantic_projection.release/compatibility.json` file is its machine-readable
 counterpart. JSON Schemas and implementation remain authoritative for field
 validation and execution behavior.
@@ -16,20 +16,20 @@ stable Python API.
 
 | Dimension | Supported value |
 |---|---|
-| Distribution | `semantic-projection-core` 0.10.0 |
+| Distribution | `semantic-projection-core` 0.11.0 |
 | Python package | `semantic_projection` |
 | Python requirement | 3.10 or newer |
-| Engine version | 0.10.0 |
+| Engine version | 0.11.0 |
 | Engine/profile contract | 1.0.0 |
 | Required validation dependency | `jsonschema>=4,<5` |
 
 Distribution metadata, `semantic_projection.__version__`, and
 `ENGINE_VERSION` derive from one source. A consumer must reject disagreement.
-The published release is tagged `semantic-projection-core-v0.10.0`. Its wheel
-SHA-256 is
-`60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150`.
-Consumers must pin that exact hash; a version number or tag alone is not an
-immutable runtime identity.
+The 0.11.0 candidate is awaiting final approval and publication. Its expected
+tag is `semantic-projection-core-v0.11.0`; no consumer may treat that name as a
+release until the remote annotated tag and published wheel are verified.
+Production consumers must pin the final wheel by exact SHA-256. The immutable
+0.10.0 release remains available at its existing tag and hash.
 
 Generated artifacts also carry the installed runtime and resource fingerprints
 described in [Runtime and release identity](runtime-and-release-identity.md).
@@ -72,6 +72,22 @@ versions. The supported temporal route is a saved AGF bundle through intake and
 directional projection. Raw transit prose, an analysis summary, or a temporal
 graph passed to the static command is not supported.
 
+### Bounded natal
+
+The dedicated bounded route accepts exactly the released AGF 0.8.0 boundary:
+
+- `bounded_natal_dataset` package schema 1.0.0;
+- `bounded_canonical_astrology_graph` version 1.7.0;
+- `agf.bounded_uncertainty_evidence.v1.0.0`;
+- calculation profile `agf.bounded_natal.calculation_profile.v1.12.0`; and
+- interval-proof profile `agf.interval_proof.v1.0.0`.
+
+It produces `projected_bounded_semantic_graph.v1` through
+`woofmapped_bounded_astrology.v0@0.1.0`. The route preserves invariant facts,
+capability dispositions, limitations, proof evidence, family identity, and
+source lineage. It never selects a representative instant or supplies missing
+degrees, houses, scores, probabilities, or confidence.
+
 ## Supported outputs
 
 | Route | Native output |
@@ -80,6 +96,7 @@ graph passed to the static command is not supported.
 | Temporal projection | `projected_temporal_activation_graph` 1.0.0 |
 | Temporal foundations | `projected_temporal_foundations` 0.1.0 |
 | Temporal route receipt | `temporal_projection_route_receipt` 1.0.0 |
+| Bounded natal | `projected_bounded_semantic_graph.v1` |
 
 Supported materializations are `full`, `standard`, `summary`, and `forensic`.
 Summary artifacts intentionally omit row-bearing graph content. They are not
@@ -92,8 +109,8 @@ not invent one. Temporal outputs carry explicit 1.0.0 contract versions.
 
 ## Four supported Woofmapping natal contexts
 
-SPC 0.10.0 formally supports the following contexts for static Woofmapped natal
-projection:
+SPC 0.11.0 formally supports the following contexts for both exact static and
+bounded Woofmapped natal projection:
 
 | Context ID | Version | Project shorthand |
 |---|---:|---|
@@ -111,6 +128,11 @@ Consumers must resolve the exact ID/version and preserve the installed context
 content hash from the semantic-resource manifest. Friendly filenames and
 project shorthand are not release identities.
 
+The four bounded outputs share source epistemic, capability, limitation,
+evidence-family, and structural-semantic identity. Context may vary only its
+declared target framing and relevance. Rows correspond by `correspondence_id`,
+not output ID or array position; no context is canonical.
+
 ## Supported installed commands
 
 - `semantic-project`
@@ -119,9 +141,10 @@ project shorthand are not release identities.
 - `semantic-temporal-project`
 - `semantic-temporal-run`
 - `semantic-runtime-smoke`
+- `semantic-bounded-project`
 
 Their documented option names, required inputs, output modes, successful exit
-code 0, and validation/error exit code 2 are supported for 0.10.0. `--debug`
+code 0, and validation/error exit code 2 are supported for 0.11.0. `--debug`
 may expose implementation tracebacks and is not a machine-readable error
 contract. Standard error text is diagnostic and should not be parsed as a
 stable schema.
@@ -138,6 +161,8 @@ The preferred high-level imports are:
   projection;
 - `project_foundry_temporal_bundle()` for the complete temporal route;
 - `project_synastry()` for participant-aware static synastry;
+- `project_bounded_natal()` and `validate_parallel_bounded_contexts()` for the
+  bounded route and its four-context family;
 - `load_bundled_context()` for exact context resolution;
 - `semantic_resource_manifest()` and `release_compatibility()` for runtime
   identity and compatibility inspection;
@@ -163,6 +188,8 @@ Consumers must expect a hard failure for:
 - a context target ontology that differs from the profile target ontology;
 - an unsupported canonical graph, temporal bundle, temporal graph, or temporal
   request version;
+- an unsupported bounded package, graph, evidence, calculation-profile, or
+  interval-proof version;
 - schema-invalid inputs or outputs;
 - missing projected-term definitions and conflicting registry entries when a
   downstream merger validates them.
@@ -171,7 +198,7 @@ Coverage exclusions and unmapped eligible rows are represented in artifacts;
 they are not automatically fatal unless the request's coverage policy or the
 consumer's promotion policy makes them so.
 
-## Explicitly unsupported in 0.10.0
+## Explicitly unsupported in 0.11.0
 
 - temporal synastry without a future AGF temporal-synastry source contract;
 - raw transit reports or prose as projection input;
@@ -181,6 +208,11 @@ consumer's promotion policy makes them so.
 - mutable branch installation or a permissive production requirement;
 - internal Python module paths as a stable public API;
 - filenames, array positions, or labels as cross-context identity.
+- bounded temporal combinations or synastry involving a bounded natal graph;
+- midpoint, most-likely, rectified, or representative-chart inference;
+- treating bounded `null` relevance or unavailable capability as permission to
+  apply an exact-chart default; and
+- claiming current SBE candidate construction supports bounded authorship.
 
 See the [release consumer handoff](../integration/release-consumer-handoff.md)
 for installation, validation, and preservation requirements.

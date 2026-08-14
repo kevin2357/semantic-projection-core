@@ -3,15 +3,14 @@
 ## Purpose
 
 This handoff tells AGF, the AstroWoof runtime, and other production consumers
-what to install, invoke, validate, preserve, and reject for SPC 0.10.0. It
+what to install, invoke, validate, preserve, and reject for SPC 0.11.0. It
 summarizes the [release compatibility contract](../reference/release-compatibility.md)
 without duplicating native schemas.
 
-The final qualified wheel SHA-256 is
-`60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150`.
-The private release is published and its assets have been downloaded through
-GitHub's authenticated asset API and verified against their qualified hashes:
-`https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.10.0`.
+The 0.11.0 candidate is not yet tagged or published. The expected tag is
+`semantic-projection-core-v0.11.0`; use the exact wheel hash recorded under
+`releases/0.11.0/` only after publication verification marks that candidate as
+published. Until then, the example below is preparation, not an active pin.
 
 ## Install and verify
 
@@ -24,8 +23,8 @@ A hash-checked requirements entry should use the final published asset, for
 example:
 
 ```text
-semantic-projection-core @ https://github.com/kevin2357/semantic-projection-core/releases/download/semantic-projection-core-v0.10.0/semantic_projection_core-0.10.0-py3-none-any.whl \
-    --hash=sha256:60bd0f18d3b183d2f4c6375447f90881ab6c22c6138b8f9b8ffe69a246015150
+semantic-projection-core @ https://github.com/kevin2357/semantic-projection-core/releases/download/semantic-projection-core-v0.11.0/semantic_projection_core-0.11.0-py3-none-any.whl \
+    --hash=sha256:82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d
 ```
 
 After installation, run:
@@ -36,10 +35,10 @@ semantic-runtime-smoke --require-installed --json
 
 Reject the runtime unless:
 
-- distribution, package, and engine versions are all 0.10.0;
+- distribution, package, and engine versions are all 0.11.0;
 - `editable` is false;
-- all three bundled profile entry points resolve at their exact versions;
-- the six supported console scripts are present;
+- all four bundled profile entry points resolve at their exact versions;
+- the seven supported console scripts are present;
 - all 13 packaged contexts validate;
 - the packaged release compatibility contract is present; and
 - the semantic-resource fingerprint matches the final release manifest.
@@ -61,6 +60,13 @@ For temporal execution, supply
 `temporal_projection_source_bundle` 1.0.0 containing
 `canonical_temporal_activation_graph` 1.0.0 and a static target graph at 1.3.0.
 SPC preserves timing facts but does not calculate them.
+
+For bounded natal execution, supply the complete AGF 0.8.0
+`bounded_natal_dataset` package. Select
+`woofmapped_bounded_astrology.v0@0.1.0` and invoke
+`semantic-bounded-project` once per exact context ID/version. Do not route the
+bounded graph through `semantic-project`, choose a representative instant, or
+replace unavailable facts with exact-chart defaults.
 
 AGF currently declares `semantic-projection-core>=0.10.0` and imports some SPC
 profile mapping internals. Those are development conveniences, not compliant
@@ -98,6 +104,20 @@ and derived claims.
 The projection contexts are not finished AstroWoof audience modes. SBE and the
 product own selection, synthesis, authoring, prose voice, cards, filters, and
 delivery.
+
+## AstroWoof bounded natal handoff
+
+The bounded four-context family is structurally parallel and epistemically
+invariant. Verify it with `validate_parallel_bounded_contexts()`, join rows by
+`correspondence_id`, and preserve `source_artifact_ref`, source identity,
+capabilities, feature dispositions, limitations, evidence closure,
+evidence-family identity, registry definitions, and runtime provenance.
+
+SBE 0.3.0 can load and merge the four qualification artifacts, but its current
+candidate builder assumes exact-chart scores and source fields. That is an
+explicit downstream blocker for bounded authorship. Do not invent relevance
+scores, alias `source_artifact_ref` into an exact-only field, or describe the
+pipeline as end-to-end bounded-ready until SBE adopts a bounded policy.
 
 ## What to archive
 

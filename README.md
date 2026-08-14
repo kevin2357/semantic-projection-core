@@ -25,6 +25,8 @@ SPC projects structure through explicit mappings. It does not calculate astrolog
 - Directional, arc-first temporal projection with preserved timing facts
 - End-to-end temporal materialization and route receipts
 - Participant-aware synastry projection
+- Bounded-birth-time natal intake and invariant-subgraph projection
+- Four-context bounded Woofmapping correspondence and certainty validation
 - Interactive and unattended natal, temporal, and synastry tools
 
 Bundled profiles are:
@@ -32,6 +34,7 @@ Bundled profiles are:
 - `orthodox_astrology.v1` 1.0.0 — expanded reference profile
 - `cognitive_architecture_demo.v0` 0.2.0 — experimental architecture demonstration
 - `woofmapped_astrology.v0` 0.1.0 — playful experimental reference profile
+- `woofmapped_bounded_astrology.v0` 0.1.0 — bounded-natal Woofmapping profile
 
 ## Install and test
 
@@ -85,6 +88,16 @@ python tools/project_synastry.py `
   --out outputs/synastry.standard.json
 ```
 
+Project an AGF bounded natal package without inventing a representative chart:
+
+```powershell
+semantic-bounded-project `
+  --source path/to/bounded-natal.json `
+  --context-id woofmapped.doghouse.general.v0 `
+  --context-version 0.1.0 `
+  --out outputs/bounded.general.json
+```
+
 The tools prompt for omitted required values and support `--help`, explicit options, request output, and `full`, `standard`, `summary`, or `forensic` materialization.
 
 ## Woofmapping convenience tools
@@ -120,5 +133,5 @@ Astrology Graph Foundry is SPC's upstream producer of canonical astrology graphs
 See the [documentation index](docs/README.md) for current guides, reference material, integration contracts, roadmap, and clearly separated implementation history.
 
 Production consumers should start with the
-[0.10.0 release compatibility contract](docs/reference/release-compatibility.md)
+[0.11.0 release compatibility contract](docs/reference/release-compatibility.md)
 and [release consumer handoff](docs/integration/release-consumer-handoff.md).

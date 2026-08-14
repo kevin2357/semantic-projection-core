@@ -13,6 +13,8 @@ AGF owns:
 - `canonical_temporal_activation_graph.v1`;
 - activation arcs, observations, timing facts, and provenance;
 - `temporal_projection_source_bundle.v1` adaptation.
+- bounded-birth-time calculation, uncertainty evidence, capabilities, and the
+  `bounded_canonical_astrology_graph.v1` invariant subgraph.
 
 SPC owns:
 
@@ -40,6 +42,18 @@ canonical_temporal_activation_graph.v1 1.0.0
 ```
 
 SPC validates arc-first authority, projection neutrality, reference integrity, counts, and supported versions. Contract changes should be versioned explicitly on both sides rather than inferred from filenames.
+
+## Bounded natal handoff
+
+SPC 0.11.0 accepts AGF's bounded natal package schema 1.0.0, canonical bounded
+graph 1.7.0, uncertainty evidence contract 1.0.0, calculation profile 1.12.0,
+and interval-proof profile 1.0.0. The dedicated bounded route rejects other
+versions rather than passing them through the exact static engine.
+
+AGF decides what is invariant, variable, unavailable, or inconclusive across
+the birth-time interval. SPC may reinterpret only promoted invariant semantics.
+It preserves evidence and limitations and never selects a midpoint,
+representative chart, most-likely state, or default house.
 
 ## Development installation
 

@@ -1,0 +1,62 @@
+{
+  "manifest_contract": "semantic_projection.external_release_manifest.v1",
+  "status": "qualified_awaiting_publication",
+  "distribution": {
+    "name": "semantic-projection-core",
+    "version": "0.11.0",
+    "python_package": "semantic_projection",
+    "python_requires": ">=3.10",
+    "engine_version": "0.11.0"
+  },
+  "source": {
+    "qualified_implementation_base_commit": "d7872b7",
+    "expected_annotated_tag": "semantic-projection-core-v0.11.0"
+  },
+  "artifact": {
+    "filename": "semantic_projection_core-0.11.0-py3-none-any.whl",
+    "bytes": 161334,
+    "sha256": "82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d"
+  },
+  "reproducible_build": {
+    "source_date_epoch": 1786681793,
+    "python": "3.12.13",
+    "pip": "26.2.1",
+    "setuptools": "83.0.0",
+    "wheel": "0.47.0",
+    "builds": 2,
+    "byte_identical": true
+  },
+  "installed_runtime": {
+    "manifest_contract": "semantic_projection.runtime_release_manifest.v1",
+    "runtime_package": {
+      "resource_count": 116,
+      "sha256": "6088b1775a786071f9c55d77616a5cc4dbe1539b1987dbf19a4f885e02a94883"
+    },
+    "semantic_resources": {
+      "resource_count": 52,
+      "sha256": "b901049d4c1bcf322ede511497af06bb4b0874a8c4bc64105c4e384895fa1e02"
+    },
+    "schemas": {
+      "resource_count": 26,
+      "sha256": "cf0466af1d04f4115c007edffb1a583058a829a56048ff24023620906c3839eb"
+    },
+    "release_compatibility": {
+      "contract_id": "semantic_projection.release_compatibility.v1",
+      "resource_sha256": "b33c1dabc8a88356c2bc11ebecf488d5cd7f311e159dc67da5959cbbe3bf3eed"
+    }
+  },
+  "qualification": {
+    "source_suite": "228 passed",
+    "installed_non_editable": true,
+    "console_commands": 7,
+    "bounded_contexts": 4,
+    "agf_0_8_0_boundary": "pass",
+    "sbe_0_3_0_loader_and_registry": "pass",
+    "sbe_0_3_0_candidate_builder": "blocked_exact_chart_policy"
+  },
+  "publication": {
+    "status": "not_started",
+    "remote_tag_verified": false,
+    "published_assets_verified": false
+  }
+}

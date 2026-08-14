@@ -1,0 +1,26 @@
+{
+  "candidate": "semantic-projection-core 0.11.0",
+  "status": "qualified_awaiting_publication",
+  "source_date_epoch": 1786681793,
+  "builds": 2,
+  "byte_identical": true,
+  "wheel": {
+    "filename": "semantic_projection_core-0.11.0-py3-none-any.whl",
+    "bytes": 161334,
+    "sha256": "82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d"
+  },
+  "installed": {
+    "editable": false,
+    "profiles": 4,
+    "commands": 7,
+    "contexts": 13,
+    "runtime_package_sha256": "6088b1775a786071f9c55d77616a5cc4dbe1539b1987dbf19a4f885e02a94883",
+    "semantic_resource_set_sha256": "b901049d4c1bcf322ede511497af06bb4b0874a8c4bc64105c4e384895fa1e02",
+    "schema_set_sha256": "cf0466af1d04f4115c007edffb1a583058a829a56048ff24023620906c3839eb"
+  },
+  "publication": {
+    "tag_created": false,
+    "release_created": false,
+    "published_assets_verified": false
+  }
+}

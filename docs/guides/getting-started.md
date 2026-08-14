@@ -33,6 +33,11 @@ The repository provides friendly tools for common saved-package workflows:
 - `tools/project_synastry.py` for participant-aware relationship projection;
 - `tools/project_temporal.py` for an AGF temporal source bundle.
 
+Installed releases also provide `semantic-bounded-project` for the dedicated
+AGF bounded-natal package route. See [Bounded natal projection](bounded-natal-projection.md)
+before consuming that artifact family; it is not interchangeable with the
+exact static route.
+
 All accept flags for unattended use and prompt for missing required values interactively. Common options are:
 
 ```text

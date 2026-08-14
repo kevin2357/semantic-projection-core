@@ -28,6 +28,26 @@ profile policy, context content, route, and output contract. See
 
 Projected rows retain `source_refs`, `mapping_rule_refs`, context references, and deterministic identity. They are target-domain semantic units, not final claims or prose.
 
+## Bounded natal request and result
+
+`bounded_natal_projection_request.v1` accepts the exact supported AGF bounded
+natal package boundary and retains the complete source artifact, immutable
+source hash, upstream contract identities, context, options, and limitations.
+It is a sibling route, not a relaxed static request.
+
+`projected_bounded_semantic_graph.v1` contains only source-supported invariant
+objects and relationships selected by the bounded profile. It preserves source
+capabilities and feature dispositions, direct evidence plus prerequisite
+closure, evidence-family identity, proof scope, correspondence IDs, an
+artifact-scoped term registry, and installed runtime provenance. It cannot
+represent an exact longitude, orb, structural strength, confidence, or
+representative state as a bounded projected fact.
+
+The four Woofmapping outputs have context-specific materialized IDs and stable
+`correspondence_id` values. `validate_parallel_bounded_contexts()` verifies
+their structural correspondence and certainty invariance. No context has
+canonical epistemic priority.
+
 ## Temporal source and request
 
 SPC accepts AGF's frozen `temporal_projection_source_bundle.v1` version 1.0.0. The adapter validates supported contract versions, arc-first authority, projection neutrality, cross-field counts, and referential integrity before producing `temporal_projection_request.v1`.

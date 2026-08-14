@@ -7,6 +7,7 @@
 | `orthodox` | `orthodox_astrology.v1` | 1.0.0 | Expanded reference profile | Natal, synastry, composite, Davison, solar return, lunar return |
 | `cognitive` | `cognitive_architecture_demo.v0` | 0.2.0 | Experimental architecture demonstration | Natal |
 | `woofmapped` | `woofmapped_astrology.v0` | 0.1.0 | Playful experimental reference profile | Natal, synastry |
+| `woofmapped-bounded` | `woofmapped_bounded_astrology.v0` | 0.1.0 | Experimental bounded reference profile | Bounded natal |
 
 Temporal execution reuses static mapping capabilities and applies its own activator/target scope classification. The Cognitive and Woofmapped profiles currently exclude `Spirit` as a temporal target. Orthodox declares no temporal activator or target exclusions.
 
@@ -62,10 +63,15 @@ Woofmapped currently provides:
 - human-dog synastry;
 - symmetric and asymmetric dog-dog synastry.
 
-SPC 0.10.0 formally qualifies the general Doghouse, handler-guidance,
+SPC 0.11.0 formally qualifies the general Doghouse, handler-guidance,
 direct-to-dog, and hybrid contexts as its supported four-context static natal
 set. This freezes projection compatibility, not downstream audience or prose
 behavior. See the
 [release compatibility contract](release-compatibility.md#four-supported-woofmapping-natal-contexts).
 
 These contexts reuse one primitive profile. They are not separate astrologies hiding in a trench coat.
+
+Exact and bounded Woofmapping use sibling profiles because their source
+selection and epistemic policies differ. They share target-domain vocabulary
+where meanings genuinely coincide; bounded projection does not simulate an
+exact chart or pass missing exact measurements through old fallback logic.

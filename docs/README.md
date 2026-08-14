@@ -1,6 +1,6 @@
 # Semantic Projection Core documentation
 
-These pages describe the current `semantic-projection-core` 0.10.x codebase. Documents under [`history/`](history/README.md) are implementation records and are not normative.
+These pages describe the current `semantic-projection-core` 0.11.x codebase. Documents under [`history/`](history/README.md) are implementation records and are not normative.
 
 Semantic Projection Core (SPC) deterministically compiles canonical source graphs into versioned target-domain semantic graphs. It preserves source identity, provenance, and structural relationships while profiles supply the target vocabulary and mapping behavior. Claims, recommendations, application rules, report planning, and publication remain downstream.
 
@@ -12,6 +12,7 @@ Semantic Projection Core (SPC) deterministically compiles canonical source graph
 - [Temporal projection](guides/temporal-projection.md) — project an Astrology Graph Foundry temporal bundle.
 - [Synastry projection](guides/synastry-projection.md) — prepare participant-aware relationship graphs.
 - [Woofmapping](guides/woofmapping.md) — use the natal, transit, and synastry convenience tools.
+- [Bounded natal projection](guides/bounded-natal-projection.md) — project AGF bounded-birth-time artifacts without manufacturing exact facts.
 
 ## Concepts
 

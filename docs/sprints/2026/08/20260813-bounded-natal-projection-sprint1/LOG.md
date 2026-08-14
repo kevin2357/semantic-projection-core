@@ -622,3 +622,33 @@ entries rather than rewriting prior observations.
   expanded outputs under `C:\tmp\spc-bounded-slice8-20260813` after capturing
   hashes and compact evidence. No generated candidate artifact was checked in.
 - Slice 8 gate disposition: ready for review. Slice 9 has not begun.
+
+## 2026-08-13 - Slice 8 approval and publication
+
+- User approved Slice 8 using the commit/push/continue boundary.
+- Committed the installed runtime and cross-repository acceptance work as
+  `d7872b7` (`Package bounded projection runtime`) and pushed `main` to
+  `origin`.
+
+## 2026-08-13 - Slice 9 documentation and release preparation
+
+- Reconciled the public capability, contract, profile/context, runtime identity,
+  AGF integration, downstream handoff, and getting-started documentation for
+  0.11.0.
+- Added a bounded-natal consumer guide and explicit SBE 0.3.0 authoring blocker.
+- Prepared release notes, compatibility, consumer integration, exact-hash
+  requirements, checksums, and an external release manifest under
+  `releases/0.11.0/`.
+- Built the candidate twice with `SOURCE_DATE_EPOCH=1786681793`; both wheels
+  were 161334 bytes with SHA-256
+  `82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d`.
+- Installed the exact wheel non-editably outside the checkout. Installed smoke
+  confirmed aligned 0.11.0 identity, four profiles, seven commands, 13
+  contexts, and the expected runtime/resource/schema fingerprints. Every
+  installed command passed `--help`.
+- Final source suite: 228 passed in 77.52 seconds. Changed/new JSON, relative
+  Markdown links, and `git diff --check` passed.
+- Repository-wide Ruff still reports 139 pre-existing findings in historical,
+  example, tool, and source files; Slice 9 changes documentation only and did
+  not expand that unrelated cleanup into the release-preparation gate.
+- Tagging and GitHub publication have not begun and remain separately gated.
