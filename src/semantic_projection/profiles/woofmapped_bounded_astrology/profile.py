@@ -11,6 +11,7 @@ from ..woofmapped_astrology.object_mappings import (
     OBJECT_MAPPINGS,
     SIGN_MODES,
 )
+from ..woofmapped_astrology.relationship_mappings import ASPECT_MAPPINGS
 
 PROFILE_ID = "woofmapped_bounded_astrology.v0"
 PROFILE_VERSION = "0.1.0"
@@ -23,6 +24,31 @@ DERIVED_TYPES = {
     "bounded_antiscia_point",
     "bounded_contra_antiscia_point",
     "bounded_harmonic_point",
+}
+ASPECT_RELATIONSHIP_TYPES = {
+    "BOUNDED_INVARIANT_ASPECT",
+    "BOUNDED_INVARIANT_DERIVED_ASPECT",
+    "BOUNDED_INVARIANT_ANGLE_ASPECT",
+    "BOUNDED_INVARIANT_CALCULATED_POINT_ASPECT",
+}
+OWNERSHIP_RELATIONSHIP_TYPES = {
+    "BOUNDED_HAS_ANTISCIA_POINT",
+    "BOUNDED_HAS_CONTRA_ANTISCIA_POINT",
+    "BOUNDED_HAS_HARMONIC_POINT",
+}
+DECLINATION_MAPPINGS = {
+    "BOUNDED_INVARIANT_DECLINATION_PARALLEL": {
+        "relationship_type": "subsystems_track_together",
+        "operators": ["align_expression", "co_vary"],
+        "interaction_mode": "parallel_behavioral_expression",
+        "salience": 0.86,
+    },
+    "BOUNDED_INVARIANT_DECLINATION_CONTRAPARALLEL": {
+        "relationship_type": "subsystems_counterbalance",
+        "operators": ["coordinate_opposites", "counterbalance_expression"],
+        "interaction_mode": "counterparallel_behavioral_expression",
+        "salience": 0.88,
+    },
 }
 SUPPORTED_CONTEXT_IDS = {
     "woofmapped.doghouse.general.v0",
@@ -216,3 +242,80 @@ class WoofmappedBoundedAstrologyProfile:
 
     def projected_term_registry(self) -> dict[str, Any]:
         return _resource_json("projected_term_registry.json")
+
+    def classify_source_relationship(
+        self,
+        source_relationship: dict[str, Any],
+        object_status: dict[str, str],
+    ) -> str:
+        endpoints = {
+            object_status.get(str(source_relationship.get("source_id") or "")),
+            object_status.get(str(source_relationship.get("target_id") or "")),
+        }
+        if endpoints != {"eligible"}:
+            return "outside_declared_scope"
+        relationship_type = str(source_relationship.get("relationship_type") or "")
+        if relationship_type in OWNERSHIP_RELATIONSHIP_TYPES:
+            return "eligible"
+        if relationship_type in DECLINATION_MAPPINGS:
+            return "eligible"
+        if relationship_type in ASPECT_RELATIONSHIP_TYPES:
+            aspect = str(source_relationship.get("aspect") or "").lower()
+            return "eligible" if aspect in ASPECT_MAPPINGS else "outside_declared_scope"
+        return "outside_declared_scope"
+
+    def project_relationship(
+        self,
+        source_relationship: dict[str, Any],
+    ) -> dict[str, Any] | None:
+        source_type = str(source_relationship.get("relationship_type") or "")
+        if source_type in OWNERSHIP_RELATIONSHIP_TYPES:
+            return {
+                "semantic_key": "coordinate_transform_of",
+                "relationship_type": "coordinate_transform_of",
+                "operators": [
+                    "preserve_owner_lineage",
+                    "reexpress_through_coordinate_transform",
+                ],
+                "interaction_mode": "derived_expression_lineage",
+                "base_relevance": None,
+                "topology_only": True,
+                "mapping_rule_id": f"{PROFILE_ID}.relationship.{source_type.lower()}.coordinate_transform_of",
+                "mapping_rule_version": PROFILE_VERSION,
+                "provenance": {
+                    "profile_layer": "bounded_transform_ownership_mapping",
+                    "operator_preservation_policy": "preserve_derivation_topology",
+                },
+            }
+        if source_type in DECLINATION_MAPPINGS:
+            mapping = DECLINATION_MAPPINGS[source_type]
+            return {
+                "semantic_key": mapping["relationship_type"],
+                **mapping,
+                "base_relevance": mapping["salience"],
+                "topology_only": False,
+                "mapping_rule_id": f"{PROFILE_ID}.relationship.{source_type.lower()}.{mapping['relationship_type']}",
+                "mapping_rule_version": PROFILE_VERSION,
+                "provenance": {
+                    "profile_layer": "bounded_declination_relationship_mapping",
+                    "operator_preservation_policy": "preserve_declination_geometry_distinct_from_longitude_aspect",
+                },
+            }
+        if source_type in ASPECT_RELATIONSHIP_TYPES:
+            aspect = str(source_relationship.get("aspect") or "").lower()
+            mapping = ASPECT_MAPPINGS.get(aspect)
+            if mapping is None:
+                return None
+            return {
+                "semantic_key": mapping["relationship_type"],
+                **mapping,
+                "base_relevance": mapping["salience"],
+                "topology_only": False,
+                "mapping_rule_id": f"{PROFILE_ID}.relationship.{source_type.lower()}.{aspect}.{mapping['relationship_type']}",
+                "mapping_rule_version": PROFILE_VERSION,
+                "provenance": {
+                    "profile_layer": "bounded_aspect_relationship_mapping",
+                    "operator_preservation_policy": "preserve_invariant_relationship_geometry",
+                },
+            }
+        return None

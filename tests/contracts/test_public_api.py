@@ -19,6 +19,7 @@ def test_public_api_exports_current_supported_routes():
         "adapt_foundry_bounded_natal_dataset",
         "bounded_evidence_closure",
         "build_projected_bounded_contract",
+        "project_bounded_natal",
         "validate_projected_bounded_semantic_graph",
     }
     assert expected <= set(semantic_projection.__all__)

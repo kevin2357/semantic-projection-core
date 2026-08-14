@@ -3,6 +3,78 @@
   "registry_version": "0.1.0",
   "target_ontology": "woofmapped_astrology.v0",
   "terms": {
+    "coordinate_transform_of": {
+      "term_type": "relation",
+      "canonical_label": "Coordinate Transform Of",
+      "friendly_labels": ["derived coordinate expression of"],
+      "short_description": "A lineage relation connecting a transformed expression to its root canine subsystem.",
+      "long_description": "This is derivation topology, not an independent behavioral interaction or additional source of salience.",
+      "core_operators": ["preserve_owner_lineage", "reexpress_through_coordinate_transform"],
+      "semantic_facets": ["derivation", "lineage", "coordinate_transform"],
+      "related_terms": [],
+      "output_guidance": {"composition_template": "{target_phrase} is a transformed expression of {source_phrase}."},
+      "extensions": {"authorship": "profile_level", "prescriptive": false, "scored": false}
+    },
+    "derived_expression_lineage": {
+      "term_type": "theme",
+      "canonical_label": "Derived Expression Lineage",
+      "friendly_labels": ["derived expression lineage"],
+      "short_description": "Marks ownership and derivation without implying independent support.",
+      "long_description": "This theme groups transformed source constructions beneath their root owner for anti-double-counting.",
+      "core_operators": [],
+      "semantic_facets": ["derivation", "family", "anti_double_counting"],
+      "related_terms": ["coordinate_transform_of"],
+      "output_guidance": {},
+      "extensions": {"authorship": "profile_level", "prescriptive": false, "scored": false}
+    },
+    "subsystems_track_together": {
+      "term_type": "relation",
+      "canonical_label": "Subsystems Track Together",
+      "friendly_labels": ["subsystems track together"],
+      "short_description": "Two canine subsystems maintain parallel expression across the bounded source interval.",
+      "long_description": "A target-domain reinterpretation of invariant declination parallel structure, distinct from longitude aspects.",
+      "core_operators": ["align_expression", "co_vary"],
+      "semantic_facets": ["parallel", "coordination", "expression"],
+      "related_terms": ["parallel_behavioral_expression"],
+      "output_guidance": {"composition_template": "{source_phrase} and {target_phrase} tend to track together."},
+      "extensions": {"authorship": "profile_level", "prescriptive": false}
+    },
+    "parallel_behavioral_expression": {
+      "term_type": "theme",
+      "canonical_label": "Parallel Behavioral Expression",
+      "friendly_labels": ["parallel behavioral expression"],
+      "short_description": "A parallel coordination mode between projected canine subsystems.",
+      "long_description": "This interaction mode preserves declination-parallel structure without recasting it as a longitude aspect.",
+      "core_operators": [],
+      "semantic_facets": ["parallel", "behavior", "coordination"],
+      "related_terms": ["subsystems_track_together"],
+      "output_guidance": {},
+      "extensions": {"authorship": "profile_level", "prescriptive": false}
+    },
+    "subsystems_counterbalance": {
+      "term_type": "relation",
+      "canonical_label": "Subsystems Counterbalance",
+      "friendly_labels": ["subsystems counterbalance"],
+      "short_description": "Two canine subsystems maintain an invariant counterparallel relationship.",
+      "long_description": "A target-domain reinterpretation of invariant declination contraparallel structure, distinct from opposition by longitude.",
+      "core_operators": ["coordinate_opposites", "counterbalance_expression"],
+      "semantic_facets": ["counterparallel", "balance", "expression"],
+      "related_terms": ["counterparallel_behavioral_expression"],
+      "output_guidance": {"composition_template": "{source_phrase} and {target_phrase} counterbalance one another."},
+      "extensions": {"authorship": "profile_level", "prescriptive": false}
+    },
+    "counterparallel_behavioral_expression": {
+      "term_type": "theme",
+      "canonical_label": "Counterparallel Behavioral Expression",
+      "friendly_labels": ["counterparallel behavioral expression"],
+      "short_description": "A counterbalancing coordination mode between projected canine subsystems.",
+      "long_description": "This mode preserves declination-contraparallel structure without treating it as a longitude opposition.",
+      "core_operators": [],
+      "semantic_facets": ["counterparallel", "behavior", "balance"],
+      "related_terms": ["subsystems_counterbalance"],
+      "output_guidance": {},
+      "extensions": {"authorship": "profile_level", "prescriptive": false}
+    },
     "adventure_dog_mode": {
       "term_type": "mode",
       "canonical_label": "Adventure Dog Mode",

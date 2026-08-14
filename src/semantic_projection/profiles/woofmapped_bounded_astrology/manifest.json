@@ -20,7 +20,7 @@
     "source_graph_version": "1.7.0",
     "source_epistemic_policy": "invariant_categorical_facts_only",
     "structural_strength_policy": "unavailable_no_default",
-    "relationship_mapping_status": "deferred_to_slice_5",
+    "relationship_mapping_status": "supported_declared_families",
     "supported_context_ids": [
       "woofmapped.doghouse.general.v0",
       "woofmapped.handler_guidance.v1",

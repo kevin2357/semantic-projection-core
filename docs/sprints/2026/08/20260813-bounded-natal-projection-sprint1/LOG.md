@@ -369,3 +369,73 @@ entries rather than rewriting prior observations.
 - JSON, Markdown, and `git diff --check` validation were run after result
   documentation.
 - Slice 4 gate disposition: ready for review. Slice 5 has not begun.
+
+## 2026-08-13 — Slice 4 approval and publication
+
+- User approved Slice 4 using the commit/push/continue boundary.
+- Committed bounded object projection as `eb8dddd` (`Add bounded Woofmapping
+  object projection`) and pushed `main` to `origin`.
+- Began Slice 5 only after the object policy and evidence hardening were
+  immutable upstream.
+
+## 2026-08-13 — Slice 5 relationships, operators, and evidence families
+
+- Added full `project_bounded_natal` execution while retaining
+  `project_bounded_natal_objects` as an explicit object-only compatibility path
+  for the Slice 4 contract and tests.
+- Projected all nine released relationship types when their endpoints and
+  semantic primitive are in declared scope.
+- Ordinary, derived, angle, and calculated-point invariant aspects reuse the
+  established Woofmapping aspect relations and operators while preserving their
+  distinct source relationship type and evidence.
+- Declination parallel maps to `subsystems_track_together`; declination
+  contraparallel maps to `subsystems_counterbalance`. Both have new explicit
+  target term definitions and remain semantically distinct from longitude
+  aspects.
+- Antiscia, contra-antiscia, and harmonic ownership relationships map to the
+  unscored `coordinate_transform_of` lineage relation. They preserve topology
+  and root-family grouping but are not behavioral interactions or support votes.
+- Every projected relationship carries invariant evidence, proof scope, source
+  family, qualified term refs, exact mapping rule, and context-independent
+  correspondence identity. No orb, distance, phase/application delta, strength,
+  or exact geometry is copied.
+
+## 2026-08-13 — Slice 5 anti-inflation accounting
+
+- Added raw-record coverage and evidence-family coverage as separate audit
+  dimensions for objects and relationships.
+- Declared `evidence_family_group` as the relationship relevance aggregation
+  unit. Raw record counts are explicitly non-weighting.
+- Scored semantic interactions divide their profile relevance equally among all
+  mapped scored rows in the same evidence family. The family total therefore
+  remains constant when source topology contains multiple sibling records.
+- Ownership/derivation topology has no base relevance, member allocation, or
+  projected relevance score.
+- An adversarial test proves one square-family row scores 0.98 while two sibling
+  rows score 0.49 each, leaving the family total at 0.98.
+
+## 2026-08-13 — Slice 5 unsupported behavior
+
+- A recognized aspect-family relationship whose aspect has no established
+  Woofmapping primitive is classified outside declared scope and reported by ID.
+- A relationship whose endpoint object is outside object scope is also outside
+  declared relationship scope; no placeholder endpoint or partial edge is
+  manufactured.
+- Eligible relationships that fail to produce a draft or resolve projected
+  endpoints are fatal execution errors rather than silent omissions.
+
+## 2026-08-13 — Slice 5 verification and gate disposition
+
+- Full SPC suite: 202 passed in 60.59 seconds.
+- Bounded suite after relationship implementation: 45 passed.
+- Ruff passed after import-order correction for bounded execution/profile and
+  relationship tests.
+- All three ownership types and both declination types have explicit mapping
+  coverage; all four aspect-bearing relationship families run through the full
+  artifact path.
+- Registry validation includes the six new relation/theme terms and all emitted
+  relationship refs resolve in artifact-scoped subsets.
+- Public API coverage includes `project_bounded_natal`.
+- JSON, Markdown, and `git diff --check` validation were run after result
+  documentation.
+- Slice 5 gate disposition: ready for review. Slice 6 has not begun.

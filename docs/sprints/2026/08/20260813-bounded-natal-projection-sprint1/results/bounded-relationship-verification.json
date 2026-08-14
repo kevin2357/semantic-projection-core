@@ -1,0 +1,55 @@
+{
+  "artifact_type": "spc_bounded_relationship_projection_verification",
+  "date": "2026-08-13",
+  "status": "slice_5_gate_candidate",
+  "supported_relationship_types": [
+    "BOUNDED_HAS_ANTISCIA_POINT",
+    "BOUNDED_HAS_CONTRA_ANTISCIA_POINT",
+    "BOUNDED_HAS_HARMONIC_POINT",
+    "BOUNDED_INVARIANT_ANGLE_ASPECT",
+    "BOUNDED_INVARIANT_ASPECT",
+    "BOUNDED_INVARIANT_CALCULATED_POINT_ASPECT",
+    "BOUNDED_INVARIANT_DECLINATION_CONTRAPARALLEL",
+    "BOUNDED_INVARIANT_DECLINATION_PARALLEL",
+    "BOUNDED_INVARIANT_DERIVED_ASPECT"
+  ],
+  "semantic_classes": {
+    "aspect_interactions": 4,
+    "declination_interactions": 2,
+    "ownership_topology": 3
+  },
+  "anti_inflation": {
+    "aggregation_unit": "evidence_family_group",
+    "allocation_policy": "equal_among_scored_family_members",
+    "raw_record_counts_are_weights": false,
+    "ownership_topology_scored": false,
+    "single_square_family_total": 0.98,
+    "duplicated_square_family_member_score": 0.49,
+    "duplicated_square_family_total": 0.98
+  },
+  "forbidden_output_fields": [
+    "applying_delta",
+    "distance",
+    "orb",
+    "strength",
+    "structural_strength_score"
+  ],
+  "verification": {
+    "bounded_tests": {"status": "passed", "count": 45},
+    "full_spc_tests": {"status": "passed", "count": 202, "seconds": 60.59},
+    "ruff": "passed",
+    "all_source_relationship_types": "passed",
+    "family_allocation_adversarial": "passed",
+    "family_coverage": "passed",
+    "term_registry": "passed",
+    "determinism": "passed",
+    "input_immutability": "passed",
+    "json_parse": "passed",
+    "markdown_validation": "passed",
+    "git_diff_check": "passed"
+  },
+  "gate": {
+    "ready_for_review": true,
+    "slice_6_started": false
+  }
+}
