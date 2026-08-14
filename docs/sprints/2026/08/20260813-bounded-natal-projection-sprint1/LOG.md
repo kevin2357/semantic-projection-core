@@ -439,3 +439,47 @@ entries rather than rewriting prior observations.
 - JSON, Markdown, and `git diff --check` validation were run after result
   documentation.
 - Slice 5 gate disposition: ready for review. Slice 6 has not begun.
+
+## 2026-08-13 — Slice 5 approval and publication
+
+- User approved Slice 5 using the commit/push/continue boundary.
+- Committed relationship projection and evidence-family accounting as `db06950`
+  (`Project bounded relationship families`) and pushed `main` to `origin`.
+- Began Slice 6 only after the relationship and anti-inflation policy was
+  immutable upstream.
+
+## 2026-08-13 — Slice 6 four-context materialization
+
+- Materialized the same representative bounded source through the exact
+  bundled `handler`, `direct-to-dog`, `hybrid`, and `general` contexts.
+- Preserved each context's actual version: general is `0.1.0`; the other three
+  are `1.0.0`. The context set validator requires these exact ID/version pairs
+  instead of inventing cosmetic version uniformity.
+- Added public cross-context validation with separate epistemic and structural
+  correspondence views. Relationship endpoints are compared in correspondence
+  space rather than by context-specific materialized IDs.
+- Declared no canonical context priority. Every context has a distinct
+  projection identity while objects and relationships retain stable
+  cross-context correspondence identities.
+- Allowed only row relevance and explicitly named context-framing attributes to
+  vary. Source proof, capabilities, limitations, family membership, source
+  refs, semantic primitives, operators, mappings, target ontology, and projected
+  term definitions must remain equal.
+
+## 2026-08-13 — Slice 6 adversarial and deterministic verification
+
+- Positive four-context validation passed with 6 object correspondences and 7
+  relationship correspondences in the representative family-rich fixture.
+- Negative tests reject missing or duplicate contexts, incorrect context
+  versions, duplicate projection identities, and drift in evidence,
+  capabilities, limitations, family identity, semantic names, operators,
+  mapping refs, or projected-term definitions.
+- Explicit context framing and relevance variation passed without weakening
+  epistemic or structural comparisons.
+- The validation report is order-independent and content-addresses its common
+  epistemic and structural-semantic views.
+- Focused context/public API suite: 14 passed.
+- Bounded suite: 57 passed.
+- Full SPC suite: 214 passed in 64.96 seconds.
+- Ruff passed for the new validator and focused tests.
+- Slice 6 gate disposition: ready for review. Slice 7 has not begun.

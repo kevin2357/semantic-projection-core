@@ -138,6 +138,24 @@ __all__.extend([
     "project_bounded_natal_objects",
 ])
 
+from .bounded_contexts import (
+    REQUIRED_WOOFMAPPED_BOUNDED_CONTEXT_IDS,
+    REQUIRED_WOOFMAPPED_BOUNDED_CONTEXTS,
+    BoundedContextSetValidationError,
+    bounded_epistemic_view,
+    bounded_structural_correspondence_view,
+    validate_parallel_bounded_contexts,
+)
+
+__all__.extend([
+    "REQUIRED_WOOFMAPPED_BOUNDED_CONTEXT_IDS",
+    "REQUIRED_WOOFMAPPED_BOUNDED_CONTEXTS",
+    "BoundedContextSetValidationError",
+    "bounded_epistemic_view",
+    "bounded_structural_correspondence_view",
+    "validate_parallel_bounded_contexts",
+])
+
 
 __all__.extend([
     "TemporalProjectionOptions",

@@ -1,0 +1,48 @@
+{
+  "validation_contract": "bounded_parallel_context_validation.v1",
+  "status": "passed",
+  "profile_id": "woofmapped_bounded_astrology.v0",
+  "profile_version": "0.1.0",
+  "source_artifact_sha256": "0466102238b8b24987ea8ffa187b00636709dd6969a8686d38b7c164d80c44aa",
+  "contexts": [
+    "woofmapped.dog_direct.v1",
+    "woofmapped.doghouse.general.v0",
+    "woofmapped.handler_guidance.v1",
+    "woofmapped.hybrid_horoscope.v1"
+  ],
+  "context_versions": {
+    "woofmapped.dog_direct.v1": "1.0.0",
+    "woofmapped.doghouse.general.v0": "0.1.0",
+    "woofmapped.handler_guidance.v1": "1.0.0",
+    "woofmapped.hybrid_horoscope.v1": "1.0.0"
+  },
+  "canonical_context_priority": null,
+  "context_priority_policy": "no_projection_context_has_epistemic_priority",
+  "object_correspondence_count": 6,
+  "relationship_correspondence_count": 7,
+  "epistemic_sha256": "7d75e6f774863b18d498e2587a86c3ab7f225b457f73c3a2ee12b02dbd5e3bc5",
+  "structural_semantic_sha256": "7696c2dd38def774eebf1e5faa2dcf7251d66dfd795617308156a7b23295e4b0",
+  "allowed_context_variants": {
+    "row_projection_relevance_score": true,
+    "attribute_keys": [
+      "audience_framing",
+      "context_framing",
+      "contextual_relevance"
+    ],
+    "epistemic_material": false,
+    "semantic_primitive_or_mapping": false,
+    "projected_term_definition": false
+  },
+  "projection_ids": {
+    "woofmapped.dog_direct.v1": "bounded_projection:32be963b4d9a07cdcc42d37d",
+    "woofmapped.doghouse.general.v0": "bounded_projection:7636194edb5aee8050406e24",
+    "woofmapped.handler_guidance.v1": "bounded_projection:d7942ddc7a4e669cbab99c65",
+    "woofmapped.hybrid_horoscope.v1": "bounded_projection:988443524f9a076b1216dff1"
+  },
+  "test_results": {
+    "focused_context_and_public_api": "14 passed",
+    "bounded": "57 passed",
+    "full": "214 passed in 64.96s",
+    "ruff": "passed"
+  }
+}

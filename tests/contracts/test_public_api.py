@@ -20,6 +20,12 @@ def test_public_api_exports_current_supported_routes():
         "bounded_evidence_closure",
         "build_projected_bounded_contract",
         "project_bounded_natal",
+        "validate_parallel_bounded_contexts",
+        "bounded_epistemic_view",
+        "bounded_structural_correspondence_view",
+        "BoundedContextSetValidationError",
+        "REQUIRED_WOOFMAPPED_BOUNDED_CONTEXT_IDS",
+        "REQUIRED_WOOFMAPPED_BOUNDED_CONTEXTS",
         "validate_projected_bounded_semantic_graph",
     }
     assert expected <= set(semantic_projection.__all__)
