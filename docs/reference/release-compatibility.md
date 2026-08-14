@@ -25,11 +25,12 @@ stable Python API.
 
 Distribution metadata, `semantic_projection.__version__`, and
 `ENGINE_VERSION` derive from one source. A consumer must reject disagreement.
-The 0.11.0 candidate is awaiting final approval and publication. Its expected
-tag is `semantic-projection-core-v0.11.0`; no consumer may treat that name as a
-release until the remote annotated tag and published wheel are verified.
-Production consumers must pin the final wheel by exact SHA-256. The immutable
-0.10.0 release remains available at its existing tag and hash.
+The release is tagged `semantic-projection-core-v0.11.0`. Its published wheel
+SHA-256 is
+`82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d`.
+The annotated remote tag and authenticated asset download have been verified.
+Production consumers must pin that exact hash. The immutable 0.10.0 release
+remains available at its existing tag and hash.
 
 Generated artifacts also carry the installed runtime and resource fingerprints
 described in [Runtime and release identity](runtime-and-release-identity.md).

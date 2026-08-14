@@ -1,9 +1,8 @@
 # 0.11.0 consumer integration
 
-This candidate is not active until the annotated tag and published assets have
-been verified. Once published, install the private wheel using the exact URL
-and SHA-256 in [requirements-production.txt](requirements-production.txt), then
-run:
+The annotated tag and published assets are verified. Install the private wheel
+using the exact URL and SHA-256 in
+[requirements-production.txt](requirements-production.txt), then run:
 
 ```powershell
 semantic-runtime-smoke --require-installed --json

@@ -1,6 +1,6 @@
 # Semantic Projection Core 0.11.0
 
-Status: qualified candidate awaiting tag and publication.
+Status: published 2026-08-14.
 
 ## Added
 

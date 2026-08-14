@@ -652,3 +652,23 @@ entries rather than rewriting prior observations.
   example, tool, and source files; Slice 9 changes documentation only and did
   not expand that unrelated cleanup into the release-preparation gate.
 - Tagging and GitHub publication have not begun and remain separately gated.
+
+## 2026-08-14 - Slice 9 approval and SPC 0.11.0 publication
+
+- User approved the final preparation slice and explicit commit, push, tag, and
+  release boundary.
+- Committed Slice 9 as `1aa4c7a` (`Prepare bounded projection release`) and
+  pushed `main`.
+- Created and pushed annotated tag `semantic-projection-core-v0.11.0`; remote
+  tag object `1052236f08cc66373b0cd07d45622d335a68ae24` dereferences to release
+  commit `1aa4c7ad6690f7669cb027e4f080c19a3ee91225`.
+- Rebuilt the tagged source with the qualified fixed epoch. The wheel remained
+  byte-identical at 161334 bytes and SHA-256
+  `82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d`.
+- Published GitHub release 370389175 with wheel, checksum, and qualification-time
+  release manifest assets. Authenticated downloads of all three matched their
+  GitHub digests and local expected hashes.
+- The uploaded release manifest intentionally remains a qualification-time
+  snapshot with `qualified_awaiting_publication` status; the separate
+  publication receipt records the completed external state per ADR-0003.
+- Sprint exit conditions are satisfied and status is complete.

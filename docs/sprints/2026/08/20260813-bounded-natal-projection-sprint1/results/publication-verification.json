@@ -1,0 +1,54 @@
+{
+  "evidence_contract": "semantic_projection.publication_verification.v1",
+  "status": "pass",
+  "verified_at": "2026-08-14T06:26:18Z",
+  "repository": "kevin2357/semantic-projection-core",
+  "release": {
+    "id": 370389175,
+    "tag": "semantic-projection-core-v0.11.0",
+    "url": "https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.11.0",
+    "published_at": "2026-08-14T06:26:18Z",
+    "draft": false,
+    "prerelease": false,
+    "github_immutable_flag": false
+  },
+  "annotated_tag": {
+    "object_sha": "1052236f08cc66373b0cd07d45622d335a68ae24",
+    "target_type": "commit",
+    "target_commit": "1aa4c7ad6690f7669cb027e4f080c19a3ee91225",
+    "signature_verified": false,
+    "signature_reason": "unsigned"
+  },
+  "assets": [
+    {
+      "id": 514032057,
+      "name": "semantic_projection_core-0.11.0-py3-none-any.whl",
+      "bytes": 161334,
+      "sha256": "82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d",
+      "authenticated_download_matches_local": true
+    },
+    {
+      "id": 514032050,
+      "name": "SHA256SUMS.txt",
+      "bytes": 115,
+      "sha256": "382c781ac72edb8b8a981b1c99860a0ceca9d5ad2b2fbe09ea52f494c5b98990",
+      "authenticated_download_matches_local": true
+    },
+    {
+      "id": 514032052,
+      "name": "release-manifest.json",
+      "bytes": 2010,
+      "sha256": "b7aa602800b4371101eac235f87f273ff4993675f5c2b4fdc5ac4628f383d6f0",
+      "authenticated_download_matches_local": true
+    }
+  ],
+  "controls": {
+    "wheel_checksum_file_content_verified": true,
+    "release_asset_manifest_is_qualification_time_snapshot": true,
+    "immutability_basis": [
+      "annotated Git tag bound to exact release commit",
+      "consumer-required wheel SHA-256 pin",
+      "authenticated post-publication asset download verification"
+    ]
+  }
+}

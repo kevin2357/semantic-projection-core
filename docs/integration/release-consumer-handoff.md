@@ -7,10 +7,10 @@ what to install, invoke, validate, preserve, and reject for SPC 0.11.0. It
 summarizes the [release compatibility contract](../reference/release-compatibility.md)
 without duplicating native schemas.
 
-The 0.11.0 candidate is not yet tagged or published. The expected tag is
-`semantic-projection-core-v0.11.0`; use the exact wheel hash recorded under
-`releases/0.11.0/` only after publication verification marks that candidate as
-published. Until then, the example below is preparation, not an active pin.
+The release is published at
+`https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.11.0`.
+Its authenticated wheel download matches the qualified SHA-256 recorded below,
+and the remote annotated tag dereferences to the qualified release commit.
 
 ## Install and verify
 
