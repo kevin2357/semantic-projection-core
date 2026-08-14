@@ -1,0 +1,60 @@
+{
+  "evidence_contract": "spc.bounded_slice7_qa.v1",
+  "status": "passed",
+  "source_contract": {
+    "package_schema_version": "1.0.0",
+    "canonical_graph_version": "1.7.0",
+    "evidence_contract": "agf.bounded_uncertainty_evidence.v1.0.0",
+    "calculation_profile": "agf.bounded_natal.calculation_profile.v1.12.0",
+    "interval_proof_profile": "agf.interval_proof.v1.0.0"
+  },
+  "interval_cases": [
+    {"hours": 1, "evaluation_count": 61, "status": "passed"},
+    {"hours": 24, "evaluation_count": 1441, "status": "passed"},
+    {"hours": 48, "evaluation_count": 2881, "status": "passed"}
+  ],
+  "evidence_cases": {
+    "circular_disjoint_range": "preserved_as_prerequisite_evidence",
+    "transition_witnesses": "preserved_as_prerequisite_evidence",
+    "counterexamples": "preserved_as_prerequisite_evidence",
+    "unavailable_feature": "preserved_as_disposition_not_projected_row",
+    "inconclusive_feature": "preserved_as_disposition_not_projected_row"
+  },
+  "scale_case": {
+    "source_objects": 8,
+    "source_relationships": 306,
+    "source_evidence_records": 315,
+    "projected_objects": 6,
+    "projected_relationships": 305,
+    "output_evidence_records": 312,
+    "output_registry_terms": 21,
+    "stress_family_members": 300,
+    "stress_family_relevance_sum": 0.98,
+    "stress_family_allocation_sum": 1.0,
+    "observed_elapsed_seconds": 0.298952,
+    "automated_regression_ceiling_seconds": 10.0,
+    "performance_guarantee": false
+  },
+  "defects_corrected": [
+    "missing_projected_term_definition_failed_open",
+    "per_member_rounding_inflated_large_family_total"
+  ],
+  "determinism": {
+    "identical_request_contract_values_equal": true,
+    "source_row_reordering_semantically_equal": true,
+    "family_remainder_order": "sorted_source_relationship_id"
+  },
+  "verification": {
+    "focused_slice7": "12 passed",
+    "bounded": "69 passed",
+    "full": "226 passed in 69.49s",
+    "ruff": "passed",
+    "json": "passed",
+    "diff_check": "passed"
+  },
+  "deferred_to_slice8": [
+    "installed_wheel_resource_absence",
+    "source_checkout_isolation",
+    "cross_repository_acceptance"
+  ]
+}

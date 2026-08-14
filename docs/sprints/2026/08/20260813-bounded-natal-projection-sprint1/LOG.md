@@ -483,3 +483,57 @@ entries rather than rewriting prior observations.
 - Full SPC suite: 214 passed in 64.96 seconds.
 - Ruff passed for the new validator and focused tests.
 - Slice 6 gate disposition: ready for review. Slice 7 has not begun.
+
+## 2026-08-13 — Slice 6 approval and publication
+
+- User approved Slice 6 using the commit/continue/push boundary.
+- Committed four-context materialization and invariance validation as `5996baa`
+  (`Validate bounded projection contexts`) and pushed `main` to `origin`.
+- Began Slice 7 only after the context-set contract was immutable upstream.
+
+## 2026-08-13 — Slice 7 deterministic and semantic QA
+
+- Exercised one-hour, whole-day, and maximum supported 48-hour source bases.
+  Interval width and evaluation count change source identity but do not create a
+  representative chart or alternate projection algorithm.
+- Proved complex circular/disjoint range evidence, transition witnesses, and
+  counterexamples survive when they are prerequisite evidence for an emitted
+  invariant fact. They remain evidence and do not become projected claims.
+- Proved unavailable and inconclusive feature families remain explicit source
+  dispositions and do not become rows merely because they exist in the source
+  registry. Artifact-scoped evidence materialization excludes unrelated records.
+- Added failures for promoted non-invariant evidence, duplicate source IDs,
+  wrong profile versions, unsupported contexts, and missing projected-term
+  definitions.
+- Proved contract-defined semantic output is stable under source object,
+  relationship, and registry reordering. Byte-identical repeat projection was
+  already covered and remains passing.
+
+## 2026-08-13 — Slice 7 defects discovered and corrected
+
+- Missing projected terms were previously capable of producing a bare semantic
+  label without its required registry ref. Bounded registry materialization now
+  fails closed when any emitted primary semantic term, or any present mode/domain
+  term, lacks a definition.
+- A 300-member derived relationship family exposed cumulative six-decimal
+  rounding drift: independently rounded shares summed to `0.9801` for a `0.98`
+  family. Replaced independent division with deterministic integer-micro-unit
+  apportionment. The same run now conserves relevance at exactly `0.98` and
+  member allocation at exactly `1.0`.
+
+## 2026-08-13 — Slice 7 scale and regression verification
+
+- The synthetic family-rich scale case contained 8 source objects, 306 source
+  relationships, and 315 evidence records. It emitted 6 objects, 305 mapped
+  relationships, 312 evidence-closure records, and 21 projected terms.
+- The 300-member stress family completed one projection in 0.299 seconds in the
+  qualification environment. The automated guard allows up to 10 seconds to
+  detect pathological regression without treating workstation timing as a
+  public performance guarantee.
+- Focused Slice 7 QA: 12 passed.
+- Complete bounded suite: 69 passed.
+- Complete SPC suite: 226 passed in 69.49 seconds.
+- Ruff, JSON validation, and `git diff --check`: passed.
+- Packaged-resource absence and installed-wheel isolation remain Slice 8
+  concerns; source-checkout QA does not claim to prove an installed boundary.
+- Slice 7 gate disposition: ready for review. Slice 8 has not begun.

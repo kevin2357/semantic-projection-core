@@ -32,6 +32,21 @@ class BoundedProjectionExecutionError(RuntimeError):
     pass
 
 
+def _equal_micro_allocation(
+    total: float, member_count: int, member_index: int
+) -> float:
+    """Allocate a six-decimal total without cumulative rounding inflation."""
+
+    if member_count < 1 or not 0 <= member_index < member_count:
+        raise BoundedProjectionExecutionError(
+            "Cannot allocate relevance for an unindexed family member"
+        )
+    total_units = round(float(total) * 1_000_000)
+    quotient, remainder = divmod(total_units, member_count)
+    member_units = quotient + (1 if member_index < remainder else 0)
+    return member_units / 1_000_000
+
+
 def _source_ref(row: JsonDict, *, kind: str) -> str:
     return f"canonical:{kind}:{row['id']}"
 
@@ -83,36 +98,37 @@ def _registry_subset(
     used: set[str] = set()
     for row in objects:
         attributes = row["attributes"]
-        for value in (
-            row["name"],
-            attributes.get("projected_mode"),
-            attributes.get("projected_domain"),
-        ):
-            if isinstance(value, str) and value in terms:
-                used.add(value)
-        if row["name"] in terms:
-            attributes["term_ref"] = term_ref(registry, row["name"])
-        if attributes.get("projected_mode") in terms:
-            attributes["mode_ref"] = term_ref(
-                registry, attributes["projected_mode"]
-            )
-        if attributes.get("projected_domain") in terms:
-            attributes["domain_ref"] = term_ref(
-                registry, attributes["projected_domain"]
-            )
+        required = {
+            "term_ref": row["name"],
+            "mode_ref": attributes.get("projected_mode"),
+            "domain_ref": attributes.get("projected_domain"),
+        }
+        for ref_field, value in required.items():
+            if value is None and ref_field != "term_ref":
+                continue
+            if not isinstance(value, str) or value not in terms:
+                raise BoundedProjectionExecutionError(
+                    f"Bounded object {row['id']!r} requires missing projected "
+                    f"term {value!r} for {ref_field}"
+                )
+            used.add(value)
+            attributes[ref_field] = term_ref(registry, value)
     for row in relationships:
         attributes = row["attributes"]
-        for value in (row["relationship_type"], attributes.get("interaction_mode")):
-            if isinstance(value, str) and value in terms:
-                used.add(value)
-        if row["relationship_type"] in terms:
-            attributes["relation_ref"] = term_ref(
-                registry, row["relationship_type"]
-            )
-        if attributes.get("interaction_mode") in terms:
-            attributes["interaction_mode_ref"] = term_ref(
-                registry, attributes["interaction_mode"]
-            )
+        required = {
+            "relation_ref": row["relationship_type"],
+            "interaction_mode_ref": attributes.get("interaction_mode"),
+        }
+        for ref_field, value in required.items():
+            if value is None and ref_field != "relation_ref":
+                continue
+            if not isinstance(value, str) or value not in terms:
+                raise BoundedProjectionExecutionError(
+                    f"Bounded relationship {row['id']!r} requires missing "
+                    f"projected term {value!r} for {ref_field}"
+                )
+            used.add(value)
+            attributes[ref_field] = term_ref(registry, value)
     return {
         "registry_id": registry["registry_id"],
         "registry_version": registry["registry_version"],
@@ -236,12 +252,20 @@ def _project_bounded_natal(
     else:
         outside_relationship_ids = [row["id"] for row in source_relationships]
 
-    scored_family_sizes: dict[str, int] = {}
+    scored_family_members: dict[str, list[str]] = {}
     for source_relationship, draft in relationship_drafts:
         if draft.get("base_relevance") is None:
             continue
         family = source_relationship["evidence_metadata"]["evidence_family_group"]
-        scored_family_sizes[family] = scored_family_sizes.get(family, 0) + 1
+        scored_family_members.setdefault(family, []).append(
+            source_relationship["id"]
+        )
+    for members in scored_family_members.values():
+        members.sort()
+    scored_family_positions = {
+        family: {member_id: index for index, member_id in enumerate(members)}
+        for family, members in scored_family_members.items()
+    }
 
     projected_relationships: list[JsonDict] = []
     mapped_relationship_ids: list[str] = []
@@ -257,11 +281,17 @@ def _project_bounded_natal(
         source_ref = _source_ref(source_relationship, kind="relationship")
         family = source_relationship["evidence_metadata"]["evidence_family_group"]
         base_relevance = draft.get("base_relevance")
-        family_member_count = scored_family_sizes.get(family, 0)
+        family_members = scored_family_members.get(family, [])
+        family_member_count = len(family_members)
+        family_member_index = scored_family_positions.get(family, {}).get(
+            source_relationship["id"], -1
+        )
         relevance = (
             None
             if base_relevance is None
-            else round(float(base_relevance) / family_member_count, 6)
+            else _equal_micro_allocation(
+                float(base_relevance), family_member_count, family_member_index
+            )
         )
         semantic_key = str(draft["semantic_key"])
         relationship_type = str(draft["relationship_type"])
@@ -296,7 +326,11 @@ def _project_bounded_natal(
                     "base_profile_relevance": base_relevance,
                     "scored_family_member_count": family_member_count,
                     "member_allocation": (
-                        None if base_relevance is None else round(1 / family_member_count, 6)
+                        None
+                        if base_relevance is None
+                        else _equal_micro_allocation(
+                            1.0, family_member_count, family_member_index
+                        )
                     ),
                     "raw_record_count_is_weight": False,
                 },
