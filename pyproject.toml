@@ -26,11 +26,13 @@ semantic-temporal-foundations = "semantic_projection.temporal_foundations_cli:ma
 semantic-temporal-project = "semantic_projection.temporal_projection_cli:main"
 semantic-temporal-run = "semantic_projection.temporal_pipeline_cli:main"
 semantic-runtime-smoke = "semantic_projection.runtime_cli:main"
+semantic-bounded-project = "semantic_projection.bounded_cli:main"
 
 [project.entry-points."semantic_projection.profiles"]
 orthodox_astrology = "semantic_projection.profiles.orthodox_astrology:OrthodoxAstrologyProfile"
 cognitive_architecture_demo = "semantic_projection.profiles.cognitive_architecture_demo:CognitiveArchitectureDemoProfile"
 woofmapped_astrology = "semantic_projection.profiles.woofmapped_astrology:WoofmappedAstrologyProfile"
+woofmapped_bounded_astrology = "semantic_projection.profiles.woofmapped_bounded_astrology:WoofmappedBoundedAstrologyProfile"
 
 [tool.setuptools.packages.find]
 where = ["src"]

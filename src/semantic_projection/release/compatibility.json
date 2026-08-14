@@ -2,9 +2,9 @@
   "contract_id": "semantic_projection.release_compatibility.v1",
   "distribution": {
     "name": "semantic-projection-core",
-    "version": "0.10.0",
+    "version": "0.11.0",
     "python_requires": ">=3.10",
-    "engine_version": "0.10.0",
+    "engine_version": "0.11.0",
     "engine_contract_version": "1.0.0"
   },
   "source_contracts": {
@@ -17,7 +17,16 @@
       "package_type": "canonical_temporal_activation_graph",
       "contract_version": "1.0.0"
     },
-    "temporal_request": "temporal_projection_request.v1"
+    "temporal_request": "temporal_projection_request.v1",
+    "bounded_natal": {
+      "package_type": "bounded_natal_dataset",
+      "package_schema_version": "1.0.0",
+      "canonical_graph_contract": "bounded_canonical_astrology_graph.v1",
+      "canonical_graph_version": "1.7.0",
+      "evidence_contract": "agf.bounded_uncertainty_evidence.v1.0.0",
+      "calculation_profile": "agf.bounded_natal.calculation_profile.v1.12.0",
+      "interval_proof_profile": "agf.interval_proof.v1.0.0"
+    }
   },
   "output_contracts": {
     "static": "projected_semantic_graph.v1",
@@ -33,7 +42,8 @@
       "package_type": "temporal_projection_route_receipt",
       "contract_version": "1.0.0"
     },
-    "materialization_modes": ["forensic", "full", "standard", "summary"]
+    "materialization_modes": ["forensic", "full", "standard", "summary"],
+    "bounded_natal": "projected_bounded_semantic_graph.v1"
   },
   "profiles": [
     {
@@ -56,9 +66,21 @@
         {"context_id": "woofmapped.handler_guidance.v1", "context_version": "1.0.0"},
         {"context_id": "woofmapped.hybrid_horoscope.v1", "context_version": "1.0.0"}
       ]
+    },
+    {
+      "profile_id": "woofmapped_bounded_astrology.v0",
+      "profile_version": "0.1.0",
+      "static_source_graph_types": ["bounded_natal"],
+      "supported_natal_contexts": [
+        {"context_id": "woofmapped.dog_direct.v1", "context_version": "1.0.0"},
+        {"context_id": "woofmapped.doghouse.general.v0", "context_version": "0.1.0"},
+        {"context_id": "woofmapped.handler_guidance.v1", "context_version": "1.0.0"},
+        {"context_id": "woofmapped.hybrid_horoscope.v1", "context_version": "1.0.0"}
+      ]
     }
   ],
   "console_scripts": [
+    "semantic-bounded-project",
     "semantic-project",
     "semantic-runtime-smoke",
     "semantic-temporal-foundations",

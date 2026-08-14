@@ -49,6 +49,18 @@ def test_release_contract_matches_implemented_source_and_output_contracts():
         "package_type": "projected_temporal_foundations",
         "contract_version": "0.1.0",
     }
+    assert source["bounded_natal"] == {
+        "package_type": "bounded_natal_dataset",
+        "package_schema_version": "1.0.0",
+        "canonical_graph_contract": "bounded_canonical_astrology_graph.v1",
+        "canonical_graph_version": "1.7.0",
+        "evidence_contract": "agf.bounded_uncertainty_evidence.v1.0.0",
+        "calculation_profile": "agf.bounded_natal.calculation_profile.v1.12.0",
+        "interval_proof_profile": "agf.interval_proof.v1.0.0",
+    }
+    assert contract["output_contracts"]["bounded_natal"] == (
+        "projected_bounded_semantic_graph.v1"
+    )
 
 
 def test_release_contract_freezes_four_supported_woofmapped_natal_contexts():

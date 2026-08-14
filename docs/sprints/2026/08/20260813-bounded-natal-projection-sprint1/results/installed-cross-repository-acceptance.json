@@ -1,0 +1,78 @@
+{
+  "evidence_contract": "spc.bounded_installed_acceptance.v1",
+  "status": "upstream_pass_downstream_handoff_required",
+  "execution": {
+    "python": "3.12.13",
+    "spc_installation": "non_editable_site_packages",
+    "source_checkout_imported": false,
+    "temporary_root": "C:\\tmp\\spc-bounded-slice8-20260813",
+    "temporary_root_status": "deleted_after_compact_evidence_capture"
+  },
+  "spc_candidate": {
+    "distribution_version": "0.11.0",
+    "engine_version": "0.11.0",
+    "wheel": "semantic_projection_core-0.11.0-py3-none-any.whl",
+    "wheel_bytes": 161185,
+    "wheel_sha256": "b28786325e3a37ea511f2e1f265d14f98ec0ecc963ff725fadf7a1e9f52cc44a",
+    "runtime_package_sha256": "961b83ee6fda0ca9a275ae0bac7caea82a1ace2b276eaa67666ef5a284e4d72c",
+    "semantic_resource_set_sha256": "b901049d4c1bcf322ede511497af06bb4b0874a8c4bc64105c4e384895fa1e02",
+    "profile_entry_points": 4,
+    "console_commands": 7,
+    "semantic_resources": 52,
+    "bounded_required_resource_representatives": 10,
+    "bounded_missing_resource_representatives": []
+  },
+  "agf": {
+    "distribution_version": "0.8.0",
+    "wheel_sha256": "f236de0bb7c254c4421f571e816f2314251636ebbed9aa3cb9cb2a09925c04ae",
+    "saved_package_mode": "passed",
+    "live_calculation_mode": "unavailable_missing_swiss_ephemeris",
+    "runtime_resource_count": 39,
+    "runtime_manifest_sha256": "87cfbefe80b714268d98ba55b9c65d55283a678af28ea83efa797ec631a5395f",
+    "boundary_mode": "replayed_checked_in_exact_contract_fixture"
+  },
+  "source_fixture": {
+    "path": "tests/fixtures/agf/bounded_natal_v1_tiny.json",
+    "bytes": 7602,
+    "sha256": "097266ac8ae463822a75ad71dbc873cf445c05d5aeeef2e19a02182ee705fa6b"
+  },
+  "four_context_validation": {
+    "status": "passed",
+    "object_correspondence_count": 2,
+    "relationship_correspondence_count": 1,
+    "epistemic_sha256": "50f10a88a660e76ec73f7ba09327ceb35cdffccb1453905927bb128dac40b9c1",
+    "structural_semantic_sha256": "c8b78a607d9fe0131ef6ceb031aaaf6e1d624419c5a8a648de09d0b06ee85713",
+    "canonical_context_priority": null,
+    "artifact_sha256": {
+      "direct_to_dog": "1c39002807ae204648774a4be9db5704f9caa9d86fc97553c8de2d2c36bba836",
+      "general": "61b19147c02caa2aafb58e67b04600ee7d672b276ea9b903a187381fe823d91f",
+      "handler": "3ea08c4f58f774a7b2156fbc6a022442d28dee640d80094bdd157bee7166fa9f",
+      "hybrid": "3f532342290b16abd72e5f3af07229d9fea5d62278e767539f4db100c4230ade"
+    }
+  },
+  "sbe": {
+    "distribution_version": "0.3.0",
+    "wheel_sha256": "377c48ed37d337e42dc9392cc7b5e07a81c3b12c2e0638a50bf33ad1b18cd3b0",
+    "four_context_loader": "passed",
+    "projected_term_merge": "passed_6_terms",
+    "candidate_builder": "blocked",
+    "first_failure": {
+      "exception": "TypeError",
+      "cause": "arithmetic_on_intentionally_null_bounded_object_projection_relevance_score"
+    },
+    "additional_contract_gap": "expects_source_graph_ref_instead_of_source_artifact_ref"
+  },
+  "verification": {
+    "full_spc": "228 passed in 69.89s",
+    "focused_cli_release": "6 passed",
+    "runtime_release_provenance": "17 passed",
+    "ruff": "passed",
+    "json": "passed",
+    "diff_check": "passed"
+  },
+  "publication": {
+    "tag_created": false,
+    "release_created": false,
+    "downstream_pin_changed": false
+  }
+}

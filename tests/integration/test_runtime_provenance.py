@@ -16,7 +16,7 @@ from tests.paths import EXAMPLES_ROOT, FIXTURES_ROOT
 
 def _assert_runtime_identity(identity: dict, *, route: str, output_contract: str) -> None:
     assert identity["identity_contract"] == "semantic_projection.runtime_identity.v1"
-    assert identity["distribution"]["version"] == "0.10.0"
+    assert identity["distribution"]["version"] == "0.11.0"
     assert identity["runtime_package"]["resource_count"] > 0
     assert len(identity["runtime_package"]["sha256"]) == 64
     assert len(identity["semantic_resources"]["sha256"]) == 64

@@ -537,3 +537,88 @@ entries rather than rewriting prior observations.
 - Packaged-resource absence and installed-wheel isolation remain Slice 8
   concerns; source-checkout QA does not claim to prove an installed boundary.
 - Slice 7 gate disposition: ready for review. Slice 8 has not begun.
+
+## 2026-08-13 — Slice 7 approval and publication
+
+- User approved Slice 7 using the commit/continue/push boundary.
+- Committed deterministic, negative, scale, registry-closure, and exact family
+  allocation work as `3c31e30` (`Qualify bounded projection behavior`) and
+  pushed `main` to `origin`.
+- Began Slice 8 only after the qualification fixes were immutable upstream.
+
+## 2026-08-13 — Slice 8 installed candidate boundary
+
+- Advanced the candidate distribution, package, and engine version to `0.11.0`.
+  The released `0.10.0` tag and assets remain unchanged.
+- Added installed profile discovery for `woofmapped_bounded_astrology.v0@0.1.0`
+  and the `semantic-bounded-project` command.
+- Extended packaged release compatibility with the exact bounded source,
+  output, profile, and four-context identities.
+- Built `semantic_projection_core-0.11.0-py3-none-any.whl` outside release
+  directories: 161,185 bytes, SHA-256
+  `b28786325e3a37ea511f2e1f265d14f98ec0ecc963ff725fadf7a1e9f52cc44a`.
+- Installed the wheel non-editably into an isolated Python 3.12.13 virtual
+  environment under temporary QA storage. The imported module resolved from
+  that environment's `site-packages`, not either source checkout.
+- Installed smoke found four profile entry points, seven console commands, 52
+  semantic JSON resources, and aligned distribution/package/engine 0.11.0.
+  Runtime-package SHA-256 was
+  `961b83ee6fda0ca9a275ae0bac7caea82a1ace2b276eaa67666ef5a284e4d72c`;
+  semantic-resource-set SHA-256 was
+  `b901049d4c1bcf322ede511497af06bb4b0874a8c4bc64105c4e384895fa1e02`.
+- Direct wheel inspection found all ten required bounded Python/schema/profile
+  resource representatives. Per-artifact runtime identity marked the bounded
+  profile and context as bundled and fingerprinted.
+
+## 2026-08-13 — Slice 8 AGF and four-context replay
+
+- Downloaded the immutable private AGF 0.8.0 wheel and independently verified
+  its published SHA-256:
+  `f236de0bb7c254c4421f571e816f2314251636ebbed9aa3cb9cb2a09925c04ae`.
+- Installed AGF 0.8.0 beside the SPC candidate. Its saved-package doctor passed,
+  reporting distribution/package alignment, 39 runtime resources, manifest
+  SHA-256 `87cfbefe80b714268d98ba55b9c65d55283a678af28ea83efa797ec631a5395f`,
+  and saved-package readiness. Live Swiss calculation was unavailable in this
+  Windows environment, so this gate replayed the checked-in exact-contract
+  boundary fixture rather than claiming a new live calculation.
+- Projected the fixture through all four installed bounded commands. Exact
+  context versions, route provenance, profile resource identity, evidence,
+  registries, and output schemas passed. The installed cross-context validator
+  reported 2 object and 1 relationship correspondences with common epistemic
+  and structural-semantic hashes.
+- Every installed SPC command passed `--help`; `semantic-bounded-project` and
+  `semantic-runtime-smoke` received meaningful executions.
+
+## 2026-08-13 — Slice 8 SBE disposition
+
+- Downloaded and installed immutable `astrowoof-natal-authoring` 0.3.0, wheel
+  SHA-256
+  `377c48ed37d337e42dc9392cc7b5e07a81c3b12c2e0638a50bf33ad1b18cd3b0`.
+- SBE's four-context loader and projected-term merge accepted the installed SPC
+  artifacts. This proves file discovery, topology comparison, context marker,
+  source identity, target ontology, and registry merge can enter its current
+  shallow boundary.
+- Full SBE candidate construction is not yet compatible. It divides object
+  `projection_relevance_score` by a constant, but bounded objects correctly use
+  `null` because relevance was not established. The observed failure is a
+  deterministic `TypeError`, not an SPC artifact-validation failure.
+- SBE also records `source_graph_ref`, which is absent by design from the new
+  contract; bounded output uses `source_artifact_ref`. Further exact-chart
+  assumptions include mandatory object sets, structural scores, canonical
+  object/aspect attributes, and evidence shape. These require an explicit
+  bounded authoring policy, not compatibility aliases or invented defaults.
+- Added a precise SBE handoff. The Slice 8 gate therefore passes the installed
+  AGF-to-SPC boundary and records downstream disposition honestly; it does not
+  claim end-to-end bounded authoring acceptance.
+
+## 2026-08-13 — Slice 8 verification and cleanup disposition
+
+- Full SPC suite: 228 passed in 69.89 seconds.
+- Focused CLI/release-compatibility suite: 6 passed.
+- Runtime/release/provenance suite: 17 passed.
+- Ruff passed for changed CLI, profile registry, and tests.
+- JSON, Markdown-link, and whitespace validation passed.
+- Removed the large temporary wheel, environment, installed packages, and
+  expanded outputs under `C:\tmp\spc-bounded-slice8-20260813` after capturing
+  hashes and compact evidence. No generated candidate artifact was checked in.
+- Slice 8 gate disposition: ready for review. Slice 9 has not begun.

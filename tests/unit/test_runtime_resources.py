@@ -37,7 +37,7 @@ EXPECTED_CONTEXTS = {
 
 
 def test_distribution_engine_and_package_versions_are_aligned():
-    assert metadata.version("semantic-projection-core") == ENGINE_VERSION == __version__ == "0.10.0"
+    assert metadata.version("semantic-projection-core") == ENGINE_VERSION == __version__ == "0.11.0"
 
 
 def test_all_versioned_contexts_are_packaged_and_match_examples():
@@ -72,7 +72,7 @@ def test_runtime_release_manifest_fingerprints_code_profiles_schemas_and_context
     runtime_paths = {item["path"] for item in manifest["runtime_package"]["resources"]}
     assert {"distribution/METADATA", "distribution/WHEEL", "distribution/entry_points.txt"} <= runtime_paths
     assert all(item["path"].endswith(".json") for item in manifest["schemas"]["resources"])
-    assert len(manifest["profiles"]) == 3
+    assert len(manifest["profiles"]) == 4
     assert len(manifest["contexts"]) == len(EXPECTED_CONTEXTS)
     woof = next(item for item in manifest["profiles"] if item["profile_id"] == "woofmapped_astrology.v0")
     paths = {item["path"] for item in woof["policy_resource_set"]["resources"]}
@@ -141,19 +141,21 @@ def test_runtime_report_discovers_distribution_entry_points():
     assert report["status"] == "ok"
     assert report["release_compatibility"] == {
         "contract_id": "semantic_projection.release_compatibility.v1",
-        "distribution_version": "0.10.0",
+        "distribution_version": "0.11.0",
     }
     assert report["runtime_release_manifest"]["manifest_contract"] == (
         "semantic_projection.runtime_release_manifest.v1"
     )
-    assert report["profile_entry_points_discovered"] == 3
+    assert report["profile_entry_points_discovered"] == 4
     assert {item["name"] for item in report["profile_entry_points"]} == {
         "cognitive_architecture_demo",
         "orthodox_astrology",
         "woofmapped_astrology",
+        "woofmapped_bounded_astrology",
     }
     assert {item["name"] for item in report["console_entry_points"]} >= {
         "semantic-project",
+        "semantic-bounded-project",
         "semantic-temporal-foundations",
         "semantic-temporal-intake",
         "semantic-temporal-project",
