@@ -61,12 +61,20 @@ For temporal execution, supply
 `canonical_temporal_activation_graph` 1.0.0 and a static target graph at 1.3.0.
 SPC preserves timing facts but does not calculate them.
 
-For bounded natal execution, supply the complete AGF 0.8.0
+For bounded natal execution, supply the complete AGF
 `bounded_natal_dataset` package. Select
 `woofmapped_bounded_astrology.v0@0.1.0` and invoke
 `semantic-bounded-project` once per exact context ID/version. Do not route the
 bounded graph through `semantic-project`, choose a representative instant, or
 replace unavailable facts with exact-chart defaults.
+
+SPC 0.11.0's original release qualification used AGF 0.8.0. AGF 0.8.1 is the
+preferred compatible production patch: its bounded wire identities remain
+dataset 1.0.0, graph 1.7.0, evidence 1.0.0, calculation profile 1.12.0, and
+interval-proof profile 1.0.0. The exact AGF 0.8.1 wheel SHA-256 is
+`860c48793318c82c986b32664cd0f3fe97c4b1e02fb1e489561bc395c8b5a3ed`.
+SPC's post-release Linux replay against that wheel passed live generation and
+all four bounded contexts.
 
 AGF currently declares `semantic-projection-core>=0.10.0` and imports some SPC
 profile mapping internals. Those are development conveniences, not compliant
@@ -127,6 +135,8 @@ and output-contract identity. The orchestrator must verify that receipt against
 the qualified runtime release manifest and additionally retain:
 
 - final wheel SHA-256 and release tag;
+- the exact AGF distribution version, wheel SHA-256, and runtime receipt used
+  to generate the source artifact;
 - engine/distribution version;
 - runtime-package and semantic-resource-set SHA-256 values;
 - release compatibility contract ID;
@@ -141,6 +151,8 @@ the qualified runtime release manifest and additionally retain:
 
 The final wheel SHA-256 remains external to embedded provenance because an
 installed package cannot reconstruct the original wheel bytes.
+The same boundary applies upstream: projected JSON proves its source artifact
+and declared wire contracts, not which AGF wheel produced those bytes.
 
 ## Reject rather than guess
 

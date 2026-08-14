@@ -1,0 +1,37 @@
+{
+  "evidence_contract": "semantic_projection.post_release_compatibility.v1",
+  "status": "pass",
+  "observed_at": "2026-08-14",
+  "environment": {
+    "os": "linux",
+    "python": "3.11.15",
+    "pyswisseph": "2.10.3.2"
+  },
+  "runtimes": {
+    "astrology_graph_foundry": {
+      "version": "0.8.1",
+      "wheel_sha256": "860c48793318c82c986b32664cd0f3fe97c4b1e02fb1e489561bc395c8b5a3ed"
+    },
+    "semantic_projection_core": {
+      "version": "0.11.0",
+      "wheel_sha256": "82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d"
+    }
+  },
+  "bounded_wire_contracts": {
+    "dataset": "1.0.0",
+    "graph": "1.7.0",
+    "evidence": "agf.bounded_uncertainty_evidence.v1.0.0",
+    "calculation_profile": "agf.bounded_natal.calculation_profile.v1.12.0",
+    "interval_proof_profile": "agf.interval_proof.v1.0.0"
+  },
+  "execution": {
+    "live_bounded_generation": "pass",
+    "woofmapped_contexts": 4,
+    "parallel_context_validation": "pass",
+    "object_correspondence_count": 106,
+    "relationship_correspondence_count": 1520,
+    "projected_term_count_per_artifact": 43
+  },
+  "provenance_limit": "Projected artifacts record upstream contract identities and source artifact hash, not AGF distribution version or wheel hash.",
+  "qualification_interpretation": "Preferred compatible patch evidence; does not alter the immutable SPC 0.11.0 qualification-time release manifest."
+}

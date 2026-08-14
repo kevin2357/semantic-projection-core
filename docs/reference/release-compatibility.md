@@ -75,7 +75,8 @@ graph passed to the static command is not supported.
 
 ### Bounded natal
 
-The dedicated bounded route accepts exactly the released AGF 0.8.0 boundary:
+The dedicated bounded route was originally release-qualified against AGF 0.8.0
+and accepts this bounded wire boundary:
 
 - `bounded_natal_dataset` package schema 1.0.0;
 - `bounded_canonical_astrology_graph` version 1.7.0;
@@ -88,6 +89,21 @@ It produces `projected_bounded_semantic_graph.v1` through
 capability dispositions, limitations, proof evidence, family identity, and
 source lineage. It never selects a representative instant or supplies missing
 degrees, houses, scores, probabilities, or confidence.
+
+AGF 0.8.1 is the preferred compatible patch. It repairs bounded-evidence
+validation while retaining the package, graph, evidence, calculation-profile,
+and interval-proof identities above. A post-publication Linux/Python 3.11 live
+replay using the exact AGF 0.8.1 and SPC 0.11.0 wheels generated a bounded
+artifact and passed all four Woofmapping projections plus parallel-context
+validation. This additional compatibility evidence does not rewrite SPC's
+immutable qualification-time release manifest or change the bounded contract
+identity.
+
+Distribution provenance is external to the projected JSON. The artifact embeds
+the upstream wire-contract identities and source-artifact hash, but not the AGF
+distribution version or wheel hash. A production orchestrator must retain the
+AGF runtime receipt and exact wheel SHA-256; consumers must not infer them from
+the projected artifact alone.
 
 ## Supported outputs
 
