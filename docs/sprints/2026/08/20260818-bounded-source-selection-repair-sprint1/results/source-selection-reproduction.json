@@ -1,0 +1,51 @@
+{
+  "evidence_contract": "semantic_projection.bounded_source_selection_audit.v1",
+  "status": "defect_reproduced",
+  "runtime": "semantic-projection-core 0.11.0 source at b8e9169",
+  "declared_policy": {
+    "node_variant": "true",
+    "fortune_variant": "part_of_fortune"
+  },
+  "exact_reference": {
+    "True Node": "eligible",
+    "Mean Node": "excluded_by_source_selection_policy",
+    "Part of Fortune": "eligible",
+    "Fortune exact alias": "excluded_by_source_selection_policy"
+  },
+  "bounded_current": {
+    "True Node": "eligible_emitted",
+    "Mean Node": "eligible_emitted",
+    "True Node harmonic 3": "eligible_emitted",
+    "Mean Node harmonic 3": "eligible_emitted",
+    "bounded calculated Fortune": "eligible_emitted",
+    "relationships_touching_each_family": "eligible_emitted"
+  },
+  "bounded_required": {
+    "True Node": "eligible_emitted",
+    "Mean Node": "excluded_by_source_selection_policy",
+    "True Node-owned transforms": "eligible_when_supported",
+    "Mean Node-owned transforms": "excluded_by_source_selection_policy",
+    "relationships_touching_Mean_Node_family": "excluded_by_source_selection_policy",
+    "bounded_calculated_Fortune": "eligible_emitted"
+  },
+  "duplicate_target_primitive": "training_development_vector",
+  "coverage_gap": {
+    "current_policy_exclusion_buckets": false,
+    "required_object_count_and_ids": true,
+    "required_relationship_count_and_ids": true
+  },
+  "agf_0_8_1_boundary": {
+    "node_names": ["True Node", "Mean Node"],
+    "node_object_type": "bounded_natal_body",
+    "derived_owner_reference": "owner_object_ref",
+    "fortune_name": "Fortune",
+    "fortune_object_type": "bounded_calculated_point",
+    "separate_bounded_Part_of_Fortune_emitted": false
+  },
+  "version_recommendation": {
+    "distribution_engine": "0.11.1",
+    "profile": "woofmapped_bounded_astrology.v0@0.1.0",
+    "output_contract": "projected_bounded_semantic_graph.v1",
+    "schema_change": false
+  }
+}

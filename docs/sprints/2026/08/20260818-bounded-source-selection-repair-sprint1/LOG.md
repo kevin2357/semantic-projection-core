@@ -32,3 +32,41 @@ belong here as slices proceed.
 
 - User approved the sprint plan and authorized commit, push, and Slice 1 work.
 - Marked the sprint active and opened the reproduction/policy-closure audit.
+
+## 2026-08-18 - Slice 1 exact and bounded policy audit
+
+- Confirmed exact Woofmapped selection classifies Mean Node and the exact legacy
+  Fortune alias as `excluded_by_source_selection_policy`; True Node and Part of
+  Fortune remain eligible. Dependent exact relationships inherit the exclusion.
+- Confirmed AGF 0.8.1 emits both `True Node` and `Mean Node` as
+  `bounded_natal_body` rows using space-bearing names and underscore-bearing IDs.
+  Its transforms retain `owner_object_ref` to the corresponding body.
+- Confirmed AGF's bounded terrestrial calculation emits one
+  `bounded_calculated_point` named `Fortune`. It does not emit the exact graph's
+  legacy `lot` alias alongside a separate bounded Part of Fortune row. Applying
+  the exact name-only helper wholesale would delete a valid bounded fact.
+- Built a controlled current-runtime reproduction with True Node, Mean Node,
+  calculated Fortune, synthetic Part of Fortune, True/Mean harmonic descendants,
+  and direct/ownership relationships. Every row classified `eligible`, every row
+  projected, and both node variants mapped to `training_development_vector`.
+- The bounded artifact audit simultaneously declared `node_variant: true`,
+  proving policy metadata and execution disagree.
+- Bounded coverage currently has only mapped and outside-scope buckets. It needs
+  separate object and relationship policy-exclusion counts and IDs.
+
+## 2026-08-18 - Slice 1 decisions
+
+- Implement a bounded type-aware selection helper rather than directly reusing
+  exact name-only selection.
+- Direct Mean Node is policy-excluded using normalized source name. True Node is
+  eligible; Mean Node is not promoted when True Node is absent.
+- Every transform whose owner status is policy-excluded inherits the same status.
+- Every relationship touching a policy-excluded endpoint inherits the same status.
+- Preserve AGF's `bounded_calculated_point` Fortune and its relationships as the
+  canonical bounded representation of Part of Fortune semantics.
+- Add explicit policy-excluded IDs/counts for objects and relationships while
+  retaining outside-scope accounting for genuinely unsupported rows.
+- No schema, profile ID/version, ontology, context, or registry version change is
+  required. Retain candidate distribution/engine version 0.11.1 because runtime
+  semantic behavior and fingerprints change.
+- Slice 1 gate is ready for review. No runtime implementation has begun.

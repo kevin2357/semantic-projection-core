@@ -6,7 +6,7 @@ owner: semantic-projection-core
 scope: enforce declared bounded node and fortune source-selection policy
 created: 2026-08-18
 implementation_authorized: true
-current_gate: slice_1_in_progress
+current_gate: slice_1_review
 candidate_distribution_version: 0.11.1
 current_released_version: 0.11.0
 affected_profile: woofmapped_bounded_astrology.v0@0.1.0
@@ -19,7 +19,8 @@ Repair the bounded Woofmapping profile so its executable source selection agrees
 with its already-declared policy:
 
 - prefer True Node and exclude Mean Node aliases;
-- prefer Part of Fortune and exclude the legacy Fortune alias;
+- preserve AGF's canonical bounded calculated `Fortune` point as the bounded
+  representation of Part of Fortune;
 - exclude derived objects owned by an excluded source object;
 - exclude relationships whose endpoints were excluded by source-selection
   policy; and
@@ -39,7 +40,7 @@ released 0.11.0 wheel and tag remain immutable.
 ### Existing exact behavior
 
 `woofmapped_astrology.v0` and `cognitive_architecture_demo.v0` already declare
-True Node and Part of Fortune preferences and enforce them during static source
+True Node and Part of Fortune preferences and enforce them during exact static source
 classification. Dependent relationships inherit
 `excluded_by_source_selection_policy`. Temporal projection mirrors the same
 profile policy.
@@ -62,6 +63,13 @@ projected identities. Derived rows owned by Mean Node and relationships touching
 either row can also survive. Existing bounded tests do not exercise this policy.
 
 The output audit therefore records a policy that execution does not fully obey.
+
+Slice 1 established an important type-aware distinction: AGF 0.8.1 emits its
+bounded lot as one `bounded_calculated_point` named `Fortune`; it does not emit
+the exact graph's legacy `lot` alias plus a separate `Part of Fortune` row.
+Bounded calculated Fortune is therefore the preferred bounded representation,
+not an alias to delete. The exact name-only selection helper cannot be reused
+unchanged on bounded rows.
 
 ### Version recommendation
 
@@ -87,7 +95,8 @@ Construct minimal bounded fixtures containing:
 
 - True Node and Mean Node;
 - accepted spelling/identifier variants;
-- Part of Fortune and Fortune;
+- bounded calculated Fortune plus a synthetic Part of Fortune control to prove
+  the type-aware distinction;
 - derived antiscia, contra-antiscia, and harmonic rows owned by preferred and
   excluded variants;
 - direct and derived relationships touching every variant; and
@@ -121,16 +130,16 @@ Implement source-selection enforcement at the bounded profile boundary.
 
 Required behavior:
 
-1. A directly excluded Mean Node or Fortune alias receives
+1. A directly excluded Mean Node receives
    `excluded_by_source_selection_policy`.
 2. A derived object whose semantic owner is policy-excluded receives the same
    classification rather than becoming eligible through its mapping.
 3. A relationship touching any policy-excluded endpoint receives
    `excluded_by_source_selection_policy`.
-4. Preferred variants remain eligible when otherwise supported.
-5. Missing preferred variants do not cause an excluded fallback variant to be
-   silently promoted. The declared preference is a source-selection contract,
-   not a “whichever exists” heuristic.
+4. True Node and AGF's bounded calculated Fortune remain eligible when otherwise
+   supported.
+5. Missing True Node does not cause Mean Node to be silently promoted. The node
+   preference is a source-selection contract, not a “whichever exists” heuristic.
 6. Projection emits no row, term use, relevance allocation, correspondence, or
    evidence-family vote for excluded variants.
 7. Coverage and audit counts retain the exclusions as deliberate policy choices.
@@ -195,7 +204,8 @@ papering over the defect in SBE.
   authorization; cross-repository inspection is read-only.
 - Do not move or overwrite the existing 0.11.0 tag or release assets.
 - Do not change `projected_bounded_semantic_graph.v1` merely to repair selection.
-- Do not change the meaning of True Node, Mean Node, Part of Fortune, or Fortune.
+- Do not change the meaning of True Node, Mean Node, Part of Fortune, or bounded
+  calculated Fortune.
 - Do not select a disfavored alias merely because its preferred sibling is absent.
 - Apply policy before projection IDs, correspondence IDs, term materialization,
   family accounting, or downstream relevance can be created.
@@ -219,7 +229,7 @@ The sprint exits only when:
 
 1. Mean Node aliases are policy-excluded for the bounded Woofmapping profile;
 2. the preferred True Node remains eligible and maps exactly once;
-3. Fortune aliases are excluded and Part of Fortune remains eligible;
+3. AGF's canonical bounded calculated Fortune remains eligible and maps once;
 4. derived descendants of excluded owners are also policy-excluded;
 5. every relationship touching an excluded row is policy-excluded;
 6. no excluded source ref enters projected rows, registry usage, family counts,
@@ -249,8 +259,8 @@ The sprint exits only when:
   out of scope.
 - Changing the target ontology or projected-term definitions is not expected.
 - Redesigning exact static, temporal, or bounded schemas is out of scope.
-- Selecting a fallback node/fortune variant when the preferred row is absent is
-  out of scope and contrary to the current declared policy.
+- Selecting Mean Node as a fallback when True Node is absent is out of scope and
+  contrary to the current declared policy.
 - Historical 0.11.0 artifacts and release assets remain immutable; consumers may
   quarantine or regenerate them under downstream policy.
 - A broader audit of every possible canonical alias may be proposed separately
