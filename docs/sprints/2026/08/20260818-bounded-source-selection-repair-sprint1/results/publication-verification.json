@@ -1,0 +1,41 @@
+{
+  "evidence_type": "semantic_projection_0_11_1_publication_verification",
+  "verified_at": "2026-08-18T18:21:49Z",
+  "release": {
+    "url": "https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.11.1",
+    "tag": "semantic-projection-core-v0.11.1",
+    "draft": false,
+    "prerelease": false,
+    "annotated_tag_object": "43f9092d87db53388bc46ef609f0e1277625c0fa",
+    "target_commit": "e56f1c8223a01f8caf85afa268582fbd9c639833"
+  },
+  "assets": [
+    {
+      "name": "semantic_projection_core-0.11.1-py3-none-any.whl",
+      "bytes": 161706,
+      "sha256": "dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612",
+      "github_asset_digest": "sha256:dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612",
+      "download_verified": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 115,
+      "sha256": "b01863f19360aab72a64cf388b7a481a11ad8ac1a8170da241d764b8d1d48370",
+      "github_asset_digest": "sha256:b01863f19360aab72a64cf388b7a481a11ad8ac1a8170da241d764b8d1d48370",
+      "download_verified": true
+    }
+  ],
+  "downloaded_runtime_smoke": {
+    "environment": "Linux Python 3.11",
+    "editable": false,
+    "distribution_version": "0.11.1",
+    "engine_version": "0.11.1",
+    "status": "ok"
+  },
+  "identity_reconciliation": {
+    "qualification_hash_matches_release_commit_rebuild": true,
+    "release_commit_rebuild_matches_published_asset": true,
+    "published_asset_matches_checksum_file": true,
+    "remote_tag_targets_release_commit": true
+  }
+}

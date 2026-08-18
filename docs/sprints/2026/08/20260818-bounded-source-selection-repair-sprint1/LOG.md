@@ -187,3 +187,24 @@ belong here as slices proceed.
   `releases/0.11.1/`.
 - Slice 4 is ready for review. No commit, tag, push, GitHub release, downstream
   pin mutation, or publication has occurred for 0.11.1.
+
+## 2026-08-18 - Release approval and publication
+
+- User explicitly approved commit, tag, and release publication.
+- Committed and pushed the qualified candidate as `e56f1c8` (`Prepare Semantic
+  Projection Core 0.11.1`).
+- Rebuilt the exact release commit under the fixed epoch. It reproduced the
+  qualified 161706-byte wheel and SHA-256
+  `dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612`.
+- Created and pushed annotated tag `semantic-projection-core-v0.11.1`. Remote
+  tag object `43f9092d87db53388bc46ef609f0e1277625c0fa` dereferences to release
+  commit `e56f1c8223a01f8caf85afa268582fbd9c639833`.
+- Published a non-draft, non-prerelease GitHub release at
+  `https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.11.1`
+  with the qualified wheel and `SHA256SUMS.txt`.
+- Downloaded both assets through the GitHub release path. The downloaded wheel,
+  GitHub asset digest, checked-in checksum, and qualification manifest all match.
+- Installed the downloaded wheel non-editably in Linux/Python 3.11. Final runtime
+  smoke returned status `ok` with distribution and engine 0.11.1.
+- Sprint exit conditions are satisfied. Publication evidence is committed after
+  the immutable tagged release commit so the tag itself remains unmoved.

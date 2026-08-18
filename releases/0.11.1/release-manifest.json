@@ -1,6 +1,6 @@
 {
   "manifest_contract": "semantic_projection.external_release_manifest.v1",
-  "status": "qualified_awaiting_publication",
+  "status": "published",
   "distribution": {
     "name": "semantic-projection-core",
     "version": "0.11.1",
@@ -51,8 +51,12 @@
     "agf_0_8_1_boundary": "pass"
   },
   "publication": {
-    "status": "not_started",
-    "remote_tag_verified": false,
-    "published_assets_verified": false
+    "status": "published_and_verified",
+    "published_at": "2026-08-18T18:21:49Z",
+    "release_url": "https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.11.1",
+    "annotated_tag_object": "43f9092d87db53388bc46ef609f0e1277625c0fa",
+    "tag_target_commit": "e56f1c8223a01f8caf85afa268582fbd9c639833",
+    "remote_tag_verified": true,
+    "published_assets_verified": true
   }
 }

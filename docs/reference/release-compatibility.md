@@ -25,9 +25,10 @@ stable Python API.
 
 Distribution metadata, `semantic_projection.__version__`, and
 `ENGINE_VERSION` derive from one source. A consumer must reject disagreement.
-The candidate release tag is `semantic-projection-core-v0.11.1`. Its qualified
+The release tag is `semantic-projection-core-v0.11.1`. Its published
 wheel SHA-256 is
 `dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612`.
+The annotated remote tag and authenticated asset download have been verified.
 Production consumers must pin that exact hash. The
 immutable 0.10.0 and 0.11.0 releases remain available at their existing tags and
 hashes.

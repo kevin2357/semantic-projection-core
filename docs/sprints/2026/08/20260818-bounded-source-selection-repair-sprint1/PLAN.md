@@ -1,12 +1,12 @@
 # Bounded Source-Selection Repair Sprint 1
 
 ```yaml
-status: active
+status: complete
 owner: semantic-projection-core
 scope: enforce declared bounded node and fortune source-selection policy
 created: 2026-08-18
 implementation_authorized: true
-current_gate: slice_4_review
+current_gate: published_complete
 candidate_distribution_version: 0.11.1
 current_released_version: 0.11.0
 affected_profile: woofmapped_bounded_astrology.v0@0.1.0
