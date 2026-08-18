@@ -2,9 +2,9 @@
   "contract_id": "semantic_projection.release_compatibility.v1",
   "distribution": {
     "name": "semantic-projection-core",
-    "version": "0.11.0",
+    "version": "0.11.1",
     "python_requires": ">=3.10",
-    "engine_version": "0.11.0",
+    "engine_version": "0.11.1",
     "engine_contract_version": "1.0.0"
   },
   "source_contracts": {

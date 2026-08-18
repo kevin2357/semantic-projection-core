@@ -136,3 +136,54 @@ belong here as slices proceed.
   seconds. Changed-file Ruff passed in the same command.
 - Slice 3 gate is ready for review. No package, engine, profile, schema, ontology,
   context, or registry version has changed yet.
+
+## 2026-08-18 - Slice 3 approval and Slice 4 start
+
+- User approved the Slice 3 qualification using the commit/push/continue
+  boundary.
+- Committed and pushed four-context and regression evidence as `4d165a5`
+  (`Qualify bounded source selection across contexts`).
+- Opened release identity, installed candidate, compatibility, and downstream
+  handoff work only after regression qualification became immutable.
+- Advanced distribution and engine identity to candidate 0.11.1. Retained
+  bounded profile 0.1.0 and `projected_bounded_semantic_graph.v1`: execution now
+  conforms to already-declared policy, so neither semantic policy declaration
+  nor wire contract changed.
+
+## 2026-08-18 - Slice 4 installed candidate and release handoff
+
+- Updated packaged compatibility identity, current release references, bounded
+  consumer guidance, runtime/provenance sentinels, and release-local handoff
+  material for candidate 0.11.1.
+- Corrected the obsolete SBE 0.3.0 bounded-blocker statement. Current SBE owns a
+  dedicated bounded admission, selection, authoring, QA, authority-hydration,
+  and lifecycle route; SPC still owns upstream source-selection closure.
+- Corrected the obsolete AGF dependency warning: AGF is now runtime-decoupled
+  from SPC, leaving the production orchestrator responsible for independently
+  pinning both immutable wheels and retaining both runtime receipts.
+- Documented the 0.11.0 affected-artifact rule: regenerate from immutable AGF
+  source using 0.11.1 rather than deduplicating projected rows in SBE.
+- Built the wheel twice under Linux/Python 3.11.15 with
+  `SOURCE_DATE_EPOCH=1787090400`. Both 161706-byte artifacts were byte-identical
+  at SHA-256 `dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612`.
+- Installed that candidate non-editably outside the source checkout. Runtime
+  smoke confirmed aligned distribution/package/engine 0.11.1, four profile
+  entry points, seven installed commands, 13 contexts, and non-editable status.
+- Installed runtime fingerprint:
+  `38de395c5089289fb025dc93888d26f64e1c315daaed98bafd069e950d95aa44`;
+  semantic-resource fingerprint:
+  `464b91889b5146abc92a74ac477ea9b7ac469d0b7c7783700264195e01615b0a`.
+- Executed `semantic-bounded-project` from the installed wheel through general,
+  handler, direct-to-dog, and hybrid against the checked-in AGF 0.8.1-shaped
+  bounded fixture. All commands succeeded.
+- Initial focused release tests exposed four expected hard-coded 0.11.0
+  sentinels. Advanced them to 0.11.1; the corrected release/provenance set passed
+  17 tests.
+- A repository search found one additional bounded CLI 0.11.0 sentinel. Advanced
+  it and reran the complete final candidate source suite: 232 passed in 57.31
+  seconds.
+- Prepared release notes, compatibility guide, consumer instructions,
+  hash-pinned requirements, SHA256SUMS, and external release manifest under
+  `releases/0.11.1/`.
+- Slice 4 is ready for review. No commit, tag, push, GitHub release, downstream
+  pin mutation, or publication has occurred for 0.11.1.

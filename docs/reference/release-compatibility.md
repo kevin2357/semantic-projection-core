@@ -3,7 +3,7 @@
 ## Authority and scope
 
 This page freezes the supported consumer boundary for
-`semantic-projection-core` 0.11.0. The packaged
+`semantic-projection-core` 0.11.1. The packaged
 `semantic_projection.release/compatibility.json` file is its machine-readable
 counterpart. JSON Schemas and implementation remain authoritative for field
 validation and execution behavior.
@@ -16,21 +16,21 @@ stable Python API.
 
 | Dimension | Supported value |
 |---|---|
-| Distribution | `semantic-projection-core` 0.11.0 |
+| Distribution | `semantic-projection-core` 0.11.1 |
 | Python package | `semantic_projection` |
 | Python requirement | 3.10 or newer |
-| Engine version | 0.11.0 |
+| Engine version | 0.11.1 |
 | Engine/profile contract | 1.0.0 |
 | Required validation dependency | `jsonschema>=4,<5` |
 
 Distribution metadata, `semantic_projection.__version__`, and
 `ENGINE_VERSION` derive from one source. A consumer must reject disagreement.
-The release is tagged `semantic-projection-core-v0.11.0`. Its published wheel
-SHA-256 is
-`82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d`.
-The annotated remote tag and authenticated asset download have been verified.
-Production consumers must pin that exact hash. The immutable 0.10.0 release
-remains available at its existing tag and hash.
+The candidate release tag is `semantic-projection-core-v0.11.1`. Its qualified
+wheel SHA-256 is
+`dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612`.
+Production consumers must pin that exact hash. The
+immutable 0.10.0 and 0.11.0 releases remain available at their existing tags and
+hashes.
 
 Generated artifacts also carry the installed runtime and resource fingerprints
 described in [Runtime and release identity](runtime-and-release-identity.md).
@@ -75,8 +75,9 @@ graph passed to the static command is not supported.
 
 ### Bounded natal
 
-The dedicated bounded route was originally release-qualified against AGF 0.8.0
-and accepts this bounded wire boundary:
+The dedicated bounded route was introduced against AGF 0.8.0. SPC 0.11.1 is
+qualified against preferred compatible patch AGF 0.8.1 and accepts this bounded
+wire boundary:
 
 - `bounded_natal_dataset` package schema 1.0.0;
 - `bounded_canonical_astrology_graph` version 1.7.0;
@@ -90,14 +91,23 @@ capability dispositions, limitations, proof evidence, family identity, and
 source lineage. It never selects a representative instant or supplies missing
 degrees, houses, scores, probabilities, or confidence.
 
-AGF 0.8.1 is the preferred compatible patch. It repairs bounded-evidence
-validation while retaining the package, graph, evidence, calculation-profile,
-and interval-proof identities above. A post-publication Linux/Python 3.11 live
-replay using the exact AGF 0.8.1 and SPC 0.11.0 wheels generated a bounded
-artifact and passed all four Woofmapping projections plus parallel-context
-validation. This additional compatibility evidence does not rewrite SPC's
-immutable qualification-time release manifest or change the bounded contract
-identity.
+AGF 0.8.1 repairs bounded-evidence validation while retaining the package,
+graph, evidence, calculation-profile, and interval-proof identities above. SPC
+0.11.1 directly qualifies that patch without changing bounded contract identity.
+
+### Bounded source-selection correction
+
+SPC 0.11.1 enforces the bounded profile's existing True Node preference. It
+excludes Mean Node, all derived objects owned by Mean Node, and relationships
+touching that excluded family before projection identity, evidence closure,
+registry materialization, or relevance allocation. Missing True Node does not
+promote Mean Node. AGF's single bounded calculated point named `Fortune` remains
+eligible; it is not the exact graph's duplicate legacy Fortune alias.
+
+Bounded artifacts produced by SPC 0.11.0 can therefore contain both node
+variants despite declaring the True Node selection policy. Consumers requiring
+the corrected semantic basis should regenerate from the immutable AGF source
+with SPC 0.11.1 rather than deduplicate projected rows downstream.
 
 Distribution provenance is external to the projected JSON. The artifact embeds
 the upstream wire-contract identities and source-artifact hash, but not the AGF
@@ -126,7 +136,7 @@ not invent one. Temporal outputs carry explicit 1.0.0 contract versions.
 
 ## Four supported Woofmapping natal contexts
 
-SPC 0.11.0 formally supports the following contexts for both exact static and
+SPC 0.11.1 formally supports the following contexts for both exact static and
 bounded Woofmapped natal projection:
 
 | Context ID | Version | Project shorthand |
@@ -161,7 +171,7 @@ not output ID or array position; no context is canonical.
 - `semantic-bounded-project`
 
 Their documented option names, required inputs, output modes, successful exit
-code 0, and validation/error exit code 2 are supported for 0.11.0. `--debug`
+code 0, and validation/error exit code 2 are supported for 0.11.1. `--debug`
 may expose implementation tracebacks and is not a machine-readable error
 contract. Standard error text is diagnostic and should not be parsed as a
 stable schema.
@@ -215,7 +225,7 @@ Coverage exclusions and unmapped eligible rows are represented in artifacts;
 they are not automatically fatal unless the request's coverage policy or the
 consumer's promotion policy makes them so.
 
-## Explicitly unsupported in 0.11.0
+## Explicitly unsupported in 0.11.1
 
 - temporal synastry without a future AGF temporal-synastry source contract;
 - raw transit reports or prose as projection input;
@@ -229,7 +239,7 @@ consumer's promotion policy makes them so.
 - midpoint, most-likely, rectified, or representative-chart inference;
 - treating bounded `null` relevance or unavailable capability as permission to
   apply an exact-chart default; and
-- claiming current SBE candidate construction supports bounded authorship.
+- treating projected source aliases as a downstream deduplication responsibility.
 
 See the [release consumer handoff](../integration/release-consumer-handoff.md)
 for installation, validation, and preservation requirements.

@@ -11,8 +11,9 @@ The supported installed profile is
 `woofmapped_bounded_astrology.v0@0.1.0`; the native output is
 `projected_bounded_semantic_graph.v1`.
 
-SPC 0.11.0 was initially qualified against AGF 0.8.0. AGF 0.8.1 preserves the
-same accepted bounded contracts, fixes upstream evidence validation, and is the
+SPC 0.11.0 was initially qualified against AGF 0.8.0. SPC 0.11.1 is qualified
+against AGF 0.8.1, which preserves the same accepted bounded contracts, fixes
+upstream evidence validation, and is the
 preferred compatible patch. Pin and retain both wheel identities externally:
 the projected artifact does not contain or prove the AGF distribution version.
 

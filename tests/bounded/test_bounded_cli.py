@@ -29,7 +29,7 @@ def test_bounded_cli_projects_with_exact_bundled_context(tmp_path):
     assert artifact["metadata"]["context_id"] == (
         "woofmapped.doghouse.general.v0"
     )
-    assert artifact["metadata"]["engine_version"] == "0.11.0"
+    assert artifact["metadata"]["engine_version"] == "0.11.1"
 
 
 def test_bounded_cli_rejects_wrong_context_version_without_writing(tmp_path, capsys):

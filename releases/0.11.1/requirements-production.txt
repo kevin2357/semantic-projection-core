@@ -1,0 +1,2 @@
+semantic-projection-core @ https://github.com/kevin2357/semantic-projection-core/releases/download/semantic-projection-core-v0.11.1/semantic_projection_core-0.11.1-py3-none-any.whl \
+    --hash=sha256:dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612

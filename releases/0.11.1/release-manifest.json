@@ -1,0 +1,58 @@
+{
+  "manifest_contract": "semantic_projection.external_release_manifest.v1",
+  "status": "qualified_awaiting_publication",
+  "distribution": {
+    "name": "semantic-projection-core",
+    "version": "0.11.1",
+    "python_package": "semantic_projection",
+    "python_requires": ">=3.10",
+    "engine_version": "0.11.1"
+  },
+  "source": {
+    "qualified_implementation_base_commit": "4d165a5",
+    "expected_annotated_tag": "semantic-projection-core-v0.11.1"
+  },
+  "artifact": {
+    "filename": "semantic_projection_core-0.11.1-py3-none-any.whl",
+    "bytes": 161706,
+    "sha256": "dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612"
+  },
+  "reproducible_build": {
+    "source_date_epoch": 1787090400,
+    "python": "3.11.15",
+    "builds": 2,
+    "byte_identical": true
+  },
+  "installed_runtime": {
+    "manifest_contract": "semantic_projection.runtime_release_manifest.v1",
+    "runtime_package": {
+      "resource_count": 116,
+      "sha256": "38de395c5089289fb025dc93888d26f64e1c315daaed98bafd069e950d95aa44"
+    },
+    "semantic_resources": {
+      "resource_count": 52,
+      "sha256": "464b91889b5146abc92a74ac477ea9b7ac469d0b7c7783700264195e01615b0a"
+    },
+    "schemas": {
+      "resource_count": 26,
+      "sha256": "cf0466af1d04f4115c007edffb1a583058a829a56048ff24023620906c3839eb"
+    },
+    "release_compatibility": {
+      "contract_id": "semantic_projection.release_compatibility.v1",
+      "resource_sha256": "eb1272394ded9a8cb769498cdd1328b639dc7711ef24c83103d71cf3bc5a2551"
+    }
+  },
+  "qualification": {
+    "source_suite": "232 passed",
+    "focused_policy_regression": "22 passed",
+    "installed_non_editable": true,
+    "console_commands": 7,
+    "bounded_contexts": 4,
+    "agf_0_8_1_boundary": "pass"
+  },
+  "publication": {
+    "status": "not_started",
+    "remote_tag_verified": false,
+    "published_assets_verified": false
+  }
+}

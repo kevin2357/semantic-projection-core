@@ -133,5 +133,5 @@ Astrology Graph Foundry is SPC's upstream producer of canonical astrology graphs
 See the [documentation index](docs/README.md) for current guides, reference material, integration contracts, roadmap, and clearly separated implementation history.
 
 Production consumers should start with the
-[0.11.0 release compatibility contract](docs/reference/release-compatibility.md)
+[0.11.1 release compatibility contract](docs/reference/release-compatibility.md)
 and [release consumer handoff](docs/integration/release-consumer-handoff.md).

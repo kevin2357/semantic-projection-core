@@ -37,7 +37,7 @@ EXPECTED_CONTEXTS = {
 
 
 def test_distribution_engine_and_package_versions_are_aligned():
-    assert metadata.version("semantic-projection-core") == ENGINE_VERSION == __version__ == "0.11.0"
+    assert metadata.version("semantic-projection-core") == ENGINE_VERSION == __version__ == "0.11.1"
 
 
 def test_all_versioned_contexts_are_packaged_and_match_examples():
@@ -141,7 +141,7 @@ def test_runtime_report_discovers_distribution_entry_points():
     assert report["status"] == "ok"
     assert report["release_compatibility"] == {
         "contract_id": "semantic_projection.release_compatibility.v1",
-        "distribution_version": "0.11.0",
+        "distribution_version": "0.11.1",
     }
     assert report["runtime_release_manifest"]["manifest_contract"] == (
         "semantic_projection.runtime_release_manifest.v1"

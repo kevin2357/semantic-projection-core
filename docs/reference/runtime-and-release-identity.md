@@ -2,7 +2,7 @@
 
 ## Two nested resource identities
 
-SPC 0.11.0 distinguishes two installed identities:
+SPC 0.11.1 distinguishes two installed identities:
 
 1. **Semantic resource set**: every packaged JSON context, profile manifest,
    ontology, projected-term registry, release contract, and JSON Schema.
@@ -55,8 +55,9 @@ semantic-runtime-smoke `
 The manifest validates against
 `runtime_release_manifest_v1.schema.json`. Each release pairs the installed
 manifest with the external wheel SHA-256 recorded in its release manifest and
-checksums. The published 0.10.0 identity remains immutable; the 0.11.0 release
-adds the bounded route and its executable semantic-policy resources.
+checksums. Published 0.10.0 and 0.11.0 identities remain immutable; the 0.11.1
+release corrects bounded source selection without changing bounded wire or
+profile identity.
 See [ADR-0001](../decisions/ADR-0001%20-%20Include%20Executable%20Semantic%20Policy%20in%20Release%20Identity.md)
 for the identity boundary.
 

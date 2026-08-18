@@ -1,0 +1,51 @@
+{
+  "evidence_type": "semantic_projection_0_11_1_installed_release_candidate",
+  "recorded_at": "2026-08-18",
+  "candidate": {
+    "distribution_version": "0.11.1",
+    "engine_version": "0.11.1",
+    "tag": "semantic-projection-core-v0.11.1",
+    "wheel": "semantic_projection_core-0.11.1-py3-none-any.whl",
+    "bytes": 161706,
+    "sha256": "dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612"
+  },
+  "reproducibility": {
+    "source_date_epoch": 1787090400,
+    "python": "3.11.15",
+    "builds": 2,
+    "byte_identical": true
+  },
+  "installed_runtime": {
+    "editable": false,
+    "profile_entry_points": 4,
+    "console_commands": 7,
+    "bundled_contexts": 13,
+    "runtime_package_sha256": "38de395c5089289fb025dc93888d26f64e1c315daaed98bafd069e950d95aa44",
+    "semantic_resources_sha256": "464b91889b5146abc92a74ac477ea9b7ac469d0b7c7783700264195e01615b0a",
+    "schemas_sha256": "cf0466af1d04f4115c007edffb1a583058a829a56048ff24023620906c3839eb",
+    "compatibility_resource_sha256": "eb1272394ded9a8cb769498cdd1328b639dc7711ef24c83103d71cf3bc5a2551"
+  },
+  "bounded_cli": {
+    "source_boundary": "checked-in AGF 0.8.1-shaped bounded fixture",
+    "contexts_executed": [
+      "woofmapped.doghouse.general.v0@0.1.0",
+      "woofmapped.dog_direct.v1@1.0.0",
+      "woofmapped.handler_guidance.v1@1.0.0",
+      "woofmapped.hybrid_horoscope.v1@1.0.0"
+    ],
+    "result": "passed"
+  },
+  "tests": {
+    "final_source_suite_passed": 232,
+    "final_source_suite_failed": 0,
+    "final_source_suite_duration_seconds": 57.31,
+    "focused_release_identity_passed": 17,
+    "focused_release_identity_failed": 0
+  },
+  "publication": {
+    "status": "not_started",
+    "tag_created": false,
+    "assets_uploaded": false,
+    "download_verified": false
+  }
+}

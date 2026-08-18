@@ -45,7 +45,7 @@ SPC validates arc-first authority, projection neutrality, reference integrity, c
 
 ## Bounded natal handoff
 
-SPC 0.11.0 accepts AGF's bounded natal package schema 1.0.0, canonical bounded
+SPC 0.11.1 accepts AGF's bounded natal package schema 1.0.0, canonical bounded
 graph 1.7.0, uncertainty evidence contract 1.0.0, calculation profile 1.12.0,
 and interval-proof profile 1.0.0. The dedicated bounded route rejects other
 versions rather than passing them through the exact static engine.

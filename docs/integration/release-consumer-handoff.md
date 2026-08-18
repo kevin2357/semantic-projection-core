@@ -3,14 +3,13 @@
 ## Purpose
 
 This handoff tells AGF, the AstroWoof runtime, and other production consumers
-what to install, invoke, validate, preserve, and reject for SPC 0.11.0. It
+what to install, invoke, validate, preserve, and reject for SPC 0.11.1. It
 summarizes the [release compatibility contract](../reference/release-compatibility.md)
 without duplicating native schemas.
 
-The release is published at
-`https://github.com/kevin2357/semantic-projection-core/releases/tag/semantic-projection-core-v0.11.0`.
-Its authenticated wheel download matches the qualified SHA-256 recorded below,
-and the remote annotated tag dereferences to the qualified release commit.
+The candidate release uses tag
+`semantic-projection-core-v0.11.1`. Publication and authenticated-download
+verification occur only after explicit approval.
 
 ## Install and verify
 
@@ -23,8 +22,8 @@ A hash-checked requirements entry should use the final published asset, for
 example:
 
 ```text
-semantic-projection-core @ https://github.com/kevin2357/semantic-projection-core/releases/download/semantic-projection-core-v0.11.0/semantic_projection_core-0.11.0-py3-none-any.whl \
-    --hash=sha256:82290df44fe5697e87df2e27eb0aa4bab3b7954c66ce988efda0962964e1366d
+semantic-projection-core @ https://github.com/kevin2357/semantic-projection-core/releases/download/semantic-projection-core-v0.11.1/semantic_projection_core-0.11.1-py3-none-any.whl \
+    --hash=sha256:dc345cd3253de333a5428e4fc7e24816447a065215ef288ba76527960a7da612
 ```
 
 After installation, run:
@@ -35,7 +34,7 @@ semantic-runtime-smoke --require-installed --json
 
 Reject the runtime unless:
 
-- distribution, package, and engine versions are all 0.11.0;
+- distribution, package, and engine versions are all 0.11.1;
 - `editable` is false;
 - all four bundled profile entry points resolve at their exact versions;
 - the seven supported console scripts are present;
@@ -68,19 +67,17 @@ For bounded natal execution, supply the complete AGF
 bounded graph through `semantic-project`, choose a representative instant, or
 replace unavailable facts with exact-chart defaults.
 
-SPC 0.11.0's original release qualification used AGF 0.8.0. AGF 0.8.1 is the
-preferred compatible production patch: its bounded wire identities remain
+SPC 0.11.1 qualifies against AGF 0.8.1. Its bounded wire identities remain
 dataset 1.0.0, graph 1.7.0, evidence 1.0.0, calculation profile 1.12.0, and
 interval-proof profile 1.0.0. The exact AGF 0.8.1 wheel SHA-256 is
 `860c48793318c82c986b32664cd0f3fe97c4b1e02fb1e489561bc395c8b5a3ed`.
-SPC's post-release Linux replay against that wheel passed live generation and
-all four bounded contexts.
+SPC's installed-candidate qualification replays that boundary through all four
+bounded contexts.
 
-AGF currently declares `semantic-projection-core>=0.10.0` and imports some SPC
-profile mapping internals. Those are development conveniences, not compliant
-production release integration. Before AGF becomes the production orchestrator,
-its build must pin the exact wheel hash and its integration must use SPC's public
-request/runtime boundary rather than internal mapping modules.
+AGF is runtime-decoupled from SPC: it declares no SPC package dependency and
+imports no SPC runtime modules. The production orchestrator must install and pin
+both immutable wheels independently, retain both runtime receipts, and pass the
+complete AGF artifact across SPC's public request/runtime boundary.
 
 ## AstroWoof static natal handoff
 
@@ -121,11 +118,17 @@ invariant. Verify it with `validate_parallel_bounded_contexts()`, join rows by
 capabilities, feature dispositions, limitations, evidence closure,
 evidence-family identity, registry definitions, and runtime provenance.
 
-SBE 0.3.0 can load and merge the four qualification artifacts, but its current
-candidate builder assumes exact-chart scores and source fields. That is an
-explicit downstream blocker for bounded authorship. Do not invent relevance
-scores, alias `source_artifact_ref` into an exact-only field, or describe the
-pipeline as end-to-end bounded-ready until SBE adopts a bounded policy.
+Current SBE releases implement a dedicated bounded admission, compilation,
+authoring, authority-hydration, QA, and lifecycle route. This downstream support
+does not relax SPC's boundary: do not invent relevance scores, alias
+`source_artifact_ref` into an exact-only field, or flatten bounded evidence into
+the exact contract.
+
+SPC 0.11.1 removes Mean Node and its dependent family before delivery. A 0.11.0
+bounded family may contain both Mean and True Node mapped to the same target
+primitive even though its profile receipt declares a True Node preference.
+Regenerate those projections with 0.11.1; do not ask SBE to guess which projected
+claim SPC intended to retain.
 
 ## What to archive
 
