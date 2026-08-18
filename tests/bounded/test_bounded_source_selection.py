@@ -17,7 +17,6 @@ from tests.bounded.test_bounded_object_projection import (
 )
 from tests.bounded.test_bounded_relationship_projection import _add_relationship
 
-
 TRUE_NODE = "astrowoof:dog:018f:True_Node"
 MEAN_NODE = "astrowoof:dog:018f:Mean_Node"
 TRUE_HARMONIC = f"{TRUE_NODE}:H3"

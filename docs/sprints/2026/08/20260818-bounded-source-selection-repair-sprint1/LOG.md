@@ -97,3 +97,42 @@ belong here as slices proceed.
   expected inability to write its cache into the read-only mount.
 - Slice 2 gate is ready for review. Versioning, manifests, full-suite
   qualification, release work, and downstream replay remain later slices.
+
+## 2026-08-18 - Slice 2 approval and Slice 3 start
+
+- User approved the Slice 2 implementation using the commit/push/continue
+  boundary.
+- Committed and pushed the bounded policy repair as `bf714f0` (`Enforce bounded
+  node source selection`).
+- Opened four-context, determinism, and regression qualification only after the
+  implementation slice became immutable.
+
+## 2026-08-18 - Slice 3 four-context and regression qualification
+
+- Added a four-context regression proving general, handler, direct-to-dog, and
+  hybrid projections make identical source-selection decisions, retain matching
+  True Node families, exclude matching Mean Node families and dependent
+  relationships, remain structurally parallel, and reproduce identical output
+  on repeat execution.
+- The first full-suite container run passed 228 tests and failed four for harness
+  reasons: the read-only repository root prevented two default CLI log writes,
+  while the preinstalled 0.11.0 wheel caused two tests that intentionally expect
+  editable-install metadata to observe installed-release metadata instead.
+- A first correction attempt confirmed PEP 660 editable installation cannot
+  update checkout-local egg-info through a read-only mount. A minimal writable
+  copy initially omitted repository tools and durable output fixtures, producing
+  expected missing-file failures rather than product failures.
+- The final source-suite harness copied the required source, tests, examples,
+  tools, scripts, and durable fixtures to ephemeral writable container storage;
+  uninstalled the released wheel; installed the candidate editable with dev
+  dependencies; and ran from the copied repository root.
+- Final full source suite: 232 passed in 56.08 seconds.
+- Whole-tree Ruff is not a valid clean gate for the current Windows checkout:
+  Docker observes NTFS-mounted Python files as executable and the repository has
+  pre-existing lint debt outside this slice. Focused Ruff with `EXE002` ignored
+  passed on every Python file changed by this sprint.
+- Final focused four-context, bounded source-selection, exact static
+  node/Fortune, and temporal Mean Node regression set: 22 passed in 119.57
+  seconds. Changed-file Ruff passed in the same command.
+- Slice 3 gate is ready for review. No package, engine, profile, schema, ontology,
+  context, or registry version has changed yet.

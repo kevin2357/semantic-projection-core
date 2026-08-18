@@ -1,0 +1,52 @@
+{
+  "evidence_type": "bounded_source_selection_four_context_regression",
+  "recorded_at": "2026-08-18",
+  "baseline_commit": "bf714f0",
+  "contexts": {
+    "woofmapped.doghouse.general.v0": "0.1.0",
+    "woofmapped.dog_direct.v1": "1.0.0",
+    "woofmapped.handler_guidance.v1": "1.0.0",
+    "woofmapped.hybrid_horoscope.v1": "1.0.0"
+  },
+  "context_assertions": {
+    "policy_exclusion_sets_identical": true,
+    "true_node_family_retained": true,
+    "mean_node_family_absent": true,
+    "dependent_relationships_absent": true,
+    "parallel_context_validation": "passed",
+    "canonical_context_priority": null,
+    "repeat_execution_equal": true
+  },
+  "full_source_suite": {
+    "environment": "ephemeral writable source copy; editable candidate; Linux Python 3.11",
+    "passed": 232,
+    "failed": 0,
+    "duration_seconds": 56.08
+  },
+  "focused_regression": {
+    "scope": [
+      "bounded four-context behavior",
+      "bounded source selection",
+      "exact static node and Fortune selection",
+      "temporal Mean Node classification"
+    ],
+    "passed": 22,
+    "failed": 0,
+    "duration_seconds": 119.57
+  },
+  "lint": {
+    "scope": "all Python files changed by this sprint",
+    "result": "passed",
+    "ignored_rule": "EXE002",
+    "reason": "NTFS-mounted Python files appear executable inside Linux"
+  },
+  "initial_harness_failures": {
+    "classification": "qualification_harness_only",
+    "product_regressions": 0,
+    "causes": [
+      "default CLI log path was read-only",
+      "released wheel metadata was present where tests require editable metadata",
+      "first writable minimal copy omitted repository tools and durable fixtures"
+    ]
+  }
+}

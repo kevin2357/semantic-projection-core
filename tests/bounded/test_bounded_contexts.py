@@ -16,6 +16,13 @@ from semantic_projection import (
 from tests.bounded.test_bounded_relationship_projection import (
     artifact_with_relationship_families,
 )
+from tests.bounded.test_bounded_source_selection import (
+    MEAN_HARMONIC,
+    MEAN_NODE,
+    TRUE_HARMONIC,
+    TRUE_NODE,
+    _node_artifact,
+)
 
 CONTEXT_VERSIONS = {
     "woofmapped.doghouse.general.v0": "0.1.0",
@@ -154,3 +161,48 @@ def test_context_validation_report_is_order_independent():
     assert validate_parallel_bounded_contexts(artifacts) == (
         validate_parallel_bounded_contexts(list(reversed(artifacts)))
     )
+
+
+def test_source_selection_is_identical_and_deterministic_across_all_four_contexts():
+    source = _node_artifact()
+    artifacts: list[dict] = []
+    for context_id in sorted(REQUIRED_WOOFMAPPED_BOUNDED_CONTEXT_IDS):
+        context = ProjectionContext.from_dict(
+            load_bundled_context(context_id, CONTEXT_VERSIONS[context_id])
+        )
+        request = adapt_foundry_bounded_natal_dataset(
+            source,
+            profile_id="woofmapped_bounded_astrology.v0",
+            profile_version="0.1.0",
+            context=context,
+        )
+        first = project_bounded_natal(request).to_dict()
+        second = project_bounded_natal(request).to_dict()
+        assert first == second
+        artifacts.append(first)
+
+    expected_objects = [MEAN_NODE, MEAN_HARMONIC]
+    expected_relationships = [
+        "rel:mean-node:owner:h3",
+        "rel:mean-node:sun:trine",
+    ]
+    for artifact in artifacts:
+        coverage = artifact["audit"]["coverage"]
+        assert coverage["excluded_by_source_selection_policy_ids"] == expected_objects
+        assert (
+            coverage["excluded_by_source_selection_policy_relationship_ids"]
+            == expected_relationships
+        )
+        source_refs = {
+            ref
+            for row in artifact["objects"]
+            for ref in row["source_refs"]
+        }
+        assert f"canonical:object:{TRUE_NODE}" in source_refs
+        assert f"canonical:object:{TRUE_HARMONIC}" in source_refs
+        assert f"canonical:object:{MEAN_NODE}" not in source_refs
+        assert f"canonical:object:{MEAN_HARMONIC}" not in source_refs
+
+    report = validate_parallel_bounded_contexts(artifacts)
+    assert report["status"] == "passed"
+    assert report["canonical_context_priority"] is None
