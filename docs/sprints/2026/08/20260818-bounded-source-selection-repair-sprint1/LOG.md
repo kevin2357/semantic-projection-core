@@ -70,3 +70,30 @@ belong here as slices proceed.
   required. Retain candidate distribution/engine version 0.11.1 because runtime
   semantic behavior and fingerprints change.
 - Slice 1 gate is ready for review. No runtime implementation has begun.
+
+## 2026-08-18 - Slice 1 approval and Slice 2 start
+
+- User approved the Slice 1 audit using the commit/push/continue boundary.
+- Committed and pushed the audit as `3eaa44c` (`Audit bounded source-selection
+  closure`).
+- Opened bounded policy enforcement only after the audit became immutable.
+
+## 2026-08-18 - Slice 2 bounded policy enforcement
+
+- Added bounded-type-aware source selection to the Woofmapped bounded profile.
+  `bounded_natal_body` records named Mean Node are now excluded; True Node and
+  the single canonical bounded calculated point named Fortune remain eligible.
+- Closed selection over bounded derived objects through `owner_object_ref`.
+- Closed selection over relationships whenever either endpoint is policy
+  excluded.
+- Kept policy exclusions distinct from `outside_declared_scope` in the bounded
+  audit and added deterministic object/relationship exclusion ledgers plus an
+  informational diagnostic.
+- Added focused regression coverage for direct nodes, normalized source names,
+  derived families, relationship closure, bounded Fortune preservation,
+  registry non-expansion, and no Mean Node promotion when True Node is absent.
+- Ran 21 focused bounded tests under Python 3.11 in the existing Linux QA image
+  with the checkout mounted read-only: all passed. The sole warning was pytest's
+  expected inability to write its cache into the read-only mount.
+- Slice 2 gate is ready for review. Versioning, manifests, full-suite
+  qualification, release work, and downstream replay remain later slices.

@@ -1,0 +1,33 @@
+{
+  "evidence_type": "bounded_source_selection_focused_verification",
+  "recorded_at": "2026-08-18",
+  "baseline_commit": "3eaa44cd7adda87642269dc0b633676d3728a0d4",
+  "environment": {
+    "container_image": "astrowoof-bounded-denver:agf-0.8.1-spc-0.11.0",
+    "python": "3.11",
+    "source_mount": "read_only",
+    "pytest_installation": "ephemeral_container_only"
+  },
+  "tests": [
+    "tests/bounded/test_bounded_source_selection.py",
+    "tests/bounded/test_bounded_object_projection.py",
+    "tests/bounded/test_bounded_relationship_projection.py"
+  ],
+  "result": {
+    "passed": 21,
+    "failed": 0,
+    "warnings": 1,
+    "warning_disposition": "pytest cache could not be written because the repository mount was intentionally read-only",
+    "duration_seconds": 33.12
+  },
+  "verified_invariants": [
+    "true_node_remains_eligible",
+    "mean_node_is_policy_excluded",
+    "mean_node_is_not_promoted_when_true_node_is_absent",
+    "derived_objects_inherit_owner_exclusion",
+    "relationships_inherit_endpoint_exclusion",
+    "bounded_fortune_remains_eligible",
+    "policy_exclusions_are_distinct_from_outside_scope",
+    "excluded_sources_do_not_expand_used_term_registry"
+  ]
+}

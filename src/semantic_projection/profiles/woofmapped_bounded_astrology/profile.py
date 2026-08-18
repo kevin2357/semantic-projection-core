@@ -10,6 +10,7 @@ from ..woofmapped_astrology.object_mappings import (
     DOGHOUSE_DOMAINS,
     OBJECT_MAPPINGS,
     SIGN_MODES,
+    raw_source_name,
 )
 from ..woofmapped_astrology.relationship_mappings import ASPECT_MAPPINGS
 
@@ -80,6 +81,17 @@ def _house(source_object: dict[str, Any]) -> int | None:
     return value if isinstance(value, int) and 1 <= value <= 12 else None
 
 
+def _source_selection_status(source_object: dict[str, Any]) -> str:
+    """Apply bounded-type-aware alias selection before mapping eligibility."""
+
+    if (
+        source_object.get("object_type") == "bounded_natal_body"
+        and raw_source_name(source_object).casefold() == "mean node"
+    ):
+        return "excluded_by_source_selection_policy"
+    return "eligible"
+
+
 class WoofmappedBoundedAstrologyProfile:
     """Target policy for invariant categorical facts from AGF bounded natal."""
 
@@ -117,8 +129,17 @@ class WoofmappedBoundedAstrologyProfile:
             return "outside_declared_scope"
         if object_type in DERIVED_TYPES:
             owner = source_object_index.get(str(source_object.get("owner_object_ref") or ""))
-            return "eligible" if owner and self._mapping_for_named_object(owner) else "outside_declared_scope"
+            if owner and _source_selection_status(owner) != "eligible":
+                return "excluded_by_source_selection_policy"
+            return (
+                "eligible"
+                if owner and self._mapping_for_named_object(owner)
+                else "outside_declared_scope"
+            )
         if object_type in {"bounded_natal_body", "bounded_angle", "bounded_calculated_point"}:
+            selection = _source_selection_status(source_object)
+            if selection != "eligible":
+                return selection
             return "eligible" if self._mapping_for_named_object(source_object) else "outside_declared_scope"
         return "outside_declared_scope"
 
@@ -252,6 +273,8 @@ class WoofmappedBoundedAstrologyProfile:
             object_status.get(str(source_relationship.get("source_id") or "")),
             object_status.get(str(source_relationship.get("target_id") or "")),
         }
+        if "excluded_by_source_selection_policy" in endpoints:
+            return "excluded_by_source_selection_policy"
         if endpoints != {"eligible"}:
             return "outside_declared_scope"
         relationship_type = str(source_relationship.get("relationship_type") or "")

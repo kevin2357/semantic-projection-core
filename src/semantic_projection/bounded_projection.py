@@ -180,11 +180,19 @@ def _project_bounded_natal(
     }
     projected: list[JsonDict] = []
     mapped_source_ids: list[str] = []
-    outside_scope_ids: list[str] = []
+    outside_scope_ids = sorted(
+        row_id
+        for row_id, status in object_status.items()
+        if status == "outside_declared_scope"
+    )
+    policy_excluded_ids = sorted(
+        row_id
+        for row_id, status in object_status.items()
+        if status == "excluded_by_source_selection_policy"
+    )
     for source_object in source_objects:
         status = object_status[source_object["id"]]
         if status != "eligible":
-            outside_scope_ids.append(source_object["id"])
             continue
         draft = selected_profile.project_object(
             deepcopy(source_object),
@@ -238,10 +246,17 @@ def _project_bounded_natal(
     }
     relationship_drafts: list[tuple[JsonDict, JsonDict]] = []
     outside_relationship_ids: list[str] = []
+    policy_excluded_relationship_ids = sorted(
+        row_id
+        for row_id, status in relationship_status.items()
+        if status == "excluded_by_source_selection_policy"
+    )
     if include_relationships:
         for source_relationship in source_relationships:
-            if relationship_status[source_relationship["id"]] != "eligible":
+            status = relationship_status[source_relationship["id"]]
+            if status == "outside_declared_scope":
                 outside_relationship_ids.append(source_relationship["id"])
+            if status != "eligible":
                 continue
             draft = selected_profile.project_relationship(deepcopy(source_relationship))
             if draft is None:
@@ -250,7 +265,10 @@ def _project_bounded_natal(
                 )
             relationship_drafts.append((source_relationship, draft))
     else:
-        outside_relationship_ids = [row["id"] for row in source_relationships]
+        outside_relationship_ids = [
+            row["id"] for row in source_relationships
+            if relationship_status[row["id"]] != "excluded_by_source_selection_policy"
+        ]
 
     scored_family_members: dict[str, list[str]] = {}
     for source_relationship, draft in relationship_drafts:
@@ -378,13 +396,21 @@ def _project_bounded_natal(
             "source_object_count": len(source_objects),
             "mapped_source_object_count": len(mapped_source_ids),
             "outside_declared_scope_count": len(outside_scope_ids),
+            "excluded_by_source_selection_policy_count": len(policy_excluded_ids),
             "mapped_source_object_ids": sorted(mapped_source_ids),
             "outside_declared_scope_ids": sorted(outside_scope_ids),
+            "excluded_by_source_selection_policy_ids": policy_excluded_ids,
             "source_relationship_count": len(source_relationships),
             "mapped_source_relationship_count": len(mapped_relationship_ids),
             "outside_declared_scope_relationship_count": len(outside_relationship_ids),
+            "excluded_by_source_selection_policy_relationship_count": len(
+                policy_excluded_relationship_ids
+            ),
             "mapped_source_relationship_ids": sorted(mapped_relationship_ids),
             "outside_declared_scope_relationship_ids": sorted(outside_relationship_ids),
+            "excluded_by_source_selection_policy_relationship_ids": (
+                policy_excluded_relationship_ids
+            ),
             "family_coverage": {
                 "eligible_object_family_count": len(eligible_object_families),
                 "mapped_object_family_count": len(mapped_object_families),
@@ -401,12 +427,32 @@ def _project_bounded_natal(
     diagnostics = {
         "errors": [],
         "warnings": [],
-        "infos": ([
-            {
-                "code": "bounded.relationship_mapping.deferred",
-                "message": "Relationship projection is intentionally deferred to Slice 5.",
-            }
-        ] if not include_relationships else []),
+        "infos": (
+            [
+                {
+                    "code": "bounded.relationship_mapping.deferred",
+                    "message": "Relationship projection is intentionally deferred to Slice 5.",
+                }
+            ]
+            if not include_relationships
+            else []
+        )
+        + (
+            [
+                {
+                    "code": "bounded.source_selection.exclusions",
+                    "message": (
+                        "Bounded source aliases were deliberately excluded by profile policy."
+                    ),
+                    "details": {
+                        "object_ids": policy_excluded_ids,
+                        "relationship_ids": policy_excluded_relationship_ids,
+                    },
+                }
+            ]
+            if policy_excluded_ids or policy_excluded_relationship_ids
+            else []
+        ),
     }
     return build_projected_bounded_contract(
         request_value,
